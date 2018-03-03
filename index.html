@@ -54,61 +54,17 @@
       
       
   
-    <h1 class="title"><a href="/2018/03/03/Hexo-Github-deploy-問題修正筆記/">Hexo Github deploy 問題修正筆記</a></h1>
+    <h1 class="title"><a href="/2018/03/03/Hexo-Github-deploy-問題修正筆記/">Hexo Github deploy 問題修正</a></h1>
   
 
     </header>
     <div class="entry">
       
         <p>今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤</p>
-<p>錯誤訊息如下</p>
-<pre class="EnlighterJSRAW" data-enlighter-language="shell">
-PS C:\Users\DriftKingTW\blog> hexo d
-INFO  Deploying: git
-INFO  Clearing .deploy_git folder...
-INFO  Copying files from public folder...
-INFO  Copying files from extend dirs...
-On branch master
-nothing to commit, working tree clean
-fatal: HttpRequestException encountered.
-   An error occurred while sending the request.
-bash: /dev/tty: No such device or address
-error: failed to execute prompt script (exit code 1)
-fatal: could not read Username for 'https://github.com': No error
-FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
-Error: fatal: HttpRequestException encountered.
-   An error occurred while sending the request.
-bash: /dev/tty: No such device or address
-error: failed to execute prompt script (exit code 1)
-fatal: could not read Username for 'https://github.com': No error
-
-    at ChildProcess.<anonymous> (C:\Users\DriftKingTW\blog\node_modules\hexo-util\lib\spawn.js:37:17)    at emitTwo (events.js:126:13)
-    at ChildProcess.emit (events.js:214:7)
-    at ChildProcess.cp.emit (C:\Users\DriftKingTW\blog\node_modules\cross-spawn\lib\enoent.js:40:29)
-    at maybeClose (internal/child_process.js:925:16)    at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
-</anonymous></pre>
-
+<p>錯誤訊息如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\DriftKingTW\blog&gt; hexo d</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend <span class="built_in">dirs</span>...</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">fatal: HttpRequestException encountered.</span><br><span class="line">   An error occurred <span class="keyword">while</span> sending the request.</span><br><span class="line">bash: /dev/tty: No such device or address</span><br><span class="line">error: failed to execute prompt script (<span class="built_in">exit</span> code 1)</span><br><span class="line">fatal: could not <span class="built_in">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: No error</span><br><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: fatal: HttpRequestException encountered.</span></span><br><span class="line"><span class="string">   An error occurred while sending the request.</span></span><br><span class="line"><span class="string">bash: /dev/tty: No such device or address</span></span><br><span class="line"><span class="string">error: failed to execute prompt script (exit code 1)</span></span><br><span class="line"><span class="string">fatal: could not read Username for '</span>https://github.com<span class="string">': No error</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (C:\Users\DriftKingTW\blog\node_modules\hexo-util\lib\spawn.js:37:17)    at emitTwo (events.js:126:13)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (events.js:214:7)</span></span><br><span class="line"><span class="string">    at ChildProcess.cp.emit (C:\Users\DriftKingTW\blog\node_modules\cross-spawn\lib\enoent.js:40:29)</span></span><br><span class="line"><span class="string">    at maybeClose (internal/child_process.js:925:16)    at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)</span></span><br></pre></td></tr></table></figure></p>
 <p>上網翻了不少資料, 一些git設定跟ssh設定也都測試過了依然無法解決問題<br>後來使用了另一種設定方法</p>
-<p>原本的_config.yml</p>
-<pre class="EnlighterJSRAW" data-enlighter-language="yml">
-...
-deploy: 
-  type: git
-  repo: https://github.com/username/your_repo.git
-  branch: 
-...
-</pre>
-
-<p>修改成</p>
-<pre class="EnlighterJSRAW" data-enlighter-language="yml">
-...
-deploy: 
-  type: git
-  repo: git@github.com:username/your_repo.git
-  branch: 
-...
-</pre>
-
+<p>原本的_config.yml<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span> </span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/username/your_repo.git</span></span><br><span class="line"><span class="attr">  branch:</span></span><br></pre></td></tr></table></figure></p>
+<p>修改成<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span> </span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:username/your_repo.git</span></span><br><span class="line"><span class="attr">  branch:</span></span><br></pre></td></tr></table></figure></p>
 <p>就能夠正常Deploy, 不過在原本架設hexo的電腦上是能夠使用第一種方法的<br>這裡放上我的解決方法, 提供參考</p>
 <p>參考資料:<br><a href="https://wwssllabcd.github.io/blog/2014/12/22/how-to-install-hexo/#%E6%8A%8A-Blog-%E6%94%BE%E5%9C%A8-Github-%E4%B8%8A" target="_blank" rel="noopener">Hexo + Github 簡單使用教學</a></p>
 
@@ -157,10 +113,7 @@ deploy:
 <li><p>開啟提示命令字元(系統管理員權限執行) -&gt; 輸入以下指令</p>
 </li>
 </ol>
-<pre class="EnlighterJSRAW" data-enlighter-language="null">
-dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
-</pre>
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux</span><br></pre></td></tr></table></figure>
 <p>完成後執行 Ubuntu App, 即可開始使用</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1520047838/blog/2018/03/03/Windows-10-安裝-Ubuntu-bash/ubuntu.png" alt="Ubuntu bash on Win10"></p>
 
@@ -266,7 +219,7 @@ dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
       
       
   
-    <h1 class="title"><a href="/2018/01/17/logitech-g27-方向盤-回正-校正問題維修筆記/">Logitech G27方向盤 回正/校正問題維修筆記</a></h1>
+    <h1 class="title"><a href="/2018/01/17/logitech-g27-方向盤-回正-校正問題維修筆記/">Logitech G27方向盤 回正/校正問題維修</a></h1>
   
 
     </header>
@@ -427,7 +380,7 @@ dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
       
       
   
-    <h1 class="title"><a href="/2017/12/14/raspberry-zero-w-headless-自動連上無線網路與開啟SSH筆記/">Raspberry Zero W Headless 自動連上無線網路與開啟SSH筆記</a></h1>
+    <h1 class="title"><a href="/2017/12/14/raspberry-zero-w-headless-自動連上無線網路與開啟SSH筆記/">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a></h1>
   
 
     </header>
@@ -437,18 +390,21 @@ dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1518274118/blog/2017/12/14/Raspberry_Zero_W_Headless_自動連上無線網路與開啟SSH筆記/P_20171011_181938-1024x778.jpg" alt=""></p>
 <p>原本想多帶幾張回來的, 想說台灣代理的都好貴…但是發現一單只能買一張, 只好先收一張回來玩, 看來真的很搶手阿QQ<br>加碼自然風外殼!! 這簡直超棒阿XDDD 雖然我也有買官方的Zero殼, 以後如果要用到攝影機相關的project會比較方便(^u^)</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1518274129/blog/2017/12/14/Raspberry_Zero_W_Headless_自動連上無線網路與開啟SSH筆記/358402-1024x609.jpg" alt=""></p>
-<p>好了, 廢話少說, 立刻進入正題：<br>雖然RPI有HDMI跟USB接口, 但我就是很懶得接東接西, 希望能夠直接在PC上控制他, 這種叫做Headless的啟動設定 <del>沒裝螢幕 稱為無頭</del><br>Zero W跟普通PI3的差異除了外觀還有就是Zero W並沒有乙太網路口<br>所以平常把PI3接上路由器設定的方法是沒辦法直接移植到Zero W身上的<br>不過Zero W有內建WIFI晶片, 所以我們可以設定一下讓Zero自動連上家中的WIFI來進行操作, 而不需要外接螢幕鍵盤或OTG轉乙太再接路由器如此麻煩</p>
-<hr>
+<p>好了, 廢話少說, 立刻進入正題：<br>雖然RPI有HDMI跟USB接口, 但我就是很懶得接東接西, 希望能夠直接在PC上控制他, 這種叫做Headless的啟動設定 <del>沒裝螢幕 稱為無頭</del><br>Zero W跟普通PI3的差異除了外觀還有就是Zero W並沒有乙太網路口</p>
+<p>所以平常把PI3接上路由器設定的方法是沒辦法直接移植到Zero W身上的<br>不過Zero W有內建WIFI晶片, 所以我們可以設定一下讓Zero自動連上家中的WIFI來進行操作, 而不需要外接螢幕鍵盤或OTG轉乙太再接路由器如此麻煩</p>
 <ol>
 <li><p>先將要裝的系統image燒錄到SD卡中, 然後在Windows下應該能看到一個label為BOOT, 且檔案格式為FAT32的分區(另一個為ext4, Windows下無法讀取)</p>
 </li>
 <li><p>首先開啟SSH功能, 記得很久以前Raspbian預設是開的, 但後來關掉了, 不過我們還是能手動開啟他<br>首先打開Notepad++之類的軟體, 新增一個完全空白的檔案, 然後另存在boot根目錄, 存檔時選擇所有類型, 檔名”ssh” <strong>(注意 無副檔名)<br><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1518274138/blog/2017/12/14/Raspberry_Zero_W_Headless_自動連上無線網路與開啟SSH筆記/Untitled-1.jpg" alt="">
 </strong>這樣就會啟動SSH的功能</p>
 </li>
-<li><p>接著要設定無線網路, 首先新建一個名為”wpa_supplicant.conf”的檔案, 一樣另存在boot的根目錄, 接著在內容打上：<br><pre class="EnlighterJSRAW" data-enlighter-language="null">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdevupdate_config=1<br>network={<br>ssid=”SSID” //打上要連的無線網路SSID<br>psk=”PASSWORD” //打上要連的無線網路的密碼<br>}</pre><br>這樣開機的時候, 系統就會去把設定檔抓到 /etc/wpa_supplicant/底下, 開機自動連線</p>
+<li><p>接著要設定無線網路, 首先新建一個名為”wpa_supplicant.conf”的檔案, 一樣另存在boot的根目錄, 接著在內容打上：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ctrl_interface</span>=DIR=/var/run/wpa_supplicant GROUP=netdevupdate_config=<span class="number">1</span></span><br><span class="line"><span class="attr">network</span>=&#123;</span><br><span class="line">    ssid="SSID" //打上要連的無線網路SSID</span><br><span class="line">    psk="PASSWORD" //打上要連的無線網路的密碼</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>接著就可以把SD卡插進RPI裡面接上電源囉<br>稍等幾秒後, 打開提示命令字元, 輸入 arp -a 查看有沒有多出一組新的連線(或是到路由器的管理頁面找), 然後再將IP打上putty等SSH軟體就大功告成拉！<br><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1518274145/blog/2017/12/14/Raspberry_Zero_W_Headless_自動連上無線網路與開啟SSH筆記/Untitled-2.jpg" alt=""></p>
-</li>
+</ol>
+<p>這樣開機的時候, 系統就會去把設定檔抓到 /etc/wpa_supplicant/底下, 開機自動連線</p>
+<ol>
+<li>接著就可以把SD卡插進RPI裡面接上電源囉<br>稍等幾秒後, 打開提示命令字元, 輸入 arp -a 查看有沒有多出一組新的連線(或是到路由器的管理頁面找), 然後再將IP打上putty等SSH軟體就大功告成拉！<br><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1518274145/blog/2017/12/14/Raspberry_Zero_W_Headless_自動連上無線網路與開啟SSH筆記/Untitled-2.jpg" alt=""></li>
 </ol>
 
       
@@ -515,14 +471,14 @@ dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="search" name="q" results="0" placeholder="Ieškoti">
     <input type="hidden" name="q" value="site:driftkingtw.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Kategorien</h3>
+  <h3 class="title">Kategorijos</h3>
   <ul class="entry">
   
     <li><a href="/categories/DIY/">DIY</a><small>2</small></li>
@@ -545,7 +501,7 @@ dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Žymos</h3>
   <ul class="entry">
   
     <li><a href="/tags/DIY/">DIY</a><small>2</small></li>

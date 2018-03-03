@@ -3,21 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo Github deploy 問題修正筆記 | DriftKingTW&#39;s Blog</title>
+  <title>Hexo Github deploy 問題修正 | DriftKingTW&#39;s Blog</title>
   <meta name="author" content="DriftKingTW">
   
   <meta name="description" content="今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤
-錯誤訊息如下
-
-PS C:\Users\DriftKingTW\blog&gt; hexo d
-INFO  Deploying: git
-INFO  Clearing .deploy_git folder...
-INFO ">
+錯誤訊息如下1234567891011121314151617181920212223PS C:\Users\DriftKingTW\blog&amp;gt; hexo dINFO  Deploying: gitINFO  ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo Github deploy 問題修正筆記"/>
+  <meta property="og:title" content="Hexo Github deploy 問題修正"/>
   <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
 
   
@@ -61,61 +56,17 @@ INFO ">
       
       
   
-    <h1 class="title">Hexo Github deploy 問題修正筆記</h1>
+    <h1 class="title">Hexo Github deploy 問題修正</h1>
   
 
     </header>
     <div class="entry">
       
         <p>今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤</p>
-<p>錯誤訊息如下</p>
-<pre class="EnlighterJSRAW" data-enlighter-language="shell">
-PS C:\Users\DriftKingTW\blog> hexo d
-INFO  Deploying: git
-INFO  Clearing .deploy_git folder...
-INFO  Copying files from public folder...
-INFO  Copying files from extend dirs...
-On branch master
-nothing to commit, working tree clean
-fatal: HttpRequestException encountered.
-   An error occurred while sending the request.
-bash: /dev/tty: No such device or address
-error: failed to execute prompt script (exit code 1)
-fatal: could not read Username for 'https://github.com': No error
-FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
-Error: fatal: HttpRequestException encountered.
-   An error occurred while sending the request.
-bash: /dev/tty: No such device or address
-error: failed to execute prompt script (exit code 1)
-fatal: could not read Username for 'https://github.com': No error
-
-    at ChildProcess.<anonymous> (C:\Users\DriftKingTW\blog\node_modules\hexo-util\lib\spawn.js:37:17)    at emitTwo (events.js:126:13)
-    at ChildProcess.emit (events.js:214:7)
-    at ChildProcess.cp.emit (C:\Users\DriftKingTW\blog\node_modules\cross-spawn\lib\enoent.js:40:29)
-    at maybeClose (internal/child_process.js:925:16)    at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
-</anonymous></pre>
-
+<p>錯誤訊息如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\DriftKingTW\blog&gt; hexo d</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend <span class="built_in">dirs</span>...</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">fatal: HttpRequestException encountered.</span><br><span class="line">   An error occurred <span class="keyword">while</span> sending the request.</span><br><span class="line">bash: /dev/tty: No such device or address</span><br><span class="line">error: failed to execute prompt script (<span class="built_in">exit</span> code 1)</span><br><span class="line">fatal: could not <span class="built_in">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: No error</span><br><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: fatal: HttpRequestException encountered.</span></span><br><span class="line"><span class="string">   An error occurred while sending the request.</span></span><br><span class="line"><span class="string">bash: /dev/tty: No such device or address</span></span><br><span class="line"><span class="string">error: failed to execute prompt script (exit code 1)</span></span><br><span class="line"><span class="string">fatal: could not read Username for '</span>https://github.com<span class="string">': No error</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (C:\Users\DriftKingTW\blog\node_modules\hexo-util\lib\spawn.js:37:17)    at emitTwo (events.js:126:13)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (events.js:214:7)</span></span><br><span class="line"><span class="string">    at ChildProcess.cp.emit (C:\Users\DriftKingTW\blog\node_modules\cross-spawn\lib\enoent.js:40:29)</span></span><br><span class="line"><span class="string">    at maybeClose (internal/child_process.js:925:16)    at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)</span></span><br></pre></td></tr></table></figure></p>
 <p>上網翻了不少資料, 一些git設定跟ssh設定也都測試過了依然無法解決問題<br>後來使用了另一種設定方法</p>
-<p>原本的_config.yml</p>
-<pre class="EnlighterJSRAW" data-enlighter-language="yml">
-...
-deploy: 
-  type: git
-  repo: https://github.com/username/your_repo.git
-  branch: 
-...
-</pre>
-
-<p>修改成</p>
-<pre class="EnlighterJSRAW" data-enlighter-language="yml">
-...
-deploy: 
-  type: git
-  repo: git@github.com:username/your_repo.git
-  branch: 
-...
-</pre>
-
+<p>原本的_config.yml<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span> </span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/username/your_repo.git</span></span><br><span class="line"><span class="attr">  branch:</span></span><br></pre></td></tr></table></figure></p>
+<p>修改成<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span> </span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:username/your_repo.git</span></span><br><span class="line"><span class="attr">  branch:</span></span><br></pre></td></tr></table></figure></p>
 <p>就能夠正常Deploy, 不過在原本架設hexo的電腦上是能夠使用第一種方法的<br>這裡放上我的解決方法, 提供參考</p>
 <p>參考資料:<br><a href="https://wwssllabcd.github.io/blog/2014/12/22/how-to-install-hexo/#%E6%8A%8A-Blog-%E6%94%BE%E5%9C%A8-Github-%E4%B8%8A" target="_blank" rel="noopener">Hexo + Github 簡單使用教學</a></p>
 
@@ -156,7 +107,7 @@ deploy:
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">Komentarai</h1>
 
   
       <div id="fb-root"></div>
@@ -179,14 +130,14 @@ deploy:
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="search" name="q" results="0" placeholder="Ieškoti">
     <input type="hidden" name="q" value="site:driftkingtw.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Kategorien</h3>
+  <h3 class="title">Kategorijos</h3>
   <ul class="entry">
   
     <li><a href="/categories/DIY/">DIY</a><small>2</small></li>
@@ -209,7 +160,7 @@ deploy:
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Žymos</h3>
   <ul class="entry">
   
     <li><a href="/tags/DIY/">DIY</a><small>2</small></li>
