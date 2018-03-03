@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Windows 10 安裝 Ubuntu bash | DriftKingTW&#39;s Blog</title>
+  <title>Hexo-Github-deploy-問題修正筆記 | DriftKingTW&#39;s Blog</title>
   <meta name="author" content="DriftKingTW">
   
-  <meta name="description" content="於 Microsoft App 商店搜尋 “Ubuntu” 並安裝
+  <meta name="description" content="今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤
+錯誤訊息如下
 
-開啟 “設定” -&amp;gt; “App” -&amp;gt; “應用程式與功能”
-
-在最下方 “相關設定” -&amp;gt; “程式與功能” -&amp;gt; “開啟或關閉Windows功能”
-
-確認 “適用於 Linux 的 Windwos 子系統”">
+PS C:\Users\DriftKingTW\blog&gt; hexo d
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Windows 10 安裝 Ubuntu bash"/>
+  <meta property="og:title" content="Hexo-Github-deploy-問題修正筆記"/>
   <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
 
   
@@ -57,36 +57,66 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-03-03T03:06:46.000Z"><a href="/2018/03/03/Windows-10-安裝-Ubuntu-bash/">2018-03-03</a></time>
+        <time datetime="2018-03-03T05:38:43.000Z"><a href="/2018/03/03/Hexo-Github-deploy-問題修正筆記/">2018-03-03</a></time>
       
       
   
-    <h1 class="title">Windows 10 安裝 Ubuntu bash</h1>
+    <h1 class="title">Hexo-Github-deploy-問題修正筆記</h1>
   
 
     </header>
     <div class="entry">
       
-        <ol>
-<li><p>於 Microsoft App 商店搜尋 “Ubuntu” 並安裝</p>
-</li>
-<li><p>開啟 “設定” -&gt; “App” -&gt; “應用程式與功能”</p>
-</li>
-<li><p>在最下方 “相關設定” -&gt; “程式與功能” -&gt; “開啟或關閉Windows功能”</p>
-</li>
-<li><p>確認 “適用於 Linux 的 Windwos 子系統” 已勾選(可能需要重新啟動)</p>
-</li>
-<li><p>再次打開 “設定” -&gt; “更新與安全性” -&gt; “開發人員專用” -&gt; 選擇 “開發人員模式”</p>
-</li>
-<li><p>開啟提示命令字元(系統管理員權限執行) -&gt; 輸入以下指令</p>
-</li>
-</ol>
-<pre class="EnlighterJSRAW" data-enlighter-language="null">
-dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
+        <p>今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤</p>
+<p>錯誤訊息如下</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell">
+PS C:\Users\DriftKingTW\blog> hexo d
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+INFO  Copying files from extend dirs...
+On branch master
+nothing to commit, working tree clean
+fatal: HttpRequestException encountered.
+   An error occurred while sending the request.
+bash: /dev/tty: No such device or address
+error: failed to execute prompt script (exit code 1)
+fatal: could not read Username for 'https://github.com': No error
+FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
+Error: fatal: HttpRequestException encountered.
+   An error occurred while sending the request.
+bash: /dev/tty: No such device or address
+error: failed to execute prompt script (exit code 1)
+fatal: could not read Username for 'https://github.com': No error
+
+    at ChildProcess.<anonymous> (C:\Users\DriftKingTW\blog\node_modules\hexo-util\lib\spawn.js:37:17)    at emitTwo (events.js:126:13)
+    at ChildProcess.emit (events.js:214:7)
+    at ChildProcess.cp.emit (C:\Users\DriftKingTW\blog\node_modules\cross-spawn\lib\enoent.js:40:29)
+    at maybeClose (internal/child_process.js:925:16)    at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+</anonymous></pre>
+
+<p>上網翻了不少資料, 一些git設定跟ssh設定也都測試過了依然無法解決問題<br>後來使用了另一種設定方法</p>
+<p>原本的_config.yml</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="yml">
+...
+deploy: 
+  type: git
+  repo: https://github.com/username/your_repo.git
+  branch: 
+...
 </pre>
 
-<p>完成後執行 Ubuntu App, 即可開始使用</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1520047838/blog/2018/03/03/Windows-10-安裝-Ubuntu-bash/ubuntu.png" alt="Ubuntu bash on Win10"></p>
+<p>修改成</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="yml">
+...
+deploy: 
+  type: git
+  repo: git@github.com:username/your_repo.git
+  branch: 
+...
+</pre>
+
+<p>就能夠正常Deploy, 不過在原本架設hexo的電腦上是能夠使用第一種方法的<br>這裡放上我的解決方法, 提供參考</p>
 
       
     </div>
@@ -96,7 +126,7 @@ dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
         
   
   <div class="tags">
-    <a href="/tags/Win10/">Win10</a>, <a href="/tags/Ubuntu/">Ubuntu</a>
+    <a href="/tags/hexo/">hexo</a>, <a href="/tags/github/">github</a>
   </div>
 
         
@@ -139,7 +169,7 @@ dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="https://driftkingtw.github.io/2018/03/03/Windows-10-安裝-Ubuntu-bash/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://driftkingtw.github.io/2018/03/03/Hexo-Github-deploy-問題修正筆記/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>

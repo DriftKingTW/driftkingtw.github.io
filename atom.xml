@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://driftkingtw.github.io/"/>
-  <updated>2018-03-03T04:15:17.032Z</updated>
+  <updated>2018-03-03T05:52:31.365Z</updated>
   <id>https://driftkingtw.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo-Github-deploy-問題修正筆記</title>
+    <link href="https://driftkingtw.github.io/2018/03/03/Hexo-Github-deploy-%E5%95%8F%E9%A1%8C%E4%BF%AE%E6%AD%A3%E7%AD%86%E8%A8%98/"/>
+    <id>https://driftkingtw.github.io/2018/03/03/Hexo-Github-deploy-問題修正筆記/</id>
+    <published>2018-03-03T05:38:43.000Z</published>
+    <updated>2018-03-03T05:52:31.365Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤</p><p>錯誤訊息如下</p><pre class="EnlighterJSRAW" data-enlighter-language="shell">PS C:\Users\DriftKingTW\blog> hexo dINFO  Deploying: gitINFO  Clearing .deploy_git folder...INFO  Copying files from public folder...INFO  Copying files from extend dirs...On branch masternothing to commit, working tree cleanfatal: HttpRequestException encountered.   An error occurred while sending the request.bash: /dev/tty: No such device or addresserror: failed to execute prompt script (exit code 1)fatal: could not read Username for 'https://github.com': No errorFATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.htmlError: fatal: HttpRequestException encountered.   An error occurred while sending the request.bash: /dev/tty: No such device or addresserror: failed to execute prompt script (exit code 1)fatal: could not read Username for 'https://github.com': No error    at ChildProcess.<anonymous> (C:\Users\DriftKingTW\blog\node_modules\hexo-util\lib\spawn.js:37:17)    at emitTwo (events.js:126:13)    at ChildProcess.emit (events.js:214:7)    at ChildProcess.cp.emit (C:\Users\DriftKingTW\blog\node_modules\cross-spawn\lib\enoent.js:40:29)    at maybeClose (internal/child_process.js:925:16)    at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)</anonymous></pre><p>上網翻了不少資料, 一些git設定跟ssh設定也都測試過了依然無法解決問題<br>後來使用了另一種設定方法</p><p>原本的_config.yml</p><pre class="EnlighterJSRAW" data-enlighter-language="yml">...deploy:   type: git  repo: https://github.com/username/your_repo.git  branch: ...</pre><p>修改成</p><pre class="EnlighterJSRAW" data-enlighter-language="yml">...deploy:   type: git  repo: git@github.com:username/your_repo.git  branch: ...</pre><p>就能夠正常Deploy, 不過在原本架設hexo的電腦上是能夠使用第一種方法的<br>這裡放上我的解決方法, 提供參考</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤&lt;/p&gt;
+&lt;p&gt;錯誤訊息如下&lt;/p&gt;
+&lt;pre class=&quot;EnlighterJSRAW&quot; data-enlighter-language=&quot;shell&quot;&gt;
+PS C:\Users\Drif
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://driftkingtw.github.io/tags/hexo/"/>
+    
+      <category term="github" scheme="https://driftkingtw.github.io/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows 10 安裝 Ubuntu bash</title>
