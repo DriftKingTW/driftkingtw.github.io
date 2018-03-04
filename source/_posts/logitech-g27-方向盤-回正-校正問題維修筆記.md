@@ -1,6 +1,5 @@
 ---
 title: Logitech G27方向盤 回正/校正問題維修
-id: 247
 date: 2018-01-17 21:16:00
 tags: [SIM-Racing, DIY, G27]
 ---

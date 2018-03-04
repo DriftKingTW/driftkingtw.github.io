@@ -4,7 +4,7 @@ date: 2018-03-03 11:06:46
 tags: [Win10, Ubuntu]
 ---
 
-1. 於 Microsoft App 商店搜尋 "Ubuntu" 並安裝
+1. 在 Microsoft App 商店搜尋 "Ubuntu" 並安裝
 
 2. 開啟 "設定" -> "App" -> "應用程式與功能"
 

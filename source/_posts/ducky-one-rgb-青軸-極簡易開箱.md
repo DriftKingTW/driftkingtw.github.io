@@ -1,6 +1,5 @@
 ---
 title: Ducky ONE RGB 青軸 極簡易開箱
-id: 214
 date: 2017-12-21 02:40:08
 tags: [Keyboard, 開箱]
 ---

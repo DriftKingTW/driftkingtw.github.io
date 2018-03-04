@@ -1,6 +1,5 @@
 ---
 title: Raspberry Zero W Headless 自動連上無線網路與開啟SSH
-id: 192
 date: 2017-12-14 00:35:47
 tags: [Raspberry Pi]
 ---

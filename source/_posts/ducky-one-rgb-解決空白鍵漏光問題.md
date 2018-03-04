@@ -1,6 +1,5 @@
 ---
 title: Ducky ONE RGB 解決空白鍵漏光問題
-id: 236
 date: 2018-01-11 14:25:40
 tags: [Keyboard, DIY]
 ---

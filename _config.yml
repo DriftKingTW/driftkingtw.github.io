@@ -5,7 +5,7 @@
 # Site
 title: DriftKingTW's Blog
 subtitle:
-description:
+description: DriftKingTW's Blog
 author: DriftKingTW
 language:
   - zh-tw
@@ -101,7 +101,7 @@ twitter:
 
 addthis:
   enable: true
-  pubid: false
+  pubid: true
   facebook: true
   twitter: true
   google: true
