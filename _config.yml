@@ -109,7 +109,7 @@ addthis:
 
 fancybox: true
 
-google_analytics:
+google_analytics: UA-115026468-1
 rss:
 
 comment_provider: facebook
