@@ -1,7 +1,15 @@
 ---
 title: Ducky ONE RGB 青軸 極簡易開箱
+tags:
+  - Keyboard
+  - 開箱
+abbrlink: 6ede1cf0
 date: 2017-12-21 02:40:08
-tags: [Keyboard, 開箱]
+keywords:
+  - 開箱
+  - ducky
+  - one
+  - 心得
 ---
 
 之前跟朋友買的二手MK80開始連點, 到後面嚴重到不能用了, 於是決定來換個鍵盤hmm 我個人是要求蠻多的<del>龜毛</del>, 平常雖然盲打但是想要發光..然後不喜歡單色所以想用RGB, 又不希望白底座反光太亮之類.....(ry

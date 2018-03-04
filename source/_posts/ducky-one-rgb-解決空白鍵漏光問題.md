@@ -1,7 +1,15 @@
 ---
 title: Ducky ONE RGB 解決空白鍵漏光問題
+tags:
+  - Keyboard
+  - DIY
+abbrlink: 9ae3431b
 date: 2018-01-11 14:25:40
-tags: [Keyboard, DIY]
+keywords:
+  - ducky
+  - one
+  - diy
+  - 漏光
 ---
 
 ONE RGB用到目前為止都很滿意, 不過有個小缺點就是看鍵盤角度太低的時候

@@ -1,7 +1,16 @@
 ---
 title: iPad Pro 10.5 簡易開箱+繪圖心得
+tags:
+  - iPad
+  - illustration
+  - 開箱
+abbrlink: 99fe3657
 date: 2018-02-21 15:00:42
-tags: [iPad, illustration, 開箱]
+keywords:
+  - 開箱
+  - ipad
+  - 心得
+  - 繪圖
 ---
 
 有空先來記錄下年前買的iPad Pro，其實原本是想買New Surface Pro的

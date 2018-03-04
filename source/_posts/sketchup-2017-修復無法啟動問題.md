@@ -1,7 +1,13 @@
 ---
 title: SketchUp 2017 修復無法啟動問題
+tags:
+  - 軟體應用
+  - SketchUp
+abbrlink: da0d3440
 date: 2017-09-14 21:47:33
-tags: [軟體應用, SketchUp]
+keywords:
+  - sketchup
+  - 錯誤
 ---
 
 今天打開SketchUp突然跳出這玩意...

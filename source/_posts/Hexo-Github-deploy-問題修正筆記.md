@@ -1,7 +1,14 @@
 ---
 title: Hexo Github deploy 問題修正
+tags:
+  - hexo
+  - Github
+abbrlink: 286b8c2b
 date: 2018-03-03 13:38:43
-tags: [hexo, Github]
+keywords:
+  - Github
+  - 問題
+  - hexo
 ---
 
 今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤

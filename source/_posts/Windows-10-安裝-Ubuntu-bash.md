@@ -1,7 +1,13 @@
 ---
 title: Windows 10 安裝 Ubuntu bash
+tags:
+  - Win10
+  - Ubuntu
+abbrlink: bad29b8c
 date: 2018-03-03 11:06:46
-tags: [Win10, Ubuntu]
+keywords:
+  - win10
+  - ubuntu
 ---
 
 1. 在 Microsoft App 商店搜尋 "Ubuntu" 並安裝
