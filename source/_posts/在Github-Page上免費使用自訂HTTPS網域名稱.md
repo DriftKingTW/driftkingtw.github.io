@@ -11,7 +11,7 @@ keywords:
   - 網域
   - 免費
 ---
-## Why 
+# Why 
 
 在[Github](https://github.com/)上建好靜態網站後, 都是利用 username.github.io 進行瀏覽
 但是[Github](https://github.com/)也有可以讓我們使用自己的域名(Domain Name)的設定
@@ -22,7 +22,7 @@ keywords:
 為了達成HTTPS自訂域名, 需要要利用[CloudFlare](https://www.cloudflare.com/)所提供的免費服務
 至於堅持使用HTTPS的原因, 我到時候再寫另外一篇文章詳細補充
 
-## How
+# How
 
 1. 確認已經註冊好一個域名
 
@@ -70,6 +70,6 @@ blog.driftkingtw.me
 
 + 可以在[CloudFlare](https://www.cloudflare.com/)的Page Rules頁籤新增Cache規則, 加快網站載入速度
 
-參考資料
+## 參考資料
 [Secure and fast GitHub Pages with CloudFlare](https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/)
 [Setting up a custom subdomain](https://help.github.com/articles/setting-up-a-custom-subdomain/)
