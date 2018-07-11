@@ -1,5 +1,5 @@
 ---
-title: Laravel-Linux-佈署問題筆記
+title: Laravel Linux 佈署問題筆記
 tags:
   - PHP
   - Laravel
