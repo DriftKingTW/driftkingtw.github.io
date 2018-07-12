@@ -22,7 +22,11 @@ date: 2018-07-10 00:49:57
 
 ### Q2. 如何從Github上Clone私人專案到網站目錄
 
-<strong>Ans：</strong> git clone https://username@github.com/username/repo
+<strong>Ans：</strong> 
+
+```shell
+git clone https://username@github.com/username/repo
+```
 其中`username` 為Github帳號名稱，`repo` 為專案名稱。
 
 ### Q3. 在瀏覽器開啟網頁時出現以下錯誤訊息
