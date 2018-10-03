@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Laravel Linux 佈署問題筆記 | DriftKingTW&#39;s Blog</title>
+  <meta name="author" content="DriftKingTW">
+  
+  <meta name="description" content="一個由熱愛繪圖、程式設計、賽車、ACGN、DIY雜七雜八東西的人所建置的網站">
+  
+  <meta name="keywords" content="PHP,Laravel,Linux,Server">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Laravel Linux 佈署問題筆記"/>
+  <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="DriftKingTW&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">DriftKingTW&#39;s Blog</a></h1>
+  <h2><a href="/">printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-07-09T16:49:57.000Z"><a href="/archives/91e1ab9c.html">2018-07-10</a></time>
+      
+      
+  
+    <h1 class="title">Laravel Linux 佈署問題筆記</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。<br>環境若沒特別說明就代表使用的OS為Ubuntu</p>
+<h3 id="Q1-如何設定Laravel-env檔的APP-KEY"><a href="#Q1-如何設定Laravel-env檔的APP-KEY" class="headerlink" title="Q1. 如何設定Laravel .env檔的APP_KEY?"></a>Q1. 如何設定Laravel .env檔的APP_KEY?</h3><p><strong>Ans：</strong>在專案跟目錄執行 <code>php artisan key:generate</code></p>
+<h3 id="Q2-如何從Github上Clone私人專案到網站目錄"><a href="#Q2-如何從Github上Clone私人專案到網站目錄" class="headerlink" title="Q2. 如何從Github上Clone私人專案到網站目錄"></a>Q2. 如何從Github上Clone私人專案到網站目錄</h3><p><strong>Ans：</strong> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://username@github.com/username/repo</span><br></pre></td></tr></table></figure>
+<p>其中<code>username</code> 為Github帳號名稱，<code>repo</code> 為專案名稱。</p>
+<h3 id="Q3-在瀏覽器開啟網頁時出現以下錯誤訊息"><a href="#Q3-在瀏覽器開啟網頁時出現以下錯誤訊息" class="headerlink" title="Q3. 在瀏覽器開啟網頁時出現以下錯誤訊息"></a>Q3. 在瀏覽器開啟網頁時出現以下錯誤訊息</h3><p><code>Error in exception handler: The stream or file &quot;/var/www/laravel/app/storage/logs/laravel.log&quot; could not be opened: failed to open stream: Permission denie</code></p>
+<p><strong>Ans：</strong> 目錄權限不足，在專案目錄執行 <code>sudo chmod -R 777 storage</code> (注意，此方法較不安全)</p>
+<p>安全的做法是把不同的權限分開，使用ACL(Access Control List)設定</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// nginx = web server user</span><br><span class="line">// systemuser = your local user which you use to login via ssh</span><br><span class="line">sudo setfacl -Rdm u:nginx:rwx,u:systemuser:rwx storage</span><br><span class="line">sudo setfacl -Rm u:nginx:rwx,u:systemuser:rwx storage</span><br></pre></td></tr></table></figure>
+<p>如果沒有ACL的設定方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chgrp -R www-data storage bootstrap/cache</span><br><span class="line">sudo chmod -R ug+rwx storage bootstrap/cache</span><br></pre></td></tr></table></figure>
+<h3 id="Q4-如何切換不同的PHP版本"><a href="#Q4-如何切換不同的PHP版本" class="headerlink" title="Q4. 如何切換不同的PHP版本"></a>Q4. 如何切換不同的PHP版本</h3><p><strong>Ans：</strong> 安裝好需要的版本後執行以下指令 (範例為 7.0 =&gt; 7.2)</p>
+<p>停用先前的PHP版本(重要)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2dismod php7.0</span><br></pre></td></tr></table></figure></p>
+<p>啟動所需的PHP版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod php7.2</span><br></pre></td></tr></table></figure></p>
+<p>重啟Apache2服務<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure></p>
+<h3 id="Q5-首頁能夠正常顯示，但切換不同的-Get-路徑顯示-404-Not-Found-Ex-www-domainname-com-login"><a href="#Q5-首頁能夠正常顯示，但切換不同的-Get-路徑顯示-404-Not-Found-Ex-www-domainname-com-login" class="headerlink" title="Q5. 首頁能夠正常顯示，但切換不同的 Get 路徑顯示 404 Not Found (Ex: www.domainname.com/login)"></a>Q5. 首頁能夠正常顯示，但切換不同的 Get 路徑顯示 404 Not Found (Ex: www.domainname.com/login)</h3><p><strong>Ans：</strong></p>
+<p>啟動Rewrite模組</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br></pre></td></tr></table></figure>
+<p>重啟Apache2服務</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
+<p>重啟後還是顯示404錯誤，使用文字編輯器開啟 <code>000-default.conf</code> 設定檔 (個人習慣使用vim)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apache2/sites-available/000-default.conf</span><br></pre></td></tr></table></figure>
+<p>在 <code>DocumentRoot /var/www/html</code> 下方新增以下設定</p>
+<figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;Directory /var/www/html&gt;</span></span><br><span class="line">  <span class="attribute">AllowOverride</span> <span class="literal">All</span></span><br><span class="line"><span class="section">&lt;/Directory&gt;</span></span><br></pre></td></tr></table></figure>
+<p>儲存設定後，重啟Apache2服務，這時就能正常顯示 GET 路徑了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo" target="_blank" rel="noopener">Cloning a private Github repo</a></p>
+<p><a href="https://laracasts.com/discuss/channels/general-discussion/laravel-framework-file-permission-security" target="_blank" rel="noopener">Laravel framework file permission - Security</a></p>
+<p><a href="https://www.youtube.com/watch?v=7CatEn5IAlo" target="_blank" rel="noopener">Laravel 5.4 problem - Wrong Route (Not Found) on Ubuntu 16.04</a></p>
+<hr>
+<p>日後遇到其他問題會再持續更新</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/PHP/">PHP</a>, <a href="/tags/Laravel/">Laravel</a>, <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/91e1ab9c.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:blog.driftkingtw.me">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/DIY/">DIY</a><small>3</small></li>
+  
+    <li><a href="/tags/G27/">G27</a><small>1</small></li>
+  
+    <li><a href="/tags/Github/">Github</a><small>2</small></li>
+  
+    <li><a href="/tags/Keyboard/">Keyboard</a><small>2</small></li>
+  
+    <li><a href="/tags/Laravel/">Laravel</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Raspberry-Pi/">Raspberry Pi</a><small>1</small></li>
+  
+    <li><a href="/tags/SIM-Racing/">SIM-Racing</a><small>2</small></li>
+  
+    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
+  
+    <li><a href="/tags/SketchUp/">SketchUp</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Win10/">Win10</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/iPad/">iPad</a><small>2</small></li>
+  
+    <li><a href="/tags/illustration/">illustration</a><small>2</small></li>
+  
+    <li><a href="/tags/軟體應用/">軟體應用</a><small>1</small></li>
+  
+    <li><a href="/tags/開箱/">開箱</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2018 DriftKingTW
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

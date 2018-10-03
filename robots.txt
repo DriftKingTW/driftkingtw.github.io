@@ -1,0 +1,11 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/ 
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+Sitemap: https://blog.driftkingtw.com/sitemap.xml
+Sitemap: https://blog.driftkingtw.com/baidusitemap.xml
