@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Windows 10 安裝 Ubuntu bash | DriftKingTW&#39;s Blog</title>
+  <title>Macbook Pro 2018 Color Banding 問題 | DriftKingTW&#39;s Blog</title>
   <meta name="author" content="DriftKingTW">
   
   <meta name="description" content="printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);">
   
-  <meta name="keywords" content="win10,ubuntu">
+  <meta name="keywords" content="Macbook Pro,螢幕,Color Banding">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Windows 10 安裝 Ubuntu bash"/>
+  <meta property="og:title" content="Macbook Pro 2018 Color Banding 問題"/>
   <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
 
   
@@ -62,33 +62,58 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-03-03T03:06:46.000Z"><a href="/archives/bad29b8c.html">2018-03-03</a></time>
+        <time datetime="2018-10-12T09:51:04.000Z"><a href="/archives/c3ffdb1b.html">2018-10-12</a></time>
       
       
   
-    <h1 class="title">Windows 10 安裝 Ubuntu bash</h1>
+    <h1 class="title">Macbook Pro 2018 Color Banding 問題</h1>
   
 
     </header>
     <div class="entry">
       
-        <ol>
-<li><p>在 Microsoft App 商店搜尋 “Ubuntu” 並安裝</p>
-</li>
-<li><p>開啟 “設定” -&gt; “App” -&gt; “應用程式與功能”</p>
-</li>
-<li><p>在最下方 “相關設定” -&gt; “程式與功能” -&gt; “開啟或關閉Windows功能”</p>
-</li>
-<li><p>確認 “適用於 Linux 的 Windwos 子系統” 已勾選(可能需要重新啟動)</p>
-</li>
-<li><p>再次打開 “設定” -&gt; “更新與安全性” -&gt; “開發人員專用” -&gt; 選擇 “開發人員模式”</p>
-</li>
-<li><p>開啟提示命令字元(系統管理員權限執行) -&gt; 輸入以下指令</p>
-</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux</span><br></pre></td></tr></table></figure>
-<p>完成後執行 Ubuntu App, 即可開始使用</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1520047838/blog/2018/03/03/Windows-10-安裝-Ubuntu-bash/ubuntu.png" alt="Ubuntu bash on Win10"></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在測試螢幕RGB設定時順便測試了一下MBP2018的螢幕效能（一開始來只有看有無亮暗點），發現了在Gradient測試下居然出現了明顯的Banding現象…如下圖。</p>
+<h1 id="Gradient-Test"><a href="#Gradient-Test" class="headerlink" title="Gradient Test"></a>Gradient Test</h1><p><strong>都有在瀏覽器跟Photoshop內做測試，MacOS部分有另外在Safari測試</strong></p>
+<p><strong>測試時皆爲最大亮度</strong></p>
+<p>自己的MBP2018 13”預設色彩設定檔<br>測試值RGB(0,0,0)-&gt;RGB(100,100,100)</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338402/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160038_vHDR_Auto.jpg" alt="Macbook Pro 2018"></p>
+<hr>
+<ul>
+<li>朋友的MBP2018 13”預設色彩設定檔<br>測試值RGB(0,0,0)-&gt;RGB(100,100,100)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338685/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/43787909_254069108589932_8509140437481553920_n.jpg" alt="朋友的MBP2018 13&quot;"></p>
+<hr>
+<ul>
+<li>借來的MBP2017 15”預設色彩設定檔<br>測試值RGB(0,0,0)-&gt;RGB(255,255,255)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338685/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/43788171_276891582933239_8832958624885112832_n.jpg" alt="朋友借來的MBP2017 15&quot;"></p>
+<hr>
+<ul>
+<li>工作螢幕EIZO EV2450，接MacOS 強制sRGB色彩設定檔（非YCbCr）<br>測試值RGB(0,0,0)-&gt;RGB(100,100,100)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160311_vHDR_Auto.jpg" alt="EIZO EV2450"></p>
+<hr>
+<ul>
+<li>副螢幕DELL P2214H，接Windows10 預設sRGB色彩設定檔<br>測試值RGB(0,0,0)-&gt;RGB(255,255,255)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_175652_vHDR_Auto_HP.jpg" alt="Dell P2214H"></p>
+<hr>
+<ul>
+<li>iPad Pro 2017 10.5”<br>測試值RGB(0,0,0)-&gt;RGB(255,255,255)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_175612_vHDR_Auto_HP.jpg" alt="iPad Pro 2017 10.5&quot;"></p>
+<hr>
+<p>另外上面兩台18年MBP查詢發現應該都是三星的面板，不確定供應商是否影響，有待確認。</p>
+<p>查詢面板方法(Pro Retina)： <code>ioreg -lw0 | grep -i &quot;DisplayVendorID&quot;</code></p>
+<p>Mojave若遇到錯誤可以安裝XCode開發工具解決 <code>xcode-select --install</code></p>
+<ul>
+<li>Samsung ID：1552</li>
+<li>LG ID：7789</li>
+</ul>
+<p>以上結果可以看出現Color Banding應該也不是個案，而且iPad螢幕雖然開到最亮也會有稍微的Banding情況，但都沒有MBP嚴重，雖然平時外接不影響但是這價格的筆電螢幕出現這種問題還是令人不太舒服啊……上網找都是2010左右的討論，後來好像都沒聽說有人提起(ry</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="http://www.lagom.nl/lcd-test/gradient.php#gradient-h.png" target="_blank" rel="noopener">測試網站 The Lagom LCD monitor test</a></p>
+<p><a href="https://dotblogs.com.tw/aquarius6913/2014/01/25/142159" target="_blank" rel="noopener">檢查MacBook的LCD面板製造廠商（包含Air &amp; Pro Retina）</a></p>
+<p><a href="https://apple.stackexchange.com/questions/254380/macos-mojave-invalid-active-developer-path" target="_blank" rel="noopener">macOS Mojave: invalid active developer path</a></p>
 
       
     </div>
@@ -98,7 +123,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Win10/">Win10</a>, <a href="/tags/Ubuntu/">Ubuntu</a>
+    <a href="/tags/螢幕/">螢幕</a>, <a href="/tags/Macbook-Pro/">Macbook Pro</a>
   </div>
 
         
@@ -141,7 +166,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/bad29b8c.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/c3ffdb1b.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
