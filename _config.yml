@@ -5,7 +5,7 @@
 # Site
 title: DriftKingTW's Blog
 subtitle: printf("%s", "Stay Curious, Stay Creative");
-description: 一個由熱愛繪圖、程式設計、賽車、ACGN、DIY雜七雜八東西的人所建置的網站
+description: printf("%s", "Stay Curious, Stay Creative");
 author: DriftKingTW
 language:
   - zh-tw
