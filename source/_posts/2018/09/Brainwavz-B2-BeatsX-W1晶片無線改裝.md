@@ -14,7 +14,7 @@ date: 2018-09-30 23:57:33
 
 ![Brainwavz B2 Wireless](https://res.cloudinary.com/driftkingtw/image/upload/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg)
 
-### 前言
+# 前言
 
 前陣子買了Airpods來玩玩，發現Apple的W1晶片真心強大, 連接方便穩定, 延遲非常低(可以看影片的那種), 續航力優秀 ~~不過音質就只能說比Earpods好一點點，然後貴了五倍價格~~。
 
@@ -24,7 +24,7 @@ Google了一下相關資料，果然Head-Fi上有人也有這個想法並且實�
 
 <strong>*利申一下我不算是多專業的燒友，以前稍微玩過而已，現在已經少碰。聲音相關感覺因人而異本文章僅提供改裝技術交流*</strong>
 
-### 過程紀錄
+# 過程紀錄
 
 首先確認好BeatsX能發出聲音後，從音控後方爽快的剪下去吧！
 
@@ -70,12 +70,12 @@ CM公插。
 
 ![CM插針版](https://res.cloudinary.com/driftkingtw/image/upload/v1538325406/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233933_vHDR_Auto.jpg)
 
-### 感想
+# 感想
 
 聲音挺不錯的，不過也是不建議給阻抗大或不好推的耳機使用，除了耗電外可能聲音也推不太開。
 
 有W1晶片，續航延遲都比市面上絕大多數的藍芽耳機好不少，此改造又兼顧了一定的音質，可謂大成功啊！
 
-### 參考資料
+## 參考資料
 
 [Head-Fi - Apple Beats X mod for IEM](https://www.head-fi.org/threads/apple-beats-x-mod-for-iem.844435/)
