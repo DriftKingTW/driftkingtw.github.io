@@ -26,7 +26,7 @@ keywords:
 
 ![初始狀態](https://res.cloudinary.com/driftkingtw/image/upload/v1539307702/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.58_PM.png)
 
-在做之前我們需要先關閉 MacOS 的功能（如果會用 `sudo` 也可以不關，直接往下的步驟）
+在做之前我們需要先關閉 MacOS 的 Rootless 功能（如果會用 `sudo` 也可以不關，直接往下的步驟）
 
 關閉 MacOS 後，按住 `CMD+R` 開機，上方Utilities選單找到Terminal開啓，輸入 `csrutil disable` ，在重新開機就可以了，做完步驟後可以再用一樣的方法開啓（改成輸入 `csrutil enable` ）。
 
