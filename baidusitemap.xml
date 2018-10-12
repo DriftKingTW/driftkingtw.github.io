@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://blog.driftkingtw.me/archives/c3ffdb1b.html</loc>
-    <lastmod>2018-10-12T10:26:49.286Z</lastmod>
+    <lastmod>2018-10-12T10:30:35.192Z</lastmod>
     <data>
         <display>
         <title>Macbook Pro 2018 Color Banding 問題</title>
@@ -186,9 +186,9 @@
         <title>Hexo Github deploy 問題修正</title>
         <pubTime>2018-03-03T05:38:43.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>Github</tag>
+         
+        <tag>hexo</tag>
          
          
            
@@ -278,6 +278,23 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/6759087b.html</loc>
+    <lastmod>2018-10-03T01:52:43.654Z</lastmod>
+    <data>
+        <display>
+        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
+        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
+        
+        <tag>Raspberry Pi</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/6ede1cf0.html</loc>
     <lastmod>2018-10-03T01:52:43.654Z</lastmod>
     <data>
@@ -288,23 +305,6 @@
         <tag>Keyboard</tag>
          
         <tag>開箱</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/6759087b.html</loc>
-    <lastmod>2018-10-03T01:52:43.654Z</lastmod>
-    <data>
-        <display>
-        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
-        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
-        
-        <tag>Raspberry Pi</tag>
          
          
            
