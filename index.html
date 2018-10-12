@@ -63,6 +63,62 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-10-12T01:16:28.000Z"><a href="/archives/d7c7ea31.html">2018-10-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/d7c7ea31.html">MacOS強制外接螢幕輸出RGB</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前發現Mac外接螢幕的灰階有點奇怪，感覺反而沒在Windows上順暢，於是Google了一下發現原來MacOS用HDMI接非Apple官方認可的螢幕時會當成電視用YCbCr輸出而不是RGB，所以會造成顯示器顏色上出現問題或是字體渲染不清的情況。<del>人性化的系統</del></p>
+<p>一開始想說Retina用的字體到1080p上會比較糢糊是正常的就沒特別注意到，顏色部分因爲我的螢幕（EIZO EV2450）也有支援YCbCr 4:4:4輸入又開著TrueTone，所以平常也沒特別看出有問題。既然是電腦螢幕那還是乖乖修改成RGB輸出吧嗯！</p>
+<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p>下圖是初始的顏色設定：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539307427/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.45_PM.png" alt="顏色設定"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539307702/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.58_PM.png" alt="初始狀態"></p>
+<p>在做之前我們需要先關閉 MacOS 的功能（如果會用 <code>sudo</code> 也可以不關，直接往下的步驟）</p>
+<p>關閉 MacOS 後，按住 <code>CMD+R</code> 開機，上方Utilities選單找到Terminal開啓，輸入 <code>csrutil disable</code> ，在重新開機就可以了，做完步驟後可以再用一樣的方法開啓（改成輸入 <code>csrutil enable</code> ）。</p>
+<ol>
+<li><p>首先下載 <a href="https://gist.github.com/adaugherity/7435890" target="_blank" rel="noopener">Edid-Patch</a></p>
+</li>
+<li><p>確定外接螢幕接上 Mac</p>
+</li>
+<li><p>打開Terminal，進入下載 <code>edid-patch</code> 的資料夾（不會的可以直接放在家目錄），然後執行 <code>ruby patch-edid.rb</code> 。</p>
+</li>
+<li><p>然後會在同目錄下產生一個資料夾 <code>DisplayVenderID-xxx</code> ， 打開Finder按 <code>Cmd+Shift+G</code> 前往目錄 <code>/System/Library/Displays/Contents/Resources/Overrides</code>，把剛才產生的資料夾放進去。<br>(沒有關閉Rootless的話可以用 <code>sudo cp</code> 移動資料夾)</p>
+</li>
+<li><p>重開機，看一下顏色設定確認強制RGB後就完成了！（有關Rootless記得開回來）</p>
+</li>
+</ol>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539307715/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_9.38.03_PM.png" alt="強制RGB輸出"></p>
+<p>P.S. 我的EV2450強制RGB後發現對比很奇怪，後來螢幕上的設定看了一下原來Range Extension預設Auto，設定成關閉後，螢幕就正常了！</p>
+<p>經過強制RGB後灰階也正常囉。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://gist.github.com/adaugherity/7435890" target="_blank" rel="noopener">Github - adaugherity/patch-edid.rb</a></p>
+<p><a href="https://www.mathewinkson.com/2013/03/force-rgb-mode-in-mac-os-x-to-fix-the-picture-quality-of-an-external-monitor" target="_blank" rel="noopener">Force RGB mode in Mac OS X to fix the picture quality of an external monitor</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-10-03T02:54:05.000Z"><a href="/archives/8dfde79b.html">2018-10-03</a></time>
       
       
@@ -74,7 +130,8 @@
     <div class="entry">
       
         <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407629/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_234714_vHDR_Auto.jpg" alt="YD68 Dolch"></p>
-<p>最近想找一把60%的機械鍵盤來換掉之前的Ducky One RGB，當然Ducky One還是一把不錯的鍵盤，主要考慮到想弄個Mac/Win通用配置的，以及我桌子上東西有點多（繪圖板跟筆電）60%可以省下桌面不少空間。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近想找一把60%的機械鍵盤來換掉之前的Ducky One RGB，當然Ducky One還是一把不錯的鍵盤，主要考慮到想弄個Mac/Win通用配置的，以及我桌子上東西有點多（繪圖板跟筆電）60%可以省下桌面不少空間。</p>
+<p>#需求</p>
 <p>這次選鍵盤的主要需求是</p>
 <ul>
 <li>60%</li>
@@ -85,7 +142,7 @@
 </ul>
 <p>翻找了一下發現YD68是目前最接近我需求的，而且接口是Type-C，不過比較可惜的是藍牙只有3.0（有看到GH60 BLE4.0的），也支援單色背光跟底部有RGB燈，不過這次不打算搭配透光鍵帽所以背光功能就先放一邊了。</p>
 <p>以下是收到的YD68套件，PCB本體、腳墊螺絲、定位版、塑膠外殼、衛星軸、另購的櫻桃軸（青與茶）、電池（我買的時候賣家少寄）。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407627/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_195145_vHDR_On.jpg" alt="YD68零件"></p>
+<h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407627/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_195145_vHDR_On.jpg" alt="YD68零件"></p>
 <p>鍵盤軸體佈局。</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407624/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_212316_vHDR_Auto.jpg" alt="混軸配置"></p>
 <p>記得要先裝衛星軸。</p>
@@ -143,11 +200,11 @@
     <div class="entry">
       
         <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg" alt="Brainwavz B2 Wireless"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前陣子買了Airpods來玩玩，發現Apple的W1晶片真心強大, 連接方便穩定, 延遲非常低(可以看影片的那種), 續航力優秀 <del>不過音質就只能說比Earpods好一點點，然後貴了五倍價格</del>。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前陣子買了Airpods來玩玩，發現Apple的W1晶片真心強大, 連接方便穩定, 延遲非常低(可以看影片的那種), 續航力優秀 <del>不過音質就只能說比Earpods好一點點，然後貴了五倍價格</del>。</p>
 <p>Beats被Apple收購後他們的無線耳機也都使用了W1晶片，聲音也提升了(說好當然CP值也是沒多高，不過至少不是只會發出聲音的髮箍(笑)，之前BTS買電腦時剛好送了Solo 3 Wireless，試聽了一下聲音真是跌破眼鏡 <del>其實是之前太差</del>，靈光一閃想到如果把W1晶片改裝到一般耳機上或許能解決平常市面上大多數藍芽耳機續航&amp;音質&amp;穩定延遲的問題。</p>
 <p>Google了一下相關資料，果然Head-Fi上有人也有這個想法並且實踐成功了，他用的是BeatsX，後來在考慮價格與改裝方便性上的確是BeatsX最適合做入耳式的改造，於是我也去收了個二手的BeatsX。</p>
 <p><strong><em>利申一下我不算是多專業的燒友，以前稍微玩過而已，現在已經少碰。聲音相關感覺因人而異本文章僅提供改裝技術交流</em></strong></p>
-<h3 id="過程紀錄"><a href="#過程紀錄" class="headerlink" title="過程紀錄"></a>過程紀錄</h3><p>首先確認好BeatsX能發出聲音後，從音控後方爽快的剪下去吧！</p>
+<h1 id="過程紀錄"><a href="#過程紀錄" class="headerlink" title="過程紀錄"></a>過程紀錄</h1><p>首先確認好BeatsX能發出聲音後，從音控後方爽快的剪下去吧！</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/a_90/v1538323416/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184454_vHDR_Auto.jpg" alt="感覺好像要斷頭"></p>
 <p><del>破壞東西就式特別的爽</del></p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323418/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184650_vHDR_Auto.jpg" alt="一刀兩斷"></p>
@@ -169,9 +226,9 @@
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg" alt="Brainwavz B2 Wireless!"></p>
 <p>幫朋友改的CM版BeatsX</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538325406/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233933_vHDR_Auto.jpg" alt="CM插針版"></p>
-<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><p>聲音挺不錯的，不過也是不建議給阻抗大或不好推的耳機使用，除了耗電外可能聲音也推不太開。</p>
+<h1 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h1><p>聲音挺不錯的，不過也是不建議給阻抗大或不好推的耳機使用，除了耗電外可能聲音也推不太開。</p>
 <p>有W1晶片，續航延遲都比市面上絕大多數的藍芽耳機好不少，此改造又兼顧了一定的音質，可謂大成功啊！</p>
-<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://www.head-fi.org/threads/apple-beats-x-mod-for-iem.844435/" target="_blank" rel="noopener">Head-Fi - Apple Beats X mod for IEM</a></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.head-fi.org/threads/apple-beats-x-mod-for-iem.844435/" target="_blank" rel="noopener">Head-Fi - Apple Beats X mod for IEM</a></p>
 
       
     </div>
@@ -758,95 +815,18 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-02-21T07:00:42.000Z"><a href="/archives/99fe3657.html">2018-02-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/archives/99fe3657.html">iPad Pro 10.5 簡易開箱+繪圖心得</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>有空先來記錄下年前買的iPad Pro，其實原本是想買New Surface Pro的<br>想說有筆可以直接當繪圖螢幕，然後又是台Windows電腦，開發網頁寫寫code都很方便<br>不過爬文過後發現M$的QC感覺實在有點問題，一個在賭人品的概念(ry<br>實在不想買那麼貴的東西還要賭人品，加上Surface的繪圖功能雖然規格看上去不錯<br>不過看到一些實際畫的影片，在延遲跟準度上都還有待加強的樣子(當然以普通書寫來說相當夠了</p>
-<p>於是，就選了目前平板/筆電繪圖螢幕裡整體評價最高的iPad Pro拉~<br>(開發之類的…到時候在買筆電吧，現在還沒能滿意的整合型產品，考慮MBP或XPS<br>選擇10.5吋也是因為考量到攜帶的關係，多工的確12.9吋的比較爽，但是畫圖我是覺得還好XD</p>
-<p>水果的開箱基本上就是長那樣，很有質感很爽，開箱也都有輔助拉條很方便<br>這裡就簡單放個圖就好</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197176/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180202_221849.jpg" alt="iPad Pro &amp; Apple Pencil"></p>
-<p>然後我發現好像忘了拍裸機了，不過就是一如往常的，金屬的機身很有質感<br><del>當然還有潮到爆炸的LOGO</del><br>由於這玩意實在太貴了，而且又有帶著跑的需求怕會有灰塵刮傷玻璃<br>(想說當成隨身的繪板<del>看能不能逼自己產圖</del><br>所以先幫他找了個家又貼了玻璃貼<br>玻璃貼我是貼iMos的，目前iPad Pro評價最好的玻璃貼好像也就這個選擇<br>不會影響Apple Pencil非常重要RR 有的太厚好像會有抖動的問題<br>原本有考慮霧面增加手感…不過這樣太可惜那Retina螢幕了<br>而且真要手感直接用Intuos Pro比較快XDD(有貼類似紙質的膜)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197233/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195145_vHDR_Auto.jpg" alt="iMos 玻璃貼"></p>
-<p>滿板的玻璃貼，很薄，官方說0.33mm 當然我也沒去量XD<br>不仔細看也看不出有貼，另外也有順便貼上鏡頭跟Home鍵的保護貼</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197247/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195220_vHDR_Auto.jpg" alt="鏡頭特寫"></p>
-<p>跟iPhone7相同的鏡頭，拍起來好但是也沒人會拿著平板到處拍吧XDD<br>掃描文件之類很好用就是</p>
-<p>然後外殼的部分，我翻遍了各種保護殼…要嘛是很醜要嘛太厚重<br>或是沒有Studio Mode(接近平躺那種適合打字畫圖的角度)<br>後來終於找到Speck出品的for 10.5”保護殼<br>好看外也有1.2m防摔(當然我是不會無聊測試的)，重量也比UAG的輕<br>價格1k多NTD，我覺得算挺不錯的<br>原本因為不確定是否能相容滿板玻璃貼，所以特地跑去Studio A看，剛好他們剩下一個10.5吋的XDD</p>
-<p>包裝</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/a_auto_right/v1519197295/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180209_151442_vHDR_Auto.jpg" alt="Speck保護殼包裝"></p>
-<p>正面</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197283/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_160651_vHDR_Auto.jpg" alt="Speck保護殼正面"></p>
-<p>背面</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197262/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_194849_vHDR_Auto.jpg" alt="Speck保護殼反面"></p>
-<p><del>掀開裙子</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197205/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195011_vHDR_Auto.jpg" alt="Speck保護殼開蓋"></p>
-<p>立起來的樣子(有多段卡準可以調整角度)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197237/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195035_vHDR_Auto.jpg" alt="Speck保護殼支架"></p>
-<p>然後這是剛才提到的Studio Mode</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197237/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195107_vHDR_Auto.jpg" alt="Speck保護殼 Studio Mode"></p>
-<p>旁邊還有個小扣子</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197265/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195237_vHDR_Auto.jpg" alt="Speck保護殼側扣"></p>
-<p>再來是那隻神奇的Apple Pencil<br>有人說他很貴但是以壓感筆來說挺正常的價格<br>官方沒給出壓感數據，聽說大概是1024，畫起來是挺夠了XD<br>只是當然比不上Intuos Pro 8192壓感的爽感XDD</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197185/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180209_152201_vHDR_Auto.jpg" alt="Apple Pencil"></p>
-<p>本體跟lightning轉接器+替換筆芯<br>重量拿起來挺舒適的，大概是目前拿過最好拿的電池筆(Wacom基本上都是無電池)<br>筆蓋是磁吸式的，吸力適中應該是不會隨便掉<br>只是充電還要轉接，筆蓋得另外放就要比較小心了，東西都挺小的還會滾</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519201629/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180221_161946_vHDR_Auto.jpg" alt="Apple Pencil Logo"></p>
-<p>然後這筆有個小彩蛋，裡面有特別配重，所以把筆放在桌上時會剛好讓Pencil的字樣朝上<br>雖然只是小細節，不過可以感受的到設計師很用心啊XD</p>
-<p>用轉接器充電</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197214/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180209_152431_vHDR_Auto.jpg" alt="Apple Pencil 轉接器"></p>
-<p><del>長雞雞充電法</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197294/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180206_233307_vHDR_Auto.jpg" alt="Apple Pencil 充電"></p>
-<p>雖然說真的我也想不到其他可以直接連接iPad又好看的充電法<br>可是這樣看起來真的挺蠢<del>糟</del>的</p>
-<p>配對的話就是開個藍芽，<del>扶他</del>一下就可以了，挺方便的<br>之後直接畫就會自動連上了<br>筆如果沒電只要充個15sec就可以畫30分鐘倒是挺不錯，在外面應急才不會太尷尬<br><del>但是這充電法怎麼看就是很尷尬</del></p>
-<p>替換筆芯的部分</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197218/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180209_152604_vHDR_Auto.jpg" alt="Apple Pencil 筆芯"></p>
-<p>先拿MediPaint來試畫一下，感覺很棒，玻璃滑我是覺得還好<br>畢竟平常都在畫板子滑習慣了，如果平時是手繪的朋友可能就要注意一下了<br>貼上玻璃貼比原本的滑一些，看過蠻多人說超不習慣然後又貼回普通保護貼了</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197287/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180205_005002_vHDR_Auto.jpg" alt="試畫"></p>
-<p><del>所以我再畫什麼</del></p>
-<p>試著上點色</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1519197284/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180206_004917_vHDR_Auto.jpg" alt="上色測試"></p>
-<p>真的有種拿著鉛筆的感覺，用Sketches的時候傾斜感應也很明顯，我覺得甚至比Wacom的傾斜手感還好XDD<br>其他詳細的部分我會再多畫一陣子跟多嘗試各種繪圖軟體之後再寫一篇文章</p>
-<p>iPad Pro除了當畫板也可以做些其他輔助的工作，加上iOS的多工功能非常方便<br>要看參考圖也可以邊看邊畫(沒截到圖下次在一起寫心得好了)<br>雖然貴但是真的好用啊<del>推坑中</del>，Pro終於讓人不會單純覺得iPad只是個玩具而已XD<br>看來Apple也算是在生產力的部分往前了一大步了，希望之後會有更多方便的功能<del>只是拜託先把系統做穩R</del></p>
-<p>Thx for watching (〃∀〃)</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
   
-    <a href="/page/2/" class="alignright next">Next</a>
+    <a href="/page/2/" class="alignright next">Nächste Seite</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="Suche">
     <input type="hidden" name="q" value="site:blog.driftkingtw.me">
   </form>
 </div>

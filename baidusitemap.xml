@@ -4,17 +4,13 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/8dfde79b.html</loc>
-    <lastmod>2018-10-03T05:24:24.144Z</lastmod>
+    <loc>https://blog.driftkingtw.me/archives/d7c7ea31.html</loc>
+    <lastmod>2018-10-12T02:55:05.255Z</lastmod>
     <data>
         <display>
-        <title>YD68藍牙機械鍵盤組裝及心得</title>
-        <pubTime>2018-10-03T02:54:05.000Z</pubTime>
+        <title>MacOS強制外接螢幕輸出RGB</title>
+        <pubTime>2018-10-12T01:16:28.000Z</pubTime>
         
-        <tag>Keyboard</tag>
-         
-        <tag>DIY</tag>
-         
          
            
         </display>
@@ -24,7 +20,7 @@
     
   <url>
     <loc>https://blog.driftkingtw.me/archives/5ae59dc6.html</loc>
-    <lastmod>2018-10-03T02:55:34.634Z</lastmod>
+    <lastmod>2018-10-12T01:39:26.680Z</lastmod>
     <data>
         <display>
         <title>Brainwavz B2 BeatsX W1晶片無線改裝</title>
@@ -33,6 +29,25 @@
         <tag>DIY</tag>
          
         <tag>無線耳機</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/8dfde79b.html</loc>
+    <lastmod>2018-10-12T01:39:04.317Z</lastmod>
+    <data>
+        <display>
+        <title>YD68藍牙機械鍵盤組裝及心得</title>
+        <pubTime>2018-10-03T02:54:05.000Z</pubTime>
+        
+        <tag>Keyboard</tag>
+         
+        <tag>DIY</tag>
          
          
            
@@ -54,25 +69,6 @@
         <tag>Laravel</tag>
          
         <tag>Linux</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/2e36326e.html</loc>
-    <lastmod>2018-10-03T01:52:43.657Z</lastmod>
-    <data>
-        <display>
-        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
-        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
-        
-        <tag>Github</tag>
-         
-        <tag>SSL</tag>
          
          
            
@@ -113,6 +109,25 @@
         <tag>Laravel</tag>
          
         <tag>XML</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/2e36326e.html</loc>
+    <lastmod>2018-10-03T01:52:43.657Z</lastmod>
+    <data>
+        <display>
+        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
+        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
+        
+        <tag>Github</tag>
+         
+        <tag>SSL</tag>
          
          
            
