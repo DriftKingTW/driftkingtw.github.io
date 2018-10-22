@@ -140,6 +140,20 @@ server {
 sudo systemctl reload nginx
 ```
 
+### Q6. Bitnami LAMP Stack 更換DocumentRoot目錄？
+
+<strong>Ans：</strong>
+
+更改以下檔案的DocumentRoot，80與443(有SSL的話)。
+
+`YOUR_INSTALLATION_DIRECTORY/apache2/conf/bitnami/bitnami.conf`
+
+重啓Apache
+
+```shell
+sudo /opt/bitnami/ctlscript.sh restart apache
+```
+
 ## 參考資料
 
 [Cloning a private Github repo](https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo)
@@ -151,6 +165,8 @@ sudo systemctl reload nginx
 [How To Deploy a Laravel Application with Nginx on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-laravel-application-with-nginx-on-ubuntu-16-04)
 
 [How to install PHP (7 or 7.2) on Ubuntu](https://thishosting.rocks/install-php-on-ubuntu/)
+
+[Changes to Apache httpd.conf not applying on WAMP stack](https://community.bitnami.com/t/changes-to-apache-httpd-conf-not-applying-on-wamp-stack/26224)
 
 ---
 
