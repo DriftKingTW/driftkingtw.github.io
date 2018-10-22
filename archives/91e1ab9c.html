@@ -108,11 +108,17 @@
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?<span class="variable">$query_string</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>重整Nginx服務</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
+<h3 id="Q6-Bitnami-LAMP-Stack-更換DocumentRoot目錄？"><a href="#Q6-Bitnami-LAMP-Stack-更換DocumentRoot目錄？" class="headerlink" title="Q6. Bitnami LAMP Stack 更換DocumentRoot目錄？"></a>Q6. Bitnami LAMP Stack 更換DocumentRoot目錄？</h3><p><strong>Ans：</strong></p>
+<p>更改以下檔案的DocumentRoot，80與443(有SSL的話)。</p>
+<p><code>YOUR_INSTALLATION_DIRECTORY/apache2/conf/bitnami/bitnami.conf</code></p>
+<p>重啓Apache</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /opt/bitnami/ctlscript.sh restart apache</span><br></pre></td></tr></table></figure>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo" target="_blank" rel="noopener">Cloning a private Github repo</a></p>
 <p><a href="https://laracasts.com/discuss/channels/general-discussion/laravel-framework-file-permission-security" target="_blank" rel="noopener">Laravel framework file permission - Security</a></p>
 <p><a href="https://www.youtube.com/watch?v=7CatEn5IAlo" target="_blank" rel="noopener">Laravel 5.4 problem - Wrong Route (Not Found) on Ubuntu 16.04</a></p>
 <p><a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-laravel-application-with-nginx-on-ubuntu-16-04" target="_blank" rel="noopener">How To Deploy a Laravel Application with Nginx on Ubuntu 16.04</a></p>
 <p><a href="https://thishosting.rocks/install-php-on-ubuntu/" target="_blank" rel="noopener">How to install PHP (7 or 7.2) on Ubuntu</a></p>
+<p><a href="https://community.bitnami.com/t/changes-to-apache-httpd-conf-not-applying-on-wamp-stack/26224" target="_blank" rel="noopener">Changes to Apache httpd.conf not applying on WAMP stack</a></p>
 <hr>
 <p>日後遇到其他問題會再持續更新</p>
 
