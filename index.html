@@ -1,0 +1,749 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DriftKingTW&#39;s Blog</title>
+  <meta name="author" content="DriftKingTW">
+  
+  <meta name="description" content="printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="DriftKingTW&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">DriftKingTW&#39;s Blog</a></h1>
+  <h2><a href="/">printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-12-01T16:20:52.000Z"><a href="/archives/ba06666d.html">2018-12-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/ba06666d.html">利用Applescript快速切換TrueTone</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2018 Macbook Pro終於可以使用原先發佈在iPad Pro的True Tone功能，讓螢幕偵測周圍的光線來改變螢幕顏色，使用上相當舒服。<br>不過如果要使用影像處理或繪圖等對顏色準確度有需求的工作時就得把它暫時關掉才不會影響，然而每次都要進入設定調整也是挺麻煩的，不如利用Applescript爲我們代勞。</p>
+<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p><a href="https://github.com/DriftKingTW/True-Tone-Toggler" target="_blank" rel="noopener">Github - Ture Tone Toggler</a></p>
+<p>目前還找不到如何透過command line設定True Tone，所以用Applescript控制設定，可以把它跟BetterTouchTool結合，利用快捷鍵或Touchbar之類快速開關True Tone功能。</p>
+<p>此程式碼修改自<a href="https://www.reddit.com/r/applescript/comments/9a5gej/has_anyone_figured_out_how_to_return_the/" target="_blank" rel="noopener">Reddit上的一篇討論</a>，我加上判斷以及提示的功能，讓使用者可以明確知道現在操作是開啓或關閉True Tone。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"System Preferences"</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">it</span> <span class="keyword">is</span> <span class="built_in">running</span> <span class="keyword">then</span></span><br><span class="line">		</span><br><span class="line">		quit</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">delay</span> <span class="number">0.2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">activate</span> <span class="built_in">application</span> <span class="string">"System Preferences"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"System Events"</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">tell</span> process <span class="string">"System Preferences"</span></span><br><span class="line">		</span><br><span class="line">		click button <span class="string">"Displays"</span> <span class="keyword">of</span> scroll area <span class="number">1</span> <span class="keyword">of</span> window <span class="string">"System Preferences"</span></span><br><span class="line">		</span><br><span class="line">		<span class="built_in">delay</span> <span class="number">0.2</span></span><br><span class="line">		</span><br><span class="line">		click radio button <span class="string">"Display"</span> <span class="keyword">of</span> <span class="literal">tab</span> group <span class="number">1</span> <span class="keyword">of</span> window <span class="string">"Built-in Retina Display"</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">set</span> TrueToneCheckbox <span class="keyword">to</span> checkbox <span class="string">"True Tone"</span> <span class="keyword">of</span> <span class="literal">tab</span> group <span class="number">1</span> <span class="keyword">of</span> window <span class="string">"Built-in Retina Display"</span></span><br><span class="line">		</span><br><span class="line">		click TrueToneCheckbox</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">set</span> TrueToneState <span class="keyword">to</span> <span class="string">"ON"</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">tell</span> TrueToneCheckbox</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">not</span> (<span class="keyword">its</span> value <span class="keyword">as</span> <span class="built_in">boolean</span>) <span class="keyword">then</span> <span class="keyword">set</span> TrueToneState <span class="keyword">to</span> <span class="string">"OFF"</span></span><br><span class="line">			</span><br><span class="line">		<span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line">		</span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line">	</span><br><span class="line">	quit <span class="built_in">application</span> <span class="string">"System Preferences"</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line"></span><br><span class="line">display notification <span class="string">"True Tone "</span> &amp; TrueToneState <span class="keyword">with</span> title <span class="string">"True Tone Script"</span> sound <span class="built_in">name</span> <span class="string">"Submarine"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">delay</span> <span class="number">0.8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">say</span> <span class="string">"True Tone has been turned  "</span> &amp; TrueToneState</span><br></pre></td></tr></table></figure>
+<p>有需要自定義通知的部分可以修改 <code>display notification</code> 的部分，不想要語音提示可以註解掉 <code>say</code> 那行。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.reddit.com/r/applescript/comments/9a5gej/has_anyone_figured_out_how_to_return_the/" target="_blank" rel="noopener">Reddit: Has anyone figured out how to return the true/false status for True Tone with AppleScript</a></p>
+<p><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html#//apple_ref/doc/uid/TP40016239-CH61-SW1" target="_blank" rel="noopener">Displaying Notifications</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-05T08:38:27.000Z"><a href="/archives/d0fa2398.html">2018-11-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/d0fa2398.html">Delux Designer 單手機械鍵盤使用心得</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541408932/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/P_20181105_164633_vHDR_Auto.jpg" alt="Delux Designer單手鍵盤"></p>
+<p>個人平常電繪認爲最不可或缺的就是快捷鍵，可以在各種工具間快速切換也是電繪能夠大幅提升效率的原因之一。不過因爲繪圖板有一定大小，加上鍵盤螢幕桌面空間不夠大的可能會不好調整，尤其用繪圖螢幕的更難舒適的擺放鍵盤，所以很多人會希望有個小的單手鍵盤可以在狹小的空間也能輕鬆的按快捷鍵來提升工作效率。</p>
+<h1 id="Designer-單手機械鍵盤"><a href="#Designer-單手機械鍵盤" class="headerlink" title="Designer 單手機械鍵盤"></a>Designer 單手機械鍵盤</h1><p>目前市面上最多人用的單手鍵盤應該是某蛇的單手遊戲鍵盤，不過我覺得價格有點高加上有點醜，雖然是比較符合人體工學，但還是想找個便宜又好看的玩玩。之後在社群網站上發現了今天的主角「 Delux Designer 」單手鍵盤的廣告，後來在Kickstarter上集資我就衝去Back一個，記得Super Early Bird價格約60USD的樣子，相對於其他單手鍵盤算是便宜了不少，外觀也不錯（當然某寶上也有不少便宜的單手鍵盤，不過就方方正正的一堆按鍵不是很喜歡）。這邊附上KS募資頁面裡面也有產品介紹：<a href="https://www.kickstarter.com/projects/1594516409/delux-designer-the-perfect-assistant-for-designers" target="_blank" rel="noopener">Delux Designer - The Perfect Assistant for Designers</a></p>
+<h1 id="辛苦的群募過程"><a href="#辛苦的群募過程" class="headerlink" title="辛苦的群募過程"></a>辛苦的群募過程</h1><p>一開始感覺挺順利，24H內就募得所需的資金，然而原本預計7月能拿到，卻硬生生的拖了一陣子。我的贊助編號是個位數的，卻等到8月初才拿到，想想就算了反正募資有風險，如果不是詐騙那晚一點還是能夠接受。但是拿到後才是麻煩的開始……</p>
+<p>當我興奮的打開包裝才發現原本問卷選的黑灰色版本，居然成了白色（包裝外註解還寫着BLACK），不得不說是看到有深色可選才決定下單試水溫的，這下要處理國際運算又很麻煩，沒想到的是看了看討論區居然許多人遇到跟我一樣的錯色問題，而且留言還被募資者無視（ry</p>
+<p>再過了一個月後，看著許多人顏色收錯就算了，居然很多人都還沒收到，回應也相當緩慢，甚至我都拿到東西隔了很久才收到寄件編號，徹底無語。就在準備放棄之時他們終於回了Mail，表示因爲是初次群募所以處理的不是很好（可是他們介紹自己是創立逾十年的公司了？），希望收錯顏色的能夠理解看能不能接受不同的顏色，寄錯顏色又被放了鴿子一個月才回覆當然受不了，表示希望還是想要深色版本，橋了橋才終於讓對方寄正確的顏色過來，算是告了個段落（雖然我看討論區還有人沒收到……）</p>
+<h1 id="外觀"><a href="#外觀" class="headerlink" title="外觀"></a>外觀</h1><p>聽了上面的碎碎唸，現在來看看產品本身吧。</p>
+<p>簡單拍個包裝以及內容物：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541409137/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/P_20181105_165552_vHDR_Auto.jpg" alt="外包裝（黑白包裝外盒皆印刷白色產品）"></p>
+<p>內容物有：Designer鍵盤本體、USB-C編織網傳輸線、說明書、募資達$100,000(HKD？)目標的收納袋</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541408925/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/P_20181105_164603_vHDR_Auto.jpg" alt="內容物"></p>
+<p>目前階段只有一種軸體可選：凱華巧克力白軸，之前沒碰過這種Low Profile軸，打起來還不錯，類似青軸，有段落，但也是挺吵的，如果想要安靜使用可能不適合（咖啡廳之類，絕壁會被白眼XD），除非之後有其他軸體可選。目前我還不敢拆來看，理論上能拆是能換軸就是。</p>
+<p>鍵帽的部分也是意外的不錯，我原本以爲是廉價ABS感，結果摸起來是霧面但很滑順也挺有質感的，不過用久了會不會打油之類可能要過陣子才能知道了。</p>
+<p>背光只有白光，發光模式目前有三種：全亮、呼吸、點擊發光，用Fn+Mode鍵切換，Fn+Esc可以關閉背光，轉盤部分只能常亮或關閉，角度小一點看其實轉盤挺刺眼的……希望之後的更新能夠調整亮度。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541423128/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/P_20181105_210449_vHDR_Auto.jpg" alt="鍵帽"></p>
+<p>本體的做工還算不錯，這價格用鋁製機身已經不錯了，雖然我原本以爲鋁材表面打磨的會更細膩些。側邊是塑膠圍繞，邊上鑲着銀邊挺有水果風（類似iPad那種），白色的邊緣摸起來有種滑順的觸感，黑色就是普通的霧面塑膠，底部也有六個防滑腳墊。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541408936/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/P_20181105_164650_vHDR_Auto.jpg" alt="底部"></p>
+<p>對於線材不是隨便給條看起來廉價的塑膠線這點我是挺驚訝的，不過我自己喜歡用L插所以還是換成自己的USB線。</p>
+<p>搭個Macbook很適合，尤其在沒辦法放整把鍵盤的地方這東西簡直是蝶式鍵盤救星！（看那閃瞎的轉盤……）</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541408928/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/P_20181105_164901_vHDR_Auto.jpg" alt="MBP+Designer"></p>
+<p>目前只有設計給右撇子用的，如果左手拿筆可能得在等等看之後會不會出了。</p>
+<h1 id="使用心得"><a href="#使用心得" class="headerlink" title="使用心得"></a>使用心得</h1><p>手感使用上其實比較適合手小的，手大點放不到掌托，而且因爲鍵帽幾乎是平的又比較緊密，手感一定沒有傳統高度機械鍵盤按起來舒服，爲了輕薄好攜帶還是得犧牲點東西。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541425568/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/P_20181105_214333_vHDR_Auto.jpg" alt="實際使用上手掌懸空"></p>
+<p>鍵區Layout部分（參考設定圖），上方是模式控制區：Num（數字區）、M1～M3（模式1～3）<br>下方除了修飾鍵（Modifer）外都能自定義，支援巨集設定（Macro），然而這部分就出現了個問題，在MacOS下沒辦法使用Command鍵……這點就神奇了，他們的目標客群是創作者跟設計師，相關人士使用MacOS的不少，然而這設定讓這鍵盤在MacOS下幾乎沒法用，而且也無法像Windows上那樣修改設定（有不少人提及此問題，目前是說下一版本驅動會改善），然後Windows上驅動有時也會出現Bug，不過至少算是堪用。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541424457/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/Image_791.png" alt="驅動設定"></p>
+<p>雖然有問題但是MacOS目前有個方法能使用，由於修改鍵位比Windows方便不少，所以可以參考下圖改變該鍵盤的Modifer位置就可以暫時撐著用：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541425157/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/.Screen_Shot_2018-11-05_at_9.39.10_PM.png" alt="MacOS改鍵位"></p>
+<p>然後驅動無法設定可能就要去Windows設定鍵位以及巨集了（ry</p>
+<p>轉盤部分無法自定義是硬傷，也是許多贊助者詬病之處，目前只能長按轉盤中間按鈕叫出下圖的選項來選擇預設的幾種功能（同樣說下版本驅動會提供自定義轉盤功能）。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541424877/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/Image_792.png" alt="轉盤設定"></p>
+<p>還有看不少人討論目前不支援4k解析，也得等更新了。</p>
+<p>其他基本功能上是沒什麼大問題，也不會有延遲的情況，若上述問題能改善其實整體算是相當不錯的單手鍵盤，而且能夠接上iPad使用沒問題呢！（iOS11、12皆可）雖然要買轉USB，但這樣用CSP時終於不用另外在找藍牙鍵盤囉XD而且新的iPad Pro換成USB-C應該更方便了，跟我一樣離不開快捷鍵的同學們可以考慮看看這種方式。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541426172/blog/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/P_20181105_215155_vHDR_Auto.jpg" alt="完美支援iOS"></p>
+<p>之後在考慮看看要不要自幹改藍牙好了，不然iPad轉接也是不太理想。</p>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>Designer的想法不錯，不過執行力欠佳，驅動草率尤其MacOS部分，但若修正上述軟體跟自定義問題，我覺得這價格算是挺值得一試的。硬體還有些許改善空間，轉盤感覺穩定度跟轉動的手感可以更好，若是未來能加入藍牙功能那操作自由度會更高更方便。某蛇的單手鍵盤，如果預算夠、需要長時間使用、沒有攜帶需求，還是可以的，反之可以考慮Designer這種。</p>
+<p>至於單手鍵盤用一用的心得，很適合用繪圖螢幕的人使用節省桌面空間，或是鍵盤跟繪圖板位置不好擺放的使用者。當然這種可自定也支援各種軟體，利用巨集做workflow，只要你能按快捷鍵的軟體都行，畢竟說到底還是個鍵盤，要拿來畫2D3D、玩遊戲之類能想到都行（雖然我覺得這東西拿來玩遊戲根本：要玩去買某蛇吧），雖然官方說用這個能提升80%生產力我是不信啦XD大概有個40~60%左右就很好了。</p>
+<p>至於募資的部分，這次募資的售後方面實在感受不好回應又慢，雖然都算客氣，但下次如果要贊助他們家的商品可能就要多多考慮了吧。</p>
+<p>感謝觀看！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-02T13:11:33.000Z"><a href="/archives/f6f885e.html">2018-11-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/f6f885e.html">Google Pixel USB-C Earbuds 耳機開箱</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541164543/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_203946_vHDR_Auto.jpg" alt="Google Pixel Earbuds"></p>
+<p>前陣子Google發表會發佈了Pixel 3的消息，這次臺灣也在上市清單中，雖然買不起不過上Google Store晃了下發現這次手機附的Pixel USB-C耳機也有單獨販賣，售價NT990跟Apple的Earpods差不多，身爲G粉雖然買不起手機（還有XL的瀏海好醜我實在太失望了）但是這還是能充值一下信仰的！二話不說就跟朋友一起下訂，但是送貨過程坎坷，一下是延期出貨一下是卡海關，硬是等了兩個多禮拜才終於收到(ry</p>
+<h1 id="開箱"><a href="#開箱" class="headerlink" title="開箱"></a>開箱</h1><p>簡單拍一下包裝：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/a_auto_right/v1541164543/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_200453_vHDR_Auto.jpg" alt="正面"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/a_auto_right/v1541164543/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_200459_vHDR_Auto.jpg" alt="背面"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541165531/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_200520_vHDR_Auto.jpg" alt="側面"></p>
+<p>順帶一提，這防僞標籤找個角度就會出現Google的經典配色，很有趣。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541164544/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_210647_vHDR_Auto.jpg" alt="防僞標籤"></p>
+<p>拆箱！</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541164543/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_203946_vHDR_Auto.jpg" alt="開箱"></p>
+<p>接着把上蓋提起，下面是一些安全跟保固說明小冊子，說明書在裝耳機的蓋子上。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541164547/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_204003_vHDR_Auto.jpg" alt="包裝一覽"></p>
+<p>本體，耳機的部分除了最外面圓形那片蓋子是霧面的大部分是亮面，上方有G字樣Logo，不過不仔細看不清楚就是了，耳殼外觀其實挺像Apple的設計。</p>
+<p>BTW上面耳機線套了透明軟管繞個小圈可以調整大小，符合各種耳型。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541164547/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_204205_vHDR_Auto.jpg" alt="本體"></p>
+<p>佩戴方面相當的輕，比Airpods戴起來更無感，很舒服，甩動跑跳也不容易掉落！線材部分比我想象中細了點，大概跟Earpods差不多吧，不知道用久會不會發黃。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541164545/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_204226_vHDR_Auto.jpg" alt="線控&amp;Type-C"></p>
+<p>線控部分一面是亮面，按鈕側是霧面，中間除了接聽電話跟播放暫停音樂外，長按可以呼叫Google Assistant，但我覺得中間按鈕設計不是很好，太小容易按到音量控制，一開始測試的時候不小心按到增加音量差點被嚇到XD。</p>
+<p>雖然官方網頁上寫著搭配Pixel才能發揮最大功能，但是我接在Asus Zenfone 4 Pro上也沒有任何問題，GA呼叫也OK。<del>所以看來搭配Pixel什麼的果然只是話術</del></p>
+<p>按理說只要有Type-C音訊輸出的裝置都能用，所以我順便裝上MBP試試，功能也完全支援！呼叫Siri也沒問題，而且甚至比Airpods好，我用Airpods在MBP上叫Siri是聽不到Siri說話的，要從螢幕看，但Pixel Earuds就可以直接聽到Siri與其對話。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541167025/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_215526_vHDR_Auto.jpg" alt="Macbook + Pixel耳機"></p>
+<p>另外在iPad上用Airpods呼叫Siri時雖然聽的到Siri說話，但聽起來會變成單聲道而且音質變差，Pixel Earuds叫Siri聽起來很正常（接Macbook Pro）不知道是不是有線耳機的關係。還有一點：Airpods在切換音樂跟語音助理的過程是很僵硬的停掉音樂，Pixel Earuds卻有FadeIn、FadOut的效果，跟在Android上叫Google Assistant體驗一樣好，小細節聽起來舒服多了。</p>
+<p>說完優點也該說說缺點了：音質不怎麼樣，Airpods的音質普普差不多1k左右的價位，Pixel Earbuds聽起來更差，低頻下潛、高頻跟人聲等幾乎全輸Airpods，對一般人聽起來可能還行或普普就是，但CP值相比之下確實不高，當然也有可能是因爲初開聲還沒RunIn的關係，不過在意音質的朋友基本上不用考慮了。</p>
+<p><del>雖然早料到音質不怎麼樣，但畢竟爲了細信仰嘛沒什麼大不了能不能聽其次有Logo最重要</del>。</p>
+<p>最後來張跟Airpods的合照，作爲一個NT990的Google線控Type-C耳機我覺得還是可以考慮的，雖然我沒用過其他的Type-C耳機，<del>不過不用說”Hey Google”就能直接呼叫GA真的挺方便的，不用像Airpods敲了還要”Hey Siri”才會理你，在外面尷尬度破錶</del>（後來發現都是按鍵或敲擊就有了，不用另外呼叫），可惜以音質來說的確是不怎麼突出就是。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1541164547/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_205457_vHDR_Auto.jpg" alt="Airpods w/ Pixel Earbuds"></p>
+<p>結論：有需要Type-C耳機或呼叫GA功能、而且對音質沒那麼要求的朋友可以考慮看看Pixel Earbuds，<del>還有Google信仰者不收說不過去啊</del>，價格適中，音質殘念（BTW耳塞式基本上不用考慮隔音了，有降噪需求的也可以跳過），防水部分沒測試不過我覺得戴着運動基本上也蠻適合的！</p>
+<p>有興趣的可以自行去Google Store看看，感謝觀看！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-10-26T01:16:36.000Z"><a href="/archives/cc83b42a.html">2018-10-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/cc83b42a.html">利用BetterTouchTool在Touchbar上顯示CPU溫度</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><ol>
+<li>下載 <a href="https://github.com/lavoiesl/osx-cpu-temp" target="_blank" rel="noopener">osx-cpu-temp</a> 。</li>
+<li>進入下載的資料夾後執行 <code>sudo make install</code> 安裝。</li>
+<li>在 BetterTouchTool 裡新增 Widget/Gesture，選擇 ‘Run Shell Script and Show Return Value’。</li>
+<li>雙擊打開進階設定，更改 LaunchPath <code>/usr/local/bin/osx-cpu-temp</code> ，下方可以調整更新間隔（預設5秒）。</li>
+<li>選擇要不要新增icon跟其他外觀設定，完成！</li>
+</ol>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1540517774/blog/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/Touch_Bar_Shot_2018-10-26_at_9.34.17_AM.png" alt="Touchbar顯示CPU溫度"></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://community.folivora.ai/t/display-cpu-temp/1082" target="_blank" rel="noopener">Display CPU Temp</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-10-12T09:51:04.000Z"><a href="/archives/c3ffdb1b.html">2018-10-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/c3ffdb1b.html">Macbook Pro 2018 Color Banding 問題</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在測試螢幕RGB設定時順便測試了一下MBP2018的螢幕效能（一開始來只有看有無亮暗點），發現了在Gradient測試下居然出現了明顯的Banding現象…如下圖。</p>
+<h1 id="Gradient-Test"><a href="#Gradient-Test" class="headerlink" title="Gradient Test"></a>Gradient Test</h1><p><strong>都有在瀏覽器跟Photoshop內做測試，MacOS部分有另外在Safari測試</strong></p>
+<p><strong>測試時皆爲最大亮度</strong></p>
+<p>自己的MBP2018 13”預設色彩設定檔<br>測試值RGB(0,0,0)-&gt;RGB(100,100,100)</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338402/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160038_vHDR_Auto.jpg" alt="Macbook Pro 2018"></p>
+<hr>
+<ul>
+<li>朋友的MBP2018 13”預設色彩設定檔<br>測試值RGB(0,0,0)-&gt;RGB(100,100,100)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338685/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/43787909_254069108589932_8509140437481553920_n.jpg" alt="朋友的MBP2018 13&quot;"></p>
+<hr>
+<ul>
+<li>借來的MBP2017 15”預設色彩設定檔<br>測試值RGB(0,0,0)-&gt;RGB(100,100,100)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338685/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/43788171_276891582933239_8832958624885112832_n.jpg" alt="朋友借來的MBP2017 15&quot;"></p>
+<hr>
+<ul>
+<li>工作螢幕EIZO EV2450，接MacOS 強制sRGB色彩設定檔（非YCbCr）<br>測試值RGB(0,0,0)-&gt;RGB(100,100,100)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160311_vHDR_Auto.jpg" alt="EIZO EV2450"></p>
+<hr>
+<ul>
+<li>副螢幕DELL P2214H，接Windows10 預設sRGB色彩設定檔<br>測試值RGB(0,0,0)-&gt;RGB(255,255,255)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_175652_vHDR_Auto_HP.jpg" alt="Dell P2214H"></p>
+<hr>
+<ul>
+<li>iPad Pro 2017 10.5”<br>測試值RGB(0,0,0)-&gt;RGB(255,255,255)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_175612_vHDR_Auto_HP.jpg" alt="iPad Pro 2017 10.5&quot;"></p>
+<hr>
+<p>另外上面兩台18年MBP查詢發現應該都是三星的面板，不確定供應商是否影響，有待確認。</p>
+<p>查詢面板方法(Pro Retina)： <code>ioreg -lw0 | grep -i &quot;DisplayVendorID&quot;</code></p>
+<p>Mojave若遇到錯誤可以安裝XCode開發工具解決 <code>xcode-select --install</code></p>
+<ul>
+<li>Samsung ID：1552</li>
+<li>LG ID：7789</li>
+</ul>
+<p>以上結果可以看出現Color Banding應該也不是個案，而且iPad螢幕雖然開到最亮也會有稍微的Banding情況，但都沒有MBP嚴重，雖然平時外接不影響但是這價格的筆電螢幕出現這種問題還是令人不太舒服啊……上網找都是2010左右的討論，後來好像都沒聽說有人提起(ry</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="http://www.lagom.nl/lcd-test/gradient.php#gradient-h.png" target="_blank" rel="noopener">測試網站 The Lagom LCD monitor test</a></p>
+<p><a href="https://dotblogs.com.tw/aquarius6913/2014/01/25/142159" target="_blank" rel="noopener">檢查MacBook的LCD面板製造廠商（包含Air &amp; Pro Retina）</a></p>
+<p><a href="https://apple.stackexchange.com/questions/254380/macos-mojave-invalid-active-developer-path" target="_blank" rel="noopener">macOS Mojave: invalid active developer path</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-10-12T01:16:28.000Z"><a href="/archives/d7c7ea31.html">2018-10-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/d7c7ea31.html">MacOS強制外接螢幕輸出RGB</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前發現Mac外接螢幕的灰階有點奇怪，感覺反而沒在Windows上順暢，於是Google了一下發現原來MacOS用HDMI接非Apple官方認可的螢幕時會當成電視用YCbCr輸出而不是RGB，所以會造成顯示器顏色上出現問題或是字體渲染不清的情況。<del>人性化的系統</del></p>
+<p>一開始想說Retina用的字體到1080p上會比較糢糊是正常的就沒特別注意到，顏色部分因爲我的螢幕（EIZO EV2450）也有支援YCbCr 4:4:4輸入又開著TrueTone，所以平常也沒特別看出有問題。既然是電腦螢幕那還是乖乖修改成RGB輸出吧嗯！</p>
+<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p>下圖是初始的顏色設定：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539307427/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.45_PM.png" alt="顏色設定"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539307702/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.58_PM.png" alt="初始狀態"></p>
+<p>在做之前我們需要先關閉 MacOS 的 Rootless 功能（如果會用 <code>sudo</code> 也可以不關，直接往下的步驟）</p>
+<p>關閉 MacOS 後，按住 <code>CMD+R</code> 開機，上方Utilities選單找到Terminal開啓，輸入 <code>csrutil disable</code> ，在重新開機就可以了，做完步驟後可以再用一樣的方法開啓（改成輸入 <code>csrutil enable</code> ）。</p>
+<ol>
+<li><p>首先下載 <a href="https://gist.github.com/adaugherity/7435890" target="_blank" rel="noopener">Edid-Patch</a></p>
+</li>
+<li><p>確定外接螢幕接上 Mac</p>
+</li>
+<li><p>打開Terminal，進入下載 <code>edid-patch</code> 的資料夾（不會的可以直接放在家目錄），然後執行 <code>ruby patch-edid.rb</code> 。</p>
+</li>
+<li><p>然後會在同目錄下產生一個資料夾 <code>DisplayVenderID-xxx</code> ， 打開Finder按 <code>Cmd+Shift+G</code> 前往目錄 <code>/System/Library/Displays/Contents/Resources/Overrides</code>，把剛才產生的資料夾放進去。<br>(沒有關閉Rootless的話可以用 <code>sudo cp</code> 移動資料夾)</p>
+</li>
+<li><p>重開機，看一下顏色設定確認強制RGB後就完成了！（有關Rootless記得開回來）</p>
+</li>
+</ol>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1539307715/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_9.38.03_PM.png" alt="強制RGB輸出"></p>
+<p>P.S. 我的EV2450強制RGB後發現對比很奇怪，後來螢幕上的設定看了一下原來Range Extension預設Auto，設定成關閉後，螢幕就正常了！</p>
+<p>經過強制RGB後灰階也正常囉。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://gist.github.com/adaugherity/7435890" target="_blank" rel="noopener">Github - adaugherity/patch-edid.rb</a></p>
+<p><a href="https://www.mathewinkson.com/2013/03/force-rgb-mode-in-mac-os-x-to-fix-the-picture-quality-of-an-external-monitor" target="_blank" rel="noopener">Force RGB mode in Mac OS X to fix the picture quality of an external monitor</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-10-03T02:54:05.000Z"><a href="/archives/8dfde79b.html">2018-10-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/8dfde79b.html">YD68藍牙機械鍵盤組裝及心得</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407629/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_234714_vHDR_Auto.jpg" alt="YD68 Dolch"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近想找一把60%的機械鍵盤來換掉之前的Ducky One RGB，當然Ducky One還是一把不錯的鍵盤，主要考慮到想弄個Mac/Win通用配置的，以及我桌子上東西有點多（繪圖板跟筆電）60%可以省下桌面不少空間。</p>
+<p>#需求</p>
+<p>這次選鍵盤的主要需求是</p>
+<ul>
+<li>60%</li>
+<li>藍牙雙模</li>
+<li>可自定鍵位</li>
+<li>需要有正常配置的方向鍵（Win下需要，之前用過Shift當up的很不習慣）</li>
+<li>希望除了60%能有多幾個按鍵，繪圖時Del之類可以不用組合鍵就能完成</li>
+</ul>
+<p>翻找了一下發現YD68是目前最接近我需求的，而且接口是Type-C，不過比較可惜的是藍牙只有3.0（有看到GH60 BLE4.0的），也支援單色背光跟底部有RGB燈，不過這次不打算搭配透光鍵帽所以背光功能就先放一邊了。</p>
+<p>以下是收到的YD68套件，PCB本體、腳墊螺絲、定位版、塑膠外殼、衛星軸、另購的櫻桃軸（青與茶）、電池（我買的時候賣家少寄）。</p>
+<h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407627/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_195145_vHDR_On.jpg" alt="YD68零件"></p>
+<p>鍵盤軸體佈局。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407624/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_212316_vHDR_Auto.jpg" alt="混軸配置"></p>
+<p>記得要先裝衛星軸。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407634/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_224326_vHDR_Auto.jpg" alt="平衡軸"></p>
+<p>PCB背面，把軸體焊上。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407623/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_220021_vHDR_Auto.jpg" alt="焊接"></p>
+<p>接下來準備加上電池。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538543857/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_124601_vHDR_Auto.jpg" alt="鋰電池"></p>
+<p>要先把塑膠殼的加強筋剪掉一部分，先量好長度，剪下去之後再直接推斷即可。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538543856/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_124824_vHDR_Auto.jpg" alt="剪裁電池所需空間"></p>
+<p>最後在旁邊加上緩衝，將電池黏上。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538543857/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_125641_vHDR_Auto.jpg" alt="固定電池及緩衝"></p>
+<p>上鍵帽！完成！</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407629/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_234714_vHDR_Auto.jpg" alt="完成"></p>
+<p>這次用的是KBDfans買的Dolch配色PBT鍵帽（OEM高度），市面上看到的好像大部分Dolch都是原廠高度，比較喜歡OEM，覺得原廠高度太平了。不過感覺這個ESC字體顏色可以再深一點更好，還有Shift的圖案感覺跟字體有些不搭。</p>
+<p>因爲是要給Mac用的，所以順便買了Mac的增補鍵，（補充下YD68的一些規格可以跟TADA68規格共用），也是除了字體不太統一（我說怎麽連Opt跟Cmd都能不太一樣XDD），其他基本上都不錯。</p>
+<p>刷鍵位的線上工具在這裡 <a href="http://ydkb.io/" target="_blank" rel="noopener">http://ydkb.io/</a> ，網站上也有教學就不細說了。目前RGB LED的顏色控制我自己試不太出來，不確定是Bug或是我操作太差，有後續心得再回來補充。</p>
+<p>藍牙部分連接穩定度與雙模切換速度都還不錯，不過有少數時候會稍微明顯一些的Lag不確定是我這邊干擾多的原因還是怎樣，可能還要多測試才能確定。</p>
+<p>關於在Win跟Mac之間切換，我建議鍵盤直接按照Win的設定，然後到Mac內對調Cmd與Opt的位置，這麼做的原因是因爲改Mac鍵位會比Win上要來的簡單很多。</p>
+<p>（另外我也順便把Ctrl跟Caps Lock對調了，類似HHKB配置）</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538485581/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/Screen_Shot_2018-10-02_at_9.04.23_PM.png" alt="MacOS鍵位設定"></p>
+<p>同場加映鍵盤包！感謝觀看！</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538407632/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180930_001809_vHDR_Auto.jpg" alt="同場加映鍵盤包"></p>
+<p><em>目前遇到了點小問題，不確定是個案或是PCB設計問題，R1那排有機率發生連點，原因還在調查中，想入坑的可以多考慮一下（國外跟對岸都沒看到有相關案例）</em></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-09-30T15:57:33.000Z"><a href="/archives/5ae59dc6.html">2018-09-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/5ae59dc6.html">Brainwavz B2 BeatsX W1晶片無線改裝</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg" alt="Brainwavz B2 Wireless"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前陣子買了Airpods來玩玩，發現Apple的W1晶片真心強大, 連接方便穩定, 延遲非常低(可以看影片的那種), 續航力優秀 <del>不過音質就只能說比Earpods好一點點，然後貴了五倍價格</del>。</p>
+<p>Beats被Apple收購後他們的無線耳機也都使用了W1晶片，聲音也提升了(說好當然CP值也是沒多高，不過至少不是只會發出聲音的髮箍(笑)，之前BTS買電腦時剛好送了Solo 3 Wireless，試聽了一下聲音真是跌破眼鏡 <del>其實是之前太差</del>，靈光一閃想到如果把W1晶片改裝到一般耳機上或許能解決平常市面上大多數藍芽耳機續航&amp;音質&amp;穩定延遲的問題。</p>
+<p>Google了一下相關資料，果然Head-Fi上有人也有這個想法並且實踐成功了，他用的是BeatsX，後來在考慮價格與改裝方便性上的確是BeatsX最適合做入耳式的改造，於是我也去收了個二手的BeatsX。</p>
+<p><strong><em>利申一下我不算是多專業的燒友，以前稍微玩過而已，現在已經少碰。聲音相關感覺因人而異本文章僅提供改裝技術交流</em></strong></p>
+<h1 id="過程紀錄"><a href="#過程紀錄" class="headerlink" title="過程紀錄"></a>過程紀錄</h1><p>首先確認好BeatsX能發出聲音後，從音控後方爽快的剪下去吧！</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/a_90/v1538323416/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184454_vHDR_Auto.jpg" alt="感覺好像要斷頭"></p>
+<p><del>破壞東西就式特別的爽</del></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323418/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184650_vHDR_Auto.jpg" alt="一刀兩斷"></p>
+<p>這次要變成無線的是伴我多年的Brainwavz B2(不知道的童鞋，這隻聲音跟DBA-02一樣，同一家代工廠)。</p>
+<p>很久以前因為線材掛了所以我把它做成可換線式的(MMCX接口)，想法很簡單，BeatsX的W1晶片與線控區後面先接上CM插座-&gt;自製CM公 to MMCX公線材-&gt;B2單體(MMCX母)，有人可能想問為何中間要多一段CM，主要是希望以後能夠做擴充(CMtoCM)這樣兩種都能使用，至於稍微影響的音質，藍芽耳機要求的是方便不是嗎lol?</p>
+<p>剪開麵條線材後發現裡面有五條漆包線+兩條強化抗拉線材在一旁，不是很好處理所以撥線長度大概要1~1.5CM會比較好操作。</p>
+<p>線材定義在測量過後發現在最外兩側的分別是紅色信號輸入跟黑色GND(不算強化線材)，中間三條應該是線控的，不過兩邊都有可以不理會直接剪掉。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/a_90/v1538323429/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213245_vHDR_Auto.jpg" alt="BeatX麵條線內線材"></p>
+<p>接著焊接上其他測試用單體試試看有沒有接錯，聲音是否正常。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323426/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_195612_vHDR_Auto.jpg" alt="發聲測試"></p>
+<p>焊上CM母座。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/a_0/v1538323433/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213849_vHDR_Auto.jpg" alt="CM母座"></p>
+<p>CM公插。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323436/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_215819_vHDR_Auto.jpg" alt="CM插針"></p>
+<p>同場加映幫朋友改的CM公插，太久沒焊了，有點傷眼sry囉。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323427/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_211750_vHDR_Auto.jpg" alt="CM插針"></p>
+<p>完成！</p>
+<p>眼尖的童鞋可能發現了，由於發生了點小插曲所以之前買的MMCX插針沒法用，只好把一條幾年前去Oyaide買材料的自製線拆了撐一下，到時候在幫他買個殼QwQ。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg" alt="Brainwavz B2 Wireless!"></p>
+<p>幫朋友改的CM版BeatsX</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1538325406/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233933_vHDR_Auto.jpg" alt="CM插針版"></p>
+<h1 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h1><p>聲音挺不錯的，不過也是不建議給阻抗大或不好推的耳機使用，除了耗電外可能聲音也推不太開。</p>
+<p>有W1晶片，續航延遲都比市面上絕大多數的藍芽耳機好不少，此改造又兼顧了一定的音質，可謂大成功啊！</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.head-fi.org/threads/apple-beats-x-mod-for-iem.844435/" target="_blank" rel="noopener">Head-Fi - Apple Beats X mod for IEM</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-07-09T16:49:57.000Z"><a href="/archives/91e1ab9c.html">2018-07-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/91e1ab9c.html">Laravel Linux 佈署問題筆記</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。<br>環境若沒特別說明就代表使用的OS為Ubuntu</p>
+<h3 id="Q1-如何設定Laravel-env檔的APP-KEY"><a href="#Q1-如何設定Laravel-env檔的APP-KEY" class="headerlink" title="Q1. 如何設定Laravel .env檔的APP_KEY?"></a>Q1. 如何設定Laravel .env檔的APP_KEY?</h3><p><strong>Ans：</strong>在專案跟目錄執行 <code>php artisan key:generate</code></p>
+<h3 id="Q2-如何從Github上Clone私人專案到網站目錄"><a href="#Q2-如何從Github上Clone私人專案到網站目錄" class="headerlink" title="Q2. 如何從Github上Clone私人專案到網站目錄"></a>Q2. 如何從Github上Clone私人專案到網站目錄</h3><p><strong>Ans：</strong> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://username@github.com/username/repo</span><br></pre></td></tr></table></figure>
+<p>其中<code>username</code> 為Github帳號名稱，<code>repo</code> 為專案名稱。</p>
+<h3 id="Q3-在瀏覽器開啟網頁時出現以下錯誤訊息"><a href="#Q3-在瀏覽器開啟網頁時出現以下錯誤訊息" class="headerlink" title="Q3. 在瀏覽器開啟網頁時出現以下錯誤訊息"></a>Q3. 在瀏覽器開啟網頁時出現以下錯誤訊息</h3><p><code>Error in exception handler: The stream or file &quot;/var/www/laravel/app/storage/logs/laravel.log&quot; could not be opened: failed to open stream: Permission denie</code></p>
+<p><strong>Ans：( Apache )</strong> </p>
+<p>目錄權限不足，在專案目錄執行 <code>sudo chmod -R 777 storage</code> (注意，此方法較不安全)</p>
+<p>安全的做法是把不同的權限分開，使用ACL(Access Control List)設定</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// nginx = web server user</span><br><span class="line">// systemuser = your local user which you use to login via ssh</span><br><span class="line">sudo setfacl -Rdm u:nginx:rwx,u:systemuser:rwx storage</span><br><span class="line">sudo setfacl -Rm u:nginx:rwx,u:systemuser:rwx storage</span><br></pre></td></tr></table></figure>
+<p>如果沒有ACL的設定方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chgrp -R www-data storage bootstrap/cache</span><br><span class="line">sudo chmod -R ug+rwx storage bootstrap/cache</span><br></pre></td></tr></table></figure>
+<p><strong>Ans：( Nginx )</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown USERNAME:USERNAME /var/www/html/SITE_FOLDER</span><br></pre></td></tr></table></figure>
+<h3 id="Q4-如何切換不同的PHP版本-Apache"><a href="#Q4-如何切換不同的PHP版本-Apache" class="headerlink" title="Q4. 如何切換不同的PHP版本 ( Apache )"></a>Q4. 如何切換不同的PHP版本 ( Apache )</h3><p><strong>Ans：</strong> 安裝好需要的版本後執行以下指令 (範例為 7.0 =&gt; 7.2)</p>
+<p>停用先前的PHP版本(重要)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2dismod php7.0</span><br></pre></td></tr></table></figure></p>
+<p>啟動所需的PHP版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod php7.2</span><br></pre></td></tr></table></figure></p>
+<p>重啟Apache2服務<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure></p>
+<p>( Nginx )</p>
+<p>設定預設PHP版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --set php /usr/bin/php7.0</span><br></pre></td></tr></table></figure></p>
+<h3 id="Q5-首頁能夠正常顯示，但切換不同的-Get-路徑顯示-404-Not-Found-Ex-www-domainname-com-login"><a href="#Q5-首頁能夠正常顯示，但切換不同的-Get-路徑顯示-404-Not-Found-Ex-www-domainname-com-login" class="headerlink" title="Q5. 首頁能夠正常顯示，但切換不同的 Get 路徑顯示 404 Not Found (Ex: www.domainname.com/login)"></a>Q5. 首頁能夠正常顯示，但切換不同的 Get 路徑顯示 404 Not Found (Ex: www.domainname.com/login)</h3><p><strong>Ans：( Apache )</strong></p>
+<p>啟動Rewrite模組</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br></pre></td></tr></table></figure>
+<p>重啟Apache2服務</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
+<p>重啟後還是顯示404錯誤，使用文字編輯器開啟 <code>000-default.conf</code> 設定檔 (個人習慣使用vim)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apache2/sites-available/000-default.conf</span><br></pre></td></tr></table></figure>
+<p>在 <code>DocumentRoot /var/www/html</code> 下方新增以下設定</p>
+<figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;Directory /var/www/html&gt;</span></span><br><span class="line">  <span class="attribute">AllowOverride</span> <span class="literal">All</span></span><br><span class="line"><span class="section">&lt;/Directory&gt;</span></span><br></pre></td></tr></table></figure>
+<p>儲存設定後，重啟Apache2服務，這時就能正常顯示 GET 路徑了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
+<p><strong>Ans：( Nginx )</strong></p>
+<p>以文字編輯器下列設定檔 <code>/etc/nginx/sites-enabled/default</code> 新增下列設定</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?<span class="variable">$query_string</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重整Nginx服務</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
+<h3 id="Q6-Bitnami-LAMP-Stack-更換DocumentRoot目錄？"><a href="#Q6-Bitnami-LAMP-Stack-更換DocumentRoot目錄？" class="headerlink" title="Q6. Bitnami LAMP Stack 更換DocumentRoot目錄？"></a>Q6. Bitnami LAMP Stack 更換DocumentRoot目錄？</h3><p><strong>Ans：</strong></p>
+<p>更改以下檔案的DocumentRoot，80與443(有SSL的話)。</p>
+<p><code>YOUR_INSTALLATION_DIRECTORY/apache2/conf/bitnami/bitnami.conf</code></p>
+<p>重啓Apache</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /opt/bitnami/ctlscript.sh restart apache</span><br></pre></td></tr></table></figure>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo" target="_blank" rel="noopener">Cloning a private Github repo</a></p>
+<p><a href="https://laracasts.com/discuss/channels/general-discussion/laravel-framework-file-permission-security" target="_blank" rel="noopener">Laravel framework file permission - Security</a></p>
+<p><a href="https://www.youtube.com/watch?v=7CatEn5IAlo" target="_blank" rel="noopener">Laravel 5.4 problem - Wrong Route (Not Found) on Ubuntu 16.04</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-laravel-application-with-nginx-on-ubuntu-16-04" target="_blank" rel="noopener">How To Deploy a Laravel Application with Nginx on Ubuntu 16.04</a></p>
+<p><a href="https://thishosting.rocks/install-php-on-ubuntu/" target="_blank" rel="noopener">How to install PHP (7 or 7.2) on Ubuntu</a></p>
+<p><a href="https://community.bitnami.com/t/changes-to-apache-httpd-conf-not-applying-on-wamp-stack/26224" target="_blank" rel="noopener">Changes to Apache httpd.conf not applying on WAMP stack</a></p>
+<hr>
+<p>日後遇到其他問題會再持續更新</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-26T08:36:12.000Z"><a href="/archives/fe7b8274.html">2018-06-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/fe7b8274.html">Laravel 產生簡易XML筆記</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在寫串接功能時，遇到需要使用Laravel動態產生XML的功能，完成後做個筆記，除此之外也能拿來產生網站組織架構的Sitemap，讓Google等搜尋引擎能夠更有效率的爬你的網站頁面。</p>
+<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p>假設要使用Laravel產生如下的簡易產品清單XML：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">products</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Name</span>&gt;</span>Product_1<span class="tag">&lt;/<span class="name">Name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Description</span>&gt;</span>Product_Description<span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">URL</span>&gt;</span>https://mywebsite.com/Product_URL/<span class="tag">&lt;/<span class="name">URL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Price</span>&gt;</span>1000<span class="tag">&lt;/<span class="name">Price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Name</span>&gt;</span>Product_2<span class="tag">&lt;/<span class="name">Name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Description</span>&gt;</span>Product_Description<span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">URL</span>&gt;</span>https://mywebsite.com/Product_URL/<span class="tag">&lt;/<span class="name">URL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Price</span>&gt;</span>1500<span class="tag">&lt;/<span class="name">Price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">products</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>首先在 <code>resources/views</code> 裡建立一個 <code>product_list.blade.php</code> 視圖，用來顯示XML的內容 (“product_list”名稱可自訂)。</p>
+<p>內容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">products</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 利用foreach印出所有產品資訊 --&gt;</span></span><br><span class="line">    @foreach($products as $product)</span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Name</span>&gt;</span>&#123;&#123; $product-&gt;name &#125;&#125;<span class="tag">&lt;/<span class="name">Name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Description</span>&gt;</span>&#123;&#123; $product-&gt;description &#125;&#125;<span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 利用 Request::root() 取得網站URL --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">URL</span>&gt;</span>&#123;&#123; Request::root() &#125;&#125;/product/&#123;&#123; $product-&gt;id &#125;&#125;<span class="tag">&lt;/<span class="name">URL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Price</span>&gt;</span>&#123;&#123; $product-&gt;price &#125;&#125;<span class="tag">&lt;/<span class="name">Price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">    @endforeach</span><br><span class="line"><span class="tag">&lt;/<span class="name">products</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然後建立一個Controller(名稱自訂，這裡範例使用ProductController，跟處理顯示商品同樣的控制器)。<br>在Controller裡建立Function用來取得資料並傳送給View裡的視圖顯示。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">productList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 取得商品資訊, 並以id作降冪排序</span></span><br><span class="line">    $products = Product::orderBy(<span class="string">'id'</span>, <span class="string">'DESC'</span>)-&gt;get();</span><br><span class="line">    <span class="comment">// 將資料交給product_list.blade.php產生XML內容</span></span><br><span class="line">    <span class="keyword">return</span> response()-&gt;view(<span class="string">'product_list'</span>, compact(<span class="string">'products'</span>))-&gt;header(<span class="string">'Content-Type'</span>, <span class="string">'text/xml'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最後在<code>route/web.php</code>裡加上路徑<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/product_list.xml'</span>, <span class="string">'ProductController@productList'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>到這邊大功告成，打上網域名+<code>/product_list.xml</code>就可以查看XML所產生的XML了！</p>
+<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><p>如果像此方法利用Blade模板產生XML要注意在PHP的<code>php.ini</code> 設定中 <strong><em>Short Open Tag (&lt;?)</em></strong> 選項要關閉，如果必須打開此選項的話可以改用以下寫法來產生XML Header：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">'&lt;?xml version="1.0" encoding="UTF-8"?&gt;'</span>; <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://laraget.com/blog/generate-a-simple-xml-sitemap-using-laravel" target="_blank" rel="noopener">Generate a Simple XML Sitemap Using Laravel</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+  
+    <a href="/page/2/" class="alignright next">Siguiente</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Buscar">
+    <input type="hidden" name="q" value="site:blog.driftkingtw.me">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Etiquetas</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/DIY/">DIY</a><small>5</small></li>
+  
+    <li><a href="/tags/G27/">G27</a><small>1</small></li>
+  
+    <li><a href="/tags/Github/">Github</a><small>2</small></li>
+  
+    <li><a href="/tags/Google/">Google</a><small>1</small></li>
+  
+    <li><a href="/tags/Keyboard/">Keyboard</a><small>4</small></li>
+  
+    <li><a href="/tags/Laravel/">Laravel</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/MacOS/">MacOS</a><small>3</small></li>
+  
+    <li><a href="/tags/Macbook-Pro/">Macbook Pro</a><small>1</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Raspberry-Pi/">Raspberry Pi</a><small>1</small></li>
+  
+    <li><a href="/tags/SIM-Racing/">SIM-Racing</a><small>2</small></li>
+  
+    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
+  
+    <li><a href="/tags/SketchUp/">SketchUp</a><small>1</small></li>
+  
+    <li><a href="/tags/Touchbar/">Touchbar</a><small>2</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Win10/">Win10</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/iPad/">iPad</a><small>2</small></li>
+  
+    <li><a href="/tags/illustration/">illustration</a><small>2</small></li>
+  
+    <li><a href="/tags/無線耳機/">無線耳機</a><small>1</small></li>
+  
+    <li><a href="/tags/螢幕/">螢幕</a><small>2</small></li>
+  
+    <li><a href="/tags/軟體應用/">軟體應用</a><small>1</small></li>
+  
+    <li><a href="/tags/開箱/">開箱</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2018 DriftKingTW
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
