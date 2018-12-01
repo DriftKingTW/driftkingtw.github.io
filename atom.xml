@@ -367,9 +367,9 @@
     </summary>
     
     
-      <category term="hexo" scheme="https://blog.driftkingtw.me/tags/hexo/"/>
-    
       <category term="Github" scheme="https://blog.driftkingtw.me/tags/Github/"/>
+    
+      <category term="hexo" scheme="https://blog.driftkingtw.me/tags/hexo/"/>
     
   </entry>
   
