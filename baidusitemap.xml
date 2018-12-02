@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://blog.driftkingtw.me/archives/ba06666d.html</loc>
-    <lastmod>2018-12-01T16:47:38.166Z</lastmod>
+    <lastmod>2018-12-02T11:49:33.049Z</lastmod>
     <data>
         <display>
         <title>利用Applescript快速切換TrueTone</title>
@@ -196,25 +196,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/2e36326e.html</loc>
-    <lastmod>2018-10-03T01:52:43.657Z</lastmod>
-    <data>
-        <display>
-        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
-        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
-        
-        <tag>Github</tag>
-         
-        <tag>SSL</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/fe7b8274.html</loc>
     <lastmod>2018-10-03T01:52:43.657Z</lastmod>
     <data>
@@ -236,6 +217,25 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/2e36326e.html</loc>
+    <lastmod>2018-10-03T01:52:43.657Z</lastmod>
+    <data>
+        <display>
+        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
+        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
+        
+        <tag>Github</tag>
+         
+        <tag>SSL</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
     <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
@@ -243,9 +243,9 @@
         <title>Hexo Github deploy 問題修正</title>
         <pubTime>2018-03-03T05:38:43.000Z</pubTime>
         
-        <tag>Github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>Github</tag>
          
          
            
@@ -293,6 +293,27 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/29ceba03.html</loc>
+    <lastmod>2018-10-03T01:52:43.655Z</lastmod>
+    <data>
+        <display>
+        <title>Logitech G27方向盤 回正/校正問題維修</title>
+        <pubTime>2018-01-17T13:16:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>SIM-Racing</tag>
+         
+        <tag>G27</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/99fe3657.html</loc>
     <lastmod>2018-10-03T01:52:43.655Z</lastmod>
     <data>
@@ -300,11 +321,11 @@
         <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
         <pubTime>2018-02-21T07:00:42.000Z</pubTime>
         
-        <tag>開箱</tag>
-         
         <tag>iPad</tag>
          
         <tag>illustration</tag>
+         
+        <tag>開箱</tag>
          
          
            
@@ -333,18 +354,16 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/29ceba03.html</loc>
-    <lastmod>2018-10-03T01:52:43.655Z</lastmod>
+    <loc>https://blog.driftkingtw.me/archives/6ede1cf0.html</loc>
+    <lastmod>2018-10-03T01:52:43.654Z</lastmod>
     <data>
         <display>
-        <title>Logitech G27方向盤 回正/校正問題維修</title>
-        <pubTime>2018-01-17T13:16:00.000Z</pubTime>
+        <title>Ducky ONE RGB 青軸 極簡易開箱</title>
+        <pubTime>2017-12-20T18:40:08.000Z</pubTime>
         
-        <tag>DIY</tag>
+        <tag>Keyboard</tag>
          
-        <tag>SIM-Racing</tag>
-         
-        <tag>G27</tag>
+        <tag>開箱</tag>
          
          
            
@@ -362,25 +381,6 @@
         <pubTime>2017-12-13T16:35:47.000Z</pubTime>
         
         <tag>Raspberry Pi</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/6ede1cf0.html</loc>
-    <lastmod>2018-10-03T01:52:43.654Z</lastmod>
-    <data>
-        <display>
-        <title>Ducky ONE RGB 青軸 極簡易開箱</title>
-        <pubTime>2017-12-20T18:40:08.000Z</pubTime>
-        
-        <tag>Keyboard</tag>
-         
-        <tag>開箱</tag>
          
          
            
