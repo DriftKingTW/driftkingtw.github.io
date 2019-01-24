@@ -3,7 +3,11 @@ title: Delux Designer 單手機械鍵盤使用心得
 abbrlink: d0fa2398
 date: 2018-11-05 16:38:27
 tags:
+  - 開箱
+  - Keyboard
 keywords:
+  - Delux
+  - Designer
 ---
 
 # 前言

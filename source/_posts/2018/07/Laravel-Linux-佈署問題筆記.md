@@ -154,6 +154,14 @@ sudo systemctl reload nginx
 sudo /opt/bitnami/ctlscript.sh restart apache
 ```
 
+### Q7. 上傳檔案移動到只訂資料夾時出現權限不足
+
+單純使用chmod無效(由於改變的權限爲user非操作移動的www-data)，需要使用以下方法給予權限。
+
+```shell
+sudo chown -R www-data:www-data /path/to/folder
+```
+
 ## 參考資料
 
 [Cloning a private Github repo](https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo)
@@ -167,6 +175,8 @@ sudo /opt/bitnami/ctlscript.sh restart apache
 [How to install PHP (7 or 7.2) on Ubuntu](https://thishosting.rocks/install-php-on-ubuntu/)
 
 [Changes to Apache httpd.conf not applying on WAMP stack](https://community.bitnami.com/t/changes-to-apache-httpd-conf-not-applying-on-wamp-stack/26224)
+
+[Unable to write in directory Laravel](https://stackoverflow.com/questions/47337374/unable-to-write-in-directory-laravel)
 
 ---
 
