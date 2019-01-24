@@ -587,6 +587,8 @@
 <p><code>YOUR_INSTALLATION_DIRECTORY/apache2/conf/bitnami/bitnami.conf</code></p>
 <p>重啓Apache</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /opt/bitnami/ctlscript.sh restart apache</span><br></pre></td></tr></table></figure>
+<h3 id="Q7-上傳檔案移動到只訂資料夾時出現權限不足"><a href="#Q7-上傳檔案移動到只訂資料夾時出現權限不足" class="headerlink" title="Q7. 上傳檔案移動到只訂資料夾時出現權限不足"></a>Q7. 上傳檔案移動到只訂資料夾時出現權限不足</h3><p>單純使用chmod無效(由於改變的權限爲user非操作移動的www-data)，需要使用以下方法給予權限。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R www-data:www-data /path/to/folder</span><br></pre></td></tr></table></figure>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo" target="_blank" rel="noopener">Cloning a private Github repo</a></p>
 <p><a href="https://laracasts.com/discuss/channels/general-discussion/laravel-framework-file-permission-security" target="_blank" rel="noopener">Laravel framework file permission - Security</a></p>
 <p><a href="https://www.youtube.com/watch?v=7CatEn5IAlo" target="_blank" rel="noopener">Laravel 5.4 problem - Wrong Route (Not Found) on Ubuntu 16.04</a></p>
@@ -660,14 +662,14 @@
 <nav id="pagination">
   
   
-    <a href="/page/2/" class="alignright next">Nächste Seite</a>
+    <a href="/page/2/" class="alignright next">Next</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:blog.driftkingtw.me">
   </form>
 </div>
@@ -737,7 +739,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2018 DriftKingTW
+  &copy; 2019 DriftKingTW
   
 </div>
 <div class="clearfix"></div></footer>
