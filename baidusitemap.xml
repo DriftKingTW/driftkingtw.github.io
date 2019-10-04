@@ -108,9 +108,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>螢幕</tag>
-         
         <tag>Macbook Pro</tag>
+         
+        <tag>螢幕</tag>
          
          
            
@@ -177,6 +177,25 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/b142110b.html</loc>
+    <lastmod>2018-10-03T01:52:43.657Z</lastmod>
+    <data>
+        <display>
+        <title>iPad Pro 繪圖心得 (含其他繪圖螢幕簡易比較)</title>
+        <pubTime>2018-05-23T14:37:36.000Z</pubTime>
+        
+        <tag>iPad</tag>
+         
+        <tag>illustration</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/fe7b8274.html</loc>
     <lastmod>2018-10-03T01:52:43.657Z</lastmod>
     <data>
@@ -189,25 +208,6 @@
         <tag>Laravel</tag>
          
         <tag>XML</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/b142110b.html</loc>
-    <lastmod>2018-10-03T01:52:43.657Z</lastmod>
-    <data>
-        <display>
-        <title>iPad Pro 繪圖心得 (含其他繪圖螢幕簡易比較)</title>
-        <pubTime>2018-05-23T14:37:36.000Z</pubTime>
-        
-        <tag>iPad</tag>
-         
-        <tag>illustration</tag>
          
          
            
@@ -255,25 +255,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/e0d62e9c.html</loc>
-    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
-    <data>
-        <display>
-        <title>DIY IR Tracker 紅外線頭戴追蹤器筆記</title>
-        <pubTime>2018-03-20T15:05:00.000Z</pubTime>
-        
-        <tag>DIY</tag>
-         
-        <tag>SIM-Racing</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/bad29b8c.html</loc>
     <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
@@ -293,18 +274,16 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/99fe3657.html</loc>
-    <lastmod>2018-10-03T01:52:43.655Z</lastmod>
+    <loc>https://blog.driftkingtw.me/archives/e0d62e9c.html</loc>
+    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
         <display>
-        <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
-        <pubTime>2018-02-21T07:00:42.000Z</pubTime>
+        <title>DIY IR Tracker 紅外線頭戴追蹤器筆記</title>
+        <pubTime>2018-03-20T15:05:00.000Z</pubTime>
         
-        <tag>iPad</tag>
+        <tag>DIY</tag>
          
-        <tag>illustration</tag>
-         
-        <tag>開箱</tag>
+        <tag>SIM-Racing</tag>
          
          
            
@@ -326,6 +305,27 @@
         <tag>SIM-Racing</tag>
          
         <tag>G27</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/99fe3657.html</loc>
+    <lastmod>2018-10-03T01:52:43.655Z</lastmod>
+    <data>
+        <display>
+        <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
+        <pubTime>2018-02-21T07:00:42.000Z</pubTime>
+        
+        <tag>iPad</tag>
+         
+        <tag>illustration</tag>
+         
+        <tag>開箱</tag>
          
          
            
