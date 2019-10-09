@@ -73,7 +73,7 @@
     <div class="entry">
       
         <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>在<a href="https://github.com/" target="_blank" rel="noopener">Github</a>上建好靜態網站後, 都是利用 username.github.io 進行瀏覽<br>但是<a href="https://github.com/" target="_blank" rel="noopener">Github</a>也有可以讓我們使用自己的域名(Domain Name)的設定<br>假設選擇自訂域名就無法使用它所提供的SSL連線服務, 需要找第三方來使用HTTPS</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1520154032/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/github_domain.png" alt="Github自訂域名"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520154032/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/github_domain.png" alt="Github自訂域名"></p>
 <p>為了達成HTTPS自訂域名, 需要要利用<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>所提供的免費服務<br>至於堅持使用HTTPS的原因, 我到時候再寫另外一篇文章詳細補充</p>
 <h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><ol>
 <li><p>確認已經註冊好一個域名</p>
@@ -87,20 +87,20 @@
 <li><p>回到<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>在DNS頁面新增CNAME連結到 username.github.io (username為Github用戶名)<br>在這個範例設定中, 我要讓原本的主機名稱連到原先架設在GCP上的網站, 而blog子網域連到Github的靜態網頁</p>
 </li>
 </ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,h_250/v1520160636/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dns.png" alt="CNAME"><br>(第二個CNAME的紀錄是為了讓不論前面有沒有輸入www的網址都能連線到我的網站)<br>確認成功連線應該會出現如下的Active字樣(設定完成需要等5~10分鐘生效)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1520161993/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/active.png" alt="Status: Active"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/c_scale,h_250/v1520160636/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dns.png" alt="CNAME"><br>(第二個CNAME的紀錄是為了讓不論前面有沒有輸入www的網址都能連線到我的網站)<br>確認成功連線應該會出現如下的Active字樣(設定完成需要等5~10分鐘生效)</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520161993/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/active.png" alt="Status: Active"></p>
 <ol>
 <li>如果原本有設定過DNS的部分, 要去把他們都替換成CloudFlare提供的DNS Server(在DNS設定頁籤中)</li>
 </ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1520161622/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dnscf.png" alt="CloudFlare DNS Server"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520161622/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dnscf.png" alt="CloudFlare DNS Server"></p>
 <ol>
 <li>接著設定SSL的部分, 選擇加密(Crypto)頁籤SSL是否為FULL模式(若沒有手動設定成FULL)(設定完成需要等5~10分鐘)<br>當畫面顯示Active Certificate字樣代表SSL已啟用</li>
 </ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1520162125/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/sslactive.png" alt="Active Certificate"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520162125/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/sslactive.png" alt="Active Certificate"></p>
 <ol>
 <li>此時應該已經可以使用https訪問我們的Github page了, 但若是使用者輸入http則無效, 所以需要作強制導向HTTPS的設定<br>選擇頁面規則(Page Rules)後點選新增規則<br>在URL Match的部分打上http的網域名, 最後加上星號代表此網域底下通用規則, 然後設定選擇Always Use HTTPS強制導向</li>
 </ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1520162472/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/pagerulehttps.png" alt="強制導向HTTPS"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520162472/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/pagerulehttps.png" alt="強制導向HTTPS"></p>
 <ol>
 <li>這時候就算URL輸入http也會自動連向https的頁面了, 設定完成!</li>
 </ol>
@@ -152,7 +152,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">コメント</h1>
 
   
       <div id="fb-root"></div>
@@ -175,7 +175,7 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="search" name="q" results="0" placeholder="検索">
     <input type="hidden" name="q" value="site:blog.driftkingtw.me">
   </form>
 </div>
@@ -184,7 +184,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">タグ</h3>
   <ul class="entry">
   
     <li><a href="/tags/DIY/">DIY</a><small>5</small></li>

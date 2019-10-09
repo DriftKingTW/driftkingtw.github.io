@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://blog.driftkingtw.me/archives/b7400b18.html</loc>
-    <lastmod>2019-10-04T12:35:02.426Z</lastmod>
+    <lastmod>2019-10-09T15:04:10.364Z</lastmod>
     <data>
         <display>
         <title>在 MacOS 上搭建 SMB 簡易檔案分享伺服器</title>
@@ -24,7 +24,7 @@
     
   <url>
     <loc>https://blog.driftkingtw.me/archives/1a5b208d.html</loc>
-    <lastmod>2019-10-04T12:35:00.109Z</lastmod>
+    <lastmod>2019-10-09T15:04:07.496Z</lastmod>
     <data>
         <display>
         <title>利用 SFTP 在 Android 上存取 MacOS 檔案</title>
@@ -33,6 +33,331 @@
         <tag>MacOS</tag>
          
         <tag>SFTP</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/f6f885e.html</loc>
+    <lastmod>2019-10-09T15:04:00.449Z</lastmod>
+    <data>
+        <display>
+        <title>Google Pixel USB-C Earbuds 耳機開箱</title>
+        <pubTime>2018-11-02T13:11:33.000Z</pubTime>
+        
+        <tag>開箱</tag>
+         
+        <tag>Google</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/d0fa2398.html</loc>
+    <lastmod>2019-10-09T15:03:57.692Z</lastmod>
+    <data>
+        <display>
+        <title>Delux Designer 單手機械鍵盤使用心得</title>
+        <pubTime>2018-11-05T08:38:27.000Z</pubTime>
+        
+        <tag>開箱</tag>
+         
+        <tag>Keyboard</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/cc83b42a.html</loc>
+    <lastmod>2019-10-09T15:03:53.905Z</lastmod>
+    <data>
+        <display>
+        <title>利用BetterTouchTool在Touchbar上顯示CPU溫度</title>
+        <pubTime>2018-10-26T01:16:36.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>Touchbar</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/8dfde79b.html</loc>
+    <lastmod>2019-10-09T15:03:51.121Z</lastmod>
+    <data>
+        <display>
+        <title>YD68藍牙機械鍵盤組裝及心得</title>
+        <pubTime>2018-10-03T02:54:05.000Z</pubTime>
+        
+        <tag>Keyboard</tag>
+         
+        <tag>DIY</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/d7c7ea31.html</loc>
+    <lastmod>2019-10-09T15:03:47.420Z</lastmod>
+    <data>
+        <display>
+        <title>MacOS強制外接螢幕輸出RGB</title>
+        <pubTime>2018-10-12T01:16:28.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>螢幕</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/c3ffdb1b.html</loc>
+    <lastmod>2019-10-09T15:03:44.145Z</lastmod>
+    <data>
+        <display>
+        <title>Macbook Pro 2018 Color Banding 問題</title>
+        <pubTime>2018-10-12T09:51:04.000Z</pubTime>
+        
+        <tag>Macbook Pro</tag>
+         
+        <tag>螢幕</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/5ae59dc6.html</loc>
+    <lastmod>2019-10-09T15:03:38.632Z</lastmod>
+    <data>
+        <display>
+        <title>Brainwavz B2 BeatsX W1晶片無線改裝</title>
+        <pubTime>2018-09-30T15:57:33.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>無線耳機</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/2e36326e.html</loc>
+    <lastmod>2019-10-09T15:03:14.215Z</lastmod>
+    <data>
+        <display>
+        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
+        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
+        
+        <tag>Github</tag>
+         
+        <tag>SSL</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/e0d62e9c.html</loc>
+    <lastmod>2019-10-09T15:03:02.892Z</lastmod>
+    <data>
+        <display>
+        <title>DIY IR Tracker 紅外線頭戴追蹤器筆記</title>
+        <pubTime>2018-03-20T15:05:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>SIM-Racing</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/99fe3657.html</loc>
+    <lastmod>2019-10-09T15:02:57.914Z</lastmod>
+    <data>
+        <display>
+        <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
+        <pubTime>2018-02-21T07:00:42.000Z</pubTime>
+        
+        <tag>iPad</tag>
+         
+        <tag>illustration</tag>
+         
+        <tag>開箱</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/29ceba03.html</loc>
+    <lastmod>2019-10-09T15:02:52.637Z</lastmod>
+    <data>
+        <display>
+        <title>Logitech G27方向盤 回正/校正問題維修</title>
+        <pubTime>2018-01-17T13:16:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>SIM-Racing</tag>
+         
+        <tag>G27</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/da0d3440.html</loc>
+    <lastmod>2019-10-09T15:02:46.664Z</lastmod>
+    <data>
+        <display>
+        <title>SketchUp 2017 修復無法啟動問題</title>
+        <pubTime>2017-09-14T13:47:33.000Z</pubTime>
+        
+        <tag>軟體應用</tag>
+         
+        <tag>SketchUp</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/6ede1cf0.html</loc>
+    <lastmod>2019-10-09T15:02:44.926Z</lastmod>
+    <data>
+        <display>
+        <title>Ducky ONE RGB 青軸 極簡易開箱</title>
+        <pubTime>2017-12-20T18:40:08.000Z</pubTime>
+        
+        <tag>開箱</tag>
+         
+        <tag>Keyboard</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/9ae3431b.html</loc>
+    <lastmod>2019-10-09T15:02:41.741Z</lastmod>
+    <data>
+        <display>
+        <title>Ducky ONE RGB 解決空白鍵漏光問題</title>
+        <pubTime>2018-01-11T06:25:40.000Z</pubTime>
+        
+        <tag>Keyboard</tag>
+         
+        <tag>DIY</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/6759087b.html</loc>
+    <lastmod>2019-10-09T15:02:37.442Z</lastmod>
+    <data>
+        <display>
+        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
+        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
+        
+        <tag>Raspberry Pi</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/b142110b.html</loc>
+    <lastmod>2019-10-09T15:01:42.732Z</lastmod>
+    <data>
+        <display>
+        <title>iPad Pro 繪圖心得 (含其他繪圖螢幕簡易比較)</title>
+        <pubTime>2018-05-23T14:37:36.000Z</pubTime>
+        
+        <tag>iPad</tag>
+         
+        <tag>illustration</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/ba06666d.html</loc>
+    <lastmod>2019-10-04T12:34:55.519Z</lastmod>
+    <data>
+        <display>
+        <title>利用Applescript快速切換TrueTone</title>
+        <pubTime>2018-12-01T16:20:52.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>Touchbar</tag>
          
          
            
@@ -63,196 +388,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/ba06666d.html</loc>
-    <lastmod>2018-12-02T11:49:33.049Z</lastmod>
-    <data>
-        <display>
-        <title>利用Applescript快速切換TrueTone</title>
-        <pubTime>2018-12-01T16:20:52.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>Touchbar</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/d0fa2398.html</loc>
-    <lastmod>2018-12-01T16:47:34.016Z</lastmod>
-    <data>
-        <display>
-        <title>Delux Designer 單手機械鍵盤使用心得</title>
-        <pubTime>2018-11-05T08:38:27.000Z</pubTime>
-        
-        <tag>Keyboard</tag>
-         
-        <tag>開箱</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/f6f885e.html</loc>
-    <lastmod>2018-11-02T15:43:05.035Z</lastmod>
-    <data>
-        <display>
-        <title>Google Pixel USB-C Earbuds 耳機開箱</title>
-        <pubTime>2018-11-02T13:11:33.000Z</pubTime>
-        
-        <tag>開箱</tag>
-         
-        <tag>Google</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/cc83b42a.html</loc>
-    <lastmod>2018-10-26T01:39:41.606Z</lastmod>
-    <data>
-        <display>
-        <title>利用BetterTouchTool在Touchbar上顯示CPU溫度</title>
-        <pubTime>2018-10-26T01:16:36.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>Touchbar</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/c3ffdb1b.html</loc>
-    <lastmod>2018-10-12T10:30:35.192Z</lastmod>
-    <data>
-        <display>
-        <title>Macbook Pro 2018 Color Banding 問題</title>
-        <pubTime>2018-10-12T09:51:04.000Z</pubTime>
-        
-        <tag>螢幕</tag>
-         
-        <tag>Macbook Pro</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/d7c7ea31.html</loc>
-    <lastmod>2018-10-12T06:03:23.111Z</lastmod>
-    <data>
-        <display>
-        <title>MacOS強制外接螢幕輸出RGB</title>
-        <pubTime>2018-10-12T01:16:28.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>螢幕</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/5ae59dc6.html</loc>
-    <lastmod>2018-10-12T01:39:26.680Z</lastmod>
-    <data>
-        <display>
-        <title>Brainwavz B2 BeatsX W1晶片無線改裝</title>
-        <pubTime>2018-09-30T15:57:33.000Z</pubTime>
-        
-        <tag>DIY</tag>
-         
-        <tag>無線耳機</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/8dfde79b.html</loc>
-    <lastmod>2018-10-12T01:39:04.317Z</lastmod>
-    <data>
-        <display>
-        <title>YD68藍牙機械鍵盤組裝及心得</title>
-        <pubTime>2018-10-03T02:54:05.000Z</pubTime>
-        
-        <tag>Keyboard</tag>
-         
-        <tag>DIY</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/2e36326e.html</loc>
-    <lastmod>2018-10-03T01:52:43.657Z</lastmod>
-    <data>
-        <display>
-        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
-        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
-        
-        <tag>Github</tag>
-         
-        <tag>SSL</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/b142110b.html</loc>
-    <lastmod>2018-10-03T01:52:43.657Z</lastmod>
-    <data>
-        <display>
-        <title>iPad Pro 繪圖心得 (含其他繪圖螢幕簡易比較)</title>
-        <pubTime>2018-05-23T14:37:36.000Z</pubTime>
-        
-        <tag>iPad</tag>
-         
-        <tag>illustration</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/fe7b8274.html</loc>
     <lastmod>2018-10-03T01:52:43.657Z</lastmod>
     <data>
@@ -265,25 +400,6 @@
         <tag>Laravel</tag>
          
         <tag>XML</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
-    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo Github deploy 問題修正</title>
-        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>Github</tag>
          
          
            
@@ -312,132 +428,16 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/e0d62e9c.html</loc>
+    <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
     <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
         <display>
-        <title>DIY IR Tracker 紅外線頭戴追蹤器筆記</title>
-        <pubTime>2018-03-20T15:05:00.000Z</pubTime>
+        <title>Hexo Github deploy 問題修正</title>
+        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
         
-        <tag>DIY</tag>
+        <tag>hexo</tag>
          
-        <tag>SIM-Racing</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/29ceba03.html</loc>
-    <lastmod>2018-10-03T01:52:43.655Z</lastmod>
-    <data>
-        <display>
-        <title>Logitech G27方向盤 回正/校正問題維修</title>
-        <pubTime>2018-01-17T13:16:00.000Z</pubTime>
-        
-        <tag>DIY</tag>
-         
-        <tag>SIM-Racing</tag>
-         
-        <tag>G27</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/99fe3657.html</loc>
-    <lastmod>2018-10-03T01:52:43.655Z</lastmod>
-    <data>
-        <display>
-        <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
-        <pubTime>2018-02-21T07:00:42.000Z</pubTime>
-        
-        <tag>開箱</tag>
-         
-        <tag>iPad</tag>
-         
-        <tag>illustration</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/9ae3431b.html</loc>
-    <lastmod>2018-10-03T01:52:43.655Z</lastmod>
-    <data>
-        <display>
-        <title>Ducky ONE RGB 解決空白鍵漏光問題</title>
-        <pubTime>2018-01-11T06:25:40.000Z</pubTime>
-        
-        <tag>Keyboard</tag>
-         
-        <tag>DIY</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/6759087b.html</loc>
-    <lastmod>2018-10-03T01:52:43.654Z</lastmod>
-    <data>
-        <display>
-        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
-        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
-        
-        <tag>Raspberry Pi</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/6ede1cf0.html</loc>
-    <lastmod>2018-10-03T01:52:43.654Z</lastmod>
-    <data>
-        <display>
-        <title>Ducky ONE RGB 青軸 極簡易開箱</title>
-        <pubTime>2017-12-20T18:40:08.000Z</pubTime>
-        
-        <tag>Keyboard</tag>
-         
-        <tag>開箱</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/da0d3440.html</loc>
-    <lastmod>2018-10-03T01:52:43.653Z</lastmod>
-    <data>
-        <display>
-        <title>SketchUp 2017 修復無法啟動問題</title>
-        <pubTime>2017-09-14T13:47:33.000Z</pubTime>
-        
-        <tag>軟體應用</tag>
-         
-        <tag>SketchUp</tag>
+        <tag>Github</tag>
          
          
            
