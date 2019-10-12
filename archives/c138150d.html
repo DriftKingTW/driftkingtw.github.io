@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SketchUp 2017 修復無法啟動問題 | DriftKingTW&#39;s Blog</title>
+  <title>利用 Raspberry Pi 搭建 NAS | DriftKingTW&#39;s Blog</title>
   <meta name="author" content="DriftKingTW">
   
   <meta name="description" content="printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);">
   
-  <meta name="keywords" content="sketchup,錯誤">
+  <meta name="keywords" content="MacOS,NAS,Samba,Smb">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="SketchUp 2017 修復無法啟動問題"/>
+  <meta property="og:title" content="利用 Raspberry Pi 搭建 NAS"/>
   <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
 
   
@@ -62,24 +62,55 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-14T13:47:33.000Z"><a href="/archives/da0d3440.html">2017-09-14</a></time>
+        <time datetime="2019-10-12T13:25:00.000Z"><a href="/archives/c138150d.html">2019-10-12</a></time>
       
       
   
-    <h1 class="title">SketchUp 2017 修復無法啟動問題</h1>
+    <h1 class="title">利用 Raspberry Pi 搭建 NAS</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>今天打開SketchUp突然跳出這玩意…</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518273441/blog/2017/09/04/SketchUp_2017_修復無法啟動問題/sketchup-%E9%8C%AF%E8%AA%A4.jpg" alt=""></p>
-<p>試過重新安裝和網路上的各種方法也沒有效…就是開不了 弄了老半天簡直要發瘋<br>直到我傳送了錯誤報告, 跳出這個頁面有推薦的解決方法<br>OS:你怎麼不再錯誤頁面跟我說(#`Д´)ﾉ</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518273455/blog/2017/09/04/SketchUp_2017_修復無法啟動問題/crash.jpg" alt=""></p>
-<p>按照上面的教學, 到設定程式那邊把Microsoft Visual C++ 2015相關的套件全數移除</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518273466/blog/2017/09/04/SketchUp_2017_修復無法啟動問題/unin.png" alt=""></p>
-<p>然後把SketchUp卸載之後重新安裝一遍, 就成功解決問題囉(^u^)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518273475/blog/2017/09/04/SketchUp_2017_修復無法啟動問題/sketchup%E6%88%90%E5%8A%9F%E4%BF%AE%E5%BE%A9-1024x555.jpg" alt=""></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>就只是個基於 Samba 的簡易 NAS 的過程，沒有任何動靜。</p>
+<p>BTW 目前還是使用 Pi3B ，升級後會在補上 Pi4B 速度的差異心得。未來打算再裝上 Aria2 讓 Pi 具有下載機的功能。</p>
+<h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
+<p><code>sudo raspi-config</code></p>
+<p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p>
+<p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p>
+<h1 id="外接硬碟設定"><a href="#外接硬碟設定" class="headerlink" title="外接硬碟設定"></a>外接硬碟設定</h1><p>首先用 <code>lsblk</code> 找到要當 NAS 硬碟及分區(這邊是 <code>sda2</code> 代表 a 磁碟的 2 號分區)</p>
+<p>格式化為 <code>ext4</code> 格式，這邊推薦用 <code>ext4</code> 效能最好</p>
+<p><code>sudo mkfs.ext4 /dev/sda2</code></p>
+<p><em>有些人可能會有疑問，如果用 <code>ext4</code> 會不會讓我無法在其他系統上讀取，這部分並不用擔心，因為這個硬碟格式只是給 Server 讀取寫入用的，客戶端支援的檔案格式不會影響到</em></p>
+<p>建立掛載點</p>
+<p><code>sudo mkdir /mnt/Share</code></p>
+<p>查看硬碟分區的 <code>UUID</code> 並把它複製下來</p>
+<p><code>sudo blkid</code></p>
+<p>編輯 <code>fstab</code> 添加掛載資訊</p>
+<p><code>sudo vim /etc/fstab</code></p>
+<p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p>
+<p><code>UUID=YOUR_UUID  /mnt/Share  ext4  defaults  0 2</code></p>
+<p>掛載硬碟(分區)</p>
+<p><code>sudo mount -a</code></p>
+<p>查看掛載狀態是否正確</p>
+<p><code>df -h</code></p>
+<p>最後開啟硬碟權限</p>
+<p><code>chmod 777 /mnt/Share</code></p>
+<h1 id="設定-Samba-Server"><a href="#設定-Samba-Server" class="headerlink" title="設定 Samba Server"></a>設定 Samba Server</h1><p>接著安裝 <code>Samba</code></p>
+<p><code>sudo apt-get install samba samba-common-bin</code></p>
+<p>完成後編輯 <code>/etc/samba/smb.conf</code></p>
+<p><code>sudo vim /etc/samba/smb.conf</code></p>
+<p>在文件最下面填入如下設定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">Comment = Pi Shared Folder</span><br><span class="line">Path = /mnt/Share</span><br><span class="line">Browseable = yes</span><br><span class="line">Writable = yes</span><br><span class="line">guest ok = no</span><br><span class="line">valid users = username</span><br></pre></td></tr></table></figure>
+<p>PS：valid users 後面替換成自己的 username。</p>
+<p>接著我們要加入 smb 的登入帳號：</p>
+<p><code>sudo smbpasswd -a username</code></p>
+<p>依照提示輸入密碼設定完成，最後重啟 Samba 服務完成設定。</p>
+<p><code>sudo service smbd restart</code></p>
+<p>都設定完成後就可以在 Windows 網路芳鄰上看到 NAS 了（由於有限定使用者，要同樣帳號名稱密碼才能進的去，若要不希望限定帳號記得在 <code>smb.conf</code> 把 guest 功能打開）</p>
+<p>MacOS 的話則在 Finder 下按 <code>CMD+K</code> 填入 <code>smb://raspberrypi.local/Share</code> ，輸入剛才設定的 smb 使用者帳號密碼即可連入 NAS 。</p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="http://blog.jachobsen.com/2013/04/29/browse-raspberry-pi-in-osx-finder-via-samba/" target="_blank" rel="noopener">Browse Raspberry Pi in OSX Finder via Samba</a></p>
+<p><a href="https://askubuntu.com/questions/79078/how-to-restart-samba-server" target="_blank" rel="noopener">How to restart samba server?</a></p>
 
       
     </div>
@@ -89,7 +120,7 @@
         
   
   <div class="tags">
-    <a href="/tags/軟體應用/">軟體應用</a>, <a href="/tags/SketchUp/">SketchUp</a>
+    <a href="/tags/MacOS/">MacOS</a>, <a href="/tags/NAS/">NAS</a>
   </div>
 
         
@@ -132,7 +163,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/da0d3440.html" data-num-posts="10" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/c138150d.html" data-num-posts="10" data-width="840" data-colorscheme="light"></div>
       
   
 </section>

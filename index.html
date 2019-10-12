@@ -63,6 +63,77 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2019-10-12T13:25:00.000Z"><a href="/archives/c138150d.html">2019-10-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/c138150d.html">利用 Raspberry Pi 搭建 NAS</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>就只是個基於 Samba 的簡易 NAS 的過程，沒有任何動靜。</p>
+<p>BTW 目前還是使用 Pi3B ，升級後會在補上 Pi4B 速度的差異心得。未來打算再裝上 Aria2 讓 Pi 具有下載機的功能。</p>
+<h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
+<p><code>sudo raspi-config</code></p>
+<p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p>
+<p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p>
+<h1 id="外接硬碟設定"><a href="#外接硬碟設定" class="headerlink" title="外接硬碟設定"></a>外接硬碟設定</h1><p>首先用 <code>lsblk</code> 找到要當 NAS 硬碟及分區(這邊是 <code>sda2</code> 代表 a 磁碟的 2 號分區)</p>
+<p>格式化為 <code>ext4</code> 格式，這邊推薦用 <code>ext4</code> 效能最好</p>
+<p><code>sudo mkfs.ext4 /dev/sda2</code></p>
+<p><em>有些人可能會有疑問，如果用 <code>ext4</code> 會不會讓我無法在其他系統上讀取，這部分並不用擔心，因為這個硬碟格式只是給 Server 讀取寫入用的，客戶端支援的檔案格式不會影響到</em></p>
+<p>建立掛載點</p>
+<p><code>sudo mkdir /mnt/Share</code></p>
+<p>查看硬碟分區的 <code>UUID</code> 並把它複製下來</p>
+<p><code>sudo blkid</code></p>
+<p>編輯 <code>fstab</code> 添加掛載資訊</p>
+<p><code>sudo vim /etc/fstab</code></p>
+<p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p>
+<p><code>UUID=YOUR_UUID  /mnt/Share  ext4  defaults  0 2</code></p>
+<p>掛載硬碟(分區)</p>
+<p><code>sudo mount -a</code></p>
+<p>查看掛載狀態是否正確</p>
+<p><code>df -h</code></p>
+<p>最後開啟硬碟權限</p>
+<p><code>chmod 777 /mnt/Share</code></p>
+<h1 id="設定-Samba-Server"><a href="#設定-Samba-Server" class="headerlink" title="設定 Samba Server"></a>設定 Samba Server</h1><p>接著安裝 <code>Samba</code></p>
+<p><code>sudo apt-get install samba samba-common-bin</code></p>
+<p>完成後編輯 <code>/etc/samba/smb.conf</code></p>
+<p><code>sudo vim /etc/samba/smb.conf</code></p>
+<p>在文件最下面填入如下設定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">Comment = Pi Shared Folder</span><br><span class="line">Path = /mnt/Share</span><br><span class="line">Browseable = yes</span><br><span class="line">Writable = yes</span><br><span class="line">guest ok = no</span><br><span class="line">valid users = username</span><br></pre></td></tr></table></figure>
+<p>PS：valid users 後面替換成自己的 username。</p>
+<p>接著我們要加入 smb 的登入帳號：</p>
+<p><code>sudo smbpasswd -a username</code></p>
+<p>依照提示輸入密碼設定完成，最後重啟 Samba 服務完成設定。</p>
+<p><code>sudo service smbd restart</code></p>
+<p>都設定完成後就可以在 Windows 網路芳鄰上看到 NAS 了（由於有限定使用者，要同樣帳號名稱密碼才能進的去，若要不希望限定帳號記得在 <code>smb.conf</code> 把 guest 功能打開）</p>
+<p>MacOS 的話則在 Finder 下按 <code>CMD+K</code> 填入 <code>smb://raspberrypi.local/Share</code> ，輸入剛才設定的 smb 使用者帳號密碼即可連入 NAS 。</p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="http://blog.jachobsen.com/2013/04/29/browse-raspberry-pi-in-osx-finder-via-samba/" target="_blank" rel="noopener">Browse Raspberry Pi in OSX Finder via Samba</a></p>
+<p><a href="https://askubuntu.com/questions/79078/how-to-restart-samba-server" target="_blank" rel="noopener">How to restart samba server?</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2019-10-11T13:25:00.000Z"><a href="/archives/613e9fa3.html">2019-10-11</a></time>
       
       
@@ -612,88 +683,18 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-10-03T02:54:05.000Z"><a href="/archives/8dfde79b.html">2018-10-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/archives/8dfde79b.html">YD68藍牙機械鍵盤組裝及心得</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407629/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_234714_vHDR_Auto.jpg" alt="YD68 Dolch"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近想找一把60%的機械鍵盤來換掉之前的Ducky One RGB，當然Ducky One還是一把不錯的鍵盤，主要考慮到想弄個Mac/Win通用配置的，以及我桌子上東西有點多（繪圖板跟筆電）60%可以省下桌面不少空間。</p>
-<p>#需求</p>
-<p>這次選鍵盤的主要需求是</p>
-<ul>
-<li>60%</li>
-<li>藍牙雙模</li>
-<li>可自定鍵位</li>
-<li>需要有正常配置的方向鍵（Win下需要，之前用過Shift當up的很不習慣）</li>
-<li>希望除了60%能有多幾個按鍵，繪圖時Del之類可以不用組合鍵就能完成</li>
-</ul>
-<p>翻找了一下發現YD68是目前最接近我需求的，而且接口是Type-C，不過比較可惜的是藍牙只有3.0（有看到GH60 BLE4.0的），也支援單色背光跟底部有RGB燈，不過這次不打算搭配透光鍵帽所以背光功能就先放一邊了。</p>
-<p>以下是收到的YD68套件，PCB本體、腳墊螺絲、定位版、塑膠外殼、衛星軸、另購的櫻桃軸（青與茶）、電池（我買的時候賣家少寄）。</p>
-<h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407627/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_195145_vHDR_On.jpg" alt="YD68零件"></p>
-<p>鍵盤軸體佈局。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407624/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_212316_vHDR_Auto.jpg" alt="混軸配置"></p>
-<p>記得要先裝衛星軸。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407634/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_224326_vHDR_Auto.jpg" alt="平衡軸"></p>
-<p>PCB背面，把軸體焊上。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407623/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_220021_vHDR_Auto.jpg" alt="焊接"></p>
-<p>接下來準備加上電池。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538543857/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_124601_vHDR_Auto.jpg" alt="鋰電池"></p>
-<p>要先把塑膠殼的加強筋剪掉一部分，先量好長度，剪下去之後再直接推斷即可。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538543856/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_124824_vHDR_Auto.jpg" alt="剪裁電池所需空間"></p>
-<p>最後在旁邊加上緩衝，將電池黏上。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538543857/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_125641_vHDR_Auto.jpg" alt="固定電池及緩衝"></p>
-<p>上鍵帽！完成！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407629/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_234714_vHDR_Auto.jpg" alt="完成"></p>
-<p>這次用的是KBDfans買的Dolch配色PBT鍵帽（OEM高度），市面上看到的好像大部分Dolch都是原廠高度，比較喜歡OEM，覺得原廠高度太平了。不過感覺這個ESC字體顏色可以再深一點更好，還有Shift的圖案感覺跟字體有些不搭。</p>
-<p>因爲是要給Mac用的，所以順便買了Mac的增補鍵，（補充下YD68的一些規格可以跟TADA68規格共用），也是除了字體不太統一（我說怎麽連Opt跟Cmd都能不太一樣XDD），其他基本上都不錯。</p>
-<p>刷鍵位的線上工具在這裡 <a href="http://ydkb.io/" target="_blank" rel="noopener">http://ydkb.io/</a> ，網站上也有教學就不細說了。目前RGB LED的顏色控制我自己試不太出來，不確定是Bug或是我操作太差，有後續心得再回來補充。</p>
-<p>藍牙部分連接穩定度與雙模切換速度都還不錯，不過有少數時候會稍微明顯一些的Lag不確定是我這邊干擾多的原因還是怎樣，可能還要多測試才能確定。</p>
-<p>關於在Win跟Mac之間切換，我建議鍵盤直接按照Win的設定，然後到Mac內對調Cmd與Opt的位置，這麼做的原因是因爲改Mac鍵位會比Win上要來的簡單很多。</p>
-<p>（另外我也順便把Ctrl跟Caps Lock對調了，類似HHKB配置）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538485581/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/Screen_Shot_2018-10-02_at_9.04.23_PM.png" alt="MacOS鍵位設定"></p>
-<p>同場加映鍵盤包！感謝觀看！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407632/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180930_001809_vHDR_Auto.jpg" alt="同場加映鍵盤包"></p>
-<p><em>目前遇到了點小問題，不確定是個案或是PCB設計問題，R1那排有機率發生連點，原因還在調查中，想入坑的可以多考慮一下（國外跟對岸都沒看到有相關案例）</em></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
   
-    <a href="/page/2/" class="alignright next">Next</a>
+    <a href="/page/2/" class="alignright next">Nächste Seite</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="Suche">
     <input type="hidden" name="q" value="site:blog.driftkingtw.me">
   </form>
 </div>
@@ -719,9 +720,11 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
-    <li><a href="/tags/MacOS/">MacOS</a><small>6</small></li>
+    <li><a href="/tags/MacOS/">MacOS</a><small>7</small></li>
   
     <li><a href="/tags/Macbook-Pro/">Macbook Pro</a><small>1</small></li>
+  
+    <li><a href="/tags/NAS/">NAS</a><small>1</small></li>
   
     <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
   

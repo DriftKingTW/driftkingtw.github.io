@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftkingtw.me/"/>
-  <updated>2019-10-12T05:44:22.777Z</updated>
+  <updated>2019-10-12T15:49:07.741Z</updated>
   <id>https://blog.driftkingtw.me/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用 Raspberry Pi 搭建 NAS</title>
+    <link href="https://blog.driftkingtw.me/archives/c138150d.html"/>
+    <id>https://blog.driftkingtw.me/archives/c138150d.html</id>
+    <published>2019-10-12T13:25:00.000Z</published>
+    <updated>2019-10-12T15:49:07.741Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>就只是個基於 Samba 的簡易 NAS 的過程，沒有任何動靜。</p><p>BTW 目前還是使用 Pi3B ，升級後會在補上 Pi4B 速度的差異心得。未來打算再裝上 Aria2 讓 Pi 具有下載機的功能。</p><h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p><p><code>sudo raspi-config</code></p><p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p><p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p><h1 id="外接硬碟設定"><a href="#外接硬碟設定" class="headerlink" title="外接硬碟設定"></a>外接硬碟設定</h1><p>首先用 <code>lsblk</code> 找到要當 NAS 硬碟及分區(這邊是 <code>sda2</code> 代表 a 磁碟的 2 號分區)</p><p>格式化為 <code>ext4</code> 格式，這邊推薦用 <code>ext4</code> 效能最好</p><p><code>sudo mkfs.ext4 /dev/sda2</code></p><p><em>有些人可能會有疑問，如果用 <code>ext4</code> 會不會讓我無法在其他系統上讀取，這部分並不用擔心，因為這個硬碟格式只是給 Server 讀取寫入用的，客戶端支援的檔案格式不會影響到</em></p><p>建立掛載點</p><p><code>sudo mkdir /mnt/Share</code></p><p>查看硬碟分區的 <code>UUID</code> 並把它複製下來</p><p><code>sudo blkid</code></p><p>編輯 <code>fstab</code> 添加掛載資訊</p><p><code>sudo vim /etc/fstab</code></p><p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p><p><code>UUID=YOUR_UUID  /mnt/Share  ext4  defaults  0 2</code></p><p>掛載硬碟(分區)</p><p><code>sudo mount -a</code></p><p>查看掛載狀態是否正確</p><p><code>df -h</code></p><p>最後開啟硬碟權限</p><p><code>chmod 777 /mnt/Share</code></p><h1 id="設定-Samba-Server"><a href="#設定-Samba-Server" class="headerlink" title="設定 Samba Server"></a>設定 Samba Server</h1><p>接著安裝 <code>Samba</code></p><p><code>sudo apt-get install samba samba-common-bin</code></p><p>完成後編輯 <code>/etc/samba/smb.conf</code></p><p><code>sudo vim /etc/samba/smb.conf</code></p><p>在文件最下面填入如下設定</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">Comment = Pi Shared Folder</span><br><span class="line">Path = /mnt/Share</span><br><span class="line">Browseable = yes</span><br><span class="line">Writable = yes</span><br><span class="line">guest ok = no</span><br><span class="line">valid users = username</span><br></pre></td></tr></table></figure><p>PS：valid users 後面替換成自己的 username。</p><p>接著我們要加入 smb 的登入帳號：</p><p><code>sudo smbpasswd -a username</code></p><p>依照提示輸入密碼設定完成，最後重啟 Samba 服務完成設定。</p><p><code>sudo service smbd restart</code></p><p>都設定完成後就可以在 Windows 網路芳鄰上看到 NAS 了（由於有限定使用者，要同樣帳號名稱密碼才能進的去，若要不希望限定帳號記得在 <code>smb.conf</code> 把 guest 功能打開）</p><p>MacOS 的話則在 Finder 下按 <code>CMD+K</code> 填入 <code>smb://raspberrypi.local/Share</code> ，輸入剛才設定的 smb 使用者帳號密碼即可連入 NAS 。</p><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="http://blog.jachobsen.com/2013/04/29/browse-raspberry-pi-in-osx-finder-via-samba/" target="_blank" rel="noopener">Browse Raspberry Pi in OSX Finder via Samba</a></p><p><a href="https://askubuntu.com/questions/79078/how-to-restart-samba-server" target="_blank" rel="noopener">How to restart samba server?</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;就只是個基於 Samba 的簡易 NAS 的過程，沒有任何動靜。&lt;/p&gt;
+&lt;p&gt;BTW 目前還是使用 Pi3B ，升級後會在補上 Pi4B 
+      
+    
+    </summary>
+    
+    
+      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+    
+      <category term="NAS" scheme="https://blog.driftkingtw.me/tags/NAS/"/>
+    
+  </entry>
   
   <entry>
     <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
@@ -504,33 +530,6 @@
       <category term="iPad" scheme="https://blog.driftkingtw.me/tags/iPad/"/>
     
       <category term="illustration" scheme="https://blog.driftkingtw.me/tags/illustration/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Logitech G27方向盤 回正/校正問題維修</title>
-    <link href="https://blog.driftkingtw.me/archives/29ceba03.html"/>
-    <id>https://blog.driftkingtw.me/archives/29ceba03.html</id>
-    <published>2018-01-17T13:16:00.000Z</published>
-    <updated>2019-10-09T15:02:52.637Z</updated>
-    
-    <content type="html"><![CDATA[<p>大概九月時幸運用不錯的價格收了一套二手的G27, 對於車控來說簡直太爽拉, 每天必跑一趟Nurburgring(?<br>雖然G27現在上面有Thrustmaster跟Fanatec等更高檔次的方向盤, 不過對我目前來說有G27就很棒了XDD <del>窮學生麻</del></p><p>不過就在約一個月前, 出了點小問題, 每次插上USB G27就會自檢之後回正, 但有時候卻回不到中間(角度也不大,約10度左右)<br>雖然10度但是開起來超有感阿, <del>整個人都歪一邊拉!!</del> 而且玩Project Cars 2的時候還會越歪越多(汗, 跑趟拉力賽下來整個方向盤歪了快90度QQ<br>後來越來越容易出現這種問題, 於是上網查了下, 中文的資料不多<del>(可能就是邊緣玩的設備…)</del>, 不過國外很多同好也都遇到了類似的問題。</p><p>只要是校正有問題/歪斜/檢測時打到底無法回正(轉速指示燈有亮)的話八九不離十都是內部光學編碼器(Optical Encoder)的部分出了問題, 也有人叫他光柵,如下圖這個</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274747/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/光柵-1024x889.jpg" alt=""></p><p>這個黑色小圓片就是處理G27判斷方向盤轉了多少的裝置, 然而我不知道為啥Logitech的工程師在設計的時候這塊用塑膠….熱漲冷縮呢www(<del>可能才有機會送修吧</del>, 不然其他的部份的品質都很牢靠, 金屬的部分也很厚實堅固)</p><p>仔細看圖片右下的那條裂痕, 這就是造成校正失準的原因(雖然很小但就是這樣沒錯QQ)<br>原本想說按照網上一些說法拆下拿強力膠or三秒膠把縫隙補起來<br>但是我這麼做的時候裝上去居然就, 啪的一聲又裂拉QQ, 而且裂更大惹……裝回去連校正都無法拉QQ<br>於是, 只好想辦法去淘了個不鏽鋼製的光柵回來….等了幾天終於運來台灣惹(BTW這被官方認定是特貨,所以得找私人運)<br>價格約NTD350~400左右, 之前看YT有人說澳洲有人在賣, 但出貨慢又貴….(1.5k)<br>還好至少TB有賣, 不然就GG惹</p><p>收到貨發現賣家包的超仔細XDD我拆了好幾層, 最裡面還是用戒指盒包的簡直超用心阿XDDD</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274803/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/光柵2-1024x822.jpg" alt=""></p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274810/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180117_123531-1024x735.jpg" alt=""></p><p>對了這邊提醒一下, G27有兩種光柵, 舊版的(綠盒包裝)是60柵跟G25共用<br>新版的G27(黑盒裝)是30柵, G29跟G920應該也一樣?可能要拆開來看或查過比較好</p><hr><p>2018/06/06 更新</p><p>可能要注意一下，上述的不鏽鋼光柵在幾個月之後居然也開始失靈了，又開始慢慢歪掉 Orz<br>不知道是不是便宜了經度不夠或剛好瑕疵等…取出來的時候好像有些刮痕，也可能是我一開始沒裝好造成的<br>淘寶有些評價都是正常使用的，如果要買可能自己先評估一下了</p><p>總之我換成YT上不少人買的泰國製黃銅製光柵(30USD一個+8USD運費) <a href="http://cmlaserservice.com/index.html" target="_blank" rel="noopener">黃銅光柵連結</a></p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294507/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180525_113926.jpg" alt="30格光柵"></p><hr><p>接下來簡單紀錄一下維修的方法, 如果覺得我圖片不清楚或不懂可以去YT, 國外有不少拆解影片~</p><p>首先拆下方向盤上的六角螺絲</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274820/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_144353-1024x576.jpg" alt=""></p><p>打開的時候小心, 方向盤上的按鈕有連接線連到一張綠色的T型電路板上</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274829/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145127-1024x576.jpg" alt=""></p><p>後面有個連接端子把它小心的拔掉, 然後會變成這個樣子</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275028/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145137-1024x576.jpg" alt=""></p><p>記得順便把轉速指示燈的遮蓋拿起來放好</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275046/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145359-576x1024.jpg" alt=""></p><p>接著將紅圈的三個螺絲拆下(這螺絲要裝回去的時候莫名的難鎖,還很長……)<br>PS下面那個螺絲被端子擋到<br>周圍四個螺絲是鎖著撥片用的, 如果要換大撥片再拆那四個螺絲即可</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275063/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/fefewfewf-1024x576.jpg" alt=""></p><p>拔下後的樣子</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275083/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_150952-1024x576.jpg" alt=""></p><p>接著把G27翻到背面, 卸下螺絲(紅色), 綠圈處我建議晚點再拆,那邊是固定馬達跟旋轉軸的部分<br><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275115/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_1457290000-1024x576.jpg" alt=""></p><p>放好螺絲後上蓋應該可以輕鬆的提起<br>然後會看到電路板, 感測器在右方馬達的尾部(有個黑蓋子的)<br>然後把電路板上有端子的連結都拆起來(別太暴力R 雖然我覺得還蠻堅固的)<br>把周圍的螺絲(包含電路板下面的固定鋼板)卸下</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275173/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_151700-1024x576.jpg" alt=""></p><p>(拍糊了QQ)</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275189/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_152915-1024x576.jpg" alt=""></p><p>此時可以用一字起子沿著黑蓋邊緣撬開, 這部分沒拍到<br>然後再把下面剛才提到的綠圈處的螺絲卸下<br>小心這時候馬達中間那塊的軸心就會分離, 不要摔到了<br>還有裡面有齒輪和一片固定位置用的金屬彈片小心不要搞飛<br>上面都有塗潤滑油, 別雞婆把它擦掉阿XD<br>接著我們就可以看到光學感測電路板了</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275205/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_154054-1024x576.jpg" alt=""></p><p>可以先檢查一下是不是螺絲鬆掉, 鬆掉也可能會造成失準的問題, 如果鎖緊就好了可以不用換光柵~<br>欸抱歉我發現細部的圖片沒拍到<br>簡單敘述一下就是把綠色的電路板拆下(小心螺絲下面有華司別弄丟)<br>如果要換就把黑色那片光柵拔下換上即可<br>之後按照原本的動作組裝回去就沒問題<br>記得電路板接線要檢查有沒有接穩QQ 我第一次裝回去有一個沒裝好結果又拆開來壓緊(ry</p><hr><p>2018/06/06 更新</p><p>附上安裝上新光柵的大圖，可以讓光柵盡可能地靠近黑色(接收器)，但是注意不要摩擦到PCB就好</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294507/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180525_131356.jpg" alt="光柵安裝圖"></p><p>順便提醒一下把馬達齒輪組那一大塊安裝回去時要特別注意塑膠擋塊有沒有對齊，G27是靠那個判斷有沒有轉到底的<br>如果沒對準也是沒法校正哦，建議可以卡上去後壓著把方向盤兩邊轉到底看有沒有卡好對齊(齒輪那也有個藍點可以對準)</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294869/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180118_131711.jpg" alt="齒輪擋塊"></p><hr><p>YA等了一個禮拜終於復活拉 <del>趕緊飆車去囉</del></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;大概九月時幸運用不錯的價格收了一套二手的G27, 對於車控來說簡直太爽拉, 每天必跑一趟Nurburgring(?&lt;br&gt;雖然G27現在上面有Thrustmaster跟Fanatec等更高檔次的方向盤, 不過對我目前來說有G27就很棒了XDD &lt;del&gt;窮學生麻&lt;/del&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="DIY" scheme="https://blog.driftkingtw.me/tags/DIY/"/>
-    
-      <category term="SIM-Racing" scheme="https://blog.driftkingtw.me/tags/SIM-Racing/"/>
-    
-      <category term="G27" scheme="https://blog.driftkingtw.me/tags/G27/"/>
     
   </entry>
   
