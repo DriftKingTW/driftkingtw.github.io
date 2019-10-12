@@ -63,6 +63,87 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2019-10-11T13:25:00.000Z"><a href="/archives/613e9fa3.html">2019-10-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/archives/613e9fa3.html">利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。</p>
+<p>不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是群輝（Synology）的 NAS 都有提供 TimeMachine 無線備份的功能，然而這兩者的價格都還是偏高的QwQ</p>
+<p>所以在一輪 Google 後，我的解決方法就是利用此篇的主角：樹莓派（Raspberry Pi）來完成這項任務，在 Pi 4 推出後，硬體規格升級到了USB3.0、Gigabit Ethrnet，做個人用的簡易 NAS 已經算是堪用，更不用說對速度要求不高的 TimeMachine 了！</p>
+<h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
+<figure class="highlight plain"><figcaption><span>raspi-config ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">把預設密碼之類改一改，還有地區之類等基本設定。</span><br><span class="line">設定完後先更新一下套件。</span><br><span class="line"></span><br><span class="line">``` sudo apt-get update &amp;&amp; sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<p>接著重啟樹莓派。</p>
+<figure class="highlight plain"><figcaption><span>reboot ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 分割磁碟(可選)</span><br><span class="line"></span><br><span class="line">如果整顆硬碟都是要拿來做 TimeCapsule 的話此步驟可以跳過，直接續讀&lt;strong&gt;[安裝過程](#安裝過程)&lt;/strong&gt;。</span><br><span class="line"></span><br><span class="line">首先列出硬碟情況：</span><br><span class="line"></span><br><span class="line">``` lsblk</span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812124/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.41.53_AM.png" alt=""></p>
+<p>找到硬碟代號，例如這邊sda是我的外接硬碟，裡面有之前的分區。<br>首先用 <code>fdisk</code> 重新分割這顆硬碟：</p>
+<figure class="highlight plain"><figcaption><span>fdisk</span><a href="/dev/sda">```</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">進入 `fdisk` 可以按 `m` 顯示使用說明，這邊簡述我的硬碟分割過程：</span><br><span class="line"></span><br><span class="line">1. 輸入兩次 `d` 刪除兩個原先的分區</span><br><span class="line"></span><br><span class="line">2. `n` 新增分區，分區代號以及起始區塊預設，結束區塊 `+450G` (這樣會建立一個代號1，450G大小的分區)</span><br><span class="line"></span><br><span class="line">3. 再次用 `n` 新增第二分區，一路 `Enter` 完成剩下硬碟空間的分區</span><br><span class="line"></span><br><span class="line">4. `w` 寫入硬碟分區資料並退出 `fdisk`</span><br><span class="line"></span><br><span class="line">接著再次查看分割結果是否正確</span><br><span class="line"></span><br><span class="line">``` lsblk</span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812186/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.42.56_AM.png" alt=""></p>
+<p>圖中可以看到硬碟已經成功分割成希望的數量以及大小<br>(注意：<code>fdisk</code> 僅支援分割2TB內的硬碟，若要分割更大的需要安裝 <code>gparted</code> 在桌面環境下操作)</p>
+<h1 id="安裝過程"><a href="#安裝過程" class="headerlink" title="安裝過程"></a>安裝過程</h1><h2 id="準備硬碟"><a href="#準備硬碟" class="headerlink" title="準備硬碟"></a>準備硬碟</h2><p>首先格式化硬碟(<code>sda1</code>是我要格式化的分區，請依照<code>lsblk</code>顯示的自行更換)</p>
+<figure class="highlight plain"><figcaption><span>mkfs.ext4</span><a href="/dev/sda1">```</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">這邊建議以 `ext4` 格式化達到最佳效能，雖然有工具可以讓 Linux 讀取 `hfsplus` 等蘋果檔案格式，但是我測試之後速度慢到想哭(／‵Д′)／~ ╧╧</span><br><span class="line">（這邊不太確定是不是我不會設定問題，若有錯誤歡迎指正</span><br><span class="line"></span><br><span class="line">而且 `hfsplus` 也無法把硬碟拆下來接上 MacOS 就直接兩邊互通，索性直接用 `ext4`，以後連復原都透過網路了。</span><br><span class="line"></span><br><span class="line">建立掛載點</span><br><span class="line"></span><br><span class="line">``` sudo mkdir /mnt/TimeCapsule</span><br></pre></td></tr></table></figure>
+<p>查看分區的 <code>UUID</code> 並把它複製下來</p>
+<figure class="highlight plain"><figcaption><span>blkid ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">編輯 ` fstab ` 添加掛載資訊</span><br><span class="line"></span><br><span class="line">``` sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
+<p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">掛載硬碟(分區)</span><br><span class="line"></span><br><span class="line">``` sudo mount -a</span><br></pre></td></tr></table></figure>
+<p>查看掛載狀態</p>
+<figure class="highlight plain"><figcaption><span>-h ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812250/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.44.00_AM.png)</span><br><span class="line"></span><br><span class="line">可以看到 ` sda1 ` 已成功掛載到 ` /mnt/TimeCapsule ` 了</span><br><span class="line"></span><br><span class="line">最後開啟硬碟權限</span><br><span class="line"></span><br><span class="line">``` chmod 777 /mnt/TimeCapsule</span><br></pre></td></tr></table></figure>
+<h2 id="安裝及設定-Netatalk"><a href="#安裝及設定-Netatalk" class="headerlink" title="安裝及設定 Netatalk"></a>安裝及設定 Netatalk</h2><p>安裝 <code>Netatalk</code></p>
+<figure class="highlight plain"><figcaption><span>apt-get install netatalk ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">安裝完成後用 ``` netatalk -v ``` 查看版本以及設定檔位置</span><br><span class="line"></span><br><span class="line">接著編輯 `nsswitch.conf`</span><br><span class="line"></span><br><span class="line">``` sudo vim /etc/nsswitch.conf</span><br></pre></td></tr></table></figure>
+<p>在 <code>host</code> 那行的最後加上 <code>mdns4 mdns</code> 如下</p>
+<figure class="highlight plain"><figcaption><span>files mdns4_minimal [NOTFOUND</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">設定 `afp.conf`</span><br><span class="line"></span><br><span class="line">``` sudo vim /etc/netatalk/afp.conf</span><br></pre></td></tr></table></figure>
+<p>內容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Global]</span><br><span class="line">  mimic model = TimeCapsule6,106</span><br><span class="line"></span><br><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br></pre></td></tr></table></figure>
+<p>保存後退出，最後啟動服務：</p>
+<p><code>sudo service avahi-daemon start</code></p>
+<p><code>sudo service netatalk start</code></p>
+<p>這時應該能在 MacOS 看到你的網路硬碟了！</p>
+<p>為了確定開機時會自動啟動服務，輸入以下指令：</p>
+<p><code>sudo systemctl enable avahi-daemon</code></p>
+<p><code>sudo systemctl enable netatalk</code></p>
+<h2 id="MacOS-端設定"><a href="#MacOS-端設定" class="headerlink" title="MacOS 端設定"></a>MacOS 端設定</h2><p>接著打開 TimeMachine 設定，按選擇備份碟之後就能夠看到我們用 Raspberry Pi 的備份硬碟囉！選擇它之後輸入 Pi 的帳號密碼即可開始備份（第一次備份時間通常較長，如果開啟加密會更久），完成首次備份後接著以後就是差異備份，只要連上就會自動定期執行，在也不用怕麻煩或忘記備份了！</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812960/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.55.43_AM.png" alt=""></p>
+<h2 id="進階設定"><a href="#進階設定" class="headerlink" title="進階設定"></a>進階設定</h2><h3 id="Raspberry-Pi-端"><a href="#Raspberry-Pi-端" class="headerlink" title="Raspberry Pi 端"></a>Raspberry Pi 端</h3><h4 id="用戶管理"><a href="#用戶管理" class="headerlink" title="用戶管理"></a>用戶管理</h4><p>新增用戶（username改成自己需要的使用者名稱）</p>
+<figure class="highlight plain"><figcaption><span>--create-home --groups users --user-group username ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">建立密碼</span><br><span class="line"></span><br><span class="line">``` passwd username</span><br></pre></td></tr></table></figure>
+<p>編輯 <code>afp.conf</code></p>
+<figure class="highlight plain"><figcaption><span>vim</span><a href="/etc/netatalk/afp.conf">```</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在 `[Time Machine]` (顯示名稱依照之前設定的可能會有不同)新增使用者</span><br><span class="line"></span><br><span class="line">```conf</span><br><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br><span class="line">  valid user = username</span><br></pre></td></tr></table></figure>
+<h4 id="靜態-IP"><a href="#靜態-IP" class="headerlink" title="靜態 IP"></a>靜態 IP</h4><p>固定 Pi 的 IP，這部分可以前往路由器設定，由於每家路由器不一定相同，所以另外依照各廠商提供的說明設定。</p>
+<h3 id="Mac-端"><a href="#Mac-端" class="headerlink" title="Mac 端"></a>Mac 端</h3><p>首次備份時若覺得備份速度太慢可以執行以下 Script 關閉限流：</p>
+<figure class="highlight plain"><figcaption><span>sysctl debug.lowpri_throttle_enabled</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">關閉方式：</span><br><span class="line"></span><br><span class="line">``` sudo sysctl debug.lowpri_throttle_enabled=1</span><br></pre></td></tr></table></figure>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.gtwang.org/linux/linux-add-format-mount-harddisk/" target="_blank" rel="noopener">替 Linux 新增硬碟（磁碟分割、格式化與掛載）</a></p>
+<p><a href="https://www.youtube.com/watch?v=yJs8f0spJO4" target="_blank" rel="noopener">How to Use Your Raspberry Pi as a Time Machine Backup Server for macOS</a></p>
+<p><a href="https://www.imore.com/how-speed-your-time-machine-backups" target="_blank" rel="noopener">How to speed up your Time Machine backups</a></p>
+<p><a href="https://openwrt.org/docs/guide-user/services/nas/netatalk_configuration" target="_blank" rel="noopener">AFP Netatalk share configuration (aka Apple Time Machine).</a></p>
+<p><a href="https://gregology.net/2018/09/raspberry-pi-time-machine/" target="_blank" rel="noopener">Raspberry Pi Time Machine (2019 update)</a></p>
+<p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p>
+<p><a href="https://github.com/mr-bt/raspberrypi-timemachine" target="_blank" rel="noopener">Apple Time machine on RaspberryPI</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2019-10-04T14:00:00.000Z"><a href="/archives/1a5b208d.html">2019-10-04</a></time>
       
       
@@ -557,80 +638,18 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-09-30T15:57:33.000Z"><a href="/archives/5ae59dc6.html">2018-09-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/archives/5ae59dc6.html">Brainwavz B2 BeatsX W1晶片無線改裝</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg" alt="Brainwavz B2 Wireless"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前陣子買了Airpods來玩玩，發現Apple的W1晶片真心強大, 連接方便穩定, 延遲非常低(可以看影片的那種), 續航力優秀 <del>不過音質就只能說比Earpods好一點點，然後貴了五倍價格</del>。</p>
-<p>Beats被Apple收購後他們的無線耳機也都使用了W1晶片，聲音也提升了(說好當然CP值也是沒多高，不過至少不是只會發出聲音的髮箍(笑)，之前BTS買電腦時剛好送了Solo 3 Wireless，試聽了一下聲音真是跌破眼鏡 <del>其實是之前太差</del>，靈光一閃想到如果把W1晶片改裝到一般耳機上或許能解決平常市面上大多數藍芽耳機續航&amp;音質&amp;穩定延遲的問題。</p>
-<p>Google了一下相關資料，果然Head-Fi上有人也有這個想法並且實踐成功了，他用的是BeatsX，後來在考慮價格與改裝方便性上的確是BeatsX最適合做入耳式的改造，於是我也去收了個二手的BeatsX。</p>
-<p><strong><em>利申一下我不算是多專業的燒友，以前稍微玩過而已，現在已經少碰。聲音相關感覺因人而異本文章僅提供改裝技術交流</em></strong></p>
-<h1 id="過程紀錄"><a href="#過程紀錄" class="headerlink" title="過程紀錄"></a>過程紀錄</h1><p>首先確認好BeatsX能發出聲音後，從音控後方爽快的剪下去吧！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_90/v1538323416/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184454_vHDR_Auto.jpg" alt="感覺好像要斷頭"></p>
-<p><del>破壞東西就式特別的爽</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323418/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184650_vHDR_Auto.jpg" alt="一刀兩斷"></p>
-<p>這次要變成無線的是伴我多年的Brainwavz B2(不知道的童鞋，這隻聲音跟DBA-02一樣，同一家代工廠)。</p>
-<p>很久以前因為線材掛了所以我把它做成可換線式的(MMCX接口)，想法很簡單，BeatsX的W1晶片與線控區後面先接上CM插座-&gt;自製CM公 to MMCX公線材-&gt;B2單體(MMCX母)，有人可能想問為何中間要多一段CM，主要是希望以後能夠做擴充(CMtoCM)這樣兩種都能使用，至於稍微影響的音質，藍芽耳機要求的是方便不是嗎lol?</p>
-<p>剪開麵條線材後發現裡面有五條漆包線+兩條強化抗拉線材在一旁，不是很好處理所以撥線長度大概要1~1.5CM會比較好操作。</p>
-<p>線材定義在測量過後發現在最外兩側的分別是紅色信號輸入跟黑色GND(不算強化線材)，中間三條應該是線控的，不過兩邊都有可以不理會直接剪掉。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_90/v1538323429/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213245_vHDR_Auto.jpg" alt="BeatX麵條線內線材"></p>
-<p>接著焊接上其他測試用單體試試看有沒有接錯，聲音是否正常。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323426/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_195612_vHDR_Auto.jpg" alt="發聲測試"></p>
-<p>焊上CM母座。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_0/v1538323433/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213849_vHDR_Auto.jpg" alt="CM母座"></p>
-<p>CM公插。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323436/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_215819_vHDR_Auto.jpg" alt="CM插針"></p>
-<p>同場加映幫朋友改的CM公插，太久沒焊了，有點傷眼sry囉。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323427/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_211750_vHDR_Auto.jpg" alt="CM插針"></p>
-<p>完成！</p>
-<p>眼尖的童鞋可能發現了，由於發生了點小插曲所以之前買的MMCX插針沒法用，只好把一條幾年前去Oyaide買材料的自製線拆了撐一下，到時候在幫他買個殼QwQ。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg" alt="Brainwavz B2 Wireless!"></p>
-<p>幫朋友改的CM版BeatsX</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538325406/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233933_vHDR_Auto.jpg" alt="CM插針版"></p>
-<h1 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h1><p>聲音挺不錯的，不過也是不建議給阻抗大或不好推的耳機使用，除了耗電外可能聲音也推不太開。</p>
-<p>有W1晶片，續航延遲都比市面上絕大多數的藍芽耳機好不少，此改造又兼顧了一定的音質，可謂大成功啊！</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.head-fi.org/threads/apple-beats-x-mod-for-iem.844435/" target="_blank" rel="noopener">Head-Fi - Apple Beats X mod for IEM</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
   
-    <a href="/page/2/" class="alignright next">次の投稿</a>
+    <a href="/page/2/" class="alignright next">Nächste Seite</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="search" name="q" results="0" placeholder="Suche">
     <input type="hidden" name="q" value="site:blog.driftkingtw.me">
   </form>
 </div>
@@ -639,7 +658,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">タグ</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/DIY/">DIY</a><small>5</small></li>
@@ -656,7 +675,7 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
-    <li><a href="/tags/MacOS/">MacOS</a><small>5</small></li>
+    <li><a href="/tags/MacOS/">MacOS</a><small>6</small></li>
   
     <li><a href="/tags/Macbook-Pro/">Macbook Pro</a><small>1</small></li>
   
@@ -673,6 +692,10 @@
     <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
   
     <li><a href="/tags/SketchUp/">SketchUp</a><small>1</small></li>
+  
+    <li><a href="/tags/TimeCapsule/">TimeCapsule</a><small>1</small></li>
+  
+    <li><a href="/tags/TimeMachine/">TimeMachine</a><small>1</small></li>
   
     <li><a href="/tags/Touchbar/">Touchbar</a><small>2</small></li>
   

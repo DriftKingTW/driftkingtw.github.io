@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/613e9fa3.html</loc>
+    <lastmod>2019-10-12T05:21:36.086Z</lastmod>
+    <data>
+        <display>
+        <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
+        <pubTime>2019-10-11T13:25:00.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>TimeCapsule</tag>
+         
+        <tag>TimeMachine</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/6759087b.html</loc>
+    <lastmod>2019-10-12T05:16:59.204Z</lastmod>
+    <data>
+        <display>
+        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
+        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
+        
+        <tag>Raspberry Pi</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/b7400b18.html</loc>
     <lastmod>2019-10-09T15:04:10.364Z</lastmod>
     <data>
@@ -68,9 +106,9 @@
         <title>Delux Designer 單手機械鍵盤使用心得</title>
         <pubTime>2018-11-05T08:38:27.000Z</pubTime>
         
-        <tag>開箱</tag>
-         
         <tag>Keyboard</tag>
+         
+        <tag>開箱</tag>
          
          
            
@@ -144,9 +182,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>Macbook Pro</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>Macbook Pro</tag>
          
          
            
@@ -220,11 +258,11 @@
         <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
         <pubTime>2018-02-21T07:00:42.000Z</pubTime>
         
+        <tag>開箱</tag>
+         
         <tag>iPad</tag>
          
         <tag>illustration</tag>
-         
-        <tag>開箱</tag>
          
          
            
@@ -281,9 +319,9 @@
         <title>Ducky ONE RGB 青軸 極簡易開箱</title>
         <pubTime>2017-12-20T18:40:08.000Z</pubTime>
         
-        <tag>開箱</tag>
-         
         <tag>Keyboard</tag>
+         
+        <tag>開箱</tag>
          
          
            
@@ -303,23 +341,6 @@
         <tag>Keyboard</tag>
          
         <tag>DIY</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/6759087b.html</loc>
-    <lastmod>2019-10-09T15:02:37.442Z</lastmod>
-    <data>
-        <display>
-        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
-        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
-        
-        <tag>Raspberry Pi</tag>
          
          
            
