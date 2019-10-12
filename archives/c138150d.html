@@ -72,7 +72,7 @@
     </header>
     <div class="entry">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>就只是個基於 Samba 的簡易 NAS 的過程，沒有任何動靜。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>就只是個基於 Samba 的簡易 NAS 架設過程，沒有任何動靜。</p>
 <p>BTW 目前還是使用 Pi3B ，升級後會在補上 Pi4B 速度的差異心得。未來打算再裝上 Aria2 讓 Pi 具有下載機的功能。</p>
 <h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
 <p><code>sudo raspi-config</code></p>
@@ -101,7 +101,7 @@
 <p>完成後編輯 <code>/etc/samba/smb.conf</code></p>
 <p><code>sudo vim /etc/samba/smb.conf</code></p>
 <p>在文件最下面填入如下設定</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">Comment = Pi Shared Folder</span><br><span class="line">Path = /mnt/Share</span><br><span class="line">Browseable = yes</span><br><span class="line">Writable = yes</span><br><span class="line">guest ok = no</span><br><span class="line">valid users = username</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">  Comment = Pi Shared Folder</span><br><span class="line">  Path = /mnt/Share</span><br><span class="line">  Browseable = yes</span><br><span class="line">  Writable = yes</span><br><span class="line">  guest ok = no</span><br><span class="line">  valid users = username</span><br></pre></td></tr></table></figure>
 <p>PS：valid users 後面替換成自己的 username。</p>
 <p>接著我們要加入 smb 的登入帳號：</p>
 <p><code>sudo smbpasswd -a username</code></p>
