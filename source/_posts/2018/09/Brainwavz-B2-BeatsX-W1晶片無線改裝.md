@@ -12,7 +12,7 @@ abbrlink: 5ae59dc6
 date: 2018-09-30 23:57:33
 ---
 
-![Brainwavz B2 Wireless](https://res.cloudinary.com/driftkingtw/image/upload/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg)
+![Brainwavz B2 Wireless](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg)
 
 # 前言
 
@@ -28,11 +28,11 @@ Google了一下相關資料，果然Head-Fi上有人也有這個想法並且實�
 
 首先確認好BeatsX能發出聲音後，從音控後方爽快的剪下去吧！
 
-![感覺好像要斷頭](https://res.cloudinary.com/driftkingtw/image/upload/a_90/v1538323416/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184454_vHDR_Auto.jpg)
+![感覺好像要斷頭](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_90/v1538323416/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184454_vHDR_Auto.jpg)
 
 ~~破壞東西就式特別的爽~~
 
-![一刀兩斷](https://res.cloudinary.com/driftkingtw/image/upload/v1538323418/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184650_vHDR_Auto.jpg)
+![一刀兩斷](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323418/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184650_vHDR_Auto.jpg)
 
 這次要變成無線的是伴我多年的Brainwavz B2(不知道的童鞋，這隻聲音跟DBA-02一樣，同一家代工廠)。
 
@@ -42,33 +42,33 @@ Google了一下相關資料，果然Head-Fi上有人也有這個想法並且實�
 
 線材定義在測量過後發現在最外兩側的分別是紅色信號輸入跟黑色GND(不算強化線材)，中間三條應該是線控的，不過兩邊都有可以不理會直接剪掉。
 
-![BeatX麵條線內線材](https://res.cloudinary.com/driftkingtw/image/upload/a_90/v1538323429/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213245_vHDR_Auto.jpg)
+![BeatX麵條線內線材](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_90/v1538323429/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213245_vHDR_Auto.jpg)
 
 接著焊接上其他測試用單體試試看有沒有接錯，聲音是否正常。
 
-![發聲測試](https://res.cloudinary.com/driftkingtw/image/upload/v1538323426/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_195612_vHDR_Auto.jpg)
+![發聲測試](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323426/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_195612_vHDR_Auto.jpg)
 
 焊上CM母座。
 
-![CM母座](https://res.cloudinary.com/driftkingtw/image/upload/a_0/v1538323433/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213849_vHDR_Auto.jpg)
+![CM母座](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_0/v1538323433/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213849_vHDR_Auto.jpg)
 
 CM公插。
 
-![CM插針](https://res.cloudinary.com/driftkingtw/image/upload/v1538323436/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_215819_vHDR_Auto.jpg)
+![CM插針](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323436/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_215819_vHDR_Auto.jpg)
 
 同場加映幫朋友改的CM公插，太久沒焊了，有點傷眼sry囉。
 
-![CM插針](https://res.cloudinary.com/driftkingtw/image/upload/v1538323427/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_211750_vHDR_Auto.jpg)
+![CM插針](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323427/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_211750_vHDR_Auto.jpg)
 
 完成！
 
 眼尖的童鞋可能發現了，由於發生了點小插曲所以之前買的MMCX插針沒法用，只好把一條幾年前去Oyaide買材料的自製線拆了撐一下，到時候在幫他買個殼QwQ。
 
-![Brainwavz B2 Wireless!](https://res.cloudinary.com/driftkingtw/image/upload/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg)
+![Brainwavz B2 Wireless!](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg)
 
 幫朋友改的CM版BeatsX
 
-![CM插針版](https://res.cloudinary.com/driftkingtw/image/upload/v1538325406/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233933_vHDR_Auto.jpg)
+![CM插針版](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538325406/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233933_vHDR_Auto.jpg)
 
 # 感想
 

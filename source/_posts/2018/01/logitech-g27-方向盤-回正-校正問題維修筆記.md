@@ -24,7 +24,7 @@ keywords:
 
 只要是校正有問題/歪斜/檢測時打到底無法回正(轉速指示燈有亮)的話八九不離十都是內部光學編碼器(Optical Encoder)的部分出了問題, 也有人叫他光柵,如下圖這個
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518274747/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/光柵-1024x889.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274747/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/光柵-1024x889.jpg)
 
 這個黑色小圓片就是處理G27判斷方向盤轉了多少的裝置, 然而我不知道為啥Logitech的工程師在設計的時候這塊用塑膠....熱漲冷縮呢www(<del>可能才有機會送修吧</del>, 不然其他的部份的品質都很牢靠, 金屬的部分也很厚實堅固)
 
@@ -37,9 +37,9 @@ keywords:
 
 收到貨發現賣家包的超仔細XDD我拆了好幾層, 最裡面還是用戒指盒包的簡直超用心阿XDDD
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518274803/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/光柵2-1024x822.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274803/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/光柵2-1024x822.jpg)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518274810/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180117_123531-1024x735.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274810/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180117_123531-1024x735.jpg)
 
 對了這邊提醒一下, G27有兩種光柵, 舊版的(綠盒包裝)是60柵跟G25共用
 新版的G27(黑盒裝)是30柵, G29跟G920應該也一樣?可能要拆開來看或查過比較好
@@ -54,7 +54,7 @@ keywords:
 
 總之我換成YT上不少人買的泰國製黃銅製光柵(30USD一個+8USD運費) [黃銅光柵連結](http://cmlaserservice.com/index.html)
 
-![30格光柵](https://res.cloudinary.com/driftkingtw/image/upload/v1528294507/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180525_113926.jpg)
+![30格光柵](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294507/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180525_113926.jpg)
 
 -------------
 
@@ -62,43 +62,43 @@ keywords:
 
 首先拆下方向盤上的六角螺絲
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518274820/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_144353-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274820/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_144353-1024x576.jpg)
 
 打開的時候小心, 方向盤上的按鈕有連接線連到一張綠色的T型電路板上
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518274829/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145127-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274829/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145127-1024x576.jpg)
 
 後面有個連接端子把它小心的拔掉, 然後會變成這個樣子
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518275028/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145137-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275028/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145137-1024x576.jpg)
 
 記得順便把轉速指示燈的遮蓋拿起來放好
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518275046/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145359-576x1024.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275046/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145359-576x1024.jpg)
 
 接著將紅圈的三個螺絲拆下(這螺絲要裝回去的時候莫名的難鎖,還很長......)
 PS下面那個螺絲被端子擋到
 周圍四個螺絲是鎖著撥片用的, 如果要換大撥片再拆那四個螺絲即可
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518275063/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/fefewfewf-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275063/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/fefewfewf-1024x576.jpg)
 
 拔下後的樣子
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518275083/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_150952-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275083/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_150952-1024x576.jpg)
 
 接著把G27翻到背面, 卸下螺絲(紅色), 綠圈處我建議晚點再拆,那邊是固定馬達跟旋轉軸的部分
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518275115/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_1457290000-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275115/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_1457290000-1024x576.jpg)
 
 放好螺絲後上蓋應該可以輕鬆的提起
 然後會看到電路板, 感測器在右方馬達的尾部(有個黑蓋子的)
 然後把電路板上有端子的連結都拆起來(別太暴力R 雖然我覺得還蠻堅固的)
 把周圍的螺絲(包含電路板下面的固定鋼板)卸下
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518275173/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_151700-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275173/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_151700-1024x576.jpg)
 
 (拍糊了QQ)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518275189/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_152915-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275189/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_152915-1024x576.jpg)
 
 此時可以用一字起子沿著黑蓋邊緣撬開, 這部分沒拍到
 然後再把下面剛才提到的綠圈處的螺絲卸下
@@ -107,7 +107,7 @@ PS下面那個螺絲被端子擋到
 上面都有塗潤滑油, 別雞婆把它擦掉阿XD
 接著我們就可以看到光學感測電路板了
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1518275205/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_154054-1024x576.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275205/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_154054-1024x576.jpg)
 
 可以先檢查一下是不是螺絲鬆掉, 鬆掉也可能會造成失準的問題, 如果鎖緊就好了可以不用換光柵~
 欸抱歉我發現細部的圖片沒拍到
@@ -121,12 +121,12 @@ PS下面那個螺絲被端子擋到
 
 附上安裝上新光柵的大圖，可以讓光柵盡可能地靠近黑色(接收器)，但是注意不要摩擦到PCB就好
 
-![光柵安裝圖](https://res.cloudinary.com/driftkingtw/image/upload/v1528294507/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180525_131356.jpg)
+![光柵安裝圖](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294507/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180525_131356.jpg)
 
 順便提醒一下把馬達齒輪組那一大塊安裝回去時要特別注意塑膠擋塊有沒有對齊，G27是靠那個判斷有沒有轉到底的
 如果沒對準也是沒法校正哦，建議可以卡上去後壓著把方向盤兩邊轉到底看有沒有卡好對齊(齒輪那也有個藍點可以對準)
 
-![齒輪擋塊](https://res.cloudinary.com/driftkingtw/image/upload/v1528294869/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180118_131711.jpg)
+![齒輪擋塊](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294869/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180118_131711.jpg)
 
 -------------
 

@@ -12,7 +12,7 @@ keywords:
   - 繪圖螢幕
 ---
 
-![毛醬 w/ iPad](https://res.cloudinary.com/driftkingtw/image/upload/v1527571604/blog/2018/05/25/iPad_Pro_繪圖心得/Fur_chan_w_ipad.jpg)
+![毛醬 w/ iPad](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527571604/blog/2018/05/25/iPad_Pro_繪圖心得/Fur_chan_w_ipad.jpg)
 
 iPad Pro入手也大概三個多月了，稍微詳細寫一下在繪圖方面的心得。
 先聲明一下畫圖只是我的業餘興趣，而且軟硬體使用上因人而異，所以內容僅供參考哦(*´▽`*)
@@ -29,7 +29,7 @@ P.S 在買iPad到寫這篇心得中間，Apple又推出了iPad 2018，讓iPad Pr
 
 BTW iOS11的多視窗跟Dock真的非常好用(雖然iOS11一開始bug還真不少)，iPhone上可能沒什麼感覺，不過在iPad上能大幅提升工作效率，畫圖弄個懸浮視窗放參考圖簡直不要太方便XD (不過還是有軟體尚未支援，這就得等開發者更新了)
 
-![iOS11 多工視窗](https://res.cloudinary.com/driftkingtw/image/upload/v1527185967/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0303.jpg)
+![iOS11 多工視窗](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527185967/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0303.jpg)
 
 螢幕的部分Retina(2224 x 1668, 264ppi) + P3 廣色域顯示效果自然不再話下，加上抗反射塗層降低螢幕反光，在大部分情況下還是能清楚看到螢幕(拿普通的iPad螢幕去比一下就很明顯了)，不過螢幕畢竟是玻璃做的，Apple Pencil的筆尖是塑膠，可以想見在玻璃上寫字畫圖真的挺滑的，貼霧面貼雖然可以增進摩擦力不過也會讓顯示效果下降，這部分可能要依照個人喜好做抉擇了，我個人還能夠適應咕溜的感覺，不過也是看過有人因為這樣畫不下去的XD
 
@@ -49,7 +49,7 @@ TrueTone即時調整色調這部分跟繪圖相關度並不大就不另外多說
 
 <strong>對比一般繪圖板Wacom Intuos Pro (2017)</strong>
 
-![Wacom Intuos Pro](https://res.cloudinary.com/driftkingtw/image/upload/v1527186446/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0304.jpg)
+![Wacom Intuos Pro](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527186446/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0304.jpg)
 
 這塊Intuos Pro是非螢幕繪圖板裡面我最喜歡的，<del>目前顏值最高的板板</del>，握筆相當舒適，還有那個8192的黑科技壓感，<del>或是選擇Paper配件就可以獲得把一般紙張書寫轉成數位的更黑科技，跟那個摸起來很舒服但其實對我根本沒卵用的圓盤</del>，板子的表面寫起來阻力適中也不滑控筆很穩，如果是和我一樣很習慣不看筆尖畫圖的真的是目前最好的選擇了。<del>Wacom大法好!</del>
 
@@ -63,7 +63,7 @@ Cintiq系列我只有在Wacom展示間用過，就簡單說下試用心得。
 
 <del>恩...手邊拍的Cintiq剛好就只有這張(?</del>
 
-![藍屏中的Cintiq...](https://res.cloudinary.com/driftkingtw/image/upload/v1527191563/blog/2018/05/25/iPad_Pro_繪圖心得/P_20170806_213046.jpg)
+![藍屏中的Cintiq...](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527191563/blog/2018/05/25/iPad_Pro_繪圖心得/P_20170806_213046.jpg)
 
 先講Cintiq Pro，他需要外接主機/筆電才能夠畫圖，相較iPad的優點除了螢幕大小外就是上述提到的落筆能看到範圍圓圈，<del>iPad都要下筆才發現筆刷切太大</del>，還有壓感很棒，Wacom的優良傳統。
 缺點沒法獨立使用，畫久了螢幕挺熱的...手放在上面不是很舒服(iPad頂多溫溫的)，最大的問題是由於螢幕不像iPad Pro的貼合螢幕...所以螢幕跟外層玻璃有一小層間隙，所以看的角度不是很正的話下筆會看起來稍微偏掉(其實位置沒偏)，撇除解析度跟P3的差距外，剩下的就是反應速度稍差(感覺還是軟體問題導致，不過Pro的120Hz應該也是關鍵之一)。
@@ -74,7 +74,7 @@ MobileStudio Pro基本就是繪圖平板，優點的話就是跑Windows系統，
 
 <strong>對比iPad 2018</strong>
 
-![iPad 2018](https://res.cloudinary.com/driftkingtw/image/upload/v1527583585/blog/2018/05/25/iPad_Pro_繪圖心得/ipad-wifi-select-spacegray-201803_GEO_TW.png)
+![iPad 2018](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527583585/blog/2018/05/25/iPad_Pro_繪圖心得/ipad-wifi-select-spacegray-201803_GEO_TW.png)
 
 圖片取自: https://www.apple.com/tw/shop/buy-ipad/ipad-9-7
 
@@ -111,11 +111,11 @@ Apple前陣子推出的教育市場面向的新入門款iPad 2018，基本上就
 以下是我試玩過的幾個繪圖APP，硬體都是Apple Pencil + iPad Pro 10.5"
 目前還沒很多時間把每個APP都摸得很透徹，基本只說些基本的心得。
 
-![繪圖APP](https://res.cloudinary.com/driftkingtw/image/upload/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0306.jpg)
+![繪圖APP](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0306.jpg)
 
 1. CLIP STUDIO PAINT for manga
 
-![CLIP STUDIO PAINT for manga](https://res.cloudinary.com/driftkingtw/image/upload/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0307.jpg)
+![CLIP STUDIO PAINT for manga](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0307.jpg)
 
 價格 
 PRO: NTD 140/每月　NTD 780/每年  (每月NTD 65)
@@ -125,11 +125,11 @@ CSP應該是日系插畫跟漫畫市占最高的軟體了<del>(至少官網是�
 
 大約在去年(2017)CSP移植到了iOS上，對，完完全全的移植，除了各種好用的功能外連UI都原封不動的移植了XD，所以它的UI整個就是把桌面的樣子直接縮到iPad的小螢幕上，挺擠的又小，點擊不是很方便...
 
-![CSP介面](https://res.cloudinary.com/driftkingtw/image/upload/v1527574271/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0316.png)
+![CSP介面](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527574271/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0316.png)
 
 雖然在10.5吋螢幕上擠了點，不過他們對於鍵盤快捷鍵也是完全從PC版搬過來，所以接個藍芽鍵盤就可以用鍵盤操作畫起來也比較快，是目前用過的APP裡對鍵盤支援度最好的，<del>不過可想而知帶出門畫世界麻煩</del>。其他功能都跟桌面一樣了就不多說。手勢方面有支援(雙指回上一步等)，也有防掌觸(要在設定中設定)，Apple Pencil的支援度跟順暢度也完全沒問題。
 
-![CSP繪圖](https://res.cloudinary.com/driftkingtw/image/upload/v1527577133/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0317.png)
+![CSP繪圖](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527577133/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0317.png)
 
 除了UI外，功能上絕對是App Store裡面繪圖軟體數一數二的，另外又有大量的社群資源(筆刷,素材, etc)，熟悉PC軟體的話一定能快速的上手，<del>畢竟就是完全一模一樣</del>。現在也支援了各種素材筆刷作品同步的功能，只是目前UX設計還不是很好，有些地方讓人摸不著頭緒，希望之後會改善，<del>我甚至有遇到作品同步不了的</del>，同步速度也很慢。
 
@@ -139,7 +139,7 @@ CSP應該是日系插畫跟漫畫市占最高的軟體了<del>(至少官網是�
 
 2. MediBang Paint for iPad
 
-![MediBang Paint for iPad](https://res.cloudinary.com/driftkingtw/image/upload/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0311.jpg)
+![MediBang Paint for iPad](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0311.jpg)
 
 價格: 免費
 
@@ -147,13 +147,13 @@ CSP應該是日系插畫跟漫畫市占最高的軟體了<del>(至少官網是�
 
 功能上用起來也算挺齊全的，漫畫還沒畫過不確定，算是個資源跟功能稍微少些的CSP，UI設計上有針對隨身觸控裝置優化過所以不會像CSP那麼難按，對於手勢支援相當良好，也可以開防掌觸，只是對於鍵盤快捷鍵就沒有可以設定的地方，只能用他預設的(或是我沒找到?) 整體操作上流暢沒什麼毛病。
 
-![MediBang Paint繪圖](https://res.cloudinary.com/driftkingtw/image/upload/v1527577726/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0318.png)
+![MediBang Paint繪圖](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527577726/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0318.png)
 
 自訂筆刷等也跟桌面版一樣，沒什麼限制，開多圖層效能也不太會掉，對於那些不想花月費買CSP的，MediBang Paint是個值得一試的選擇，<strong><del>再說一次重點這玩意免費阿XD</del></strong>
 
 3. Procreate
 
-![Procreate](https://res.cloudinary.com/driftkingtw/image/upload/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0308.jpg)
+![Procreate](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0308.jpg)
 
 價格: NTD 300
 
@@ -161,7 +161,7 @@ CSP應該是日系插畫跟漫畫市占最高的軟體了<del>(至少官網是�
 
 UI操作超級流暢又很乾淨，不像CSP那樣擋東擋西又不好叫出來，<del>忍不住一直縮放畫布</del>，筆刷設定好的話搭配Apple Pencil有種飛天的感覺，傾斜感應非常的棒，<del>所以這軟體我後來變成拿來寫藝術字</del>，功能跟花樣搭配挺多的，目前還玩不多，有更多詳細的心得會再補充XD
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1527578292/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0319.png)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527578292/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0319.png)
 
 缺點的話大概就是在同解析度同尺寸的話布上圖層上限記得比CSP低，我是習慣開很多圖層的所以可能比較有機會遇到這問題。
 
@@ -169,7 +169,7 @@ UI操作超級流暢又很乾淨，不像CSP那樣擋東擋西又不好叫出來
 
 4. Autodesk SketchBook
 
-![Autodesk SketchBook](https://res.cloudinary.com/driftkingtw/image/upload/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0309.jpg)
+![Autodesk SketchBook](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0309.jpg)
 
 價格: 免費
 
@@ -181,11 +181,11 @@ UI操作超級流暢又很乾淨，不像CSP那樣擋東擋西又不好叫出來
 
 <del>發現我沒在這軟體上畫出個有樣子的東西，放個有趣的鏡像工具好了</del>
 
-![SketchBook鏡像尺規](https://res.cloudinary.com/driftkingtw/image/upload/v1527580902/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0323.png)
+![SketchBook鏡像尺規](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527580902/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0323.png)
 
 5. Tayasui Sketches
 
-![Tayasui Sketches](https://res.cloudinary.com/driftkingtw/image/upload/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0310.jpg)
+![Tayasui Sketches](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0310.jpg)
 
 價格: 免費 (Pro版NTD 180)
 
@@ -195,17 +195,17 @@ UI操作超級流暢又很乾淨，不像CSP那樣擋東擋西又不好叫出來
 
 其他優缺就參考SketchBook的吧，<del>反正就是很像除了Pro要錢外</del>。
 
-![Sketches鏡像](https://res.cloudinary.com/driftkingtw/image/upload/v1527579677/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0321.png)
+![Sketches鏡像](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527579677/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0321.png)
 
 6. Adobe Photoshop Sketch
 
-![Adobe Photoshop Sketch](https://res.cloudinary.com/driftkingtw/image/upload/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0312.jpg)
+![Adobe Photoshop Sketch](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527338240/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0312.jpg)
 
 價格: 免費
 
 Adobe出品，<del>居然免費而且不會lag或死機???</del>目前還沒玩很久，不過我認為他應該很適合畫一些素描或背景的草圖，或是一些設計構想的塗鴉，剩下在輸出到其他軟體處理，尺規相當豐富而且操作直覺，不過筆刷那些能玩的就相對少了，防掌觸跟手勢也都有支援，方便的打稿APP。
 
-![Photoshop Sketch尺規繪圖](https://res.cloudinary.com/driftkingtw/image/upload/v1527581478/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0324.png)
+![Photoshop Sketch尺規繪圖](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527581478/blog/2018/05/25/iPad_Pro_繪圖心得/IMG_0324.png)
 
 <strong>軟體比較</strong>
 
@@ -231,7 +231,7 @@ iOS的軟體上述那幾個我都蠻喜歡的，真要說的話如果你平常�
 
 <strong>現在就趕快去努力畫圖吧!</strong> 
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1527584655/blog/2018/05/25/iPad_Pro_繪圖心得/ussr.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527584655/blog/2018/05/25/iPad_Pro_繪圖心得/ussr.jpg)
 
 <del>只是想放個Meme</del>
 <del>然後我要去摸魚了</del>

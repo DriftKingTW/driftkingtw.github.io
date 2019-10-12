@@ -24,42 +24,42 @@ date: 2018-10-12 17:51:04
 自己的MBP2018 13"預設色彩設定檔
 測試值RGB(0,0,0)->RGB(100,100,100)
 
-![Macbook Pro 2018](https://res.cloudinary.com/driftkingtw/image/upload/v1539338402/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160038_vHDR_Auto.jpg)
+![Macbook Pro 2018](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539338402/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160038_vHDR_Auto.jpg)
 
 ---
 
 * 朋友的MBP2018 13"預設色彩設定檔
 測試值RGB(0,0,0)->RGB(100,100,100)
 
-![朋友的MBP2018 13"](https://res.cloudinary.com/driftkingtw/image/upload/v1539338685/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/43787909_254069108589932_8509140437481553920_n.jpg)
+![朋友的MBP2018 13"](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539338685/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/43787909_254069108589932_8509140437481553920_n.jpg)
 
 ---
 
 * 借來的MBP2017 15"預設色彩設定檔
 測試值RGB(0,0,0)->RGB(100,100,100)
 
-![朋友借來的MBP2017 15"](https://res.cloudinary.com/driftkingtw/image/upload/v1539338685/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/43788171_276891582933239_8832958624885112832_n.jpg)
+![朋友借來的MBP2017 15"](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539338685/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/43788171_276891582933239_8832958624885112832_n.jpg)
 
 ---
 
 * 工作螢幕EIZO EV2450，接MacOS 強制sRGB色彩設定檔（非YCbCr）
 測試值RGB(0,0,0)->RGB(100,100,100)
 
-![EIZO EV2450](https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160311_vHDR_Auto.jpg)
+![EIZO EV2450](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160311_vHDR_Auto.jpg)
 
 ---
 
 * 副螢幕DELL P2214H，接Windows10 預設sRGB色彩設定檔
 測試值RGB(0,0,0)->RGB(255,255,255)
 
-![Dell P2214H](https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_175652_vHDR_Auto_HP.jpg)
+![Dell P2214H](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_175652_vHDR_Auto_HP.jpg)
 
 ---
 
 * iPad Pro 2017 10.5"
 測試值RGB(0,0,0)->RGB(255,255,255)
 
-![iPad Pro 2017 10.5"](https://res.cloudinary.com/driftkingtw/image/upload/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_175612_vHDR_Auto_HP.jpg)
+![iPad Pro 2017 10.5"](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539338403/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_175612_vHDR_Auto_HP.jpg)
 
 ---
 
