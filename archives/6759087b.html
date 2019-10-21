@@ -85,7 +85,7 @@
 </strong>這樣就會啟動SSH的功能</p>
 </li>
 <li><p>接著要設定無線網路, 首先新建一個名為”wpa_supplicant.conf”的檔案, 一樣另存在boot的根目錄, 接著在內容打上：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ctrl_interface</span>=DIR=/var/run/wpa_supplicant GROUP=netdev update_config=<span class="number">1</span></span><br><span class="line"><span class="attr">network</span>=&#123;</span><br><span class="line">    ssid="SSID" //打上要連的無線網路SSID</span><br><span class="line">    psk="PASSWORD" //打上要連的無線網路的密碼</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ctrl_interface</span>=/var/run/wpa_supplicant </span><br><span class="line"><span class="attr">update_config</span>=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="attr">network</span>=&#123;</span><br><span class="line">    ssid="SSID" //打上要連的無線網路SSID</span><br><span class="line">    psk="PASSWORD" //打上要連的無線網路的密碼</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>這樣開機的時候, 系統就會去把設定檔抓到 /etc/wpa_supplicant/底下, 開機自動連線</p>
