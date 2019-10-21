@@ -37,7 +37,9 @@ Zero W跟普通PI3的差異除了外觀還有就是Zero W並沒有乙太網路�
 
 3.  接著要設定無線網路, 首先新建一個名為"wpa_supplicant.conf"的檔案, 一樣另存在boot的根目錄, 接著在內容打上：
 ```ini
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev update_config=1
+ctrl_interface=/var/run/wpa_supplicant 
+update_config=1
+
 network={
     ssid="SSID" //打上要連的無線網路SSID
     psk="PASSWORD" //打上要連的無線網路的密碼
