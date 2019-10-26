@@ -162,6 +162,14 @@ sudo /opt/bitnami/ctlscript.sh restart apache
 sudo chown -R www-data:www-data /path/to/folder
 ```
 
+### Q8. 利用 Laravel Installer 新增 Laravel 專案 [MacOS]
+
+MacOS 環境變數設定：
+
+```shell
+export PATH=~/.composer/vendor/bin:$PATH
+```
+
 ## 參考資料
 
 [Cloning a private Github repo](https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo)
@@ -177,6 +185,8 @@ sudo chown -R www-data:www-data /path/to/folder
 [Changes to Apache httpd.conf not applying on WAMP stack](https://community.bitnami.com/t/changes-to-apache-httpd-conf-not-applying-on-wamp-stack/26224)
 
 [Unable to write in directory Laravel](https://stackoverflow.com/questions/47337374/unable-to-write-in-directory-laravel)
+
+[Mac $PATH 環境變量設置及查詢](https://adon988.logdown.com/posts/7809799-mac-path-environment-variables)
 
 ---
 
