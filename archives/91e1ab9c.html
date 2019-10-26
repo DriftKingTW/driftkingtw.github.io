@@ -115,6 +115,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /opt/bitnami/ctlscript.sh restart apache</span><br></pre></td></tr></table></figure>
 <h3 id="Q7-上傳檔案移動到只訂資料夾時出現權限不足"><a href="#Q7-上傳檔案移動到只訂資料夾時出現權限不足" class="headerlink" title="Q7. 上傳檔案移動到只訂資料夾時出現權限不足"></a>Q7. 上傳檔案移動到只訂資料夾時出現權限不足</h3><p>單純使用chmod無效(由於改變的權限爲user非操作移動的www-data)，需要使用以下方法給予權限。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R www-data:www-data /path/to/folder</span><br></pre></td></tr></table></figure>
+<h3 id="Q8-利用-Laravel-Installer-新增-Laravel-專案-MacOS"><a href="#Q8-利用-Laravel-Installer-新增-Laravel-專案-MacOS" class="headerlink" title="Q8. 利用 Laravel Installer 新增 Laravel 專案 [MacOS]"></a>Q8. 利用 Laravel Installer 新增 Laravel 專案 [MacOS]</h3><p>MacOS 環境變數設定：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=~/.composer/vendor/bin:$PATH</span><br></pre></td></tr></table></figure>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo" target="_blank" rel="noopener">Cloning a private Github repo</a></p>
 <p><a href="https://laracasts.com/discuss/channels/general-discussion/laravel-framework-file-permission-security" target="_blank" rel="noopener">Laravel framework file permission - Security</a></p>
 <p><a href="https://www.youtube.com/watch?v=7CatEn5IAlo" target="_blank" rel="noopener">Laravel 5.4 problem - Wrong Route (Not Found) on Ubuntu 16.04</a></p>
@@ -122,6 +124,7 @@
 <p><a href="https://thishosting.rocks/install-php-on-ubuntu/" target="_blank" rel="noopener">How to install PHP (7 or 7.2) on Ubuntu</a></p>
 <p><a href="https://community.bitnami.com/t/changes-to-apache-httpd-conf-not-applying-on-wamp-stack/26224" target="_blank" rel="noopener">Changes to Apache httpd.conf not applying on WAMP stack</a></p>
 <p><a href="https://stackoverflow.com/questions/47337374/unable-to-write-in-directory-laravel" target="_blank" rel="noopener">Unable to write in directory Laravel</a></p>
+<p><a href="https://adon988.logdown.com/posts/7809799-mac-path-environment-variables" target="_blank" rel="noopener">Mac $PATH 環境變量設置及查詢</a></p>
 <hr>
 <p>日後遇到其他問題會再持續更新</p>
 
@@ -162,7 +165,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">Comments</h1>
 
   
       <div id="fb-root"></div>
@@ -185,7 +188,7 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:blog.driftkingtw.me">
   </form>
 </div>
@@ -221,6 +224,8 @@
   
     <li><a href="/tags/Raspberry-Pi/">Raspberry Pi</a><small>1</small></li>
   
+    <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>1</small></li>
+  
     <li><a href="/tags/SFTP/">SFTP</a><small>1</small></li>
   
     <li><a href="/tags/SIM-Racing/">SIM-Racing</a><small>2</small></li>
@@ -236,6 +241,8 @@
     <li><a href="/tags/TimeMachine/">TimeMachine</a><small>1</small></li>
   
     <li><a href="/tags/Touchbar/">Touchbar</a><small>2</small></li>
+  
+    <li><a href="/tags/USB-C/">USB-C</a><small>1</small></li>
   
     <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
   

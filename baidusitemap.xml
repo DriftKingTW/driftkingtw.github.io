@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/b2345c23.html</loc>
+    <lastmod>2019-10-26T07:37:42.015Z</lastmod>
+    <data>
+        <display>
+        <title>理解 Raspberry 4 Type C 設計問題</title>
+        <pubTime>2019-10-26T13:25:00.000Z</pubTime>
+        
+        <tag>RaspberryPi</tag>
+         
+        <tag>USB-C</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/91e1ab9c.html</loc>
+    <lastmod>2019-10-23T05:49:01.581Z</lastmod>
+    <data>
+        <display>
+        <title>Laravel Linux 佈署問題筆記</title>
+        <pubTime>2018-07-09T16:49:57.000Z</pubTime>
+        
+        <tag>PHP</tag>
+         
+        <tag>Laravel</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/6759087b.html</loc>
     <lastmod>2019-10-21T12:46:43.087Z</lastmod>
     <data>
@@ -182,9 +222,9 @@
         <title>MacOS強制外接螢幕輸出RGB</title>
         <pubTime>2018-10-12T01:16:28.000Z</pubTime>
         
-        <tag>螢幕</tag>
-         
         <tag>MacOS</tag>
+         
+        <tag>螢幕</tag>
          
          
            
@@ -201,9 +241,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>Macbook Pro</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>Macbook Pro</tag>
          
          
            
@@ -277,11 +317,11 @@
         <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
         <pubTime>2018-02-21T07:00:42.000Z</pubTime>
         
-        <tag>開箱</tag>
-         
         <tag>iPad</tag>
          
         <tag>illustration</tag>
+         
+        <tag>開箱</tag>
          
          
            
@@ -407,27 +447,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/91e1ab9c.html</loc>
-    <lastmod>2019-01-24T08:26:38.880Z</lastmod>
-    <data>
-        <display>
-        <title>Laravel Linux 佈署問題筆記</title>
-        <pubTime>2018-07-09T16:49:57.000Z</pubTime>
-        
-        <tag>PHP</tag>
-         
-        <tag>Laravel</tag>
-         
-        <tag>Linux</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/fe7b8274.html</loc>
     <lastmod>2018-10-03T01:52:43.657Z</lastmod>
     <data>
@@ -449,25 +468,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
-    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo Github deploy 問題修正</title>
-        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>Github</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/bad29b8c.html</loc>
     <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
@@ -478,6 +478,25 @@
         <tag>Win10</tag>
          
         <tag>Ubuntu</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
+    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo Github deploy 問題修正</title>
+        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>Github</tag>
          
          
            
