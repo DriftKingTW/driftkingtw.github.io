@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/59bd89a7.html</loc>
+    <lastmod>2019-11-12T05:12:55.802Z</lastmod>
+    <data>
+        <display>
+        <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</title>
+        <pubTime>2019-11-11T13:25:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>RaspberryPi</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/ca77c25e.html</loc>
+    <lastmod>2019-11-12T05:10:59.922Z</lastmod>
+    <data>
+        <display>
+        <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 硬體篇</title>
+        <pubTime>2019-11-12T13:25:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>MacOS</tag>
+         
+        <tag>TimeCapsule</tag>
+         
+        <tag>TimeMachine</tag>
+         
+        <tag>NAS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/b2345c23.html</loc>
     <lastmod>2019-10-26T07:44:49.694Z</lastmod>
     <data>
@@ -241,9 +285,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>Macbook Pro</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>Macbook Pro</tag>
          
          
            
@@ -468,25 +512,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
-    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo Github deploy 問題修正</title>
-        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>Github</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/bad29b8c.html</loc>
     <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
@@ -497,6 +522,25 @@
         <tag>Win10</tag>
          
         <tag>Ubuntu</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
+    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo Github deploy 問題修正</title>
+        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>Github</tag>
          
          
            
