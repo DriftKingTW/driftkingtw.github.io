@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/c138150d.html</loc>
+    <lastmod>2019-11-14T12:39:39.986Z</lastmod>
+    <data>
+        <display>
+        <title>利用 Raspberry Pi 搭建 NAS</title>
+        <pubTime>2019-10-12T13:25:00.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>NAS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/59bd89a7.html</loc>
     <lastmod>2019-11-12T05:12:55.802Z</lastmod>
     <data>
@@ -34,11 +53,11 @@
          
         <tag>MacOS</tag>
          
+        <tag>NAS</tag>
+         
         <tag>TimeCapsule</tag>
          
         <tag>TimeMachine</tag>
-         
-        <tag>NAS</tag>
          
          
            
@@ -96,25 +115,6 @@
         <pubTime>2017-12-13T16:35:47.000Z</pubTime>
         
         <tag>Raspberry Pi</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/c138150d.html</loc>
-    <lastmod>2019-10-12T15:51:06.723Z</lastmod>
-    <data>
-        <display>
-        <title>利用 Raspberry Pi 搭建 NAS</title>
-        <pubTime>2019-10-12T13:25:00.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>NAS</tag>
          
          
            
@@ -512,25 +512,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/bad29b8c.html</loc>
-    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
-    <data>
-        <display>
-        <title>Windows 10 安裝 Ubuntu bash</title>
-        <pubTime>2018-03-03T03:06:46.000Z</pubTime>
-        
-        <tag>Win10</tag>
-         
-        <tag>Ubuntu</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
     <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
@@ -541,6 +522,25 @@
         <tag>hexo</tag>
          
         <tag>Github</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/bad29b8c.html</loc>
+    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
+    <data>
+        <display>
+        <title>Windows 10 安裝 Ubuntu bash</title>
+        <pubTime>2018-03-03T03:06:46.000Z</pubTime>
+        
+        <tag>Win10</tag>
+         
+        <tag>Ubuntu</tag>
          
          
            
