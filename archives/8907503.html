@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>安裝 Aria2 在 RaspberryPi 上搭建低耗下載機 | DriftKingTW&#39;s Blog</title>
+  <meta name="author" content="DriftKingTW">
+  
+  <meta name="description" content="printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);">
+  
+  <meta name="keywords" content="RaspberryPi,樹莓派,下載機">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="安裝 Aria2 在 RaspberryPi 上搭建低耗下載機"/>
+  <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="DriftKingTW&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-115026468-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">DriftKingTW&#39;s Blog</a></h1>
+  <h2><a href="/">printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-11-16T13:25:00.000Z"><a href="/archives/8907503.html">2019-11-16</a></time>
+      
+      
+  
+    <h1 class="title">安裝 Aria2 在 RaspberryPi 上搭建低耗下載機</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a href="https://aria2.github.io/" target="_blank" rel="noopener">Aria2</a> 是一個超輕量但功能的強大開源下載器，支援多點下載、多種協定、檔案分割下載、可透過 JSON-PRC 或 XML-PRC 遠端控制等，詳細可以到官方網站瞭解更多。</p>
+<p><a href="https://aria2.github.io/" target="_blank" rel="noopener">Aria2</a> 的特性讓他非常適合放在樹莓派等單晶片上執行，輕量不耗資源、又能遠端操作，我的 Pi 剛好作為 NAS，搭配下載器可以直接存入 NAS 硬碟中，在做遠端存取且不用關機非常方便，本篇將會記錄安裝 <a href="https://aria2.github.io/" target="_blank" rel="noopener">Aria2</a> 在 Pi 上的過程。</p>
+<h1 id="安裝-Aria2"><a href="#安裝-Aria2" class="headerlink" title="安裝 Aria2"></a>安裝 Aria2</h1><p><code>sudo apt-get update</code></p>
+<p><code>sudo apt-get install aria2</code></p>
+<h1 id="設定-Aria2"><a href="#設定-Aria2" class="headerlink" title="設定 Aria2"></a>設定 Aria2</h1><p>建立設定資料夾與檔案(注意這邊不用 <code>sudo</code>，否則還要回過頭來改資料夾權限給 user)</p>
+<p><code>mkdir -p ~/.aria/aria2/</code></p>
+<p><code>touch ~/.aria2/aria2.session</code></p>
+<p><code>vim ~/.aria2/aria2.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">## Files</span><br><span class="line">dir=/mnt/Share/Downloads</span><br><span class="line">disk-cache=32M</span><br><span class="line">file-allocation=trunc</span><br><span class="line">continue=true</span><br><span class="line"></span><br><span class="line">## Downloads</span><br><span class="line">max-concurrent-downloads=10</span><br><span class="line">max-connection-per-server=16</span><br><span class="line">min-split-size=10M</span><br><span class="line">split=5</span><br><span class="line">max-overall-download-limit=0</span><br><span class="line">#max-download-limit=0</span><br><span class="line">#max-overall-upload-limit=0</span><br><span class="line">#max-upload-limit=0</span><br><span class="line">disable-ipv6=false</span><br><span class="line"></span><br><span class="line">## Sessions</span><br><span class="line">save-session=/home/pi/.aria2/aria2.session</span><br><span class="line">input-file=/home/pi/.aria2/aria2.session</span><br><span class="line">save-session-interval=60</span><br><span class="line"></span><br><span class="line">## RPC Settings</span><br><span class="line">enable-rpc=true</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line">rpc-listen-all=true</span><br><span class="line">#rpc-secret=secret</span><br><span class="line">#event-poll=select</span><br><span class="line">#rpc-listen-port=6800</span><br><span class="line"></span><br><span class="line">## Others</span><br><span class="line">enable-dht=true</span><br><span class="line">enable-dht6=true</span><br><span class="line">enable-peer-exchange=true</span><br></pre></td></tr></table></figure>
+<p>在 <code>Files</code> 部分的 <code>dir</code> 是指檔案下載路徑，這裡我把它掛在外接硬碟上方便存取。</p>
+<p>接著啟動 <code>aria2c</code> 並指定設定文件所在位置。</p>
+<p><code>aria2c --conf-path=/home/pi/.aria2/aria2.conf</code></p>
+<p>看一下進程有沒有成功</p>
+<p><code>ps aux | grep aria2</code></p>
+<h1 id="設定開機啟動服務"><a href="#設定開機啟動服務" class="headerlink" title="設定開機啟動服務"></a>設定開機啟動服務</h1><p>建立設定文件</p>
+<p><code>sudo vim /lib/systemd/system/aria2.service</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Aria2 Service</span><br><span class="line">Requires=network.target</span><br><span class="line">After=dhcpcd.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=pi</span><br><span class="line">RemainAfterExit=yes</span><br><span class="line">ExecStart=/usr/bin/aria2c --conf-path=/home/pi/.aria2/aria2.conf</span><br><span class="line">ExecReload=/usr/bin/kill -HUP $MAINPID</span><br><span class="line">ExecStop=/usr/bin/kill -s STOP $MAINPID</span><br><span class="line">RestartSec=1min</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>接著載入服務並啟動檢查是否成功：</p>
+<p><code>sudo systemctl daemon-reload</code></p>
+<p><code>sudo systemctl enable aria2</code></p>
+<p><code>sudo systemctl start aria2</code></p>
+<p><code>sudo systemctl status aria2</code></p>
+<p>成功的話會顯示類似下方狀態</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">● aria2.service - Aria2 Service</span><br><span class="line">   Loaded: loaded (/lib/systemd/system/aria2.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since Fri 2019-11-15 16:01:37 GMT; 4s ago</span><br><span class="line"> Main PID: 1509 (aria2c)</span><br><span class="line">    Tasks: 1 (limit: 4915)</span><br><span class="line">   Memory: 3.4M</span><br><span class="line">   CGroup: /system.slice/aria2.service</span><br><span class="line">           └─1509 /usr/bin/aria2c --conf-path=/home/pi/.aria2/aria2.conf</span><br><span class="line"></span><br><span class="line">Nov 15 16:01:37 pinas systemd[1]: Started Aria2 Service.</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [WARN] Neither --rpc-secret nor a combination of --rpc-user and --rpc</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [NOTICE] IPv4 RPC: listening on TCP port 6800</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [NOTICE] IPv6 RPC: listening on TCP port 6800</span><br></pre></td></tr></table></figure>
+<h1 id="安裝-Nginx-網頁伺服器"><a href="#安裝-Nginx-網頁伺服器" class="headerlink" title="安裝 Nginx 網頁伺服器"></a>安裝 Nginx 網頁伺服器</h1><p>安裝 nginx （若有其他網頁伺服器也可以，如 Apache 等）</p>
+<p><code>sudo apt install nginx</code></p>
+<p>啟動服務</p>
+<p><code>sudo /etc/init.d/nginx start</code></p>
+<p>在瀏覽器輸入 <a href="http://RASPBERRYPI-IP/" target="_blank" rel="noopener">http://RASPBERRYPI-IP/</a></p>
+<p>看到 <code>Welcome to nginx!</code> 等字樣代表伺服器成功安裝並且正常執行了</p>
+<h1 id="安裝-AriaNG-網頁操作界面"><a href="#安裝-AriaNG-網頁操作界面" class="headerlink" title="安裝 AriaNG 網頁操作界面"></a>安裝 AriaNG 網頁操作界面</h1><p>下載 <a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">AriaNG</a>，撰文時最新版為1.1.4，有更新版可以自行檢查。</p>
+<p><code>wget https://github.com/mayswind/AriaNg/releases/download/1.1.4/AriaNg-1.1.4.zip</code></p>
+<p>解壓縮</p>
+<p><code>unzip AriaNg-1.1.4.zip -d aria-ng</code></p>
+<p>把資料夾搬去伺服器的網頁目錄底下（ nginx 預設為 /var/www/html ）</p>
+<p><code>sudo mv aria-ng /var/www/html/</code></p>
+<p>此時瀏覽器輸入 <code>http://RASPBERRYPI-IP/aria-ng</code> 即可看到 AriaNG 的界面了。</p>
+<p>在如下設定分頁內填入相關設定（ IP 或 hostname，預設 Port 為 <code>6800</code> ），看到 <code>Connected</code> 即可開始遠端操作下載等任務了！</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/v1573834062/blog/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/Screen_Shot_2019-11-16_at_12.07.37_AM.png" alt=""></p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://github.com/aria2/aria2" target="_blank" rel="noopener">aria2</a></p>
+<p><a href="https://github.com/mayswind/AriaNg" target="_blank" rel="noopener">AriaNG</a></p>
+<p><a href="https://medium.com/@sajithneyo/remote-download-server-in-linux-using-aria2-5bd3ee1a54b2" target="_blank" rel="noopener">Remote Download Server in Linux using Aria2</a></p>
+<p><a href="https://li-aaron.github.io/2019/01/aira2-on-raspberry/" target="_blank" rel="noopener">用树莓派 Raspberry Pi 远程下载 (aria2)</a></p>
+<p><a href="https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md" target="_blank" rel="noopener">Setting up an NGINX web server on a Raspberry Pi</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/RaspberryPi/">RaspberryPi</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=570874119945326";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/8907503.html" data-num-posts="10" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:blog.driftkingtw.me">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/DIY/">DIY</a><small>7</small></li>
+  
+    <li><a href="/tags/G27/">G27</a><small>1</small></li>
+  
+    <li><a href="/tags/Github/">Github</a><small>2</small></li>
+  
+    <li><a href="/tags/Google/">Google</a><small>1</small></li>
+  
+    <li><a href="/tags/Keyboard/">Keyboard</a><small>4</small></li>
+  
+    <li><a href="/tags/Laravel/">Laravel</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/MacOS/">MacOS</a><small>8</small></li>
+  
+    <li><a href="/tags/Macbook-Pro/">Macbook Pro</a><small>1</small></li>
+  
+    <li><a href="/tags/NAS/">NAS</a><small>2</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/Raspberry-Pi/">Raspberry Pi</a><small>1</small></li>
+  
+    <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>3</small></li>
+  
+    <li><a href="/tags/SFTP/">SFTP</a><small>1</small></li>
+  
+    <li><a href="/tags/SIM-Racing/">SIM-Racing</a><small>2</small></li>
+  
+    <li><a href="/tags/SMB/">SMB</a><small>1</small></li>
+  
+    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
+  
+    <li><a href="/tags/SketchUp/">SketchUp</a><small>1</small></li>
+  
+    <li><a href="/tags/TimeCapsule/">TimeCapsule</a><small>2</small></li>
+  
+    <li><a href="/tags/TimeMachine/">TimeMachine</a><small>2</small></li>
+  
+    <li><a href="/tags/Touchbar/">Touchbar</a><small>2</small></li>
+  
+    <li><a href="/tags/USB-C/">USB-C</a><small>1</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/tags/Win10/">Win10</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/iPad/">iPad</a><small>2</small></li>
+  
+    <li><a href="/tags/illustration/">illustration</a><small>2</small></li>
+  
+    <li><a href="/tags/無線耳機/">無線耳機</a><small>1</small></li>
+  
+    <li><a href="/tags/螢幕/">螢幕</a><small>2</small></li>
+  
+    <li><a href="/tags/軟體應用/">軟體應用</a><small>1</small></li>
+  
+    <li><a href="/tags/開箱/">開箱</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 DriftKingTW
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
