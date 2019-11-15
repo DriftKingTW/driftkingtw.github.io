@@ -5,11 +5,11 @@
     
   <url>
     <loc>https://blog.driftkingtw.me/archives/8907503.html</loc>
-    <lastmod>2019-11-15T16:18:06.104Z</lastmod>
+    <lastmod>2019-11-15T16:20:37.942Z</lastmod>
     <data>
         <display>
         <title>安裝 Aria2 在 RaspberryPi 上搭建低耗下載機</title>
-        <pubTime>2019-11-16T13:25:00.000Z</pubTime>
+        <pubTime>2019-11-15T16:15:00.000Z</pubTime>
         
         <tag>RaspberryPi</tag>
          
@@ -283,9 +283,9 @@
         <title>MacOS強制外接螢幕輸出RGB</title>
         <pubTime>2018-10-12T01:16:28.000Z</pubTime>
         
-        <tag>螢幕</tag>
-         
         <tag>MacOS</tag>
+         
+        <tag>螢幕</tag>
          
          
            
@@ -302,9 +302,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>Macbook Pro</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>Macbook Pro</tag>
          
          
            
@@ -529,25 +529,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
-    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo Github deploy 問題修正</title>
-        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>Github</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/bad29b8c.html</loc>
     <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
@@ -558,6 +539,25 @@
         <tag>Win10</tag>
          
         <tag>Ubuntu</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
+    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo Github deploy 問題修正</title>
+        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>Github</tag>
          
          
            
