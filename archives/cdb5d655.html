@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ducky ONE RGB 解決空白鍵漏光問題 | DriftKingTW&#39;s Blog</title>
+  <title>電腦/伺服器跨平臺的開源監控好幫手 - Glances | DriftKingTW&#39;s Blog</title>
   <meta name="author" content="DriftKingTW">
   
   <meta name="description" content="printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);">
   
-  <meta name="keywords" content="ducky,one,diy,漏光">
+  <meta name="keywords" content="RaspberryPi,監控軟體">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Ducky ONE RGB 解決空白鍵漏光問題"/>
+  <meta property="og:title" content="電腦/伺服器跨平臺的開源監控好幫手 - Glances"/>
   <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
 
   
@@ -62,27 +62,46 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-01-11T06:25:40.000Z"><a href="/archives/9ae3431b.html">2018-01-11</a></time>
+        <time datetime="2019-11-18T11:50:00.000Z"><a href="/archives/cdb5d655.html">2019-11-18</a></time>
       
       
   
-    <h1 class="title">Ducky ONE RGB 解決空白鍵漏光問題</h1>
+    <h1 class="title">電腦/伺服器跨平臺的開源監控好幫手 - Glances</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>ONE RGB用到目前為止都很滿意, 不過有個小缺點就是看鍵盤角度太低的時候<br>空白鍵下兩側的補光LED會閃到眼睛RRR<br>雖然我自己的角度不常看到, 但有時候被閃一下還是不太爽(#`Д´)ﾉ<br>這時候既然原廠沒有設計擋光板, 只好自己動手了</p>
-<p><del>恩 拍起來還好, 可是實際被閃到就是這個樣子</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275725/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/meme-1024x689.jpg" alt=""></p>
-<p>要解決也不難就是, 當然首先把空白鍵拆下</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275740/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/P_20180103_183823-1024x576.jpg" alt=""></p>
-<p>然後裁個大概3x1.5cm的描圖紙(一個LED要兩層效果比較好)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275757/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/P_20180103_184211-1024x757.jpg" alt=""></p>
-<p>接著找個無痕雙面膠之類的把它固定在定位板上, 光線就不會辣麼刺眼了(ﾟ∀ﾟ)<br>這樣也不至於影響到燈光讓那邊變得比較暗d(`･∀･)b</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275771/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/P_20180103_184811-1024x576.jpg" alt=""></p>
-<p>大功告成!! 雖然不是什麼太麻煩的MOD不過希望Ducky以後設計這部分的燈光要注意一下啊XD</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275787/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/P_20180103_185328-1024x576.jpg" alt=""></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>原先是在尋找一個能夠遠端監控伺服器狀態（基於樹莓派的 NAS）的軟體，由於每次都要連上 ssh 查看比較麻煩，加上 <code>htop</code> 我覺得能看到的訊息也不夠齊全（如溫度等），於是發現了一個跨平臺、支援遠端 Web-UI 且開源免費的方便監控軟體 - <a href="https://nicolargo.github.io/glances/" target="_blank" rel="noopener">Glances</a>，且安裝操作都非常簡單，有需要的朋友不坊試試，唯一的缺點大概就是基於 Python ，效能不是那麼理想吧（在 Pi 上感覺 CPU 佔用率比預期稍高了一點XD）</p>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><p>在 Linux（Debian、Ubuntu等）可以直接 <code>apt-get</code> 安裝</p>
+<p><code>sudo apt-get install glances</code></p>
+<p>MacOS 有安裝 <code>Homebrew</code> 的話可以用 <code>brew</code> 安裝</p>
+<p><code>brew install glances</code></p>
+<p>我自己在 MacOS 安裝時有發生小問題，安裝完後執行出現以下錯誤</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "/usr/local/Cellar/glances/3.1.3/libexec/bin/glances", line 6, in &lt;module&gt;</span><br><span class="line">    from pkg_resources import load_entry_point</span><br><span class="line">ModuleNotFoundError: No module named 'pkg_resources'</span><br></pre></td></tr></table></figure>
+<p>用 <code>brew doctor</code> 無法解決問題，查詢了一下用 <code>postinstall python3</code> 即可解決</p>
+<p><code>brew postinstall python3</code></p>
+<p>Windows 等系統安裝好 <code>Python</code>，可透過 <code>pip</code> 安裝</p>
+<p><code>pip install glances</code></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="一般主機模式"><a href="#一般主機模式" class="headerlink" title="一般主機模式"></a>一般主機模式</h2><p>在 Command Line 直接輸入即可啟動</p>
+<p><code>glances</code></p>
+<p>顯示 JSON 格式（後面接上想看的狀態）</p>
+<p><code>glances --stdout cpu.user,mem.used,load</code></p>
+<p>CSV 格式</p>
+<p><code>glances --stdout-csv now,cpu.user,mem.used,load</code></p>
+<p>按 <code>q</code> 或 <code>Esc</code> 離開</p>
+<h2 id="Server-模式"><a href="#Server-模式" class="headerlink" title="Server 模式"></a>Server 模式</h2><p>在想查看狀態的電腦上</p>
+<p><code>glances -s</code></p>
+<p>在客戶端輸入查看伺服器的狀態（SERVER-IP 替換為上述 Server 的 IP）</p>
+<p><code>glances -s SERVER-IP</code></p>
+<h2 id="遠端-Web-UI-模式"><a href="#遠端-Web-UI-模式" class="headerlink" title="遠端 Web-UI 模式"></a>遠端 Web-UI 模式</h2><p>在想查看狀態的電腦上</p>
+<p><code>glances -w</code></p>
+<p>在同網域下的任何裝置瀏覽器上輸入（SERVER-IP 替換為上述 Server 的 IP），預設 Port 為 <code>61208</code></p>
+<p><code>http://SERVER-IP:61208</code></p>
+<p>就能夠遠端監控了，除了CPU、MEM等狀態，同時也能看到溫度，如下圖所示（圖中是樹莓派 NAS 的狀態）</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574080130/blog/2019/11/%E9%9B%BB%E8%85%A6%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%B7%A8%E5%B9%B3%E8%87%BA%E7%9A%84%E9%96%8B%E6%BA%90%E7%9B%A3%E6%8E%A7%E5%A5%BD%E5%B9%AB%E6%89%8B%20-%20Glances/Screen_Shot_2019-11-18_at_7.54.46_PM.png" alt=""></p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://nicolargo.github.io/glances/" target="_blank" rel="noopener">Glances</a></p>
+<p><a href="https://github.com/asciinema/asciinema/issues/260" target="_blank" rel="noopener">fails after brew installation: ModuleNotFoundError: No module named ‘pkg_resources’ #260</a></p>
 
       
     </div>
@@ -92,7 +111,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Keyboard/">Keyboard</a>, <a href="/tags/DIY/">DIY</a>
+    <a href="/tags/RaspberryPi/">RaspberryPi</a>, <a href="/tags/監控軟體/">監控軟體</a>
   </div>
 
         
@@ -135,7 +154,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/9ae3431b.html" data-num-posts="10" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/cdb5d655.html" data-num-posts="10" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
