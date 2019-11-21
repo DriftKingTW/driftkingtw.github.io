@@ -1,255 +1,537 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
 <head>
-  <meta charset="utf-8">
-  
-  <title>Laravel 產生簡易XML筆記 | DriftKingTW&#39;s Blog</title>
-  <meta name="author" content="DriftKingTW">
-  
-  <meta name="description" content="printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);">
-  
-  <meta name="keywords" content="PHP,Laravel,XML">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+<title>Laravel 產生簡易XML筆記 - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Laravel 產生簡易XML筆記"/>
-  <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
-  
-    <meta property="og:image" content=""/>
-  
 
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="DriftKingTW&#39;s Blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<link href="/en/archives/fe7b8274.html" rel="alternate" hreflang="en" />
+    
 
-	ga('create', 'UA-115026468-1', 'auto');
-	ga('send', 'pageview');
 
-</script>
+<meta name="description" content="printf("%s", "Stay Curious, Stay Creative");">
+
+
+
+<meta name="keywords" content="PHP,Laravel,XML">
+
+
+
+    <meta name="description" content="前言最近在寫串接功能時，遇到需要使用Laravel動態產生XML的功能，完成後做個筆記，除此之外也能拿來產生網站組織架構的Sitemap，讓Google等搜尋引擎能夠更有效率的爬你的網站頁面。 How假設要使用Laravel產生如下的簡易產品清單XML： 123456789101112131415&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;pro">
+<meta name="keywords" content="PHP,Laravel,XML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel 產生簡易XML筆記">
+<meta property="og:url" content="https://blog.driftkingtw.me/archives/fe7b8274.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="前言最近在寫串接功能時，遇到需要使用Laravel動態產生XML的功能，完成後做個筆記，除此之外也能拿來產生網站組織架構的Sitemap，讓Google等搜尋引擎能夠更有效率的爬你的網站頁面。 How假設要使用Laravel產生如下的簡易產品清單XML： 123456789101112131415&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;pro">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2018-10-03T01:52:43.657Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Laravel 產生簡易XML筆記">
+<meta name="twitter:description" content="前言最近在寫串接功能時，遇到需要使用Laravel動態產生XML的功能，完成後做個筆記，除此之外也能拿來產生網站組織架構的Sitemap，讓Google等搜尋引擎能夠更有效率的爬你的網站頁面。 How假設要使用Laravel產生如下的簡易產品清單XML： 123456789101112131415&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;pro">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
 
 
 </head>
-
-
 <body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">DriftKingTW&#39;s Blog</a></h1>
-  <h2><a href="/">printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);</a></h2>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <!-- <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a> -->
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/">DriftKingTW&#39;s Blog</a>
+            
+            <a class="navbar-item "
+               href="/archives">封存</a>
+            
+            <a class="navbar-item "
+               href="/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+        
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/archives/fe7b8274.html" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/archives/fe7b8274.html" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
 </div>
-<nav id="main-nav" class="alignright">
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div>
-</header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-06-26T08:36:12.000Z"><a href="/archives/fe7b8274.html">2018-06-26</a></time>
-      
-      
-  
-    <h1 class="title">Laravel 產生簡易XML筆記</h1>
-  
 
-    </header>
-    <div class="entry">
-      
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Laravel 產生簡易XML筆記
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-06-26T08:36:12.000Z" itemprop="datePublished">6月 26 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分钟 讀完 (約 445 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在寫串接功能時，遇到需要使用Laravel動態產生XML的功能，完成後做個筆記，除此之外也能拿來產生網站組織架構的Sitemap，讓Google等搜尋引擎能夠更有效率的爬你的網站頁面。</p>
 <h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p>假設要使用Laravel產生如下的簡易產品清單XML：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">products</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Name</span>&gt;</span>Product_1<span class="tag">&lt;/<span class="name">Name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Description</span>&gt;</span>Product_Description<span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">URL</span>&gt;</span>https://mywebsite.com/Product_URL/<span class="tag">&lt;/<span class="name">URL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Price</span>&gt;</span>1000<span class="tag">&lt;/<span class="name">Price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Name</span>&gt;</span>Product_2<span class="tag">&lt;/<span class="name">Name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Description</span>&gt;</span>Product_Description<span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">URL</span>&gt;</span>https://mywebsite.com/Product_URL/<span class="tag">&lt;/<span class="name">URL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Price</span>&gt;</span>1500<span class="tag">&lt;/<span class="name">Price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">products</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">products</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>Product_1<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>Product_Description<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">URL</span>&gt;</span>https://mywebsite.com/Product_URL/<span class="hljs-tag">&lt;/<span class="hljs-name">URL</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>1000<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>Product_2<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>Product_Description<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">URL</span>&gt;</span>https://mywebsite.com/Product_URL/<span class="hljs-tag">&lt;/<span class="hljs-name">URL</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>1500<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">products</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>首先在 <code>resources/views</code> 裡建立一個 <code>product_list.blade.php</code> 視圖，用來顯示XML的內容 (“product_list”名稱可自訂)。</p>
 <p>內容如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">products</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 利用foreach印出所有產品資訊 --&gt;</span></span><br><span class="line">    @foreach($products as $product)</span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Name</span>&gt;</span>&#123;&#123; $product-&gt;name &#125;&#125;<span class="tag">&lt;/<span class="name">Name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Description</span>&gt;</span>&#123;&#123; $product-&gt;description &#125;&#125;<span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 利用 Request::root() 取得網站URL --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">URL</span>&gt;</span>&#123;&#123; Request::root() &#125;&#125;/product/&#123;&#123; $product-&gt;id &#125;&#125;<span class="tag">&lt;/<span class="name">URL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Price</span>&gt;</span>&#123;&#123; $product-&gt;price &#125;&#125;<span class="tag">&lt;/<span class="name">Price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">    @endforeach</span><br><span class="line"><span class="tag">&lt;/<span class="name">products</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">products</span>&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 利用foreach印出所有產品資訊 --&gt;</span></span><br><span class="line">    @foreach($products as $product)</span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>&#123;&#123; $product-&gt;name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>&#123;&#123; $product-&gt;description &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!-- 利用 Request::root() 取得網站URL --&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">URL</span>&gt;</span>&#123;&#123; Request::root() &#125;&#125;/product/&#123;&#123; $product-&gt;id &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">URL</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>&#123;&#123; $product-&gt;price &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">    @endforeach</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">products</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>然後建立一個Controller(名稱自訂，這裡範例使用ProductController，跟處理顯示商品同樣的控制器)。<br>在Controller裡建立Function用來取得資料並傳送給View裡的視圖顯示。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">productList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 取得商品資訊, 並以id作降冪排序</span></span><br><span class="line">    $products = Product::orderBy(<span class="string">'id'</span>, <span class="string">'DESC'</span>)-&gt;get();</span><br><span class="line">    <span class="comment">// 將資料交給product_list.blade.php產生XML內容</span></span><br><span class="line">    <span class="keyword">return</span> response()-&gt;view(<span class="string">'product_list'</span>, compact(<span class="string">'products'</span>))-&gt;header(<span class="string">'Content-Type'</span>, <span class="string">'text/xml'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最後在<code>route/web.php</code>裡加上路徑<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/product_list.xml'</span>, <span class="string">'ProductController@productList'</span>);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">productList</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// 取得商品資訊, 並以id作降冪排序</span></span><br><span class="line">    $products = Product::orderBy(<span class="hljs-string">'id'</span>, <span class="hljs-string">'DESC'</span>)-&gt;get();</span><br><span class="line">    <span class="hljs-comment">// 將資料交給product_list.blade.php產生XML內容</span></span><br><span class="line">    <span class="hljs-keyword">return</span> response()-&gt;view(<span class="hljs-string">'product_list'</span>, compact(<span class="hljs-string">'products'</span>))-&gt;header(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'text/xml'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最後在<code>route/web.php</code>裡加上路徑 </p>
+<figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="hljs-string">'/product_list.xml'</span>, <span class="hljs-string">'ProductController@productList'</span>);</span><br></pre></td></tr></table></figure>
+
 <p>到這邊大功告成，打上網域名+<code>/product_list.xml</code>就可以查看XML所產生的XML了！</p>
 <h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><p>如果像此方法利用Blade模板產生XML要注意在PHP的<code>php.ini</code> 設定中 <strong><em>Short Open Tag (&lt;?)</em></strong> 選項要關閉，如果必須打開此選項的話可以改用以下寫法來產生XML Header：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">'&lt;?xml version="1.0" encoding="UTF-8"?&gt;'</span>; <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;?xml version="1.0" encoding="UTF-8"?&gt;'</span>; <span class="hljs-meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://laraget.com/blog/generate-a-simple-xml-sitemap-using-laravel" target="_blank" rel="noopener">Generate a Simple XML Sitemap Using Laravel</a></p>
 
-      
+    
     </div>
-    <footer>
-      
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/PHP/">PHP</a>, <a href="/tags/Laravel/">Laravel</a>, <a href="/tags/XML/">XML</a>
-  </div>
-
-        
-  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/PHP/">#PHP</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Laravel/">#Laravel</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/XML/">#XML</a></span>
+    
+    </div>
     
     
-      <a class="addthis_button_tweet"></a>
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/archives/91e1ab9c.html">Laravel Linux 佈署問題筆記</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/archives/b142110b.html">iPad Pro 繪圖心得 (含其他繪圖螢幕簡易比較)</a>
+            
+        </span>
+    </div>
     
-    
-      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    
-    
-      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-    
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
 </article>
 
 
-<section id="comment">
-  <h1 class="title">Comments</h1>
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
 
-  
-      <div id="fb-root"></div>
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=570874119945326";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+    // 1.定義localeName 和localeMode 
+        var localeName = 'zh-tw',
+            localeMode = {
+                head: {
+                    nick: '暱稱',
+                    mail: 'E-Mail',
+                    link: '網址(http://)',
+                },
+                tips: {
+                    comments: '留言',
+                    sofa: '目前還沒有留言 ｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡',
+                    busy: '伺服器忙碌中，請稍候(◞‸◟)...',
+                    again: '不好意思出錯了，請再試一次(◞‸◟)',
+                    limit: '最多只能輸入 %d 個字喲！'
+                },
+                ctrl: {
+                    reply: '回覆',
+                    ok: 'OK',
+                    sure: '沒錯',
+                    cancel: '取消',
+                    confirm: '確認',
+                    continue: '繼續',
+                    more: '讀取更多',
+                    try: '再試一次?',
+                    emoji: '表情符號',
+                    preview: '預覽'
+                },
+                error: {
+                    99: 'Initialization failed, Please check the `el` element in the init method.',
+                    100: 'Initialization failed, Please check your appId and appKey.',
+                    401: 'Unauthorized operation, Please check your appId and appKey.',
+                    403: 'Access denied by api domain white list, Please check your security domain.',
+                },
+                timeago: {
+                    seconds: '秒前',
+                    minutes: '分鐘前',
+                    hours: '小時前',
+                    days: '天前',
+                    now: '剛才'
+                }
+            };
+
+        var valine = new Valine();
+        // 2.安裝語言
+        valine.installLocale(localeName, localeMode)
+        // 3.初始化
+    new Valine({
+        el: '#valine-thread',
+        appId: 'mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI',
+        appKey: 'zkROC4QzyTeu7fzjhTbxEY0k',
+        notify: true,
+        verify: true,
+        avatar: 'mp',
+        placeholder: '有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-tw'
+    })
 </script>
 
-<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/fe7b8274.html" data-num-posts="10" data-width="840" data-colorscheme="light"></div>
-      
-  
+</div>
+
+    </div>
 </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
 
-</div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="q" value="site:blog.driftkingtw.me">
-  </form>
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/archives/fe7b8274.html" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/archives/fe7b8274.html" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
 </div>
 
-  
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
 
-  
-<div class="widget tag">
-  <h3 class="title">Tags</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/DIY/">DIY</a><small>7</small></li>
-  
-    <li><a href="/tags/G27/">G27</a><small>1</small></li>
-  
-    <li><a href="/tags/Github/">Github</a><small>2</small></li>
-  
-    <li><a href="/tags/Google/">Google</a><small>1</small></li>
-  
-    <li><a href="/tags/Keyboard/">Keyboard</a><small>4</small></li>
-  
-    <li><a href="/tags/Laravel/">Laravel</a><small>2</small></li>
-  
-    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
-  
-    <li><a href="/tags/MacOS/">MacOS</a><small>8</small></li>
-  
-    <li><a href="/tags/Macbook-Pro/">Macbook Pro</a><small>1</small></li>
-  
-    <li><a href="/tags/NAS/">NAS</a><small>2</small></li>
-  
-    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
-  
-    <li><a href="/tags/Raspberry-Pi/">Raspberry Pi</a><small>1</small></li>
-  
-    <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>4</small></li>
-  
-    <li><a href="/tags/SFTP/">SFTP</a><small>1</small></li>
-  
-    <li><a href="/tags/SIM-Racing/">SIM-Racing</a><small>2</small></li>
-  
-    <li><a href="/tags/SMB/">SMB</a><small>1</small></li>
-  
-    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
-  
-    <li><a href="/tags/SketchUp/">SketchUp</a><small>1</small></li>
-  
-    <li><a href="/tags/TimeCapsule/">TimeCapsule</a><small>2</small></li>
-  
-    <li><a href="/tags/TimeMachine/">TimeMachine</a><small>2</small></li>
-  
-    <li><a href="/tags/Touchbar/">Touchbar</a><small>2</small></li>
-  
-    <li><a href="/tags/USB-C/">USB-C</a><small>1</small></li>
-  
-    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
-  
-    <li><a href="/tags/Win10/">Win10</a><small>1</small></li>
-  
-    <li><a href="/tags/XML/">XML</a><small>1</small></li>
-  
-    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
-  
-    <li><a href="/tags/iPad/">iPad</a><small>2</small></li>
-  
-    <li><a href="/tags/illustration/">illustration</a><small>2</small></li>
-  
-    <li><a href="/tags/無線耳機/">無線耳機</a><small>1</small></li>
-  
-    <li><a href="/tags/監控軟體/">監控軟體</a><small>1</small></li>
-  
-    <li><a href="/tags/螢幕/">螢幕</a><small>2</small></li>
-  
-    <li><a href="/tags/軟體應用/">軟體應用</a><small>1</small></li>
-  
-    <li><a href="/tags/開箱/">開箱</a><small>4</small></li>
-  
-  </ul>
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
-
-</aside>
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div class="alignleft">
-  
-  &copy; 2019 DriftKingTW
-  
-</div>
-<div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
 </script>
 
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
 </body>
 </html>

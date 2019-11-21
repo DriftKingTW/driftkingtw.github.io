@@ -4,6 +4,63 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/archives/b142110b.html</loc>
+    <lastmod>2019-11-21T16:12:08.658Z</lastmod>
+    <data>
+        <display>
+        <title>iPad Pro 繪圖心得 (含其他繪圖螢幕簡易比較)</title>
+        <pubTime>2018-05-23T14:37:36.000Z</pubTime>
+        
+        <tag>iPad</tag>
+         
+        <tag>illustration</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/598226a2.html</loc>
+    <lastmod>2019-11-21T13:18:43.559Z</lastmod>
+    <data>
+        <display>
+        <title>A Better Server Status Monitoring Tool - Glances (htop/top Alternative)</title>
+        <pubTime>2019-11-18T11:50:00.000Z</pubTime>
+        
+        <tag>RaspberryPi</tag>
+         
+        <tag>StatusMonitor</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/ba06666d.html</loc>
+    <lastmod>2019-11-21T12:27:30.069Z</lastmod>
+    <data>
+        <display>
+        <title>利用Applescript快速切換TrueTone</title>
+        <pubTime>2018-12-01T16:20:52.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>Touchbar</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/archives/cdb5d655.html</loc>
     <lastmod>2019-11-18T12:31:09.435Z</lastmod>
     <data>
@@ -66,9 +123,9 @@
         <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</title>
         <pubTime>2019-11-11T13:25:00.000Z</pubTime>
         
-        <tag>DIY</tag>
-         
         <tag>RaspberryPi</tag>
+         
+        <tag>DIY</tag>
          
          
            
@@ -302,9 +359,9 @@
         <title>MacOS強制外接螢幕輸出RGB</title>
         <pubTime>2018-10-12T01:16:28.000Z</pubTime>
         
-        <tag>MacOS</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>MacOS</tag>
          
          
            
@@ -321,9 +378,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>螢幕</tag>
-         
         <tag>Macbook Pro</tag>
+         
+        <tag>螢幕</tag>
          
          
            
@@ -489,44 +546,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/b142110b.html</loc>
-    <lastmod>2019-10-09T15:01:42.732Z</lastmod>
-    <data>
-        <display>
-        <title>iPad Pro 繪圖心得 (含其他繪圖螢幕簡易比較)</title>
-        <pubTime>2018-05-23T14:37:36.000Z</pubTime>
-        
-        <tag>iPad</tag>
-         
-        <tag>illustration</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/archives/ba06666d.html</loc>
-    <lastmod>2019-10-04T12:34:55.519Z</lastmod>
-    <data>
-        <display>
-        <title>利用Applescript快速切換TrueTone</title>
-        <pubTime>2018-12-01T16:20:52.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>Touchbar</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/fe7b8274.html</loc>
     <lastmod>2018-10-03T01:52:43.657Z</lastmod>
     <data>
@@ -548,25 +567,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/archives/bad29b8c.html</loc>
-    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
-    <data>
-        <display>
-        <title>Windows 10 安裝 Ubuntu bash</title>
-        <pubTime>2018-03-03T03:06:46.000Z</pubTime>
-        
-        <tag>Win10</tag>
-         
-        <tag>Ubuntu</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/archives/286b8c2b.html</loc>
     <lastmod>2018-10-03T01:52:43.656Z</lastmod>
     <data>
@@ -577,6 +577,25 @@
         <tag>hexo</tag>
          
         <tag>Github</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/archives/bad29b8c.html</loc>
+    <lastmod>2018-10-03T01:52:43.656Z</lastmod>
+    <data>
+        <display>
+        <title>Windows 10 安裝 Ubuntu bash</title>
+        <pubTime>2018-03-03T03:06:46.000Z</pubTime>
+        
+        <tag>Win10</tag>
+         
+        <tag>Ubuntu</tag>
          
          
            

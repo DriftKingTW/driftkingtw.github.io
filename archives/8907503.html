@@ -1,77 +1,179 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
 <head>
-  <meta charset="utf-8">
-  
-  <title>安裝 Aria2 在 RaspberryPi 上搭建低耗下載機 | DriftKingTW&#39;s Blog</title>
-  <meta name="author" content="DriftKingTW">
-  
-  <meta name="description" content="printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);">
-  
-  <meta name="keywords" content="RaspberryPi,樹莓派,下載機">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+<title>安裝 Aria2 在 RaspberryPi 上搭建低耗下載機 - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="安裝 Aria2 在 RaspberryPi 上搭建低耗下載機"/>
-  <meta property="og:site_name" content="DriftKingTW&#39;s Blog"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
-  
-    <meta property="og:image" content=""/>
-  
 
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="DriftKingTW&#39;s Blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<link href="/en/archives/8907503.html" rel="alternate" hreflang="en" />
+    
 
-	ga('create', 'UA-115026468-1', 'auto');
-	ga('send', 'pageview');
 
-</script>
+<meta name="description" content="printf("%s", "Stay Curious, Stay Creative");">
+
+
+
+<meta name="keywords" content="RaspberryPi,樹莓派,下載機">
+
+
+
+    <meta name="description" content="前言Aria2 是一個超輕量但功能的強大開源下載器，支援多點下載、多種協定、檔案分割下載、可透過 JSON-PRC 或 XML-PRC 遠端控制等，詳細可以到官方網站瞭解更多。 Aria2 的特性讓他非常適合放在樹莓派等單晶片上執行，輕量不耗資源、又能遠端操作，我的 Pi 剛好作為 NAS，搭配下載器可以直接存入 NAS 硬碟中，在做遠端存取且不用關機非常方便，本篇將會記錄安裝 Aria2 在 P">
+<meta name="keywords" content="RaspberryPi,樹莓派,下載機">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安裝 Aria2 在 RaspberryPi 上搭建低耗下載機">
+<meta property="og:url" content="https://blog.driftkingtw.me/archives/8907503.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="前言Aria2 是一個超輕量但功能的強大開源下載器，支援多點下載、多種協定、檔案分割下載、可透過 JSON-PRC 或 XML-PRC 遠端控制等，詳細可以到官方網站瞭解更多。 Aria2 的特性讓他非常適合放在樹莓派等單晶片上執行，輕量不耗資源、又能遠端操作，我的 Pi 剛好作為 NAS，搭配下載器可以直接存入 NAS 硬碟中，在做遠端存取且不用關機非常方便，本篇將會記錄安裝 Aria2 在 P">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/v1573834062/blog/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/Screen_Shot_2019-11-16_at_12.07.37_AM.png">
+<meta property="og:updated_time" content="2019-11-15T16:20:37.942Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安裝 Aria2 在 RaspberryPi 上搭建低耗下載機">
+<meta name="twitter:description" content="前言Aria2 是一個超輕量但功能的強大開源下載器，支援多點下載、多種協定、檔案分割下載、可透過 JSON-PRC 或 XML-PRC 遠端控制等，詳細可以到官方網站瞭解更多。 Aria2 的特性讓他非常適合放在樹莓派等單晶片上執行，輕量不耗資源、又能遠端操作，我的 Pi 剛好作為 NAS，搭配下載器可以直接存入 NAS 硬碟中，在做遠端存取且不用關機非常方便，本篇將會記錄安裝 Aria2 在 P">
+<meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/v1573834062/blog/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/Screen_Shot_2019-11-16_at_12.07.37_AM.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
 
 
 </head>
-
-
 <body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">DriftKingTW&#39;s Blog</a></h1>
-  <h2><a href="/">printf(&#34;%s&#34;, &#34;Stay Curious, Stay Creative&#34;);</a></h2>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <!-- <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a> -->
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/">DriftKingTW&#39;s Blog</a>
+            
+            <a class="navbar-item "
+               href="/archives">封存</a>
+            
+            <a class="navbar-item "
+               href="/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+        
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/archives/8907503.html" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/archives/8907503.html" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
 </div>
-<nav id="main-nav" class="alignright">
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div>
-</header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-11-15T16:15:00.000Z"><a href="/archives/8907503.html">2019-11-16</a></time>
-      
-      
-  
-    <h1 class="title">安裝 Aria2 在 RaspberryPi 上搭建低耗下載機</h1>
-  
 
-    </header>
-    <div class="entry">
-      
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            安裝 Aria2 在 RaspberryPi 上搭建低耗下載機
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-11-15T16:15:00.000Z" itemprop="datePublished">11月 16 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分钟 讀完 (約 966 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a href="https://aria2.github.io/" target="_blank" rel="noopener">Aria2</a> 是一個超輕量但功能的強大開源下載器，支援多點下載、多種協定、檔案分割下載、可透過 JSON-PRC 或 XML-PRC 遠端控制等，詳細可以到官方網站瞭解更多。</p>
 <p><a href="https://aria2.github.io/" target="_blank" rel="noopener">Aria2</a> 的特性讓他非常適合放在樹莓派等單晶片上執行，輕量不耗資源、又能遠端操作，我的 Pi 剛好作為 NAS，搭配下載器可以直接存入 NAS 硬碟中，在做遠端存取且不用關機非常方便，本篇將會記錄安裝 <a href="https://aria2.github.io/" target="_blank" rel="noopener">Aria2</a> 在 Pi 上的過程。</p>
 <h1 id="安裝-Aria2"><a href="#安裝-Aria2" class="headerlink" title="安裝 Aria2"></a>安裝 Aria2</h1><p><code>sudo apt-get update</code></p>
@@ -80,7 +182,8 @@
 <p><code>mkdir -p ~/.aria/aria2/</code></p>
 <p><code>touch ~/.aria2/aria2.session</code></p>
 <p><code>vim ~/.aria2/aria2.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">## Files</span><br><span class="line">dir=/mnt/Share/Downloads</span><br><span class="line">disk-cache=32M</span><br><span class="line">file-allocation=trunc</span><br><span class="line">continue=true</span><br><span class="line"></span><br><span class="line">## Downloads</span><br><span class="line">max-concurrent-downloads=10</span><br><span class="line">max-connection-per-server=16</span><br><span class="line">min-split-size=10M</span><br><span class="line">split=5</span><br><span class="line">max-overall-download-limit=0</span><br><span class="line">#max-download-limit=0</span><br><span class="line">#max-overall-upload-limit=0</span><br><span class="line">#max-upload-limit=0</span><br><span class="line">disable-ipv6=false</span><br><span class="line"></span><br><span class="line">## Sessions</span><br><span class="line">save-session=/home/pi/.aria2/aria2.session</span><br><span class="line">input-file=/home/pi/.aria2/aria2.session</span><br><span class="line">save-session-interval=60</span><br><span class="line"></span><br><span class="line">## RPC Settings</span><br><span class="line">enable-rpc=true</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line">rpc-listen-all=true</span><br><span class="line">#rpc-secret=secret</span><br><span class="line">#event-poll=select</span><br><span class="line">#rpc-listen-port=6800</span><br><span class="line"></span><br><span class="line">## Others</span><br><span class="line">enable-dht=true</span><br><span class="line">enable-dht6=true</span><br><span class="line">enable-peer-exchange=true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">## Files</span><br><span class="line">dir=/mnt/Share/Downloads</span><br><span class="line">disk-cache=32M</span><br><span class="line">file-allocation=trunc</span><br><span class="line">continue=true</span><br><span class="line"></span><br><span class="line">## Downloads</span><br><span class="line">max-concurrent-downloads=10</span><br><span class="line">max-connection-per-server=16</span><br><span class="line">min-split-size=10M</span><br><span class="line">split=5</span><br><span class="line">max-overall-download-limit=0</span><br><span class="line">#max-download-limit=0</span><br><span class="line">#max-overall-upload-limit=0</span><br><span class="line">#max-upload-limit=0</span><br><span class="line">disable-ipv6=false</span><br><span class="line"></span><br><span class="line">## Sessions</span><br><span class="line">save-session=/home/pi/.aria2/aria2.session</span><br><span class="line">input-file=/home/pi/.aria2/aria2.session</span><br><span class="line">save-session-interval=60</span><br><span class="line"></span><br><span class="line">## RPC Settings</span><br><span class="line">enable-rpc=true</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line">rpc-listen-all=true</span><br><span class="line">#rpc-secret=secret</span><br><span class="line">#event-poll=select</span><br><span class="line">#rpc-listen-port=6800</span><br><span class="line"></span><br><span class="line">## Others</span><br><span class="line">enable-dht=true</span><br><span class="line">enable-dht6=true</span><br><span class="line">enable-peer-exchange=true</span><br></pre></td></tr></table></figure>
+
 <p>在 <code>Files</code> 部分的 <code>dir</code> 是指檔案下載路徑，這裡我把它掛在外接硬碟上方便存取。</p>
 <p>接著啟動 <code>aria2c</code> 並指定設定文件所在位置。</p>
 <p><code>aria2c --conf-path=/home/pi/.aria2/aria2.conf</code></p>
@@ -88,14 +191,16 @@
 <p><code>ps aux | grep aria2</code></p>
 <h1 id="設定開機啟動服務"><a href="#設定開機啟動服務" class="headerlink" title="設定開機啟動服務"></a>設定開機啟動服務</h1><p>建立設定文件</p>
 <p><code>sudo vim /lib/systemd/system/aria2.service</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Aria2 Service</span><br><span class="line">Requires=network.target</span><br><span class="line">After=dhcpcd.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=pi</span><br><span class="line">RemainAfterExit=yes</span><br><span class="line">ExecStart=/usr/bin/aria2c --conf-path=/home/pi/.aria2/aria2.conf</span><br><span class="line">ExecReload=/usr/bin/kill -HUP $MAINPID</span><br><span class="line">ExecStop=/usr/bin/kill -s STOP $MAINPID</span><br><span class="line">RestartSec=1min</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Aria2 Service</span><br><span class="line">Requires=network.target</span><br><span class="line">After=dhcpcd.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=pi</span><br><span class="line">RemainAfterExit=yes</span><br><span class="line">ExecStart=/usr/bin/aria2c --conf-path=/home/pi/.aria2/aria2.conf</span><br><span class="line">ExecReload=/usr/bin/kill -HUP $MAINPID</span><br><span class="line">ExecStop=/usr/bin/kill -s STOP $MAINPID</span><br><span class="line">RestartSec=1min</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
 <p>接著載入服務並啟動檢查是否成功：</p>
 <p><code>sudo systemctl daemon-reload</code></p>
 <p><code>sudo systemctl enable aria2</code></p>
 <p><code>sudo systemctl start aria2</code></p>
 <p><code>sudo systemctl status aria2</code></p>
 <p>成功的話會顯示類似下方狀態</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">● aria2.service - Aria2 Service</span><br><span class="line">   Loaded: loaded (/lib/systemd/system/aria2.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since Fri 2019-11-15 16:01:37 GMT; 4s ago</span><br><span class="line"> Main PID: 1509 (aria2c)</span><br><span class="line">    Tasks: 1 (limit: 4915)</span><br><span class="line">   Memory: 3.4M</span><br><span class="line">   CGroup: /system.slice/aria2.service</span><br><span class="line">           └─1509 /usr/bin/aria2c --conf-path=/home/pi/.aria2/aria2.conf</span><br><span class="line"></span><br><span class="line">Nov 15 16:01:37 pinas systemd[1]: Started Aria2 Service.</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [WARN] Neither --rpc-secret nor a combination of --rpc-user and --rpc</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [NOTICE] IPv4 RPC: listening on TCP port 6800</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [NOTICE] IPv6 RPC: listening on TCP port 6800</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">● aria2.service - Aria2 Service</span><br><span class="line">   Loaded: loaded (/lib/systemd/system/aria2.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since Fri 2019-11-15 16:01:37 GMT; 4s ago</span><br><span class="line"> Main PID: 1509 (aria2c)</span><br><span class="line">    Tasks: 1 (limit: 4915)</span><br><span class="line">   Memory: 3.4M</span><br><span class="line">   CGroup: /system.slice/aria2.service</span><br><span class="line">           └─1509 /usr/bin/aria2c --conf-path=/home/pi/.aria2/aria2.conf</span><br><span class="line"></span><br><span class="line">Nov 15 16:01:37 pinas systemd[1]: Started Aria2 Service.</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [WARN] Neither --rpc-secret nor a combination of --rpc-user and --rpc</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [NOTICE] IPv4 RPC: listening on TCP port 6800</span><br><span class="line">Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [NOTICE] IPv6 RPC: listening on TCP port 6800</span><br></pre></td></tr></table></figure>
+
 <h1 id="安裝-Nginx-網頁伺服器"><a href="#安裝-Nginx-網頁伺服器" class="headerlink" title="安裝 Nginx 網頁伺服器"></a>安裝 Nginx 網頁伺服器</h1><p>安裝 nginx （若有其他網頁伺服器也可以，如 Apache 等）</p>
 <p><code>sudo apt install nginx</code></p>
 <p>啟動服務</p>
@@ -117,170 +222,342 @@
 <p><a href="https://li-aaron.github.io/2019/01/aira2-on-raspberry/" target="_blank" rel="noopener">用树莓派 Raspberry Pi 远程下载 (aria2)</a></p>
 <p><a href="https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md" target="_blank" rel="noopener">Setting up an NGINX web server on a Raspberry Pi</a></p>
 
-      
+    
     </div>
-    <footer>
-      
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/RaspberryPi/">RaspberryPi</a>
-  </div>
-
-        
-  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/RaspberryPi/">#RaspberryPi</a></span>
+    
+    </div>
     
     
-      <a class="addthis_button_tweet"></a>
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/archives/cdb5d655.html">電腦/伺服器跨平臺的開源監控好幫手 - Glances</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/archives/ca77c25e.html">利用 Raspberry Pi 搭建 TimeCapsule（仮）- 硬體篇</a>
+            
+        </span>
+    </div>
     
-    
-      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    
-    
-      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-    
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
 </article>
 
 
-<section id="comment">
-  <h1 class="title">Comments</h1>
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
 
-  
-      <div id="fb-root"></div>
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=570874119945326";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+    // 1.定義localeName 和localeMode 
+        var localeName = 'zh-tw',
+            localeMode = {
+                head: {
+                    nick: '暱稱',
+                    mail: 'E-Mail',
+                    link: '網址(http://)',
+                },
+                tips: {
+                    comments: '留言',
+                    sofa: '目前還沒有留言 ｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡',
+                    busy: '伺服器忙碌中，請稍候(◞‸◟)...',
+                    again: '不好意思出錯了，請再試一次(◞‸◟)',
+                    limit: '最多只能輸入 %d 個字喲！'
+                },
+                ctrl: {
+                    reply: '回覆',
+                    ok: 'OK',
+                    sure: '沒錯',
+                    cancel: '取消',
+                    confirm: '確認',
+                    continue: '繼續',
+                    more: '讀取更多',
+                    try: '再試一次?',
+                    emoji: '表情符號',
+                    preview: '預覽'
+                },
+                error: {
+                    99: 'Initialization failed, Please check the `el` element in the init method.',
+                    100: 'Initialization failed, Please check your appId and appKey.',
+                    401: 'Unauthorized operation, Please check your appId and appKey.',
+                    403: 'Access denied by api domain white list, Please check your security domain.',
+                },
+                timeago: {
+                    seconds: '秒前',
+                    minutes: '分鐘前',
+                    hours: '小時前',
+                    days: '天前',
+                    now: '剛才'
+                }
+            };
+
+        var valine = new Valine();
+        // 2.安裝語言
+        valine.installLocale(localeName, localeMode)
+        // 3.初始化
+    new Valine({
+        el: '#valine-thread',
+        appId: 'mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI',
+        appKey: 'zkROC4QzyTeu7fzjhTbxEY0k',
+        notify: true,
+        verify: true,
+        avatar: 'mp',
+        placeholder: '有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-tw'
+    })
 </script>
 
-<div class="fb-comments" data-href="https://blog.driftkingtw.me/archives/8907503.html" data-num-posts="10" data-width="840" data-colorscheme="light"></div>
-      
-  
+</div>
+
+    </div>
 </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
 
-</div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="q" value="site:blog.driftkingtw.me">
-  </form>
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/archives/8907503.html" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/archives/8907503.html" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
 </div>
 
-  
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
 
-  
-<div class="widget tag">
-  <h3 class="title">Tags</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/DIY/">DIY</a><small>7</small></li>
-  
-    <li><a href="/tags/G27/">G27</a><small>1</small></li>
-  
-    <li><a href="/tags/Github/">Github</a><small>2</small></li>
-  
-    <li><a href="/tags/Google/">Google</a><small>1</small></li>
-  
-    <li><a href="/tags/Keyboard/">Keyboard</a><small>4</small></li>
-  
-    <li><a href="/tags/Laravel/">Laravel</a><small>2</small></li>
-  
-    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
-  
-    <li><a href="/tags/MacOS/">MacOS</a><small>8</small></li>
-  
-    <li><a href="/tags/Macbook-Pro/">Macbook Pro</a><small>1</small></li>
-  
-    <li><a href="/tags/NAS/">NAS</a><small>2</small></li>
-  
-    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
-  
-    <li><a href="/tags/Raspberry-Pi/">Raspberry Pi</a><small>1</small></li>
-  
-    <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>4</small></li>
-  
-    <li><a href="/tags/SFTP/">SFTP</a><small>1</small></li>
-  
-    <li><a href="/tags/SIM-Racing/">SIM-Racing</a><small>2</small></li>
-  
-    <li><a href="/tags/SMB/">SMB</a><small>1</small></li>
-  
-    <li><a href="/tags/SSL/">SSL</a><small>1</small></li>
-  
-    <li><a href="/tags/SketchUp/">SketchUp</a><small>1</small></li>
-  
-    <li><a href="/tags/TimeCapsule/">TimeCapsule</a><small>2</small></li>
-  
-    <li><a href="/tags/TimeMachine/">TimeMachine</a><small>2</small></li>
-  
-    <li><a href="/tags/Touchbar/">Touchbar</a><small>2</small></li>
-  
-    <li><a href="/tags/USB-C/">USB-C</a><small>1</small></li>
-  
-    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
-  
-    <li><a href="/tags/Win10/">Win10</a><small>1</small></li>
-  
-    <li><a href="/tags/XML/">XML</a><small>1</small></li>
-  
-    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
-  
-    <li><a href="/tags/iPad/">iPad</a><small>2</small></li>
-  
-    <li><a href="/tags/illustration/">illustration</a><small>2</small></li>
-  
-    <li><a href="/tags/無線耳機/">無線耳機</a><small>1</small></li>
-  
-    <li><a href="/tags/監控軟體/">監控軟體</a><small>1</small></li>
-  
-    <li><a href="/tags/螢幕/">螢幕</a><small>2</small></li>
-  
-    <li><a href="/tags/軟體應用/">軟體應用</a><small>1</small></li>
-  
-    <li><a href="/tags/開箱/">開箱</a><small>4</small></li>
-  
-  </ul>
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
-
-</aside>
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div class="alignleft">
-  
-  &copy; 2019 DriftKingTW
-  
-</div>
-<div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
 </script>
 
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
 </body>
 </html>
