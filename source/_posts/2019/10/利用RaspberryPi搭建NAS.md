@@ -33,7 +33,7 @@ BTW 目前還是使用 Pi3B ，升級後會在補上 Pi4B 速度的差異心得�
 
 首先用 `lsblk` 找到要當 NAS 硬碟及分區(這邊是 `sda2` 代表 a 磁碟的 2 號分區)
 
-格式化為 `ext4` 格式，這邊推薦用 `ext4` 效能最好
+格式化為 `ext4` 格式，~~這邊推薦用 `ext4` 效能最好~~（最近在做 NAS 優化，發現XFS的效果會更提升一些，可以參考[XFS 檔案格式](#XFS-檔案格式)）
 
 `sudo mkfs.ext4 /dev/sda2`
 
@@ -77,7 +77,14 @@ BTW 目前還是使用 Pi3B ，升級後會在補上 Pi4B 速度的差異心得�
 
 `sudo vim /etc/samba/smb.conf`
 
-在文件最下面填入如下設定
+Global 部分填入限制使用者登入才能存取的設定
+
+```conf
+[global]
+  security = user
+```
+
+在文件最下面填入如下的分享目錄設定
 
 ```conf
 [share]
@@ -103,8 +110,42 @@ PS：valid users 後面替換成自己的 username。
 
 MacOS 的話則在 Finder 下按 `CMD+K` 填入 `smb://raspberrypi.local/Share` ，輸入剛才設定的 smb 使用者帳號密碼即可連入 NAS 。
 
+# 補充
+
+## XFS 檔案格式
+
+安裝 XFS 工具
+
+`sudo apt-get install xfsprogs`
+
+格式化 sda 硬碟為 xfs 格式
+
+`sudo mkfs.xfs -f /dev/sda`
+
+查看掛載狀態
+
+`df -h`
+
+## 本地硬碟讀取速度測試
+
+安裝 `hdparm`
+
+`sudo apt-get install hdparm`
+
+測試讀取：
+
+`hdparm -t /dev/sda`
+
+測試寫入：
+
+`hdparm -t --direct /dev/sda`
+
 # 參考
 
 [Browse Raspberry Pi in OSX Finder via Samba](http://blog.jachobsen.com/2013/04/29/browse-raspberry-pi-in-osx-finder-via-samba/)
 
 [How to restart samba server?](https://askubuntu.com/questions/79078/how-to-restart-samba-server)
+
+[How to create and mount an XFS file system on Linux](http://ask.xmodulo.com/create-mount-xfs-file-system-linux.html)
+
+[hdparm 測試硬碟讀寫速度](https://shazi.info/hdparm-%E6%B8%AC%E8%A9%A6%E7%A1%AC%E7%A2%9F%E8%AE%80%E5%AF%AB%E9%80%9F%E5%BA%A6/)
