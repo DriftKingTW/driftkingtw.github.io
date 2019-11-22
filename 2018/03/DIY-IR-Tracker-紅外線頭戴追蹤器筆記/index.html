@@ -113,9 +113,6 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/">DriftKingTW&#39;s Blog</a>
-            
-            <a class="navbar-item "
                href="/archives">封存</a>
             
             <a class="navbar-item "
@@ -138,10 +135,8 @@
             </a>
                
             
-        </div>
-    </div>
-</nav>
-
+            <!-- <a class="navbar-item" title="language" href="#">
+                <span>
 <div class="column is-narrow has-text-centered">
     <div class="dropdown is-down is-right is-hoverable" style="margin-top: -0.2em;">
         <div class="dropdown-trigger">
@@ -170,7 +165,11 @@
         </div>
     </div>
 </div>
-
+</span>
+            </a> -->
+        </div>
+    </div>
+</nav>
     <section class="section">
     <div class="container">
     <article class="article content gallery" itemscope itemprop="blogPost">
@@ -351,7 +350,7 @@
         // 2.安裝語言
         valine.installLocale(localeName, localeMode)
         // 3.初始化
-    new Valine({
+    var valine = new Valine({
         el: '#valine-thread',
         appId: 'mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI',
         appKey: 'zkROC4QzyTeu7fzjhTbxEY0k',
