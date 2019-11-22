@@ -7,6 +7,7 @@ keywords:
   - RaspberryPi
   - StatusMonitor
 abbrlink: 598226a2
+lang: en
 date: 2019-11-18 19:50:00
 ---
 

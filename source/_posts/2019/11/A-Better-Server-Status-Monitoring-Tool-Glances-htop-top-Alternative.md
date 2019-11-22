@@ -7,6 +7,7 @@ keywords:
   - RaspberryPi
   - 監控軟體
 abbrlink: cdb5d655
+lang: zh-tw
 date: 2019-11-18 19:50:00
 ---
 
