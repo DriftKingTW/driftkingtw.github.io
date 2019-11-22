@@ -15,7 +15,7 @@ keywords:
 
 在[Github](https://github.com/)上建好靜態網站後, 都是利用 username.github.io 進行瀏覽
 但是[Github](https://github.com/)也有可以讓我們使用自己的域名(Domain Name)的設定
-假設選擇自訂域名就無法使用它所提供的SSL連線服務, 需要找第三方來使用HTTPS
+假設選擇自訂域名就無法使用它所提供的SSL連線服務, 需要找第三方來使用HTTPS<!--more-->
 
 ![Github自訂域名](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520154032/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/github_domain.png)
 

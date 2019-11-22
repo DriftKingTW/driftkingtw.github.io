@@ -15,7 +15,7 @@ abbrlink: b142110b
 ![毛醬 w/ iPad](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1527571604/blog/2018/05/25/iPad_Pro_繪圖心得/Fur_chan_w_ipad.jpg)
 
 iPad Pro入手也大概三個多月了，稍微詳細寫一下在繪圖方面的心得。
-先聲明一下畫圖只是我的業餘興趣，而且軟硬體使用上因人而異，所以內容僅供參考哦(*´▽`*)
+先聲明一下畫圖只是我的業餘興趣，而且軟硬體使用上因人而異，所以內容僅供參考哦(*´▽`*)<!--more-->
 
 * **[硬體](#硬體)**
 * **[軟體](#軟體)**

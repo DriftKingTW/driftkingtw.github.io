@@ -10,6 +10,8 @@ keywords:
   - ubuntu
 ---
 
+本篇記錄如何在 Windows10 上安裝 Ubuntu bash<!--more-->
+
 1. 在 Microsoft App 商店搜尋 "Ubuntu" 並安裝
 
 2. 開啟 "設定" -> "App" -> "應用程式與功能"

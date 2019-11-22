@@ -12,7 +12,7 @@ keywords:
 
 今天打開SketchUp突然跳出這玩意...
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518273441/blog/2017/09/04/SketchUp_2017_修復無法啟動問題/sketchup-%E9%8C%AF%E8%AA%A4.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518273441/blog/2017/09/04/SketchUp_2017_修復無法啟動問題/sketchup-%E9%8C%AF%E8%AA%A4.jpg)<!--more-->
 
 試過重新安裝和網路上的各種方法也沒有效...就是開不了 弄了老半天簡直要發瘋
 直到我傳送了錯誤報告, 跳出這個頁面有推薦的解決方法

@@ -11,9 +11,8 @@ abbrlink: c3ffdb1b
 date: 2018-10-12 17:51:04
 ---
 
-# 前言
-
 在測試螢幕RGB設定時順便測試了一下MBP2018的螢幕效能（一開始來只有看有無亮暗點），發現了在Gradient測試下居然出現了明顯的Banding現象...如下圖。
+![Macbook Pro 2018](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539338402/blog/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/P_20181012_160038_vHDR_Auto.jpg)<!--more-->
 
 # Gradient Test
 

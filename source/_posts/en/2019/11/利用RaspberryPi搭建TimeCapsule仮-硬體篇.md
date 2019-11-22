@@ -19,9 +19,7 @@ date: 2019-11-12 21:25:00
 
 ![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533117/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122944.jpg)
 
-# 前言
-
-前陣子看到國外有人把舊的 Mac Mini 的機箱拿來改造，弄成 Router 或 HTPC 等，不得不說 Mac 的全鋁一體機箱真的挺好看，雖然設計已近十年未改，但放在 2019 年的桌面上仍不顯老氣 ~~反正中間那個商標放哪都能裝逼~~。
+前陣子看到國外有人把舊的 Mac Mini 的機箱拿來改造，弄成 Router 或 HTPC 等，不得不說 Mac 的全鋁一體機箱真的挺好看，雖然設計已近十年未改，但放在 2019 年的桌面上仍不顯老氣 ~~反正中間那個商標放哪都能裝逼~~。<!--more-->
 
 看著別人改的成品很是心動~~手癢~~，於是上網搜了下，發現有不少人在賣二手的機殼，在國外看到了個價格及品相都非常好的機殼(約NT600)就買了下來(Mid 2010/A1347)。時間上正好 Raspberry Pi 更新了第四代，I/O效能上也終於符合了基本 NAS 的需求，於是想到可以把 Pi 裝在 Mac Mini 的機殼中，來做個簡易的偽 TimeCapsule + NAS，來當做無線 Time Machine 備份用及網路存儲設備。
 

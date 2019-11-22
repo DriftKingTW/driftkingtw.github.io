@@ -13,11 +13,9 @@ abbrlink: f6f885e
 date: 2018-11-02 21:11:33
 ---
 
-# 前言
-
 ![Google Pixel Earbuds](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1541164543/blog/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/P_20181102_203946_vHDR_Auto.jpg)
 
-前陣子Google發表會發佈了Pixel 3的消息，這次臺灣也在上市清單中，雖然買不起不過上Google Store晃了下發現這次手機附的Pixel USB-C耳機也有單獨販賣，售價NT990跟Apple的Earpods差不多，身爲G粉雖然買不起手機（還有XL的瀏海好醜我實在太失望了）但是這還是能充值一下信仰的！二話不說就跟朋友一起下訂，但是送貨過程坎坷，一下是延期出貨一下是卡海關，硬是等了兩個多禮拜才終於收到(ry
+前陣子Google發表會發佈了Pixel 3的消息，這次臺灣也在上市清單中，雖然買不起不過上Google Store晃了下發現這次手機附的Pixel USB-C耳機也有單獨販賣，售價NT990跟Apple的Earpods差不多，身爲G粉雖然買不起手機（還有XL的瀏海好醜我實在太失望了）但是這還是能充值一下信仰的！二話不說就跟朋友一起下訂，但是送貨過程坎坷，一下是延期出貨一下是卡海關，硬是等了兩個多禮拜才終於收到(ry<!--more-->
 
 # 開箱
 

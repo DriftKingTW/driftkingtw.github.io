@@ -14,7 +14,7 @@ date: 2018-07-10 00:49:57
 ---
 
 整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。
-環境若沒特別說明就代表使用的OS為Ubuntu
+環境若沒特別說明就代表使用的OS為Ubuntu<!--more-->
 
 ### Q1. 如何設定Laravel .env檔的APP_KEY?
 

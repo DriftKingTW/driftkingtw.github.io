@@ -13,7 +13,7 @@ keywords:
 
 今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤
 
-錯誤訊息如下
+錯誤訊息如下<!--more-->
 ```bash
 PS C:\Users\DriftKingTW\blog> hexo d
 INFO  Deploying: git

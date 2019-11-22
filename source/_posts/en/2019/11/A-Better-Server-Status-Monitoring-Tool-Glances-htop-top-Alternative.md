@@ -11,7 +11,7 @@ lang: en
 date: 2019-11-18 19:50:00
 ---
 
-Recently, I'm looking for a temperture and cpu status monitor for my Pi nas server. `vcgencmd` command and `htop` get the jobs done, but it's always better to have them in the same window (`htop` can't show temperture which bothers me alot). So I found an cross-platform, python-based `htop` alternative - [Glances](https://nicolargo.github.io/glances/), it's easy to install and super handy. The only downside is that it uses a bit more cpu resources than I expected (on Pi4 4GB version).
+Recently, I'm looking for a temperture and cpu status monitor for my Pi nas server. `vcgencmd` command and `htop` get the jobs done, but it's always better to have them in the same window (`htop` can't show temperture which bothers me alot). So I found an cross-platform, python-based `htop` alternative - [Glances](https://nicolargo.github.io/glances/), it's easy to install and super handy. The only downside is that it uses a bit more cpu resources than I expected (on Pi4 4GB version).<!--more-->
 
 # Installation
 

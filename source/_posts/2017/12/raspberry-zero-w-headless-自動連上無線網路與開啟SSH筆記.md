@@ -14,7 +14,7 @@ keywords:
 之前因緣際會下, 請朋友從英國帶回來了觀望已久的 RPI ZERO W ✧◝(⁰▿⁰)◜✧
 先上張美圖
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274118/blog/2017/12/14/Raspberry_Zero_W_Headless_自動連上無線網路與開啟SSH筆記/P_20171011_181938-1024x778.jpg)
+![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274118/blog/2017/12/14/Raspberry_Zero_W_Headless_自動連上無線網路與開啟SSH筆記/P_20171011_181938-1024x778.jpg)<!--more-->
 
 原本想多帶幾張回來的, 想說台灣代理的都好貴...但是發現一單只能買一張, 只好先收一張回來玩, 看來真的很搶手阿QQ
 加碼自然風外殼!! 這簡直超棒阿XDDD 雖然我也有買官方的Zero殼, 以後如果要用到攝影機相關的project會比較方便(^u^)
