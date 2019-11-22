@@ -13,7 +13,7 @@ open_graph:
 # It can either be an url to an image or a string if the following option is set.
 # logo:
 #   text: <logo string>
-logo:
+logo: DriftKingTW
 
 article:
   # Show word count and estimated reading time.
@@ -23,12 +23,12 @@ article:
 
 # Navigation bar menu links.
 menu:
-  DriftKingTW's Blog: /
-  Archives: /archives
+  DriftKingTW's Blog: /en/index.html
+  Archives: /en/archives
 #  Lifestyle: /categories/LifeStyle
 #  Music: /categories/Music
 #  Technology: /categories/Technology
-  About: /about
+  About: /en/about
 
 # Search plugin settings.
 search:
@@ -69,8 +69,8 @@ plugins:
 navbar_links:
   GitHub:
     icon: fab fa-github
-    url: https://github.com/ppoffice/hexo-theme-minos
+    url: https://github.com/driftkingtw
 
 # Links at the bottom of the page.
 footer_links:
-  GitHub: https://github.com/ppoffice/hexo-theme-minos
+  GitHub: https://github.com/driftkingtw

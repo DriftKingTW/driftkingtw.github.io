@@ -13,7 +13,7 @@ open_graph:
 # It can either be an url to an image or a string if the following option is set.
 # logo:
 #   text: <logo string>
-logo:
+logo: DriftKingTW
 
 article:
   # Show word count and estimated reading time.
@@ -24,9 +24,9 @@ article:
 # Navigation bar menu links.
 menu:
   Archives: /archives
-  Lifestyle: /categories/LifeStyle
-  Music: /categories/Music
-  Technology: /categories/Technology
+  # Lifestyle: /categories/LifeStyle
+  # Music: /categories/Music
+  # Technology: /categories/Technology
   About: /about
 
 # Search plugin settings.
@@ -55,10 +55,10 @@ comment:
 plugins:
   mathjax: true
   katex: false
-  gallery: false
+  gallery: true
   clipboard: true
   google-analytics: 
-    tracking_id:
+    tracking_id: 
 
 # Additional navigation bar links on the right.
 # Links can either be text or icon. The following link is set to be an icon link whose icon
@@ -67,8 +67,8 @@ plugins:
 navbar_links:
   GitHub:
     icon: fab fa-github
-    url: https://github.com/ppoffice/hexo-theme-minos
+    url: https://github.com/driftkingtw
 
 # Links at the bottom of the page.
 footer_links:
-  GitHub: https://github.com/ppoffice/hexo-theme-minos
+  GitHub: https://github.com/driftkingtw
