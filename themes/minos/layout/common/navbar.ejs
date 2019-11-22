@@ -12,7 +12,7 @@
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <!-- <a class="navbar-item navbar-logo" href="<%- url_for('/' + (!is_default_language(page_language()) ? page_language() : '')) %>">
+            <a class="navbar-item navbar-logo" href="<%- url_for('/' + (!is_default_language(page_language()) ? page_language() : '')) %>">
                 <% if (has_config('logo') && get_config('logo')) { %>
                     <% if (has_config('logo.text') && get_config('logo.text')) { %>
                     <%= get_config('logo.text') %>
@@ -22,7 +22,7 @@
                 <% } else { %>
                 <img src="<%- url_for('images/logo.png') %>" alt="" height="28">
                 <% } %>
-            </a> -->
+            </a>
             <div class="navbar-burger">
                 <span></span>
                 <span></span>
@@ -38,6 +38,7 @@
         </div>
         <% } %>
         <div class="navbar-menu navbar-end">
+            <%- partial('common/languages') %>
             <% if (has_config('search')) { %>
             <a class="navbar-item search" title="<%= __('nav.search') %>" href="javascript:;">
                 <i class="fas fa-search"></i>
@@ -73,6 +74,5 @@
                <% } %>
             <% } %>
         </div>
-        <%- partial('common/languages') %>
     </div>
 </nav>
