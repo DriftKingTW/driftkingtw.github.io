@@ -18,8 +18,8 @@ keywords: 網頁, 程式, 科技, 電腦, 賽車, 繪圖, DIY, Maker, Web, Sim r
 url: https://blog.driftkingtw.me/
 root: /
 #permalink: :year/:month/:day/:title/
-# permalink: :title/
-permalink: archives/:abbrlink.html
+# permalink: archives/:abbrlink.html
+permalink: :title/
 abbrlink:
   alg: crc32  # crc16(default) and crc32
   rep: hex    # dec(default) and hex
