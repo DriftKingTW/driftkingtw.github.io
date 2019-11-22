@@ -20,18 +20,18 @@
 
 
 
-    <meta name="description" content="今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤 錯誤訊息如下 1234567891011121314151617181920212223PS C:\Users\DriftKingTW\blog&amp;gt; hexo dINFO  Deploying: gitINFO  Clearing .deploy_git folder...INFO  Copying files">
+    <meta name="description" content="今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤 錯誤訊息如下">
 <meta name="keywords" content="Github,問題,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo Github deploy 問題修正">
 <meta property="og:url" content="https://blog.driftkingtw.me/2018/03/Hexo-Github-deploy-問題修正筆記/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
-<meta property="og:description" content="今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤 錯誤訊息如下 1234567891011121314151617181920212223PS C:\Users\DriftKingTW\blog&amp;gt; hexo dINFO  Deploying: gitINFO  Clearing .deploy_git folder...INFO  Copying files">
+<meta property="og:description" content="今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤 錯誤訊息如下">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-10-03T01:52:43.656Z">
+<meta property="og:updated_time" content="2019-11-22T06:50:18.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo Github deploy 問題修正">
-<meta name="twitter:description" content="今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤 錯誤訊息如下 1234567891011121314151617181920212223PS C:\Users\DriftKingTW\blog&amp;gt; hexo dINFO  Deploying: gitINFO  Clearing .deploy_git folder...INFO  Copying files">
+<meta name="twitter:description" content="今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤 錯誤訊息如下">
 
 
 
@@ -164,14 +164,14 @@
         <span class="column is-narrow">
             
             
-            2 分钟 讀完 (約 365 字)
+            2 分钟 讀完 (約 366 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p>今天用另一台電腦寫blog要用Powershell部屬到Github上時發生了錯誤</p>
-<p>錯誤訊息如下</p>
+<p>錯誤訊息如下<a id="more"></a></p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\DriftKingTW\blog&gt; hexo d</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend <span class="hljs-built_in">dirs</span>...</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">fatal: HttpRequestException encountered.</span><br><span class="line">   An error occurred <span class="hljs-keyword">while</span> sending the request.</span><br><span class="line">bash: /dev/tty: No such device or address</span><br><span class="line">error: failed to execute prompt script (<span class="hljs-built_in">exit</span> code 1)</span><br><span class="line">fatal: could not <span class="hljs-built_in">read</span> Username <span class="hljs-keyword">for</span> <span class="hljs-string">'https://github.com'</span>: No error</span><br><span class="line">FATAL Something<span class="hljs-string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="hljs-string">Error: fatal: HttpRequestException encountered.</span></span><br><span class="line"><span class="hljs-string">   An error occurred while sending the request.</span></span><br><span class="line"><span class="hljs-string">bash: /dev/tty: No such device or address</span></span><br><span class="line"><span class="hljs-string">error: failed to execute prompt script (exit code 1)</span></span><br><span class="line"><span class="hljs-string">fatal: could not read Username for '</span>https://github.com<span class="hljs-string">': No error</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">    at ChildProcess.&lt;anonymous&gt; (C:\Users\DriftKingTW\blog\node_modules\hexo-util\lib\spawn.js:37:17)    at emitTwo (events.js:126:13)</span></span><br><span class="line"><span class="hljs-string">    at ChildProcess.emit (events.js:214:7)</span></span><br><span class="line"><span class="hljs-string">    at ChildProcess.cp.emit (C:\Users\DriftKingTW\blog\node_modules\cross-spawn\lib\enoent.js:40:29)</span></span><br><span class="line"><span class="hljs-string">    at maybeClose (internal/child_process.js:925:16)    at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)</span></span><br></pre></td></tr></table></figure>
 
 <p>上網翻了不少資料, 一些git設定跟ssh設定也都測試過了依然無法解決問題<br>後來使用了另一種設定方法</p>

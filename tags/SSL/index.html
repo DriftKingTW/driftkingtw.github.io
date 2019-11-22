@@ -171,55 +171,16 @@
         <span class="column is-narrow">
             
             
-            7 分钟 讀完 (約 1003 字)
+            7 分钟 讀完 (約 1004 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>在<a href="https://github.com/" target="_blank" rel="noopener">Github</a>上建好靜態網站後, 都是利用 username.github.io 進行瀏覽<br>但是<a href="https://github.com/" target="_blank" rel="noopener">Github</a>也有可以讓我們使用自己的域名(Domain Name)的設定<br>假設選擇自訂域名就無法使用它所提供的SSL連線服務, 需要找第三方來使用HTTPS</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520154032/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/github_domain.png" alt="Github自訂域名"></p>
-<p>為了達成HTTPS自訂域名, 需要要利用<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>所提供的免費服務<br>至於堅持使用HTTPS的原因, 我到時候再寫另外一篇文章詳細補充</p>
-<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><ol>
-<li><p>確認已經註冊好一個域名</p>
-</li>
-<li><p>確認已經在<a href="https://github.com/" target="_blank" rel="noopener">Github</a>上建立一個靜態網站</p>
-</li>
-<li><p>前往<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>註冊然後按照指示加入你的站點</p>
-</li>
-<li><p>到Github靜態網站的Repo裡面點選設定, 然後往下拉找到自訂網域(Custom domain), 填上要設定的網域按下儲存</p>
-</li>
-<li><p>回到<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>在DNS頁面新增CNAME連結到 username.github.io (username為Github用戶名)<br>在這個範例設定中, 我要讓原本的主機名稱連到原先架設在GCP上的網站, 而blog子網域連到Github的靜態網頁</p>
-</li>
-</ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/c_scale,h_250/v1520160636/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dns.png" alt="CNAME"><br>(第二個CNAME的紀錄是為了讓不論前面有沒有輸入www的網址都能連線到我的網站)<br>確認成功連線應該會出現如下的Active字樣(設定完成需要等5~10分鐘生效)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520161993/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/active.png" alt="Status: Active"></p>
-<ol>
-<li>如果原本有設定過DNS的部分, 要去把他們都替換成CloudFlare提供的DNS Server(在DNS設定頁籤中)</li>
-</ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520161622/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dnscf.png" alt="CloudFlare DNS Server"></p>
-<ol>
-<li>接著設定SSL的部分, 選擇加密(Crypto)頁籤SSL是否為FULL模式(若沒有手動設定成FULL)(設定完成需要等5~10分鐘)<br>當畫面顯示Active Certificate字樣代表SSL已啟用</li>
-</ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520162125/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/sslactive.png" alt="Active Certificate"></p>
-<ol>
-<li>此時應該已經可以使用https訪問我們的Github page了, 但若是使用者輸入http則無效, 所以需要作強制導向HTTPS的設定<br>選擇頁面規則(Page Rules)後點選新增規則<br>在URL Match的部分打上http的網域名, 最後加上星號代表此網域底下通用規則, 然後設定選擇Always Use HTTPS強制導向</li>
-</ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520162472/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/pagerulehttps.png" alt="強制導向HTTPS"></p>
-<ol>
-<li>這時候就算URL輸入http也會自動連向https的頁面了, 設定完成!</li>
-</ol>
-<h2 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h2><ul>
-<li><p>如果使用的是<a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>, <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>之類的靜態網站產生器(Static Site Generator)的話, 記得內容連結也都要是https,否則會出現Mix Content的問題, 這樣是無法看到SSL綠色鎖頭的哦</p>
-</li>
-<li><p>使用<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>這種利用Push更新文章的靜態網站, 因為每次更新都會把全部檔案洗掉, 所以我們要把設定Github Custom Domain所產生的CNAME檔案(無附檔名), 複製一份放在Hexo的source資料夾, 才不會造成CNAME被覆蓋掉而要重新設定的情況<br>CNAME內容就是Github Page的Custom Domain, 也可以自己建立一份, 例如</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blog.driftkingtw.me</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以在<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>的Page Rules頁籤新增Cache規則, 加快網站載入速度</p>
-</li>
-</ul>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/" target="_blank" rel="noopener">Secure and fast GitHub Pages with CloudFlare</a><br><a href="https://help.github.com/articles/setting-up-a-custom-subdomain/" target="_blank" rel="noopener">Setting up a custom subdomain</a></p>
-
+        <p class="article-more-link">
+            <a href="/2018/03/在Github-Page上免費使用自訂HTTPS網域名稱/#more">閱讀更多</a>
+        </p>
     
     </div>
     

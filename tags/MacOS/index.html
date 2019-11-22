@@ -171,120 +171,17 @@
         <span class="column is-narrow">
             
             
-            32 分钟 讀完 (約 4734 字)
+            32 分钟 讀完 (約 4733 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533117/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122944.jpg" alt=""></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前陣子看到國外有人把舊的 Mac Mini 的機箱拿來改造，弄成 Router 或 HTPC 等，不得不說 Mac 的全鋁一體機箱真的挺好看，雖然設計已近十年未改，但放在 2019 年的桌面上仍不顯老氣 <del>反正中間那個商標放哪都能裝逼</del>。</p>
-<p>看著別人改的成品很是心動<del>手癢</del>，於是上網搜了下，發現有不少人在賣二手的機殼，在國外看到了個價格及品相都非常好的機殼(約NT600)就買了下來(Mid 2010/A1347)。時間上正好 Raspberry Pi 更新了第四代，I/O效能上也終於符合了基本 NAS 的需求，於是想到可以把 Pi 裝在 Mac Mini 的機殼中，來做個簡易的偽 TimeCapsule + NAS，來當做無線 Time Machine 備份用及網路存儲設備。</p>
-<p>本篇就來記錄一些想法跟製作過程，以及碰到的問題。 關於 Pi 4 的軟體設定部分，為了版面簡潔我把它寫在另外的兩篇，這裡就純記錄硬體部分：<a href="https://blog.driftkingtw.me/archives/613e9fa3.html">利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</a>、<a href="https://blog.driftkingtw.me/archives/c138150d.html">利用 Raspberry Pi 搭建 NAS</a></p>
-<h1 id="想法-amp-amp-設計"><a href="#想法-amp-amp-設計" class="headerlink" title="想法 &amp;&amp; 設計"></a>想法 &amp;&amp; 設計</h1><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573474005/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20190924_200321.jpg" alt="收到的機殼，品相良好，只有一個非常不顯眼的小喀傷"></p>
-<p>首先依照 Mac Mini 機殼的容量，大約能放下 17*17cm 的主板（ 網路上大部分是拿 Thin Mini-ITX來裝 ），高不能超過 2.5cm ，約兩個 USB Type-A 堆疊的高度，那當然我用的是更小的 Pi，只要另外考慮硬碟的擺放及走線即可。</p>
-<p>以下是一開始的設計圖（ 後來 Hub 的設計被廢掉了，詳細問題有記錄在下方遇到的問題裡 ）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573474811/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_D5FEECE2800F-1.jpg" alt=""></p>
-<p>接著得想個辦法固定這堆玩意，最省心的方法大概就是直接做個絕緣塞進去，但是這樣實在太醜了 <del>用 Mac 機殼不就是要好看</del>，而且不知道時間久了會發生什麼問題，Server 是打算 7x24 不關機的，考量到散熱及穩定性 <del>還有不想要裡面太醜的強迫症</del>，最後還是乖乖畫個 3D 設計稿然後找代印來做固定支撐的部分。</p>
-<p>然而這才是麻煩的開始，由於上網翻不到 Mac Mini Case 的機械圖，也沒有人分享螺絲孔距等數據，只好自力救濟徒手量測。單純用直尺量測實在很麻煩，空間不大遊標卡尺也不方便，只好先量兩孔間直角三角形的兩邊大概長度，再對照直線距離用畢式定理去推算量出來的距離對不對（感覺挺蠢的但是也想不到其他方法），才勉強量出了孔距。</p>
-<p>幸好最後印出來是吻合的沒問題（孔徑我開2mm，距離是以孔心為基準），這邊放個測量結果，有需要的人可以少走歪路（直接看垂直的距離就好，直線距離可能稍微跑掉）。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573476073/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_B9730CE991B7-1.jpg" alt=""></p>
-<p>再來是比較棘手的硬碟支架部分，原本看上蘋果原廠自己的就支援了雙硬碟（Server版本、無光碟機版之類，記得到 2014 機箱都是 A1347），我買的機殼並沒有附送，硬碟架比較難找，後來看看只有 eBay 上有價格可以也有貨的。</p>
-<p>不過原廠的支架在不破壞結構的前提下可能要另外製作特殊的 Sata 7+15 Pin 延長線才有辦法塞雙硬碟，而且不幸的是我沒仔細看規格，以致於買回來的支架其實是有光碟機版本（那賣家圖片放成雙硬碟位的…我就傻傻相信了 ｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡ ）最後只能認命自己列印硬碟架了，原廠硬碟架再另外售出給剛好需要的人。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573476669/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191102_152723.jpg" alt="買錯的支架"></p>
-<p>原本硬碟支架的設計圖，後來發現樹脂這個厚度不太穩，裡面的卡楯點又沒量準所以把旁邊的固定臂鋸掉了，只留下中間支撐硬碟的部分：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488724/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/HDDMount.png" alt=""></p>
-<p>最麻煩的底部固定螺絲部分，我參考了 <a href="https://www.ifixit.com/Teardown/Mac+Mini+Mid+2010+Teardown/3094" target="_blank" rel="noopener">ifixit</a> 的各種拆解，都只提到底座的螺絲是 “ 7.9mm Torx 6 Screw “，完全找不到有人提到直徑是多少… 在完全缺乏資訊的狀況下，我找了幾個螺絲試鎖，有一個能夠鎖進去鎖緊，但是太短了。</p>
-<p>由於沒有遊標卡尺所以只好買了 M1.4、M1.5、M1.6 的回來測試，薑薑！全錯，最後只能認命買了遊標卡尺回來測量。正確尺寸應該是 M1.7，因為是鎖金屬殼所以用自攻螺絲，更詳細的我就不太確定了（手邊工具無法量測），至少 M1.7 自攻是鎖的進去而且穩定，一樣有需要的人可以再少走一條歪路了 ｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573487949/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191111_211918.jpg" alt=""></p>
-<p>GPIO 旁邊設計了擋板以免其他線材觸碰到：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488945/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/PiMountFront.png" alt=""></p>
-<p>背面加上了一些墊高用的腳腳：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488967/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/PiMountBack.png" alt=""></p>
-<p>再來要考慮的是擋板（外框這裡是購買別人設計好的現成可以裝 Mini-ITX 擋板的塑膠框），稍微在腦中模擬了一下走線，考慮美觀的情況希望 USB-C 電源跟網路口要在一起，所以開關放左邊（以底蓋朝上的方向為基準），電源跟網路放右邊，靠樹莓派那測設計了一些出風口增加散熱能力，中間也開了一段方便進風。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489134/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IOPanel.png" alt=""></p>
-<p>中間兩個突起的三角塊原本是打算跟底板用機械螺絲固定，不過尺寸沒量好，後來直接靠網路口鎖螺絲上去固定住IO擋板，Pi 固定底座原本要固定擋板的部分就鋸掉。</p>
-<p>最後按照官方的 Pi 4 機械繪圖來做風扇支架：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489312/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/FanMount.png" alt=""></p>
-<p> 這次用到的 3D 列印的檔案在最下面有連結，歡迎自行免費取用，但請不要拿去用於商業用途。</p>
-<p> 接下來就是把東西準備好開始裝機跟佈線囉 (ﾟ∀ﾟ)</p>
-<h1 id="製作過程"><a href="#製作過程" class="headerlink" title="製作過程"></a>製作過程</h1><p>這是拿到 3D 列印成品的照片，接著要把硬碟架兩側的腳跟後面量錯的定位口弄掉，然後打磨後上漆：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489504/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191105_133114.jpg" alt=""></p>
-<p>IO擋板的部分我也另外作了處理，首先是 Type-C 我測量成公頭的尺寸，所以用銼刀擴孔後母座才放的進去，以及電源開關的部分尺寸剛好，稍微擴孔後才能順暢的按壓。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489722/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191105_144436.jpg" alt=""></p>
-<p>上圖是處理過的硬碟支架，有個三角缺口是鋸的時候可能力道不平衡 (((ﾟДﾟ;)))，不過放在裡面不太影響，把尖銳的部分打磨即可。</p>
-<p>噴漆灌上漆（可以看到上面的橫條可能太細，樹脂強度不夠，不過主結構沒問題）：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489873/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_135017.jpg" alt=""></p>
-<p>Pi 支架的部分，設計的時候忘記了 Micro SD 會突出一些，所以只好擴一些空間。不過弄的時候樹脂不夠強不小心弄斷了，還好螺絲兩邊都會鎖到，所以補強一下沒問題：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489870/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_131709.jpg" alt=""></p>
-<p>原本要使用 Hub 來管理硬碟，不過遇到了些問題，索性把 USB to SATA 的轉接線拆了，把供電的部分另外拉出來（原 USB 線與 PCB 的 Vbus 供電要隔離）：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490103/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_115612.jpg" alt=""></p>
-<p>上蓋就不蓋回去了，用抗靜電耐熱膠帶貼著，可以降低厚度</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490109/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_151151.jpg" alt=""></p>
-<p>每個步驟都要先用電錶量過確認，然後上機測試：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490260/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_121531.jpg" alt=""></p>
-<p>裝上硬碟架，測試高度厚度，然後假組確認尺寸跟線材長度有沒有問題：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490360/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_152116.jpg" alt=""></p>
-<p>（有在硬碟上下加上 1mm 的抗靜電棉，減少震動跟防止靜電，硬碟上在仿原廠貼導電織布與機殼接觸）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490432/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_155424.jpg" alt=""></p>
-<p>接著把兩個硬碟的電源線接上 Type-C 座，然後拉另一條給 Pi 供電，這邊使用了 5A 的線材所以有點粗，費了一番功夫才焊好（ Type-C 還真不適合手焊粗線材，後來我還有另外從兩個 CC Pin 拉出杜邦母頭，可以加上兩個 5k1 電阻讓 Pi4 支援 E-mark 線材</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490576/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_214430.jpg" alt=""></p>
-<p>帶燈開關的部分，跟機殼前方的 LED 並聯，並各串上 1k 電阻（亮度我不希望太亮），關於添加燈以及風扇控制等方法請參考另一篇文章:<a href="https://blog.driftkingtw.me/archives/59bd89a7.html">替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</a></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490776/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_215111.jpg" alt=""></p>
-<p>裸機測試，確定沒問題再裝機：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg" alt=""></p>
-<p>面板我沒想到很好的固定方法，除了網路口用螺絲外，電源跟開關都是用熱溶膠 + 防靜電膠帶弄上的，這部分設計上還有改進空間。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490996/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191111_221457.jpg" alt=""></p>
-<p>最後完整裝機，鎖上螺絲！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573532268/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_120240.jpg" alt=""></p>
-<p>關上背蓋（有點清潔時候的水漬還沒乾XD）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573532315/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_120504.jpg" alt=""></p>
-<p>完成！來幾張照片ヽ(✿ﾟ▽ﾟ)ノ</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533117/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122944.jpg" alt=""></p>
-<p>屁屁</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533113/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_121231.jpg" alt=""></p>
-<p>Bay ~</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533114/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122934.jpg" alt=""></p>
-<p><del>好吧外觀其實看起來就是個普通 Mac Mini</del></p>
-<p>PS 風扇啟動時（無散熱片）溫度可以維持在不超過 50°C （室溫約 26~28°C），散熱效果還算不錯。</p>
-<h1 id="遇到的問題-amp-amp-解決方法"><a href="#遇到的問題-amp-amp-解決方法" class="headerlink" title="遇到的問題 &amp;&amp; 解決方法"></a>遇到的問題 &amp;&amp; 解決方法</h1><h3 id="機箱固定螺絲問題"><a href="#機箱固定螺絲問題" class="headerlink" title="機箱固定螺絲問題"></a>機箱固定螺絲問題</h3><p>如上述，我用的底座機箱固定用螺絲規格為 M1.7 x 6 自攻螺絲 + M2 華司。</p>
-<h3 id="USB-外部供電-Hub-問題"><a href="#USB-外部供電-Hub-問題" class="headerlink" title="USB 外部供電 Hub 問題"></a>USB 外部供電 Hub 問題</h3><p>Pi 4 除了 USB-C 設計會 <a href="https://blog.driftkingtw.me/archives/b2345c23.html">使 E-mark 線材無法使用之外</a>，還有個問題是：使用帶獨立電源的 USB 3 Hub 在接上 Pi 的 USB 3 口上可能會導致開機或重啟時，無法進入 boot 程序。官方論壇也有人提出這個問題 <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=244900" target="_blank" rel="noopener">Pi 4 fails to boot when active USB switch attached</a> ，雖然可以啟動時拔起 Hub 再插回去正常運作，但是麻煩而且裝箱後不可能重啟又打開插拔。</p>
-<p>大致推測下來，可能是 Pi 4 使用 USB 3 時，有獨立供電的 Hub 會反向供電（Power feedback）給 Pi，於是可以考慮將 Hub 與 Pi 之間的 Vbus 隔離，但我的 Orico Hub 仍然無法正常啟動（有些人回報切斷 Vbus 後就正常運作），論壇裡也有人和我一樣切 Vbus 仍然失敗的，韌體等更新也測試過了無法。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573528606/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_221851.jpg" alt=""></p>
-<p>最後只好改成直接把 SATA to USB 轉接線的電源拉出來做使用，目前解決了無法啟動的問題。目前只有少數 Hub 有辦法正常運作（通常比較貴，可能 USB 線那有做二極體防止反向供電？）選購時要注意一下。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490109/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_151151.jpg" alt=""></p>
-<h3 id="2-個-HDD-直接用樹莓派官方電供供電？"><a href="#2-個-HDD-直接用樹莓派官方電供供電？" class="headerlink" title="2 個 HDD 直接用樹莓派官方電供供電？"></a>2 個 HDD 直接用樹莓派官方電供供電？</h3><p>從文中可以看出其實我 2 HDD 的電源也是直接接上與 Pi 同一個電源的，那為何要多此一舉把電源獨立拉出來（總電流還是只有 3A）？主要是因為兩個 2.5” HDD + Pi 本身的電流，3A 是足夠驅動的，不過 Pi 的 USB downstream 限制在 1.2A （可以理解為四個 USB 口只能消耗最高 1.2A ），雖然硬碟上標示 0.55A ，但還要考慮到轉接線的耗電。實際測試後單顆 2.5” HDD 啟動電流約為 0.7~0.8A 左右，Pi 本身耗電約 0.6~1.2A 之間。</p>
-<p>最後的解決方法就是必須使用外接的 Hub 確保兩個 HDD 啟動電流足夠，繞過 USB downstream 1.2A 的限制（但是可以接同一個 3A 電源沒問題），或是如上把轉接線那電源供應獨立接出來。至於直接接上兩個 HDD 也是有實際實驗過了，真的沒辦法，其中一個硬碟會無法掛載 ╮(╯_╰)╭</p>
-<p>以上大概就是這次踩到比較大的坑，以及解決方法，也想把 Pi 裝在 Mac Mini 機箱的朋友可以參考。</p>
-<h1 id="材料清單"><a href="#材料清單" class="headerlink" title="材料清單"></a>材料清單</h1><ul>
-<li>1 x Pi 4 4GB</li>
-<li>1 x 8G MicroSD Card for boot</li>
-<li>1 x A1347 Apple Mac mini Case (Mid 2010)</li>
-<li>2 x 2.5” HDD</li>
-<li>2 x SATA to USB3 Cable</li>
-<li>STL 3D Printed Mount / IO Panel</li>
-<li>1 x 30mm Fan</li>
-<li>1 x Momentary Switch w/ LED &amp; Cap</li>
-<li>1 x 3mm Front Panel LED</li>
-<li>2 x Current-limiting Resistor (330Ω ~ 1kΩ)</li>
-<li>1 x Gigabit Ethernet Network Extension Cable</li>
-<li>1 x USB Type-C Male Connector w/ PCB</li>
-<li>1 x USB Type-C Female Connector w/ PCB</li>
-<li>Some USB Cable (Current support 3A at least)</li>
-<li>3 x M3 Screw &amp;&amp; M3 Hex Nut for Fan Mounting</li>
-<li>4 x M3 Screw for HDD Mounting</li>
-<li>2 x M3 Screw for Ethernet Port Mounting</li>
-<li>3 x M1.7 Tapping Screw for Case Mounting w/ M2 Washer</li>
-<li>Some DuPont Line</li>
-</ul>
-<h1 id="本次所使用的-3D-檔案（STL）"><a href="#本次所使用的-3D-檔案（STL）" class="headerlink" title="本次所使用的 3D 檔案（STL）"></a>本次所使用的 3D 檔案（STL）</h1><p><a href="https://drive.google.com/open?id=1iUhxCqxGfxcIEYv6l-oQD4FoOvjMj0Gv" target="_blank" rel="noopener">PiMacMiniCaseSTLFiles</a></p>
-<p>注意，目前還沒優化檔案，所以硬碟支架及 Pi 底座有瑕疵的部分需要的話可能還要自行調整或印出來後自行切割多餘的部分，孔位是沒問題的。</p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.ifixit.com/Teardown/Mac+Mini+Mid+2010+Teardown/3094" target="_blank" rel="noopener">Mac Mini Mid 2010 Teardown</a></p>
-<p><a href="https://pinout.xyz/" target="_blank" rel="noopener">Raspberry Pi GPIO Pinout</a></p>
-<p><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/specifications/" target="_blank" rel="noopener">Raspberry Pi 4 Tech Specs</a></p>
-<p><a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md" target="_blank" rel="noopener">Power Supply</a></p>
-<p><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=244900" target="_blank" rel="noopener">Pi 4 fails to boot when active USB switch attached</a></p>
-
+<p>前陣子看到國外有人把舊的 Mac Mini 的機箱拿來改造，弄成 Router 或 HTPC 等，不得不說 Mac 的全鋁一體機箱真的挺好看，雖然設計已近十年未改，但放在 2019 年的桌面上仍不顯老氣 <del>反正中間那個商標放哪都能裝逼</del>。</p>
+        <p class="article-more-link">
+            <a href="/2019/11/利用RaspberryPi搭建TimeCapsule仮-硬體篇/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -310,70 +207,17 @@
         <span class="column is-narrow">
             
             
-            6 分钟 讀完 (約 888 字)
+            6 分钟 讀完 (約 887 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>就只是個基於 Samba 的簡易 NAS 架設過程，沒有任何動靜。</p>
+        <p>就只是個基於 Samba 的簡易 NAS 架設過程，沒有任何動靜。</p>
 <p>BTW 目前還是使用 Pi3B ，升級後會在補上 Pi4B 速度的差異心得。未來打算再裝上 Aria2 讓 Pi 具有下載機的功能。</p>
-<h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
-<p><code>sudo raspi-config</code></p>
-<p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p>
-<p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p>
-<h1 id="外接硬碟設定"><a href="#外接硬碟設定" class="headerlink" title="外接硬碟設定"></a>外接硬碟設定</h1><p>首先用 <code>lsblk</code> 找到要當 NAS 硬碟及分區(這邊是 <code>sda2</code> 代表 a 磁碟的 2 號分區)</p>
-<p>格式化為 <code>ext4</code> 格式，<del>這邊推薦用 <code>ext4</code> 效能最好</del>（最近在做 NAS 優化，發現XFS的效果會更提升一些，可以參考<a href="#XFS-檔案格式">XFS 檔案格式</a>）</p>
-<p><code>sudo mkfs.ext4 /dev/sda2</code></p>
-<p><em>有些人可能會有疑問，如果用 <code>ext4</code> 會不會讓我無法在其他系統上讀取，這部分並不用擔心，因為這個硬碟格式只是給 Server 讀取寫入用的，客戶端支援的檔案格式不會影響到</em></p>
-<p>建立掛載點</p>
-<p><code>sudo mkdir /mnt/Share</code></p>
-<p>查看硬碟分區的 <code>UUID</code> 並把它複製下來</p>
-<p><code>sudo blkid</code></p>
-<p>編輯 <code>fstab</code> 添加掛載資訊</p>
-<p><code>sudo vim /etc/fstab</code></p>
-<p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p>
-<p><code>UUID=YOUR_UUID  /mnt/Share  ext4  defaults  0 2</code></p>
-<p>掛載硬碟(分區)</p>
-<p><code>sudo mount -a</code></p>
-<p>查看掛載狀態是否正確</p>
-<p><code>df -h</code></p>
-<p>最後開啟硬碟權限</p>
-<p><code>chmod 777 /mnt/Share</code></p>
-<h1 id="設定-Samba-Server"><a href="#設定-Samba-Server" class="headerlink" title="設定 Samba Server"></a>設定 Samba Server</h1><p>接著安裝 <code>Samba</code></p>
-<p><code>sudo apt-get install samba samba-common-bin</code></p>
-<p>完成後編輯 <code>/etc/samba/smb.conf</code></p>
-<p><code>sudo vim /etc/samba/smb.conf</code></p>
-<p>Global 部分填入限制使用者登入才能存取的設定</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">  security = user</span><br></pre></td></tr></table></figure>
-
-<p>在文件最下面填入如下的分享目錄設定</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">  Comment = Pi Shared Folder</span><br><span class="line">  Path = /mnt/Share</span><br><span class="line">  Browseable = yes</span><br><span class="line">  Writable = yes</span><br><span class="line">  guest ok = no</span><br><span class="line">  valid users = username</span><br></pre></td></tr></table></figure>
-
-<p>PS：valid users 後面替換成自己的 username。</p>
-<p>接著我們要加入 smb 的登入帳號：</p>
-<p><code>sudo smbpasswd -a username</code></p>
-<p>依照提示輸入密碼設定完成，最後重啟 Samba 服務完成設定。</p>
-<p><code>sudo service smbd restart</code></p>
-<p>都設定完成後就可以在 Windows 網路芳鄰上看到 NAS 了（由於有限定使用者，要同樣帳號名稱密碼才能進的去，若要不希望限定帳號記得在 <code>smb.conf</code> 把 guest 功能打開）</p>
-<p>MacOS 的話則在 Finder 下按 <code>CMD+K</code> 填入 <code>smb://raspberrypi.local/Share</code> ，輸入剛才設定的 smb 使用者帳號密碼即可連入 NAS 。</p>
-<h1 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h1><h2 id="XFS-檔案格式"><a href="#XFS-檔案格式" class="headerlink" title="XFS 檔案格式"></a>XFS 檔案格式</h2><p>安裝 XFS 工具</p>
-<p><code>sudo apt-get install xfsprogs</code></p>
-<p>格式化 sda 硬碟為 xfs 格式</p>
-<p><code>sudo mkfs.xfs -f /dev/sda</code></p>
-<p>查看掛載狀態</p>
-<p><code>df -h</code></p>
-<h2 id="本地硬碟讀取速度測試"><a href="#本地硬碟讀取速度測試" class="headerlink" title="本地硬碟讀取速度測試"></a>本地硬碟讀取速度測試</h2><p>安裝 <code>hdparm</code></p>
-<p><code>sudo apt-get install hdparm</code></p>
-<p>測試讀取：</p>
-<p><code>hdparm -t /dev/sda</code></p>
-<p>測試寫入：</p>
-<p><code>hdparm -t --direct /dev/sda</code></p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="http://blog.jachobsen.com/2013/04/29/browse-raspberry-pi-in-osx-finder-via-samba/" target="_blank" rel="noopener">Browse Raspberry Pi in OSX Finder via Samba</a></p>
-<p><a href="https://askubuntu.com/questions/79078/how-to-restart-samba-server" target="_blank" rel="noopener">How to restart samba server?</a></p>
-<p><a href="http://ask.xmodulo.com/create-mount-xfs-file-system-linux.html" target="_blank" rel="noopener">How to create and mount an XFS file system on Linux</a></p>
-<p><a href="https://shazi.info/hdparm-%E6%B8%AC%E8%A9%A6%E7%A1%AC%E7%A2%9F%E8%AE%80%E5%AF%AB%E9%80%9F%E5%BA%A6/" target="_blank" rel="noopener">hdparm 測試硬碟讀寫速度</a></p>
-
+        <p class="article-more-link">
+            <a href="/2019/10/利用RaspberryPi搭建NAS/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -399,108 +243,18 @@
         <span class="column is-narrow">
             
             
-            12 分钟 讀完 (約 1869 字)
+            12 分钟 讀完 (約 1868 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。</p>
+        <p>相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。</p>
 <p>不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是群輝（Synology）的 NAS 都有提供 TimeMachine 無線備份的功能，然而這兩者的價格都還是偏高的QwQ</p>
 <p>所以在一輪 Google 後，我的解決方法就是利用此篇的主角：樹莓派（Raspberry Pi）來完成這項任務，在 Pi 4 推出後，硬體規格升級到了USB3.0、Gigabit Ethrnet，做個人用的簡易 NAS 已經算是堪用，更不用說對速度要求不高的 TimeMachine 了！</p>
-<h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
-<p><code>sudo raspi-config</code></p>
-<p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p>
-<p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p>
-<p>接著重啟樹莓派。</p>
-<p><code>sudo reboot</code></p>
-<h1 id="分割磁碟-可選"><a href="#分割磁碟-可選" class="headerlink" title="分割磁碟(可選)"></a>分割磁碟(可選)</h1><p>如果整顆硬碟都是要拿來做 TimeCapsule 的話此步驟可以跳過，直接續讀<strong><a href="#安裝過程">安裝過程</a></strong>。</p>
-<p>首先列出硬碟情況：</p>
-<p><code>lsblk</code></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812124/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.41.53_AM.png" alt=""></p>
-<p>找到硬碟代號，例如這邊sda是我的外接硬碟，裡面有之前的分區。<br>首先用 <code>fdisk</code> 重新分割這顆硬碟：</p>
-<p><code>sudo fdisk /dev/sda</code></p>
-<p>進入 <code>fdisk</code> 可以按 <code>m</code> 顯示使用說明，這邊簡述我的硬碟分割過程：</p>
-<ol>
-<li><p>輸入兩次 <code>d</code> 刪除兩個原先的分區</p>
-</li>
-<li><p><code>n</code> 新增分區，分區代號以及起始區塊預設，結束區塊 <code>+450G</code> (這樣會建立一個代號1，450G大小的分區)</p>
-</li>
-<li><p>再次用 <code>n</code> 新增第二分區，一路 <code>Enter</code> 完成剩下硬碟空間的分區</p>
-</li>
-<li><p><code>w</code> 寫入硬碟分區資料並退出 <code>fdisk</code></p>
-</li>
-</ol>
-<p>接著再次查看分割結果是否正確</p>
-<p><code>lsblk</code></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812186/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.42.56_AM.png" alt=""></p>
-<p>圖中可以看到硬碟已經成功分割成希望的數量以及大小<br>(注意：<code>fdisk</code> 僅支援分割2TB內的硬碟，若要分割更大的需要安裝 <code>gparted</code> 在桌面環境下操作)</p>
-<h1 id="安裝過程"><a href="#安裝過程" class="headerlink" title="安裝過程"></a>安裝過程</h1><h2 id="準備硬碟"><a href="#準備硬碟" class="headerlink" title="準備硬碟"></a>準備硬碟</h2><p>首先格式化硬碟(<code>sda1</code>是我要格式化的分區，請依照<code>lsblk</code>顯示的自行更換)</p>
-<p><code>sudo mkfs.ext4 /dev/sda1</code></p>
-<p>這邊建議以 <code>ext4</code> 格式化達到最佳效能，雖然有工具可以讓 Linux 讀取 <code>hfsplus</code> 等蘋果檔案格式，但是我測試之後速度慢到想哭(／‵Д′)／~ ╧╧（這邊不太確定是不是我不會設定問題，若有錯誤歡迎指正</p>
-<p>而且 <code>hfsplus</code> 也無法把硬碟拆下來接上 MacOS 就直接兩邊互通，索性直接用 <code>ext4</code>，以後連復原都透過網路了。</p>
-<p>建立掛載點</p>
-<p><code>sudo mkdir /mnt/TimeCapsule</code></p>
-<p>查看分區的 <code>UUID</code> 並把它複製下來</p>
-<p><code>sudo blkid</code></p>
-<p>編輯 <code>fstab</code> 添加掛載資訊</p>
-<p><code>sudo vim /etc/fstab</code></p>
-<p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p>
-<p><code>UUID=YOUR_UUID  /mnt/TimeCapsule  ext4  defaults  0 2</code></p>
-<p>掛載硬碟(分區)</p>
-<p><code>sudo mount -a</code></p>
-<p>查看掛載狀態</p>
-<p><code>df -h</code></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812250/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.44.00_AM.png" alt=""></p>
-<p>可以看到 <code>sda1</code> 已成功掛載到 <code>/mnt/TimeCapsule</code> 了</p>
-<p>最後開啟硬碟權限</p>
-<p><code>chmod 777 /mnt/TimeCapsule</code></p>
-<h2 id="安裝及設定-Netatalk"><a href="#安裝及設定-Netatalk" class="headerlink" title="安裝及設定 Netatalk"></a>安裝及設定 Netatalk</h2><p>安裝 <code>Netatalk</code></p>
-<p><code>sudo apt-get install netatalk</code></p>
-<p>安裝完成後用 <code>netatalk -v</code> 查看版本以及設定檔位置</p>
-<p>接著編輯 <code>nsswitch.conf</code></p>
-<p><code>sudo vim /etc/nsswitch.conf</code></p>
-<p>在 <code>host</code> 那行的最後加上 <code>mdns4 mdns</code> 如下</p>
-<p><code>hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4 mdns</code></p>
-<p>設定 <code>afp.conf</code></p>
-<p><code>sudo vim /etc/netatalk/afp.conf</code></p>
-<p>內容如下</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Global]</span><br><span class="line">  mimic model = TimeCapsule6,106</span><br><span class="line"></span><br><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br></pre></td></tr></table></figure>
-
-<p>保存後退出，最後啟動服務：</p>
-<p><code>sudo service avahi-daemon start</code></p>
-<p><code>sudo service netatalk start</code></p>
-<p>這時應該能在 MacOS 看到你的網路硬碟了！</p>
-<p>為了確定開機時會自動啟動服務，輸入以下指令：</p>
-<p><code>sudo systemctl enable avahi-daemon</code></p>
-<p><code>sudo systemctl enable netatalk</code></p>
-<h2 id="MacOS-端設定"><a href="#MacOS-端設定" class="headerlink" title="MacOS 端設定"></a>MacOS 端設定</h2><p>接著打開 TimeMachine 設定，按選擇備份碟之後就能夠看到我們用 Raspberry Pi 的備份硬碟囉！選擇它之後輸入 Pi 的帳號密碼即可開始備份（第一次備份時間通常較長，如果開啟加密會更久），完成首次備份後接著以後就是差異備份，只要連上就會自動定期執行，在也不用怕麻煩或忘記備份了！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812960/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.55.43_AM.png" alt=""></p>
-<h2 id="進階設定"><a href="#進階設定" class="headerlink" title="進階設定"></a>進階設定</h2><h3 id="Raspberry-Pi-端"><a href="#Raspberry-Pi-端" class="headerlink" title="Raspberry Pi 端"></a>Raspberry Pi 端</h3><h4 id="用戶管理"><a href="#用戶管理" class="headerlink" title="用戶管理"></a>用戶管理</h4><p>新增用戶（username改成自己需要的使用者名稱）</p>
-<p><code>useradd --create-home --groups users --user-group username</code></p>
-<p>建立密碼</p>
-<p><code>passwd username</code></p>
-<p>編輯 <code>afp.conf</code></p>
-<p><code>sudo vim /etc/netatalk/afp.conf</code></p>
-<p>在 <code>[Time Machine]</code> (顯示名稱依照之前設定的可能會有不同)新增使用者</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br><span class="line">  valid user = username</span><br></pre></td></tr></table></figure>
-
-<h4 id="靜態-IP"><a href="#靜態-IP" class="headerlink" title="靜態 IP"></a>靜態 IP</h4><p>固定 Pi 的 IP，這部分可以前往路由器設定，由於每家路由器不一定相同，所以另外依照各廠商提供的說明設定。</p>
-<h3 id="Mac-端"><a href="#Mac-端" class="headerlink" title="Mac 端"></a>Mac 端</h3><p>首次備份時若覺得備份速度太慢可以執行以下 Script 關閉限流：</p>
-<p><code>sudo sysctl debug.lowpri_throttle_enabled=0</code></p>
-<p>恢復方式：</p>
-<p><code>sudo sysctl debug.lowpri_throttle_enabled=1</code></p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.gtwang.org/linux/linux-add-format-mount-harddisk/" target="_blank" rel="noopener">替 Linux 新增硬碟（磁碟分割、格式化與掛載）</a></p>
-<p><a href="https://www.youtube.com/watch?v=yJs8f0spJO4" target="_blank" rel="noopener">How to Use Your Raspberry Pi as a Time Machine Backup Server for macOS</a></p>
-<p><a href="https://www.imore.com/how-speed-your-time-machine-backups" target="_blank" rel="noopener">How to speed up your Time Machine backups</a></p>
-<p><a href="https://openwrt.org/docs/guide-user/services/nas/netatalk_configuration" target="_blank" rel="noopener">AFP Netatalk share configuration (aka Apple Time Machine).</a></p>
-<p><a href="https://gregology.net/2018/09/raspberry-pi-time-machine/" target="_blank" rel="noopener">Raspberry Pi Time Machine (2019 update)</a></p>
-<p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p>
-<p><a href="https://github.com/mr-bt/raspberrypi-timemachine" target="_blank" rel="noopener">Apple Time machine on RaspberryPI</a></p>
-<p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p>
-<p><a href="https://aunicorn.io/2018/08/15/how-to-make-a-time-capsule-with-your-raspberry-pi/" target="_blank" rel="noopener">利用 Raspberry Pi（树莓派）打造 Time Capsule（时间胶囊）</a></p>
-<p>PS 因為各種文章新舊版本問題，所以參考了不少資料才整理出一個目前可以使用，快速的設定過程。</p>
-
+        <p class="article-more-link">
+            <a href="/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -526,25 +280,16 @@
         <span class="column is-narrow">
             
             
-            3 分钟 讀完 (約 480 字)
+            3 分钟 讀完 (約 479 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇提到了如何利用 MacOS 本身自帶的檔案分享功能搭建 SMB 進行分享，不過因為一些 MacOS 自帶 SMB 的一些 bug 所以 Android 的用戶就沒那麼方便了(<del>Apple你到底修不修</del>)，幸好有另一種方法，也就是本文的主題：利用 SFTP 在 MacOS 上搭建檔案分享伺服器。</p>
-<h1 id="MacOS-搭建-SFTP-伺服器"><a href="#MacOS-搭建-SFTP-伺服器" class="headerlink" title="MacOS 搭建 SFTP 伺服器"></a>MacOS 搭建 SFTP 伺服器</h1><p>首先同樣進到系統設定(System Preferences)，接著選擇分享(Sharing)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189697/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/Screen_Shot_2019-10-04_at_7.44.42_PM.jpg" alt=""></p>
-<p>在這邊我們不選擇檔案分享 (File Sharing) ，而是選擇遠端登入 (Remote Login)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570191030/blog/2019/10/%E5%88%A9%E7%94%A8%20SFTP%20%E5%9C%A8%20Android%20%E4%B8%8A%E5%AD%98%E5%8F%96%20MacOS%20%E6%AA%94%E6%A1%88/.Screen_Shot_2019-10-04_at_8.10.17_PM.png" alt=""></p>
-<p>這時我們會看到下方有一行資訊顯示”ssh username@192.168.xxx.xxx”類似的相關字串(依照IP跟使用者而定)，這邊先記下我們的區網IP。</p>
-<p>接著就可以切換到 Android 端，這邊用 ES File Explorer 做示範</p>
-<p>側邊欄選擇 FTP ，接著按右下角加號新增伺服器</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570191510/blog/2019/10/%E5%88%A9%E7%94%A8%20SFTP%20%E5%9C%A8%20Android%20%E4%B8%8A%E5%AD%98%E5%8F%96%20MacOS%20%E6%AA%94%E6%A1%88/Screenshot_20191004-201308.png" alt=""></p>
-<p>Server 欄輸入剛才記下的區網 IP，Port 預設 22 沒改動就維持原樣<br>然後填入電腦帳號密碼按下 OK 就能夠成功連上看到 MacOS 裡的內容囉。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570191514/blog/2019/10/%E5%88%A9%E7%94%A8%20SFTP%20%E5%9C%A8%20Android%20%E4%B8%8A%E5%AD%98%E5%8F%96%20MacOS%20%E6%AA%94%E6%A1%88/Screenshot_20191004-201757.png" alt=""></p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.mjdtech.net/browse-files-on-mac-with-es-file-explorer-and-sftp/" target="_blank" rel="noopener">How to Browse/Share Files on Mac and Android with ES File Explorer SFTP</a></p>
-
+        <p>上一篇提到了如何利用 MacOS 本身自帶的檔案分享功能搭建 SMB 進行分享，不過因為一些 MacOS 自帶 SMB 的一些 bug 所以 Android 的用戶就沒那麼方便了(<del>Apple你到底修不修</del>)，幸好有另一種方法，也就是本文的主題：利用 SFTP 在 MacOS 上搭建檔案分享伺服器。</p>
+        <p class="article-more-link">
+            <a href="/2019/09/利用SFTP在Android上存取MacOS檔案/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -570,26 +315,16 @@
         <span class="column is-narrow">
             
             
-            4 分钟 讀完 (約 581 字)
+            4 分钟 讀完 (約 580 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。</p>
-<h1 id="MacOS-搭建-SMB-伺服器"><a href="#MacOS-搭建-SMB-伺服器" class="headerlink" title="MacOS 搭建 SMB 伺服器"></a>MacOS 搭建 SMB 伺服器</h1><p>首先開啟系統設定(System Preferences)，接著選擇分享(Sharing)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189697/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/Screen_Shot_2019-10-04_at_7.44.42_PM.jpg" alt=""></p>
-<p>接著勾選左邊的檔案分享(File Sharing)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189783/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/.Screen_Shot_2019-10-04_at_7.49.26_PM.png" alt=""></p>
-<p>在分享資料夾列表下面，點選”+”符號可以新增要分享的資料夾</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189911/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/.Screen_Shot_2019-10-04_at_7.51.41_PM.png" alt=""></p>
-<p>接著其他電腦就會像網路上的芳鄰一樣，能夠存取分享的檔案了！<br>行動裝置的話，iOS可以利用檔案管理的App來進行存取，這邊用的是Documents來做示範。</p>
-<p>開啟 Documents 後，選擇附近的裝置(Nearby)，可以看到同網域下的電腦(SMB Server)列表，點進去登入電腦上的帳號就可以對分享檔案進行存取了！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570190209/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/IMG_0621.png" alt=""></p>
-<h1 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h1><p>要特別注意，如果使用的是 Android 系統，利用 MacOS 本身自帶的 SMB Server 是無法連上的，一開始我以為是設定錯誤，結果爬了文才發現原來這問題已經存在很久了，不過 Apple 看起來沒要修復的打算(ry</p>
-<p>所以下一篇就要來介紹如何利用 SFTP 讓 Android 也能同樣輕鬆存取 MacOS 上的分享檔案囉！</p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://support.apple.com/HT204445" target="_blank" rel="noopener">How to connect with File Sharing on your Mac</a></p>
-
+        <p>有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。</p>
+        <p class="article-more-link">
+            <a href="/2019/09/在MacOS上搭建SMB簡易檔案分享伺服器/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -615,22 +350,16 @@
         <span class="column is-narrow">
             
             
-            3 分钟 讀完 (約 467 字)
+            3 分钟 讀完 (約 466 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2018 Macbook Pro終於可以使用原先發佈在iPad Pro的True Tone功能，讓螢幕偵測周圍的光線來改變螢幕顏色，使用上相當舒服。<br>不過如果要使用影像處理或繪圖等對顏色準確度有需求的工作時就得把它暫時關掉才不會影響，然而每次都要進入設定調整也是挺麻煩的，不如利用Applescript爲我們代勞。</p>
-<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p><a href="https://github.com/DriftKingTW/True-Tone-Toggler" target="_blank" rel="noopener">Github - Ture Tone Toggler</a></p>
-<p>目前還找不到如何透過command line設定True Tone，所以用Applescript控制設定，可以把它跟BetterTouchTool結合，利用快捷鍵或Touchbar之類快速開關True Tone功能。</p>
-<p>此程式碼修改自<a href="https://www.reddit.com/r/applescript/comments/9a5gej/has_anyone_figured_out_how_to_return_the/" target="_blank" rel="noopener">Reddit上的一篇討論</a>，我加上判斷以及提示的功能，讓使用者可以明確知道現在操作是開啓或關閉True Tone。</p>
-<figure class="highlight applescript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">tell</span> <span class="hljs-built_in">application</span> <span class="hljs-string">"System Preferences"</span></span><br><span class="line">	</span><br><span class="line">	<span class="hljs-keyword">if</span> <span class="hljs-keyword">it</span> <span class="hljs-keyword">is</span> <span class="hljs-built_in">running</span> <span class="hljs-keyword">then</span></span><br><span class="line">		</span><br><span class="line">		quit</span><br><span class="line">		</span><br><span class="line">	<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span></span><br><span class="line">	</span><br><span class="line"><span class="hljs-keyword">end</span> <span class="hljs-keyword">tell</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">delay</span> <span class="hljs-number">0.2</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">activate</span> <span class="hljs-built_in">application</span> <span class="hljs-string">"System Preferences"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">tell</span> <span class="hljs-built_in">application</span> <span class="hljs-string">"System Events"</span></span><br><span class="line">	</span><br><span class="line">	<span class="hljs-keyword">tell</span> process <span class="hljs-string">"System Preferences"</span></span><br><span class="line">		</span><br><span class="line">		click button <span class="hljs-string">"Displays"</span> <span class="hljs-keyword">of</span> scroll area <span class="hljs-number">1</span> <span class="hljs-keyword">of</span> window <span class="hljs-string">"System Preferences"</span></span><br><span class="line">		</span><br><span class="line">		<span class="hljs-built_in">delay</span> <span class="hljs-number">0.8</span></span><br><span class="line">		</span><br><span class="line">		click radio button <span class="hljs-string">"Display"</span> <span class="hljs-keyword">of</span> <span class="hljs-literal">tab</span> group <span class="hljs-number">1</span> <span class="hljs-keyword">of</span> window <span class="hljs-string">"Built-in Retina Display"</span></span><br><span class="line">		</span><br><span class="line">		<span class="hljs-keyword">set</span> TrueToneCheckbox <span class="hljs-keyword">to</span> checkbox <span class="hljs-string">"True Tone"</span> <span class="hljs-keyword">of</span> <span class="hljs-literal">tab</span> group <span class="hljs-number">1</span> <span class="hljs-keyword">of</span> window <span class="hljs-string">"Built-in Retina Display"</span></span><br><span class="line">		</span><br><span class="line">		click TrueToneCheckbox</span><br><span class="line">		</span><br><span class="line">		<span class="hljs-keyword">set</span> TrueToneState <span class="hljs-keyword">to</span> <span class="hljs-string">"ON"</span></span><br><span class="line">		</span><br><span class="line">		<span class="hljs-keyword">tell</span> TrueToneCheckbox</span><br><span class="line">			</span><br><span class="line">			<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (<span class="hljs-keyword">its</span> value <span class="hljs-keyword">as</span> <span class="hljs-built_in">boolean</span>) <span class="hljs-keyword">then</span> <span class="hljs-keyword">set</span> TrueToneState <span class="hljs-keyword">to</span> <span class="hljs-string">"OFF"</span></span><br><span class="line">			</span><br><span class="line">		<span class="hljs-keyword">end</span> <span class="hljs-keyword">tell</span></span><br><span class="line">		</span><br><span class="line">	<span class="hljs-keyword">end</span> <span class="hljs-keyword">tell</span></span><br><span class="line">	</span><br><span class="line">	quit <span class="hljs-built_in">application</span> <span class="hljs-string">"System Preferences"</span></span><br><span class="line">	</span><br><span class="line"><span class="hljs-keyword">end</span> <span class="hljs-keyword">tell</span></span><br><span class="line"></span><br><span class="line">display notification <span class="hljs-string">"True Tone "</span> &amp; TrueToneState <span class="hljs-keyword">with</span> title <span class="hljs-string">"True Tone Script"</span> sound <span class="hljs-built_in">name</span> <span class="hljs-string">"Submarine"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">delay</span> <span class="hljs-number">0.8</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">say</span> <span class="hljs-string">"True Tone has been turned  "</span> &amp; TrueToneState</span><br></pre></td></tr></table></figure>
-
-<p>有需要自定義通知的部分可以修改 <code>display notification</code> 的部分，不想要語音提示可以註解掉 <code>say</code> 那行。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.reddit.com/r/applescript/comments/9a5gej/has_anyone_figured_out_how_to_return_the/" target="_blank" rel="noopener">Reddit: Has anyone figured out how to return the true/false status for True Tone with AppleScript</a></p>
-<p><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html#//apple_ref/doc/uid/TP40016239-CH61-SW1" target="_blank" rel="noopener">Displaying Notifications</a></p>
-
+        <p>2018 Macbook Pro終於可以使用原先發佈在iPad Pro的True Tone功能，讓螢幕偵測周圍的光線來改變螢幕顏色，使用上相當舒服。<br>不過如果要使用影像處理或繪圖等對顏色準確度有需求的工作時就得把它暫時關掉才不會影響，然而每次都要進入設定調整也是挺麻煩的，不如利用Applescript爲我們代勞。</p>
+        <p class="article-more-link">
+            <a href="/2018/12/利用Applescript快速切換TrueTone/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -644,7 +373,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2018/10/利用BetterTouchTool在Touchbar上顯示CPU溫度/" itemprop="url">利用BetterTouchTool在Touchbar上顯示CPU溫度</a>
+            <a href="/2018/10/利用BetterTouchTool在Touchbar上顯示CPU溫度/" itemprop="url">利用 BetterTouchTool 在 Touchbar 上顯示 CPU 溫度</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -656,22 +385,17 @@
         <span class="column is-narrow">
             
             
-            1 分钟 讀完 (約 165 字)
+            1 分钟 讀完 (約 185 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><ol>
-<li>下載 <a href="https://github.com/lavoiesl/osx-cpu-temp" target="_blank" rel="noopener">osx-cpu-temp</a> 。</li>
-<li>進入下載的資料夾後執行 <code>sudo make install</code> 安裝。</li>
-<li>在 BetterTouchTool 裡新增 Widget/Gesture，選擇 ‘Run Shell Script and Show Return Value’。</li>
-<li>雙擊打開進階設定，更改 LaunchPath <code>/usr/local/bin/osx-cpu-temp</code> ，下方可以調整更新間隔（預設5秒）。</li>
-<li>選擇要不要新增icon跟其他外觀設定，完成！</li>
-</ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1540517774/blog/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/Touch_Bar_Shot_2018-10-26_at_9.34.17_AM.png" alt="Touchbar顯示CPU溫度"></p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://community.folivora.ai/t/display-cpu-temp/1082" target="_blank" rel="noopener">Display CPU Temp</a></p>
-
+        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1540517774/blog/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/Touch_Bar_Shot_2018-10-26_at_9.34.17_AM.png" alt="Touchbar顯示CPU溫度"></p>
+<p>TouchBar?覺得很雞肋的話，不如手動讓他實用吧！</p>
+        <p class="article-more-link">
+            <a href="/2018/10/利用BetterTouchTool在Touchbar上顯示CPU溫度/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -697,37 +421,17 @@
         <span class="column is-narrow">
             
             
-            5 分钟 讀完 (約 697 字)
+            5 分钟 讀完 (約 696 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前發現Mac外接螢幕的灰階有點奇怪，感覺反而沒在Windows上順暢，於是Google了一下發現原來MacOS用HDMI接非Apple官方認可的螢幕時會當成電視用YCbCr輸出而不是RGB，所以會造成顯示器顏色上出現問題或是字體渲染不清的情況。<del>人性化的系統</del></p>
+        <p>之前發現Mac外接螢幕的灰階有點奇怪，感覺反而沒在Windows上順暢，於是Google了一下發現原來MacOS用HDMI接非Apple官方認可的螢幕時會當成電視用YCbCr輸出而不是RGB，所以會造成顯示器顏色上出現問題或是字體渲染不清的情況。<del>人性化的系統</del></p>
 <p>一開始想說Retina用的字體到1080p上會比較糢糊是正常的就沒特別注意到，顏色部分因爲我的螢幕（EIZO EV2450）也有支援YCbCr 4:4:4輸入又開著TrueTone，所以平常也沒特別看出有問題。既然是電腦螢幕那還是乖乖修改成RGB輸出吧嗯！</p>
-<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p>下圖是初始的顏色設定：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539307427/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.45_PM.png" alt="顏色設定"></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539307702/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.58_PM.png" alt="初始狀態"></p>
-<p>在做之前我們需要先關閉 MacOS 的 Rootless 功能（如果會用 <code>sudo</code> 也可以不關，直接往下的步驟）</p>
-<p>關閉 MacOS 後，按住 <code>CMD+R</code> 開機，上方Utilities選單找到Terminal開啓，輸入 <code>csrutil disable</code> ，在重新開機就可以了，做完步驟後可以再用一樣的方法開啓（改成輸入 <code>csrutil enable</code> ）。</p>
-<ol>
-<li><p>首先下載 <a href="https://gist.github.com/adaugherity/7435890" target="_blank" rel="noopener">Edid-Patch</a></p>
-</li>
-<li><p>確定外接螢幕接上 Mac</p>
-</li>
-<li><p>打開Terminal，進入下載 <code>edid-patch</code> 的資料夾（不會的可以直接放在家目錄），然後執行 <code>ruby patch-edid.rb</code> 。</p>
-</li>
-<li><p>然後會在同目錄下產生一個資料夾 <code>DisplayVenderID-xxx</code> ， 打開Finder按 <code>Cmd+Shift+G</code> 前往目錄 <code>/System/Library/Displays/Contents/Resources/Overrides</code>，把剛才產生的資料夾放進去。<br>(沒有關閉Rootless的話可以用 <code>sudo cp</code> 移動資料夾)</p>
-</li>
-<li><p>重開機，看一下顏色設定確認強制RGB後就完成了！（有關Rootless記得開回來）</p>
-</li>
-</ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539307715/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_9.38.03_PM.png" alt="強制RGB輸出"></p>
-<p>P.S. 我的EV2450強制RGB後發現對比很奇怪，後來螢幕上的設定看了一下原來Range Extension預設Auto，設定成關閉後，螢幕就正常了！</p>
-<p>經過強制RGB後灰階也正常囉。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://gist.github.com/adaugherity/7435890" target="_blank" rel="noopener">Github - adaugherity/patch-edid.rb</a></p>
-<p><a href="https://www.mathewinkson.com/2013/03/force-rgb-mode-in-mac-os-x-to-fix-the-picture-quality-of-an-external-monitor" target="_blank" rel="noopener">Force RGB mode in Mac OS X to fix the picture quality of an external monitor</a></p>
-
+        <p class="article-more-link">
+            <a href="/2018/10/MacOS強制外接螢幕輸出RGB/#more">閱讀更多</a>
+        </p>
     
     </div>
     

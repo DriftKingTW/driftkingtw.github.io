@@ -20,23 +20,23 @@
 
 
 
-    <meta name="description" content="前言今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C (終於有種進化成現代化單片機的感覺)不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一">
+    <meta name="description" content="今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C (終於有種進化成現代化單片機的感覺)不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一般線">
 <meta name="keywords" content="RaspberryPi,USB-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解 Raspberry 4 Type C 設計問題">
 <meta property="og:url" content="https://blog.driftkingtw.me/2019/10/理解_Raspberry_Pi_4_Type_C_設計問題/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
-<meta property="og:description" content="前言今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C (終於有種進化成現代化單片機的感覺)不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一">
+<meta property="og:description" content="今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C (終於有種進化成現代化單片機的感覺)不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一般線">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572070453/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.13.59_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572070948/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.22.22_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572071612/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.33.18_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572072226/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.43.37_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572071448/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.30.35_PM.png">
-<meta property="og:updated_time" content="2019-10-26T07:44:49.694Z">
+<meta property="og:updated_time" content="2019-11-22T06:52:12.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解 Raspberry 4 Type C 設計問題">
-<meta name="twitter:description" content="前言今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C (終於有種進化成現代化單片機的感覺)不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一">
+<meta name="twitter:description" content="今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C (終於有種進化成現代化單片機的感覺)不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一般線">
 <meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572070453/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.13.59_PM.png">
 
 
@@ -170,13 +170,13 @@
         <span class="column is-narrow">
             
             
-            12 分钟 讀完 (約 1767 字)
+            12 分钟 讀完 (約 1766 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C <del>(終於有種進化成現代化單片機的感覺)</del><br>不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一般線材能夠正常運作XD <del>證明樹莓派是給窮人家的玩具</del> 。</p>
+        <p>今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C <del>(終於有種進化成現代化單片機的感覺)</del><br>不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一般線材能夠正常運作XD<a id="more"></a> <del>證明樹莓派是給窮人家的玩具</del> 。</p>
 <p>出於好奇我搜尋研究了一下原因，並且想了解決方法記錄在這篇文章中，本人不是這方面的專業人士，若有錯誤歡迎指出討論。</p>
 <h1 id="Type-C-供電定義及設計"><a href="#Type-C-供電定義及設計" class="headerlink" title="Type-C 供電定義及設計"></a>Type-C 供電定義及設計</h1><p>下圖是 Type-C 的腳位圖，這次設計出現問題是位於兩個 CC 腳位的部分（ CC1 &amp; CC2 ），<br>CC (Configuration Channel) 腳位是 Type-C 重要的設定通道，可以利用不同的 CC 電阻設定判斷裝置資訊、決定模式，以及藉此支援正反插。</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572070453/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.13.59_PM.png" alt=""></p>

@@ -171,90 +171,16 @@
         <span class="column is-narrow">
             
             
-            6 分钟 讀完 (約 863 字)
+            6 分钟 讀完 (約 864 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p>整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。<br>環境若沒特別說明就代表使用的OS為Ubuntu</p>
-<h3 id="Q1-如何設定Laravel-env檔的APP-KEY"><a href="#Q1-如何設定Laravel-env檔的APP-KEY" class="headerlink" title="Q1. 如何設定Laravel .env檔的APP_KEY?"></a>Q1. 如何設定Laravel .env檔的APP_KEY?</h3><p><strong>Ans：</strong>在專案跟目錄執行 <code>php artisan key:generate</code></p>
-<h3 id="Q2-如何從Github上Clone私人專案到網站目錄"><a href="#Q2-如何從Github上Clone私人專案到網站目錄" class="headerlink" title="Q2. 如何從Github上Clone私人專案到網站目錄"></a>Q2. 如何從Github上Clone私人專案到網站目錄</h3><p><strong>Ans：</strong> </p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://username@github.com/username/repo</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>username</code> 為Github帳號名稱，<code>repo</code> 為專案名稱。</p>
-<h3 id="Q3-在瀏覽器開啟網頁時出現以下錯誤訊息"><a href="#Q3-在瀏覽器開啟網頁時出現以下錯誤訊息" class="headerlink" title="Q3. 在瀏覽器開啟網頁時出現以下錯誤訊息"></a>Q3. 在瀏覽器開啟網頁時出現以下錯誤訊息</h3><p><code>Error in exception handler: The stream or file &quot;/var/www/laravel/app/storage/logs/laravel.log&quot; could not be opened: failed to open stream: Permission denie</code></p>
-<p><strong>Ans：( Apache )</strong> </p>
-<p>目錄權限不足，在專案目錄執行 <code>sudo chmod -R 777 storage</code> (注意，此方法較不安全)</p>
-<p>安全的做法是把不同的權限分開，使用ACL(Access Control List)設定</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// nginx = web server user</span><br><span class="line">// systemuser = your local user which you use to login via ssh</span><br><span class="line">sudo setfacl -Rdm u:nginx:rwx,u:systemuser:rwx storage</span><br><span class="line">sudo setfacl -Rm u:nginx:rwx,u:systemuser:rwx storage</span><br></pre></td></tr></table></figure>
-
-<p>如果沒有ACL的設定方法</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chgrp -R www-data storage bootstrap/cache</span><br><span class="line">sudo chmod -R ug+rwx storage bootstrap/cache</span><br></pre></td></tr></table></figure>
-
-<p><strong>Ans：( Nginx )</strong></p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown USERNAME:USERNAME /var/www/html/SITE_FOLDER</span><br></pre></td></tr></table></figure>
-
-<h3 id="Q4-如何切換不同的PHP版本-Apache"><a href="#Q4-如何切換不同的PHP版本-Apache" class="headerlink" title="Q4. 如何切換不同的PHP版本 ( Apache )"></a>Q4. 如何切換不同的PHP版本 ( Apache )</h3><p><strong>Ans：</strong> 安裝好需要的版本後執行以下指令 (範例為 7.0 =&gt; 7.2)</p>
-<p>停用先前的PHP版本(重要)</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2dismod php7.0</span><br></pre></td></tr></table></figure>
-
-<p>啟動所需的PHP版本</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod php7.2</span><br></pre></td></tr></table></figure>
-
-<p>重啟Apache2服務</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
-
-<p>( Nginx )</p>
-<p>設定預設PHP版本</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --set php /usr/bin/php7.0</span><br></pre></td></tr></table></figure>
-
-<h3 id="Q5-首頁能夠正常顯示，但切換不同的-Get-路徑顯示-404-Not-Found-Ex-www-domainname-com-login"><a href="#Q5-首頁能夠正常顯示，但切換不同的-Get-路徑顯示-404-Not-Found-Ex-www-domainname-com-login" class="headerlink" title="Q5. 首頁能夠正常顯示，但切換不同的 Get 路徑顯示 404 Not Found (Ex: www.domainname.com/login)"></a>Q5. 首頁能夠正常顯示，但切換不同的 Get 路徑顯示 404 Not Found (Ex: www.domainname.com/login)</h3><p><strong>Ans：( Apache )</strong></p>
-<p>啟動Rewrite模組</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br></pre></td></tr></table></figure>
-
-<p>重啟Apache2服務</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
-
-<p>重啟後還是顯示404錯誤，使用文字編輯器開啟 <code>000-default.conf</code> 設定檔 (個人習慣使用vim)</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apache2/sites-available/000-default.conf</span><br></pre></td></tr></table></figure>
-
-<p>在 <code>DocumentRoot /var/www/html</code> 下方新增以下設定</p>
-<figure class="highlight apacheconf hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-section">&lt;Directory /var/www/html&gt;</span></span><br><span class="line">  <span class="hljs-attribute">AllowOverride</span> <span class="hljs-literal">All</span></span><br><span class="line"><span class="hljs-section">&lt;/Directory&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>儲存設定後，重啟Apache2服務，這時就能正常顯示 GET 路徑了</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
-
-<p><strong>Ans：( Nginx )</strong></p>
-<p>以文字編輯器下列設定檔 <code>/etc/nginx/sites-enabled/default</code> 新增下列設定</p>
-<figure class="highlight nginx hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-section">server</span> &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="hljs-attribute">location</span> / &#123;</span><br><span class="line">        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.php?<span class="hljs-variable">$query_string</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>重整Nginx服務</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
-
-<h3 id="Q6-Bitnami-LAMP-Stack-更換DocumentRoot目錄？"><a href="#Q6-Bitnami-LAMP-Stack-更換DocumentRoot目錄？" class="headerlink" title="Q6. Bitnami LAMP Stack 更換DocumentRoot目錄？"></a>Q6. Bitnami LAMP Stack 更換DocumentRoot目錄？</h3><p><strong>Ans：</strong></p>
-<p>更改以下檔案的DocumentRoot，80與443(有SSL的話)。</p>
-<p><code>YOUR_INSTALLATION_DIRECTORY/apache2/conf/bitnami/bitnami.conf</code></p>
-<p>重啓Apache</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /opt/bitnami/ctlscript.sh restart apache</span><br></pre></td></tr></table></figure>
-
-<h3 id="Q7-上傳檔案移動到只訂資料夾時出現權限不足"><a href="#Q7-上傳檔案移動到只訂資料夾時出現權限不足" class="headerlink" title="Q7. 上傳檔案移動到只訂資料夾時出現權限不足"></a>Q7. 上傳檔案移動到只訂資料夾時出現權限不足</h3><p>單純使用chmod無效(由於改變的權限爲user非操作移動的www-data)，需要使用以下方法給予權限。</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R www-data:www-data /path/to/folder</span><br></pre></td></tr></table></figure>
-
-<h3 id="Q8-利用-Laravel-Installer-新增-Laravel-專案-MacOS"><a href="#Q8-利用-Laravel-Installer-新增-Laravel-專案-MacOS" class="headerlink" title="Q8. 利用 Laravel Installer 新增 Laravel 專案 [MacOS]"></a>Q8. 利用 Laravel Installer 新增 Laravel 專案 [MacOS]</h3><p>MacOS 環境變數設定：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=~/.composer/vendor/bin:$PATH</span><br></pre></td></tr></table></figure>
-
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo" target="_blank" rel="noopener">Cloning a private Github repo</a></p>
-<p><a href="https://laracasts.com/discuss/channels/general-discussion/laravel-framework-file-permission-security" target="_blank" rel="noopener">Laravel framework file permission - Security</a></p>
-<p><a href="https://www.youtube.com/watch?v=7CatEn5IAlo" target="_blank" rel="noopener">Laravel 5.4 problem - Wrong Route (Not Found) on Ubuntu 16.04</a></p>
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-laravel-application-with-nginx-on-ubuntu-16-04" target="_blank" rel="noopener">How To Deploy a Laravel Application with Nginx on Ubuntu 16.04</a></p>
-<p><a href="https://thishosting.rocks/install-php-on-ubuntu/" target="_blank" rel="noopener">How to install PHP (7 or 7.2) on Ubuntu</a></p>
-<p><a href="https://community.bitnami.com/t/changes-to-apache-httpd-conf-not-applying-on-wamp-stack/26224" target="_blank" rel="noopener">Changes to Apache httpd.conf not applying on WAMP stack</a></p>
-<p><a href="https://stackoverflow.com/questions/47337374/unable-to-write-in-directory-laravel" target="_blank" rel="noopener">Unable to write in directory Laravel</a></p>
-<p><a href="https://adon988.logdown.com/posts/7809799-mac-path-environment-variables" target="_blank" rel="noopener">Mac $PATH 環境變量設置及查詢</a></p>
-<hr>
-<p>日後遇到其他問題會再持續更新</p>
-
+        <p class="article-more-link">
+            <a href="/2018/07/Laravel-Linux-佈署問題筆記/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -280,32 +206,16 @@
         <span class="column is-narrow">
             
             
-            3 分钟 讀完 (約 445 字)
+            3 分钟 讀完 (約 444 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在寫串接功能時，遇到需要使用Laravel動態產生XML的功能，完成後做個筆記，除此之外也能拿來產生網站組織架構的Sitemap，讓Google等搜尋引擎能夠更有效率的爬你的網站頁面。</p>
-<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p>假設要使用Laravel產生如下的簡易產品清單XML：</p>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">products</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>Product_1<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>Product_Description<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">URL</span>&gt;</span>https://mywebsite.com/Product_URL/<span class="hljs-tag">&lt;/<span class="hljs-name">URL</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>1000<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>Product_2<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>Product_Description<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">URL</span>&gt;</span>https://mywebsite.com/Product_URL/<span class="hljs-tag">&lt;/<span class="hljs-name">URL</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>1500<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">products</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>首先在 <code>resources/views</code> 裡建立一個 <code>product_list.blade.php</code> 視圖，用來顯示XML的內容 (“product_list”名稱可自訂)。</p>
-<p>內容如下：</p>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">products</span>&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 利用foreach印出所有產品資訊 --&gt;</span></span><br><span class="line">    @foreach($products as $product)</span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>&#123;&#123; $product-&gt;name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>&#123;&#123; $product-&gt;description &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!-- 利用 Request::root() 取得網站URL --&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">URL</span>&gt;</span>&#123;&#123; Request::root() &#125;&#125;/product/&#123;&#123; $product-&gt;id &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">URL</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>&#123;&#123; $product-&gt;price &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">Product</span>&gt;</span></span><br><span class="line">    @endforeach</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">products</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>然後建立一個Controller(名稱自訂，這裡範例使用ProductController，跟處理顯示商品同樣的控制器)。<br>在Controller裡建立Function用來取得資料並傳送給View裡的視圖顯示。</p>
-<figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">productList</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// 取得商品資訊, 並以id作降冪排序</span></span><br><span class="line">    $products = Product::orderBy(<span class="hljs-string">'id'</span>, <span class="hljs-string">'DESC'</span>)-&gt;get();</span><br><span class="line">    <span class="hljs-comment">// 將資料交給product_list.blade.php產生XML內容</span></span><br><span class="line">    <span class="hljs-keyword">return</span> response()-&gt;view(<span class="hljs-string">'product_list'</span>, compact(<span class="hljs-string">'products'</span>))-&gt;header(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'text/xml'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最後在<code>route/web.php</code>裡加上路徑 </p>
-<figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="hljs-string">'/product_list.xml'</span>, <span class="hljs-string">'ProductController@productList'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>到這邊大功告成，打上網域名+<code>/product_list.xml</code>就可以查看XML所產生的XML了！</p>
-<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><p>如果像此方法利用Blade模板產生XML要注意在PHP的<code>php.ini</code> 設定中 <strong><em>Short Open Tag (&lt;?)</em></strong> 選項要關閉，如果必須打開此選項的話可以改用以下寫法來產生XML Header：</p>
-<figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;?xml version="1.0" encoding="UTF-8"?&gt;'</span>; <span class="hljs-meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://laraget.com/blog/generate-a-simple-xml-sitemap-using-laravel" target="_blank" rel="noopener">Generate a Simple XML Sitemap Using Laravel</a></p>
-
+        <p>最近在寫串接功能時，遇到需要使用Laravel動態產生XML的功能，完成後做個筆記，除此之外也能拿來產生網站組織架構的Sitemap，讓Google等搜尋引擎能夠更有效率的爬你的網站頁面。</p>
+        <p class="article-more-link">
+            <a href="/2018/06/Laravel-產生簡易XML筆記/#more">閱讀更多</a>
+        </p>
     
     </div>
     

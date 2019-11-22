@@ -171,22 +171,16 @@
         <span class="column is-narrow">
             
             
-            3 分钟 讀完 (約 467 字)
+            3 分钟 讀完 (約 466 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2018 Macbook Pro終於可以使用原先發佈在iPad Pro的True Tone功能，讓螢幕偵測周圍的光線來改變螢幕顏色，使用上相當舒服。<br>不過如果要使用影像處理或繪圖等對顏色準確度有需求的工作時就得把它暫時關掉才不會影響，然而每次都要進入設定調整也是挺麻煩的，不如利用Applescript爲我們代勞。</p>
-<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><p><a href="https://github.com/DriftKingTW/True-Tone-Toggler" target="_blank" rel="noopener">Github - Ture Tone Toggler</a></p>
-<p>目前還找不到如何透過command line設定True Tone，所以用Applescript控制設定，可以把它跟BetterTouchTool結合，利用快捷鍵或Touchbar之類快速開關True Tone功能。</p>
-<p>此程式碼修改自<a href="https://www.reddit.com/r/applescript/comments/9a5gej/has_anyone_figured_out_how_to_return_the/" target="_blank" rel="noopener">Reddit上的一篇討論</a>，我加上判斷以及提示的功能，讓使用者可以明確知道現在操作是開啓或關閉True Tone。</p>
-<figure class="highlight applescript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">tell</span> <span class="hljs-built_in">application</span> <span class="hljs-string">"System Preferences"</span></span><br><span class="line">	</span><br><span class="line">	<span class="hljs-keyword">if</span> <span class="hljs-keyword">it</span> <span class="hljs-keyword">is</span> <span class="hljs-built_in">running</span> <span class="hljs-keyword">then</span></span><br><span class="line">		</span><br><span class="line">		quit</span><br><span class="line">		</span><br><span class="line">	<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span></span><br><span class="line">	</span><br><span class="line"><span class="hljs-keyword">end</span> <span class="hljs-keyword">tell</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">delay</span> <span class="hljs-number">0.2</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">activate</span> <span class="hljs-built_in">application</span> <span class="hljs-string">"System Preferences"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">tell</span> <span class="hljs-built_in">application</span> <span class="hljs-string">"System Events"</span></span><br><span class="line">	</span><br><span class="line">	<span class="hljs-keyword">tell</span> process <span class="hljs-string">"System Preferences"</span></span><br><span class="line">		</span><br><span class="line">		click button <span class="hljs-string">"Displays"</span> <span class="hljs-keyword">of</span> scroll area <span class="hljs-number">1</span> <span class="hljs-keyword">of</span> window <span class="hljs-string">"System Preferences"</span></span><br><span class="line">		</span><br><span class="line">		<span class="hljs-built_in">delay</span> <span class="hljs-number">0.8</span></span><br><span class="line">		</span><br><span class="line">		click radio button <span class="hljs-string">"Display"</span> <span class="hljs-keyword">of</span> <span class="hljs-literal">tab</span> group <span class="hljs-number">1</span> <span class="hljs-keyword">of</span> window <span class="hljs-string">"Built-in Retina Display"</span></span><br><span class="line">		</span><br><span class="line">		<span class="hljs-keyword">set</span> TrueToneCheckbox <span class="hljs-keyword">to</span> checkbox <span class="hljs-string">"True Tone"</span> <span class="hljs-keyword">of</span> <span class="hljs-literal">tab</span> group <span class="hljs-number">1</span> <span class="hljs-keyword">of</span> window <span class="hljs-string">"Built-in Retina Display"</span></span><br><span class="line">		</span><br><span class="line">		click TrueToneCheckbox</span><br><span class="line">		</span><br><span class="line">		<span class="hljs-keyword">set</span> TrueToneState <span class="hljs-keyword">to</span> <span class="hljs-string">"ON"</span></span><br><span class="line">		</span><br><span class="line">		<span class="hljs-keyword">tell</span> TrueToneCheckbox</span><br><span class="line">			</span><br><span class="line">			<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (<span class="hljs-keyword">its</span> value <span class="hljs-keyword">as</span> <span class="hljs-built_in">boolean</span>) <span class="hljs-keyword">then</span> <span class="hljs-keyword">set</span> TrueToneState <span class="hljs-keyword">to</span> <span class="hljs-string">"OFF"</span></span><br><span class="line">			</span><br><span class="line">		<span class="hljs-keyword">end</span> <span class="hljs-keyword">tell</span></span><br><span class="line">		</span><br><span class="line">	<span class="hljs-keyword">end</span> <span class="hljs-keyword">tell</span></span><br><span class="line">	</span><br><span class="line">	quit <span class="hljs-built_in">application</span> <span class="hljs-string">"System Preferences"</span></span><br><span class="line">	</span><br><span class="line"><span class="hljs-keyword">end</span> <span class="hljs-keyword">tell</span></span><br><span class="line"></span><br><span class="line">display notification <span class="hljs-string">"True Tone "</span> &amp; TrueToneState <span class="hljs-keyword">with</span> title <span class="hljs-string">"True Tone Script"</span> sound <span class="hljs-built_in">name</span> <span class="hljs-string">"Submarine"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">delay</span> <span class="hljs-number">0.8</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">say</span> <span class="hljs-string">"True Tone has been turned  "</span> &amp; TrueToneState</span><br></pre></td></tr></table></figure>
-
-<p>有需要自定義通知的部分可以修改 <code>display notification</code> 的部分，不想要語音提示可以註解掉 <code>say</code> 那行。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.reddit.com/r/applescript/comments/9a5gej/has_anyone_figured_out_how_to_return_the/" target="_blank" rel="noopener">Reddit: Has anyone figured out how to return the true/false status for True Tone with AppleScript</a></p>
-<p><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html#//apple_ref/doc/uid/TP40016239-CH61-SW1" target="_blank" rel="noopener">Displaying Notifications</a></p>
-
+        <p>2018 Macbook Pro終於可以使用原先發佈在iPad Pro的True Tone功能，讓螢幕偵測周圍的光線來改變螢幕顏色，使用上相當舒服。<br>不過如果要使用影像處理或繪圖等對顏色準確度有需求的工作時就得把它暫時關掉才不會影響，然而每次都要進入設定調整也是挺麻煩的，不如利用Applescript爲我們代勞。</p>
+        <p class="article-more-link">
+            <a href="/2018/12/利用Applescript快速切換TrueTone/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -200,7 +194,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2018/10/利用BetterTouchTool在Touchbar上顯示CPU溫度/" itemprop="url">利用BetterTouchTool在Touchbar上顯示CPU溫度</a>
+            <a href="/2018/10/利用BetterTouchTool在Touchbar上顯示CPU溫度/" itemprop="url">利用 BetterTouchTool 在 Touchbar 上顯示 CPU 溫度</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -212,22 +206,17 @@
         <span class="column is-narrow">
             
             
-            1 分钟 讀完 (約 165 字)
+            1 分钟 讀完 (約 185 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><ol>
-<li>下載 <a href="https://github.com/lavoiesl/osx-cpu-temp" target="_blank" rel="noopener">osx-cpu-temp</a> 。</li>
-<li>進入下載的資料夾後執行 <code>sudo make install</code> 安裝。</li>
-<li>在 BetterTouchTool 裡新增 Widget/Gesture，選擇 ‘Run Shell Script and Show Return Value’。</li>
-<li>雙擊打開進階設定，更改 LaunchPath <code>/usr/local/bin/osx-cpu-temp</code> ，下方可以調整更新間隔（預設5秒）。</li>
-<li>選擇要不要新增icon跟其他外觀設定，完成！</li>
-</ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1540517774/blog/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/Touch_Bar_Shot_2018-10-26_at_9.34.17_AM.png" alt="Touchbar顯示CPU溫度"></p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://community.folivora.ai/t/display-cpu-temp/1082" target="_blank" rel="noopener">Display CPU Temp</a></p>
-
+        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1540517774/blog/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/Touch_Bar_Shot_2018-10-26_at_9.34.17_AM.png" alt="Touchbar顯示CPU溫度"></p>
+<p>TouchBar?覺得很雞肋的話，不如手動讓他實用吧！</p>
+        <p class="article-more-link">
+            <a href="/2018/10/利用BetterTouchTool在Touchbar上顯示CPU溫度/#more">閱讀更多</a>
+        </p>
     
     </div>
     

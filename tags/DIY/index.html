@@ -171,120 +171,17 @@
         <span class="column is-narrow">
             
             
-            32 分钟 讀完 (約 4734 字)
+            32 分钟 讀完 (約 4733 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533117/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122944.jpg" alt=""></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前陣子看到國外有人把舊的 Mac Mini 的機箱拿來改造，弄成 Router 或 HTPC 等，不得不說 Mac 的全鋁一體機箱真的挺好看，雖然設計已近十年未改，但放在 2019 年的桌面上仍不顯老氣 <del>反正中間那個商標放哪都能裝逼</del>。</p>
-<p>看著別人改的成品很是心動<del>手癢</del>，於是上網搜了下，發現有不少人在賣二手的機殼，在國外看到了個價格及品相都非常好的機殼(約NT600)就買了下來(Mid 2010/A1347)。時間上正好 Raspberry Pi 更新了第四代，I/O效能上也終於符合了基本 NAS 的需求，於是想到可以把 Pi 裝在 Mac Mini 的機殼中，來做個簡易的偽 TimeCapsule + NAS，來當做無線 Time Machine 備份用及網路存儲設備。</p>
-<p>本篇就來記錄一些想法跟製作過程，以及碰到的問題。 關於 Pi 4 的軟體設定部分，為了版面簡潔我把它寫在另外的兩篇，這裡就純記錄硬體部分：<a href="https://blog.driftkingtw.me/archives/613e9fa3.html">利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</a>、<a href="https://blog.driftkingtw.me/archives/c138150d.html">利用 Raspberry Pi 搭建 NAS</a></p>
-<h1 id="想法-amp-amp-設計"><a href="#想法-amp-amp-設計" class="headerlink" title="想法 &amp;&amp; 設計"></a>想法 &amp;&amp; 設計</h1><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573474005/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20190924_200321.jpg" alt="收到的機殼，品相良好，只有一個非常不顯眼的小喀傷"></p>
-<p>首先依照 Mac Mini 機殼的容量，大約能放下 17*17cm 的主板（ 網路上大部分是拿 Thin Mini-ITX來裝 ），高不能超過 2.5cm ，約兩個 USB Type-A 堆疊的高度，那當然我用的是更小的 Pi，只要另外考慮硬碟的擺放及走線即可。</p>
-<p>以下是一開始的設計圖（ 後來 Hub 的設計被廢掉了，詳細問題有記錄在下方遇到的問題裡 ）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573474811/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_D5FEECE2800F-1.jpg" alt=""></p>
-<p>接著得想個辦法固定這堆玩意，最省心的方法大概就是直接做個絕緣塞進去，但是這樣實在太醜了 <del>用 Mac 機殼不就是要好看</del>，而且不知道時間久了會發生什麼問題，Server 是打算 7x24 不關機的，考量到散熱及穩定性 <del>還有不想要裡面太醜的強迫症</del>，最後還是乖乖畫個 3D 設計稿然後找代印來做固定支撐的部分。</p>
-<p>然而這才是麻煩的開始，由於上網翻不到 Mac Mini Case 的機械圖，也沒有人分享螺絲孔距等數據，只好自力救濟徒手量測。單純用直尺量測實在很麻煩，空間不大遊標卡尺也不方便，只好先量兩孔間直角三角形的兩邊大概長度，再對照直線距離用畢式定理去推算量出來的距離對不對（感覺挺蠢的但是也想不到其他方法），才勉強量出了孔距。</p>
-<p>幸好最後印出來是吻合的沒問題（孔徑我開2mm，距離是以孔心為基準），這邊放個測量結果，有需要的人可以少走歪路（直接看垂直的距離就好，直線距離可能稍微跑掉）。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573476073/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_B9730CE991B7-1.jpg" alt=""></p>
-<p>再來是比較棘手的硬碟支架部分，原本看上蘋果原廠自己的就支援了雙硬碟（Server版本、無光碟機版之類，記得到 2014 機箱都是 A1347），我買的機殼並沒有附送，硬碟架比較難找，後來看看只有 eBay 上有價格可以也有貨的。</p>
-<p>不過原廠的支架在不破壞結構的前提下可能要另外製作特殊的 Sata 7+15 Pin 延長線才有辦法塞雙硬碟，而且不幸的是我沒仔細看規格，以致於買回來的支架其實是有光碟機版本（那賣家圖片放成雙硬碟位的…我就傻傻相信了 ｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡ ）最後只能認命自己列印硬碟架了，原廠硬碟架再另外售出給剛好需要的人。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573476669/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191102_152723.jpg" alt="買錯的支架"></p>
-<p>原本硬碟支架的設計圖，後來發現樹脂這個厚度不太穩，裡面的卡楯點又沒量準所以把旁邊的固定臂鋸掉了，只留下中間支撐硬碟的部分：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488724/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/HDDMount.png" alt=""></p>
-<p>最麻煩的底部固定螺絲部分，我參考了 <a href="https://www.ifixit.com/Teardown/Mac+Mini+Mid+2010+Teardown/3094" target="_blank" rel="noopener">ifixit</a> 的各種拆解，都只提到底座的螺絲是 “ 7.9mm Torx 6 Screw “，完全找不到有人提到直徑是多少… 在完全缺乏資訊的狀況下，我找了幾個螺絲試鎖，有一個能夠鎖進去鎖緊，但是太短了。</p>
-<p>由於沒有遊標卡尺所以只好買了 M1.4、M1.5、M1.6 的回來測試，薑薑！全錯，最後只能認命買了遊標卡尺回來測量。正確尺寸應該是 M1.7，因為是鎖金屬殼所以用自攻螺絲，更詳細的我就不太確定了（手邊工具無法量測），至少 M1.7 自攻是鎖的進去而且穩定，一樣有需要的人可以再少走一條歪路了 ｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573487949/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191111_211918.jpg" alt=""></p>
-<p>GPIO 旁邊設計了擋板以免其他線材觸碰到：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488945/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/PiMountFront.png" alt=""></p>
-<p>背面加上了一些墊高用的腳腳：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488967/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/PiMountBack.png" alt=""></p>
-<p>再來要考慮的是擋板（外框這裡是購買別人設計好的現成可以裝 Mini-ITX 擋板的塑膠框），稍微在腦中模擬了一下走線，考慮美觀的情況希望 USB-C 電源跟網路口要在一起，所以開關放左邊（以底蓋朝上的方向為基準），電源跟網路放右邊，靠樹莓派那測設計了一些出風口增加散熱能力，中間也開了一段方便進風。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489134/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IOPanel.png" alt=""></p>
-<p>中間兩個突起的三角塊原本是打算跟底板用機械螺絲固定，不過尺寸沒量好，後來直接靠網路口鎖螺絲上去固定住IO擋板，Pi 固定底座原本要固定擋板的部分就鋸掉。</p>
-<p>最後按照官方的 Pi 4 機械繪圖來做風扇支架：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489312/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/FanMount.png" alt=""></p>
-<p> 這次用到的 3D 列印的檔案在最下面有連結，歡迎自行免費取用，但請不要拿去用於商業用途。</p>
-<p> 接下來就是把東西準備好開始裝機跟佈線囉 (ﾟ∀ﾟ)</p>
-<h1 id="製作過程"><a href="#製作過程" class="headerlink" title="製作過程"></a>製作過程</h1><p>這是拿到 3D 列印成品的照片，接著要把硬碟架兩側的腳跟後面量錯的定位口弄掉，然後打磨後上漆：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489504/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191105_133114.jpg" alt=""></p>
-<p>IO擋板的部分我也另外作了處理，首先是 Type-C 我測量成公頭的尺寸，所以用銼刀擴孔後母座才放的進去，以及電源開關的部分尺寸剛好，稍微擴孔後才能順暢的按壓。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489722/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191105_144436.jpg" alt=""></p>
-<p>上圖是處理過的硬碟支架，有個三角缺口是鋸的時候可能力道不平衡 (((ﾟДﾟ;)))，不過放在裡面不太影響，把尖銳的部分打磨即可。</p>
-<p>噴漆灌上漆（可以看到上面的橫條可能太細，樹脂強度不夠，不過主結構沒問題）：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489873/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_135017.jpg" alt=""></p>
-<p>Pi 支架的部分，設計的時候忘記了 Micro SD 會突出一些，所以只好擴一些空間。不過弄的時候樹脂不夠強不小心弄斷了，還好螺絲兩邊都會鎖到，所以補強一下沒問題：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489870/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_131709.jpg" alt=""></p>
-<p>原本要使用 Hub 來管理硬碟，不過遇到了些問題，索性把 USB to SATA 的轉接線拆了，把供電的部分另外拉出來（原 USB 線與 PCB 的 Vbus 供電要隔離）：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490103/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_115612.jpg" alt=""></p>
-<p>上蓋就不蓋回去了，用抗靜電耐熱膠帶貼著，可以降低厚度</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490109/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_151151.jpg" alt=""></p>
-<p>每個步驟都要先用電錶量過確認，然後上機測試：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490260/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_121531.jpg" alt=""></p>
-<p>裝上硬碟架，測試高度厚度，然後假組確認尺寸跟線材長度有沒有問題：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490360/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_152116.jpg" alt=""></p>
-<p>（有在硬碟上下加上 1mm 的抗靜電棉，減少震動跟防止靜電，硬碟上在仿原廠貼導電織布與機殼接觸）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490432/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_155424.jpg" alt=""></p>
-<p>接著把兩個硬碟的電源線接上 Type-C 座，然後拉另一條給 Pi 供電，這邊使用了 5A 的線材所以有點粗，費了一番功夫才焊好（ Type-C 還真不適合手焊粗線材，後來我還有另外從兩個 CC Pin 拉出杜邦母頭，可以加上兩個 5k1 電阻讓 Pi4 支援 E-mark 線材</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490576/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_214430.jpg" alt=""></p>
-<p>帶燈開關的部分，跟機殼前方的 LED 並聯，並各串上 1k 電阻（亮度我不希望太亮），關於添加燈以及風扇控制等方法請參考另一篇文章:<a href="https://blog.driftkingtw.me/archives/59bd89a7.html">替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</a></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490776/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_215111.jpg" alt=""></p>
-<p>裸機測試，確定沒問題再裝機：</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg" alt=""></p>
-<p>面板我沒想到很好的固定方法，除了網路口用螺絲外，電源跟開關都是用熱溶膠 + 防靜電膠帶弄上的，這部分設計上還有改進空間。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490996/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191111_221457.jpg" alt=""></p>
-<p>最後完整裝機，鎖上螺絲！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573532268/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_120240.jpg" alt=""></p>
-<p>關上背蓋（有點清潔時候的水漬還沒乾XD）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573532315/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_120504.jpg" alt=""></p>
-<p>完成！來幾張照片ヽ(✿ﾟ▽ﾟ)ノ</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533117/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122944.jpg" alt=""></p>
-<p>屁屁</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533113/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_121231.jpg" alt=""></p>
-<p>Bay ~</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533114/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122934.jpg" alt=""></p>
-<p><del>好吧外觀其實看起來就是個普通 Mac Mini</del></p>
-<p>PS 風扇啟動時（無散熱片）溫度可以維持在不超過 50°C （室溫約 26~28°C），散熱效果還算不錯。</p>
-<h1 id="遇到的問題-amp-amp-解決方法"><a href="#遇到的問題-amp-amp-解決方法" class="headerlink" title="遇到的問題 &amp;&amp; 解決方法"></a>遇到的問題 &amp;&amp; 解決方法</h1><h3 id="機箱固定螺絲問題"><a href="#機箱固定螺絲問題" class="headerlink" title="機箱固定螺絲問題"></a>機箱固定螺絲問題</h3><p>如上述，我用的底座機箱固定用螺絲規格為 M1.7 x 6 自攻螺絲 + M2 華司。</p>
-<h3 id="USB-外部供電-Hub-問題"><a href="#USB-外部供電-Hub-問題" class="headerlink" title="USB 外部供電 Hub 問題"></a>USB 外部供電 Hub 問題</h3><p>Pi 4 除了 USB-C 設計會 <a href="https://blog.driftkingtw.me/archives/b2345c23.html">使 E-mark 線材無法使用之外</a>，還有個問題是：使用帶獨立電源的 USB 3 Hub 在接上 Pi 的 USB 3 口上可能會導致開機或重啟時，無法進入 boot 程序。官方論壇也有人提出這個問題 <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=244900" target="_blank" rel="noopener">Pi 4 fails to boot when active USB switch attached</a> ，雖然可以啟動時拔起 Hub 再插回去正常運作，但是麻煩而且裝箱後不可能重啟又打開插拔。</p>
-<p>大致推測下來，可能是 Pi 4 使用 USB 3 時，有獨立供電的 Hub 會反向供電（Power feedback）給 Pi，於是可以考慮將 Hub 與 Pi 之間的 Vbus 隔離，但我的 Orico Hub 仍然無法正常啟動（有些人回報切斷 Vbus 後就正常運作），論壇裡也有人和我一樣切 Vbus 仍然失敗的，韌體等更新也測試過了無法。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573528606/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_221851.jpg" alt=""></p>
-<p>最後只好改成直接把 SATA to USB 轉接線的電源拉出來做使用，目前解決了無法啟動的問題。目前只有少數 Hub 有辦法正常運作（通常比較貴，可能 USB 線那有做二極體防止反向供電？）選購時要注意一下。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490109/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_151151.jpg" alt=""></p>
-<h3 id="2-個-HDD-直接用樹莓派官方電供供電？"><a href="#2-個-HDD-直接用樹莓派官方電供供電？" class="headerlink" title="2 個 HDD 直接用樹莓派官方電供供電？"></a>2 個 HDD 直接用樹莓派官方電供供電？</h3><p>從文中可以看出其實我 2 HDD 的電源也是直接接上與 Pi 同一個電源的，那為何要多此一舉把電源獨立拉出來（總電流還是只有 3A）？主要是因為兩個 2.5” HDD + Pi 本身的電流，3A 是足夠驅動的，不過 Pi 的 USB downstream 限制在 1.2A （可以理解為四個 USB 口只能消耗最高 1.2A ），雖然硬碟上標示 0.55A ，但還要考慮到轉接線的耗電。實際測試後單顆 2.5” HDD 啟動電流約為 0.7~0.8A 左右，Pi 本身耗電約 0.6~1.2A 之間。</p>
-<p>最後的解決方法就是必須使用外接的 Hub 確保兩個 HDD 啟動電流足夠，繞過 USB downstream 1.2A 的限制（但是可以接同一個 3A 電源沒問題），或是如上把轉接線那電源供應獨立接出來。至於直接接上兩個 HDD 也是有實際實驗過了，真的沒辦法，其中一個硬碟會無法掛載 ╮(╯_╰)╭</p>
-<p>以上大概就是這次踩到比較大的坑，以及解決方法，也想把 Pi 裝在 Mac Mini 機箱的朋友可以參考。</p>
-<h1 id="材料清單"><a href="#材料清單" class="headerlink" title="材料清單"></a>材料清單</h1><ul>
-<li>1 x Pi 4 4GB</li>
-<li>1 x 8G MicroSD Card for boot</li>
-<li>1 x A1347 Apple Mac mini Case (Mid 2010)</li>
-<li>2 x 2.5” HDD</li>
-<li>2 x SATA to USB3 Cable</li>
-<li>STL 3D Printed Mount / IO Panel</li>
-<li>1 x 30mm Fan</li>
-<li>1 x Momentary Switch w/ LED &amp; Cap</li>
-<li>1 x 3mm Front Panel LED</li>
-<li>2 x Current-limiting Resistor (330Ω ~ 1kΩ)</li>
-<li>1 x Gigabit Ethernet Network Extension Cable</li>
-<li>1 x USB Type-C Male Connector w/ PCB</li>
-<li>1 x USB Type-C Female Connector w/ PCB</li>
-<li>Some USB Cable (Current support 3A at least)</li>
-<li>3 x M3 Screw &amp;&amp; M3 Hex Nut for Fan Mounting</li>
-<li>4 x M3 Screw for HDD Mounting</li>
-<li>2 x M3 Screw for Ethernet Port Mounting</li>
-<li>3 x M1.7 Tapping Screw for Case Mounting w/ M2 Washer</li>
-<li>Some DuPont Line</li>
-</ul>
-<h1 id="本次所使用的-3D-檔案（STL）"><a href="#本次所使用的-3D-檔案（STL）" class="headerlink" title="本次所使用的 3D 檔案（STL）"></a>本次所使用的 3D 檔案（STL）</h1><p><a href="https://drive.google.com/open?id=1iUhxCqxGfxcIEYv6l-oQD4FoOvjMj0Gv" target="_blank" rel="noopener">PiMacMiniCaseSTLFiles</a></p>
-<p>注意，目前還沒優化檔案，所以硬碟支架及 Pi 底座有瑕疵的部分需要的話可能還要自行調整或印出來後自行切割多餘的部分，孔位是沒問題的。</p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.ifixit.com/Teardown/Mac+Mini+Mid+2010+Teardown/3094" target="_blank" rel="noopener">Mac Mini Mid 2010 Teardown</a></p>
-<p><a href="https://pinout.xyz/" target="_blank" rel="noopener">Raspberry Pi GPIO Pinout</a></p>
-<p><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/specifications/" target="_blank" rel="noopener">Raspberry Pi 4 Tech Specs</a></p>
-<p><a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md" target="_blank" rel="noopener">Power Supply</a></p>
-<p><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=244900" target="_blank" rel="noopener">Pi 4 fails to boot when active USB switch attached</a></p>
-
+<p>前陣子看到國外有人把舊的 Mac Mini 的機箱拿來改造，弄成 Router 或 HTPC 等，不得不說 Mac 的全鋁一體機箱真的挺好看，雖然設計已近十年未改，但放在 2019 年的桌面上仍不顯老氣 <del>反正中間那個商標放哪都能裝逼</del>。</p>
+        <p class="article-more-link">
+            <a href="/2019/11/利用RaspberryPi搭建TimeCapsule仮-硬體篇/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -310,43 +207,17 @@
         <span class="column is-narrow">
             
             
-            6 分钟 讀完 (約 970 字)
+            6 分钟 讀完 (約 969 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg" alt=""></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4</p>
-<p>還有很多時候因為 Pi 裝著殼，要得知是否開機、狀態燈有沒有在閃爍並不是那麼方便，本篇也一並記錄了裝上外接電源燈、狀態燈的步驟！</p>
-<p>最後另外在補上風扇的控制方式（ Pi 4 工作時很熱情，大部分人可能會選擇上風扇XD ）但是溫度也不是隨時都那麼高，有了風扇控制可以依照溫度所需啟動，不但降低噪音也能增加風扇使用壽命，順便省一點點電，拯救北極熊（？）（風扇控制目前還在準備中，測試完成後會在更新電路圖）</p>
-<h1 id="硬體設定"><a href="#硬體設定" class="headerlink" title="硬體設定"></a>硬體設定</h1><p>開關 &amp;&amp; 電源燈線路圖</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278749/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_DC3D9F54D1D5-1.jpg" alt=""></p>
-<p>SD讀取燈 &amp;&amp; 風扇（控制電路待補）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278969/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_4CCC4C50487E-1.jpg" alt=""></p>
-<h1 id="軟體設定"><a href="#軟體設定" class="headerlink" title="軟體設定"></a>軟體設定</h1><h3 id="開關（正常軟體關機程序）"><a href="#開關（正常軟體關機程序）" class="headerlink" title="開關（正常軟體關機程序）"></a>開關（正常軟體關機程序）</h3><p>這邊開關的部分參考了 howchoo 上的一篇文章：<a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a>，以下是直接使用作者所寫好的 Script 安裝，詳細背後的 Code 以及原理可以點進連結裡查看（英文）。</p>
-<p>安裝 Git</p>
-<p><code>sudo apt-get install git</code></p>
-<p>接著 clone 作者所寫好的 Script <a href="https://github.com/Howchoo/pi-power-button" target="_blank" rel="noopener">Howchoo/pi-power-button</a></p>
-<p><code>git clone https://github.com/Howchoo/pi-power-button.git</code></p>
-<p>安裝即可</p>
-<p><code>./pi-power-button/script/install</code></p>
-<h3 id="電源燈"><a href="#電源燈" class="headerlink" title="電源燈"></a>電源燈</h3><p>進入樹莓派設定界面</p>
-<p><code>sudo raspi-config</code></p>
-<p>選擇 <code>Interface Options</code> 開啟 <code>Serial</code> 來允許串列讀取，這樣我們就可以利用 GPIO 上的 TXD 來讓 LED 顯示目前是否為開機狀態（直接接 5V 的話只要插上電就會亮，沒辦法判斷樹莓派是否在開機狀態）</p>
-<p>接著重啟樹莓派即可看到電源燈正常運作了</p>
-<p><code>sudo reboot</code></p>
-<h3 id="SD-卡讀取燈"><a href="#SD-卡讀取燈" class="headerlink" title="SD 卡讀取燈"></a>SD 卡讀取燈</h3><p>將 SD 卡插入電腦中，打開至根目錄找到一個叫做 <code>config.txt</code> 的設定檔，在底部添加以下設定。<br>最後的 GPIO 選擇自己要用的腳位即可（<a href="https://pinout.xyz/pinout/" target="_blank" rel="noopener">腳位參考</a>）</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Use external LED as ACT LED</span><br><span class="line">dtoverlay=pi3-act-led,gpio=19</span><br></pre></td></tr></table></figure>
-
-<h3 id="風扇控制"><a href="#風扇控制" class="headerlink" title="風扇控制"></a>風扇控制</h3><p><strong>待補</strong></p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.youtube.com/watch?v=_REhMZJ8GJY" target="_blank" rel="noopener">Add An External Sd Activity Light Raspberry Pi 3 Retropie Or Raspbian</a></p>
-<p><a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a></p>
-<p><a href="https://www.youtube.com/watch?v=P5o0PpfzuW8" target="_blank" rel="noopener">#131 Pimp my Raspberry: Automatic fan, automatic shutdown, automatic Python</a></p>
-<p><a href="https://howchoo.com/g/ytzjyzy4m2e/build-a-simple-raspberry-pi-led-power-status-indicator" target="_blank" rel="noopener">Build a Simple Raspberry Pi LED Power/Status Indicator</a></p>
-<p><a href="http://www.irf.com/product-info/datasheets/data/irl530n.pdf" target="_blank" rel="noopener">IRL530N Datasheet</a></p>
-<p><a href="https://www.youtube.com/watch?v=P5o0PpfzuW8" target="_blank" rel="noopener">#131 Pimp my Raspberry: Automatic fan, automatic shutdown, automatic Python</a></p>
-
+<p>用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4</p>
+        <p class="article-more-link">
+            <a href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -372,51 +243,17 @@
         <span class="column is-narrow">
             
             
-            9 分钟 讀完 (約 1371 字)
+            9 分钟 讀完 (約 1370 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407629/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_234714_vHDR_Auto.jpg" alt="YD68 Dolch"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近想找一把60%的機械鍵盤來換掉之前的Ducky One RGB，當然Ducky One還是一把不錯的鍵盤，主要考慮到想弄個Mac/Win通用配置的，以及我桌子上東西有點多（繪圖板跟筆電）60%可以省下桌面不少空間。</p>
-<p>#需求</p>
-<p>這次選鍵盤的主要需求是</p>
-<ul>
-<li>60%</li>
-<li>藍牙雙模</li>
-<li>可自定鍵位</li>
-<li>需要有正常配置的方向鍵（Win下需要，之前用過Shift當up的很不習慣）</li>
-<li>希望除了60%能有多幾個按鍵，繪圖時Del之類可以不用組合鍵就能完成</li>
-</ul>
-<p>翻找了一下發現YD68是目前最接近我需求的，而且接口是Type-C，不過比較可惜的是藍牙只有3.0（有看到GH60 BLE4.0的），也支援單色背光跟底部有RGB燈，不過這次不打算搭配透光鍵帽所以背光功能就先放一邊了。</p>
-<p>以下是收到的YD68套件，PCB本體、腳墊螺絲、定位版、塑膠外殼、衛星軸、另購的櫻桃軸（青與茶）、電池（我買的時候賣家少寄）。</p>
-<h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407627/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_195145_vHDR_On.jpg" alt="YD68零件"></p>
-<p>鍵盤軸體佈局。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407624/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_212316_vHDR_Auto.jpg" alt="混軸配置"></p>
-<p>記得要先裝衛星軸。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407634/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_224326_vHDR_Auto.jpg" alt="平衡軸"></p>
-<p>PCB背面，把軸體焊上。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407623/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_220021_vHDR_Auto.jpg" alt="焊接"></p>
-<p>接下來準備加上電池。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538543857/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_124601_vHDR_Auto.jpg" alt="鋰電池"></p>
-<p>要先把塑膠殼的加強筋剪掉一部分，先量好長度，剪下去之後再直接推斷即可。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538543856/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_124824_vHDR_Auto.jpg" alt="剪裁電池所需空間"></p>
-<p>最後在旁邊加上緩衝，將電池黏上。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538543857/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20181003_125641_vHDR_Auto.jpg" alt="固定電池及緩衝"></p>
-<p>上鍵帽！完成！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407629/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180929_234714_vHDR_Auto.jpg" alt="完成"></p>
-<p>這次用的是KBDfans買的Dolch配色PBT鍵帽（OEM高度），市面上看到的好像大部分Dolch都是原廠高度，比較喜歡OEM，覺得原廠高度太平了。不過感覺這個ESC字體顏色可以再深一點更好，還有Shift的圖案感覺跟字體有些不搭。</p>
-<p>因爲是要給Mac用的，所以順便買了Mac的增補鍵，（補充下YD68的一些規格可以跟TADA68規格共用），也是除了字體不太統一（我說怎麽連Opt跟Cmd都能不太一樣XDD），其他基本上都不錯。</p>
-<p>刷鍵位的線上工具在這裡 <a href="http://ydkb.io/" target="_blank" rel="noopener">http://ydkb.io/</a> ，網站上也有教學就不細說了。目前RGB LED的顏色控制我自己試不太出來，不確定是Bug或是我操作太差，有後續心得再回來補充。</p>
-<p>藍牙部分連接穩定度與雙模切換速度都還不錯，不過有少數時候會稍微明顯一些的Lag不確定是我這邊干擾多的原因還是怎樣，可能還要多測試才能確定。</p>
-<p>關於在Win跟Mac之間切換，我建議鍵盤直接按照Win的設定，然後到Mac內對調Cmd與Opt的位置，這麼做的原因是因爲改Mac鍵位會比Win上要來的簡單很多。</p>
-<p>（另外我也順便把Ctrl跟Caps Lock對調了，類似HHKB配置）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538485581/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/Screen_Shot_2018-10-02_at_9.04.23_PM.png" alt="MacOS鍵位設定"></p>
-<p>同場加映鍵盤包！感謝觀看！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538407632/blog/2018/10/YD68-%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D-%E5%BF%83%E5%BE%97/P_20180930_001809_vHDR_Auto.jpg" alt="同場加映鍵盤包"></p>
-<p><em>目前遇到了點小問題，不確定是個案或是PCB設計問題，R1那排有機率發生連點，原因還在調查中，想入坑的可以多考慮一下（國外跟對岸都沒看到有相關案例）</em></p>
-
+<p>最近想找一把60%的機械鍵盤來換掉之前的Ducky One RGB，當然Ducky One還是一把不錯的鍵盤，主要考慮到想弄個Mac/Win通用配置的，以及我桌子上東西有點多（繪圖板跟筆電）60%可以省下桌面不少空間。</p>
+        <p class="article-more-link">
+            <a href="/2018/10/YD68藍牙機械鍵盤組裝及心得/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -442,43 +279,18 @@
         <span class="column is-narrow">
             
             
-            9 分钟 讀完 (約 1286 字)
+            9 分钟 讀完 (約 1285 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg" alt="Brainwavz B2 Wireless"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前陣子買了Airpods來玩玩，發現Apple的W1晶片真心強大, 連接方便穩定, 延遲非常低(可以看影片的那種), 續航力優秀 <del>不過音質就只能說比Earpods好一點點，然後貴了五倍價格</del>。</p>
+<p>前陣子買了Airpods來玩玩，發現Apple的W1晶片真心強大, 連接方便穩定, 延遲非常低(可以看影片的那種), 續航力優秀 <del>不過音質就只能說比Earpods好一點點，然後貴了五倍價格</del>。</p>
 <p>Beats被Apple收購後他們的無線耳機也都使用了W1晶片，聲音也提升了(說好當然CP值也是沒多高，不過至少不是只會發出聲音的髮箍(笑)，之前BTS買電腦時剛好送了Solo 3 Wireless，試聽了一下聲音真是跌破眼鏡 <del>其實是之前太差</del>，靈光一閃想到如果把W1晶片改裝到一般耳機上或許能解決平常市面上大多數藍芽耳機續航&amp;音質&amp;穩定延遲的問題。</p>
-<p>Google了一下相關資料，果然Head-Fi上有人也有這個想法並且實踐成功了，他用的是BeatsX，後來在考慮價格與改裝方便性上的確是BeatsX最適合做入耳式的改造，於是我也去收了個二手的BeatsX。</p>
-<p><strong><em>利申一下我不算是多專業的燒友，以前稍微玩過而已，現在已經少碰。聲音相關感覺因人而異本文章僅提供改裝技術交流</em></strong></p>
-<h1 id="過程紀錄"><a href="#過程紀錄" class="headerlink" title="過程紀錄"></a>過程紀錄</h1><p>首先確認好BeatsX能發出聲音後，從音控後方爽快的剪下去吧！</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_90/v1538323416/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184454_vHDR_Auto.jpg" alt="感覺好像要斷頭"></p>
-<p><del>破壞東西就式特別的爽</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323418/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_184650_vHDR_Auto.jpg" alt="一刀兩斷"></p>
-<p>這次要變成無線的是伴我多年的Brainwavz B2(不知道的童鞋，這隻聲音跟DBA-02一樣，同一家代工廠)。</p>
-<p>很久以前因為線材掛了所以我把它做成可換線式的(MMCX接口)，想法很簡單，BeatsX的W1晶片與線控區後面先接上CM插座-&gt;自製CM公 to MMCX公線材-&gt;B2單體(MMCX母)，有人可能想問為何中間要多一段CM，主要是希望以後能夠做擴充(CMtoCM)這樣兩種都能使用，至於稍微影響的音質，藍芽耳機要求的是方便不是嗎lol?</p>
-<p>剪開麵條線材後發現裡面有五條漆包線+兩條強化抗拉線材在一旁，不是很好處理所以撥線長度大概要1~1.5CM會比較好操作。</p>
-<p>線材定義在測量過後發現在最外兩側的分別是紅色信號輸入跟黑色GND(不算強化線材)，中間三條應該是線控的，不過兩邊都有可以不理會直接剪掉。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_90/v1538323429/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213245_vHDR_Auto.jpg" alt="BeatX麵條線內線材"></p>
-<p>接著焊接上其他測試用單體試試看有沒有接錯，聲音是否正常。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323426/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_195612_vHDR_Auto.jpg" alt="發聲測試"></p>
-<p>焊上CM母座。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_0/v1538323433/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_213849_vHDR_Auto.jpg" alt="CM母座"></p>
-<p>CM公插。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323436/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_215819_vHDR_Auto.jpg" alt="CM插針"></p>
-<p>同場加映幫朋友改的CM公插，太久沒焊了，有點傷眼sry囉。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323427/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_211750_vHDR_Auto.jpg" alt="CM插針"></p>
-<p>完成！</p>
-<p>眼尖的童鞋可能發現了，由於發生了點小插曲所以之前買的MMCX插針沒法用，只好把一條幾年前去Oyaide買材料的自製線拆了撐一下，到時候在幫他買個殼QwQ。</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538323439/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233734_vHDR_Auto.jpg" alt="Brainwavz B2 Wireless!"></p>
-<p>幫朋友改的CM版BeatsX</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1538325406/blog/2018/09/30/Brainwavz-B2-BeatsX-W1%E6%99%B6%E7%89%87%E7%84%A1%E7%B7%9A%E6%94%B9%E8%A3%9D/P_20180930_233933_vHDR_Auto.jpg" alt="CM插針版"></p>
-<h1 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h1><p>聲音挺不錯的，不過也是不建議給阻抗大或不好推的耳機使用，除了耗電外可能聲音也推不太開。</p>
-<p>有W1晶片，續航延遲都比市面上絕大多數的藍芽耳機好不少，此改造又兼顧了一定的音質，可謂大成功啊！</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.head-fi.org/threads/apple-beats-x-mod-for-iem.844435/" target="_blank" rel="noopener">Head-Fi - Apple Beats X mod for IEM</a></p>
-
+        <p class="article-more-link">
+            <a href="/2018/09/Brainwavz-B2-BeatsX-W1晶片無線改裝/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -511,72 +323,10 @@
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521567789/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/ss201748.jpg" alt="Project CARS 2"></p>
-<p>用VR玩模擬駕駛之類的遊戲是很多玩家的夢想, 不過目前VR頭戴顯示器還不算相當成熟, 而且價格又偏高的情況下<del>(對拉這才是重點)</del>, 不過<del>窮</del>人是很聰明的, 沒有VR我們當然有便宜的替代品!<br>那就是IR Tracker(紅外線追蹤器, Infrared:紅外線縮寫為IR), 可以搭配<a href="https://github.com/geolink/opentracker" target="_blank" rel="noopener">OpenTrack</a>等開源軟體, 利用IR攝影機拍攝IR LED做定位, 來達到偵測物體移動的功能<br>材料買下來成本差不多可以控制在NTD500以內, 當然網路上也有賣現成的, 不過相對價格都比較高, 我當然是選擇DIY既便宜又不失樂趣!</p>
-<h1 id="Ready"><a href="#Ready" class="headerlink" title="Ready"></a>Ready</h1><p><strong>所需材料</strong></p>
-<ul>
-<li>PSEYE 攝影機 x 1 (注意!市面上有兩種版本, 我會在步驟中提及其中的差異)</li>
-<li>IR LED x 3 (推薦SFH485P, 亮度高效果較佳)</li>
-<li>6.8Ω 1/4W電阻 x 1 (串聯5V, 每顆LED電流約75mA) 這邊可以用<a href="http://www.free-track.net/english/hardware/calcled/" target="_blank" rel="noopener">參考阻值計算機</a>計算</li>
-<li>5V電源(電池、USB, etc)</li>
-<li>磁碟片一張 <del>就是那個存檔圖案的實體拉</del></li>
-</ul>
-<p><strong>所需工具</strong></p>
-<ul>
-<li>烙鐵</li>
-<li>焊錫</li>
-<li>一些連接用線材</li>
-<li>熱縮套/絕緣膠帶</li>
-</ul>
-<h1 id="Let’s-Do-It"><a href="#Let’s-Do-It" class="headerlink" title="Let’s Do It!"></a>Let’s Do It!</h1><h2 id="PSEYE"><a href="#PSEYE" class="headerlink" title="PSEYE"></a>PSEYE</h2><p>首先處理PSEYE, 也就是我們的IR攝影機, 他原本只是個普通的攝影機, 但是我們可以手動拆除IR濾鏡改造成IR攝影機<br>小科普:CMOS感光元件對於IR的敏感度很高, 所以普通相機都會裝上IR濾鏡濾除大多數的紅外線<br>(不是完全濾除, 所以可以利用手機鏡頭等去照IR遙控器, 就能夠透過相機看到IR了!)<br>至於選PSEYE而不是其他WebCam的原因, 主要就是因為PSEYE的幀率可以高達100以上, 對於移動是非常靈敏的<br>做IR Traceker也不需要很高的解析度, 有480P就已經綽綽有餘了, PSEYE價格也不高, 所以當然是首選囉!<br>用其他的攝影機當然也可以, 原理都是一樣的, 只是大部分都會推薦PSEYE</p>
-<h2 id="PSEYE比較"><a href="#PSEYE比較" class="headerlink" title="PSEYE比較"></a>PSEYE比較</h2><p>不過問題來了, 在準備部分提及的有兩種PSEYE, 一種是能夠拆除IR濾鏡一種無法(放在夾層中)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559231/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/compare.jpg" alt="PSEYE比較"></p>
-<p>從上圖中可以看到左邊的那種(應該是較新款), 鏡頭中有白圈的是無法拆除IR濾鏡的!<br>不過不必太過擔心, 因為功能上基本也是沒問題的, 只是條件許可下最好能選到右邊這種, 能達到最好的效果<br>(說真的我覺得使用上沒差多少就是)</p>
-<h2 id="拆解"><a href="#拆解" class="headerlink" title="拆解"></a>拆解</h2><p>首先先把PSEYE後面的墊片拆起(新款的是軟墊, 舊款的是硬的要注意)<br>由於舊款是塑膠墊片, 所以我直接用手鑽把它鑽出來(注意不要鑽到底下的螺絲)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559231/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180108_225216.jpg" alt="PSEYE背面"></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559229/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180108_230505.jpg" alt="拆墊片"></p>
-<p>接著把螺絲轉開, 然後沿著邊邊撬開後蓋(非常…難拆, 尤其到圓球那部分要很用力地把它暴力扯開)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559234/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180108_231317.jpg" alt="撬開後蓋"></p>
-<p>小心拆解過程不要傷到手跟內部的PCB</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559236/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180108_235139.jpg" alt="拆開後"></p>
-<p>接下來比較輕鬆, 把PCB上的螺絲都轉下來, 分離下方的支架, 並且拆下前鏡頭</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559231/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180108_235636.jpg" alt="PCB與鏡頭"></p>
-<p>接下來拆解IR濾鏡, 如果是買到無法拆IR濾鏡的可以直接<a href="#過濾可見光">跳到這</a>繼續</p>
-<h2 id="拆解IR-Filter"><a href="#拆解IR-Filter" class="headerlink" title="拆解IR Filter"></a>拆解IR Filter</h2><p>這部分需要比較大的耐心, <del>除了拆背蓋在這裡也會有種讓人想去買成品的衝動</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559235/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180108_235641.jpg" alt="IR Filter"></p>
-<p>上圖中最外層的圓形玻璃小透鏡就是IR濾鏡, 我們要將它拆下才能達到最好的IR感測效果<br>可以拿小刀或是像我沒耐心直接手鑽往旁邊鑽, 不過不管怎樣都要很小心而且要花些時間<br>至於多難拆, 體驗一下就知道了(笑)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559237/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180109_001803.jpg" alt="拆除IR濾鏡"></p>
-<p>成功拆除!</p>
-<h2 id="過濾可見光"><a href="#過濾可見光" class="headerlink" title="過濾可見光"></a>過濾可見光</h2><p>接著我們拿出磁碟片, <del>然後把它給拆爆</del>溫柔地拆開</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521563588/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180224_185625_vHDR_Auto.jpg" alt="磁碟片"></p>
-<p>拿出剪刀, 把磁片剪成跟鏡頭那塊方形差不多的大小並放上去</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521563590/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180224_190015_vHDR_Auto.jpg" alt="過濾可見光"></p>
-<h2 id="還原PSEYE"><a href="#還原PSEYE" class="headerlink" title="還原PSEYE"></a>還原PSEYE</h2><p>好了, 此時完成IR攝影機的改裝, 現在按著步驟反向裝回去原本的樣子<br>先丟一邊, 開始做IR Tracker的本體 <del>可以順便通個電看剛才有沒有把它毀了</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559246/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180116_013748.jpg" alt="PSEYE"></p>
-<h2 id="IR-Tracker"><a href="#IR-Tracker" class="headerlink" title="IR Tracker"></a>IR Tracker</h2><p>先來處理電路的部分, 電路很簡單就是單純串聯 5V-&gt;電阻-&gt;LED-&gt;LED-&gt;LED-&gt;GND</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521565042/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/headtracker.png" alt="電路圖"></p>
-<p>電源看想用電池或USB供電都可以(打算之後要用小型鋰聚電池供電, 目前先接USB)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559248/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180115_225420.jpg" alt="電路完成"></p>
-<p>此時我們要先準備個支架, 我直接用了YouTuber <a href="https://www.youtube.com/channel/UCW6xlqxSY3gGur4PkGPEUeA" target="_blank" rel="noopener">Seytonic</a> (推薦去逛逛, 他的頻道有許多好玩的東西) 提供的<a href="http://ge.tt/7e7RQJn2" target="_blank" rel="noopener">版型</a>去修改成3D列印檔案, 然後請人列印出來<br>可以順便按照個人喜好在上面做裝飾, 這時候當然貼上Carbon紋路<del>超輕量化</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521559243/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180115_230517.jpg" alt="支架"></p>
-<p>接著看要如何安裝固定, 我個人是綁在耳機上, 如圖(歪歪的沒關係 因為軟體可以校正)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521567421/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/P_20180321_013612_vHDR_Auto.jpg" alt="固定"></p>
-<h2 id="軟體設定"><a href="#軟體設定" class="headerlink" title="軟體設定"></a>軟體設定</h2><p>軟體的部分首先要下載<a href="https://codelaboratories.com/downloads/" target="_blank" rel="noopener">CL-EYE DRIVER</a>, 連結是Donate版, 免費版可以自己搜尋, 畢竟也不貴應該支持一下開發者<br>安裝過程就是不斷的下一步就可以, 不多做說明, 裝好後可以開啟”CL-EYE TEST”這個程式看看有沒有正常(已經改裝好攝影機的話應該看不太到可見光, 所以可以拿剛才做好的頭戴追蹤器或遙控器之類對著鏡頭測試)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521565954/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/cleyetest.png" alt="測試"></p>
-<p>如上圖有看到亮點就代表驅動跟硬體都正常囉!<br><b>注意!如果覺得亮點很模糊, 那是因為拔除IR濾鏡之後造成焦距改變, 這時候我們可以藉由轉動鏡頭調整卡在適合的焦距上<br>另外也可以進入裝置的屬性設定裡調整曝光等參數, 我一開始身邊找不到磁碟片就是靠軟體改變曝光, 同樣也能夠正常使用哦!</b></p>
-<p>接著安裝<a href="https://github.com/opentrack/opentrack/releases" target="_blank" rel="noopener">OpenTrack</a>, 選擇最新版下載後一樣是無腦下一步安裝</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521566384/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/ot.png" alt="OpenTrack"></p>
-<p>接著開啟Input那欄右側的設定圖案</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521566474/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/pointinput.png" alt="Input設定"></p>
-<p>Device裝置的部分選擇你的攝影機(PSEYE), 下方可以調整解析度和FPS等(FPS盡量拉高)<br>然後開啟右邊的設定對話框, 選擇Shortcuts快捷鍵, 在Center項目設定一個按鍵讓你可以在遊戲/模擬器中重新校正置中</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521566384/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/option.png" alt="Shortcuts"></p>
-<p>接著切換到Output, 在這裡可以選擇要啟動的感測項目Yaw(偏擺), Pitch(俯仰), Roll(翻滾), XYZ(XYZ軸移動)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521566384/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/output.png" alt=""></p>
-<p>像是我開歐卡或賽車等, 只希望左右轉頭時候能看到左右的景物, 所以就單純開啟Yaw其他設定Disabled<br>如果像Warthunder要看四面八方, 就需要開其他的選項, 這部分就看個人需求了</p>
-<p>設定完成按下OK回到主畫面, 然後按Start就會啟動OpenTrack囉!此時可以看到三個IR LED的光點正確地出現在方框中<br>只要做出動作旁邊的小章魚就會跟著做相同的動作</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1521566474/blog/2018/03/20/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/activ.png" alt=""></p>
-<p>接著就可以開啟遊戲, <del>體驗窮人的半VR拉</del><br>歐卡之類可以直接支援, 像Project CARS 2的話要開Steam VR模式才有用哦! 每個遊戲可能要自己另外注意一下<br>雖然說價格不貴, 但是效果的確不錯呢!原先以為只有頭部轉動螢幕沒有跟上會很難用, 結果是多操心了<br>基本上可以很自然地看向左右兩側, 也沒什麼延遲, 前面的辛苦值得啦!</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.youtube.com/watch?v=M_VN4mMA6Cw" target="_blank" rel="noopener">$10 Gaming Head Tracker | DIY Tutorial</a><br><a href="https://codelaboratories.com/downloads/" target="_blank" rel="noopener">CL-EYE DRIVER</a><br><a href="https://github.com/opentrack" target="_blank" rel="noopener">OpenTrack</a><br><a href="http://www.free-track.net/forum/index.php?showtopic=1856" target="_blank" rel="noopener">Easy build setup with SFH485P, Anyone can build this ! </a><br><a href="http://www.free-track.net/english/hardware/calcled/" target="_blank" rel="noopener">LED Assembly Wizard</a></p>
-
+<p>用VR玩模擬駕駛之類的遊戲是很多玩家的夢想, 不過目前VR頭戴顯示器還不算相當成熟, 而且價格又偏高的情況下<del>(對拉這才是重點)</del>, 不過<del>窮</del>人是很聰明的, 沒有VR我們當然有便宜的替代品!<br>那就是IR Tracker(紅外線追蹤器, Infrared:紅外線縮寫為IR), 可以搭配<a href="https://github.com/geolink/opentracker" target="_blank" rel="noopener">OpenTrack</a>等開源軟體, 利用IR攝影機拍攝IR LED做定位, 來達到偵測物體移動的功能<br>材料買下來成本差不多可以控制在NTD500以內, 當然網路上也有賣現成的, 不過相對價格都比較高, 當然是選擇DIY既便宜又不失樂趣!</p>
+        <p class="article-more-link">
+            <a href="/2018/03/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -602,58 +352,17 @@
         <span class="column is-narrow">
             
             
-            14 分钟 讀完 (約 2080 字)
+            14 分钟 讀完 (約 2081 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p>大概九月時幸運用不錯的價格收了一套二手的G27, 對於車控來說簡直太爽拉, 每天必跑一趟Nurburgring(?<br>雖然G27現在上面有Thrustmaster跟Fanatec等更高檔次的方向盤, 不過對我目前來說有G27就很棒了XDD <del>窮學生麻</del></p>
-<p>不過就在約一個月前, 出了點小問題, 每次插上USB G27就會自檢之後回正, 但有時候卻回不到中間(角度也不大,約10度左右)<br>雖然10度但是開起來超有感阿, <del>整個人都歪一邊拉!!</del> 而且玩Project Cars 2的時候還會越歪越多(汗, 跑趟拉力賽下來整個方向盤歪了快90度QQ<br>後來越來越容易出現這種問題, 於是上網查了下, 中文的資料不多<del>(可能就是邊緣玩的設備…)</del>, 不過國外很多同好也都遇到了類似的問題。</p>
-<p>只要是校正有問題/歪斜/檢測時打到底無法回正(轉速指示燈有亮)的話八九不離十都是內部光學編碼器(Optical Encoder)的部分出了問題, 也有人叫他光柵,如下圖這個</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274747/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/光柵-1024x889.jpg" alt=""></p>
-<p>這個黑色小圓片就是處理G27判斷方向盤轉了多少的裝置, 然而我不知道為啥Logitech的工程師在設計的時候這塊用塑膠….熱漲冷縮呢www(<del>可能才有機會送修吧</del>, 不然其他的部份的品質都很牢靠, 金屬的部分也很厚實堅固)</p>
-<p>仔細看圖片右下的那條裂痕, 這就是造成校正失準的原因(雖然很小但就是這樣沒錯QQ)<br>原本想說按照網上一些說法拆下拿強力膠or三秒膠把縫隙補起來<br>但是我這麼做的時候裝上去居然就, 啪的一聲又裂拉QQ, 而且裂更大惹……裝回去連校正都無法拉QQ<br>於是, 只好想辦法去淘了個不鏽鋼製的光柵回來….等了幾天終於運來台灣惹(BTW這被官方認定是特貨,所以得找私人運)<br>價格約NTD350~400左右, 之前看YT有人說澳洲有人在賣, 但出貨慢又貴….(1.5k)<br>還好至少TB有賣, 不然就GG惹</p>
-<p>收到貨發現賣家包的超仔細XDD我拆了好幾層, 最裡面還是用戒指盒包的簡直超用心阿XDDD</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274803/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/光柵2-1024x822.jpg" alt=""></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274810/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180117_123531-1024x735.jpg" alt=""></p>
-<p>對了這邊提醒一下, G27有兩種光柵, 舊版的(綠盒包裝)是60柵跟G25共用<br>新版的G27(黑盒裝)是30柵, G29跟G920應該也一樣?可能要拆開來看或查過比較好</p>
-<hr>
-<p>2018/06/06 更新</p>
-<p>可能要注意一下，上述的不鏽鋼光柵在幾個月之後居然也開始失靈了，又開始慢慢歪掉 Orz<br>不知道是不是便宜了經度不夠或剛好瑕疵等…取出來的時候好像有些刮痕，也可能是我一開始沒裝好造成的<br>淘寶有些評價都是正常使用的，如果要買可能自己先評估一下了</p>
-<p>總之我換成YT上不少人買的泰國製黃銅製光柵(30USD一個+8USD運費) <a href="http://cmlaserservice.com/index.html" target="_blank" rel="noopener">黃銅光柵連結</a></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294507/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180525_113926.jpg" alt="30格光柵"></p>
-<hr>
-<p>接下來簡單紀錄一下維修的方法, 如果覺得我圖片不清楚或不懂可以去YT, 國外有不少拆解影片~</p>
-<p>首先拆下方向盤上的六角螺絲</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274820/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_144353-1024x576.jpg" alt=""></p>
-<p>打開的時候小心, 方向盤上的按鈕有連接線連到一張綠色的T型電路板上</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518274829/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145127-1024x576.jpg" alt=""></p>
-<p>後面有個連接端子把它小心的拔掉, 然後會變成這個樣子</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275028/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145137-1024x576.jpg" alt=""></p>
-<p>記得順便把轉速指示燈的遮蓋拿起來放好</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275046/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_145359-576x1024.jpg" alt=""></p>
-<p>接著將紅圈的三個螺絲拆下(這螺絲要裝回去的時候莫名的難鎖,還很長……)<br>PS下面那個螺絲被端子擋到<br>周圍四個螺絲是鎖著撥片用的, 如果要換大撥片再拆那四個螺絲即可</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275063/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/fefewfewf-1024x576.jpg" alt=""></p>
-<p>拔下後的樣子</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275083/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_150952-1024x576.jpg" alt=""></p>
-<p>接著把G27翻到背面, 卸下螺絲(紅色), 綠圈處我建議晚點再拆,那邊是固定馬達跟旋轉軸的部分<br><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275115/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_1457290000-1024x576.jpg" alt=""></p>
-<p>放好螺絲後上蓋應該可以輕鬆的提起<br>然後會看到電路板, 感測器在右方馬達的尾部(有個黑蓋子的)<br>然後把電路板上有端子的連結都拆起來(別太暴力R 雖然我覺得還蠻堅固的)<br>把周圍的螺絲(包含電路板下面的固定鋼板)卸下</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275173/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_151700-1024x576.jpg" alt=""></p>
-<p>(拍糊了QQ)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275189/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_152915-1024x576.jpg" alt=""></p>
-<p>此時可以用一字起子沿著黑蓋邊緣撬開, 這部分沒拍到<br>然後再把下面剛才提到的綠圈處的螺絲卸下<br>小心這時候馬達中間那塊的軸心就會分離, 不要摔到了<br>還有裡面有齒輪和一片固定位置用的金屬彈片小心不要搞飛<br>上面都有塗潤滑油, 別雞婆把它擦掉阿XD<br>接著我們就可以看到光學感測電路板了</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275205/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180108_154054-1024x576.jpg" alt=""></p>
-<p>可以先檢查一下是不是螺絲鬆掉, 鬆掉也可能會造成失準的問題, 如果鎖緊就好了可以不用換光柵~<br>欸抱歉我發現細部的圖片沒拍到<br>簡單敘述一下就是把綠色的電路板拆下(小心螺絲下面有華司別弄丟)<br>如果要換就把黑色那片光柵拔下換上即可<br>之後按照原本的動作組裝回去就沒問題<br>記得電路板接線要檢查有沒有接穩QQ 我第一次裝回去有一個沒裝好結果又拆開來壓緊(ry</p>
-<hr>
-<p>2018/06/06 更新</p>
-<p>附上安裝上新光柵的大圖，可以讓光柵盡可能地靠近黑色(接收器)，但是注意不要摩擦到PCB就好</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294507/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180525_131356.jpg" alt="光柵安裝圖"></p>
-<p>順便提醒一下把馬達齒輪組那一大塊安裝回去時要特別注意塑膠擋塊有沒有對齊，G27是靠那個判斷有沒有轉到底的<br>如果沒對準也是沒法校正哦，建議可以卡上去後壓著把方向盤兩邊轉到底看有沒有卡好對齊(齒輪那也有個藍點可以對準)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1528294869/blog/2018/01/17/Logitech_G27方向盤_回正_校正問題修復筆記/P_20180118_131711.jpg" alt="齒輪擋塊"></p>
-<hr>
-<p>YA等了一個禮拜終於復活拉 <del>趕緊飆車去囉</del></p>
-
+<p>不過就在約一個月前, 出了點小問題, 每次插上USB G27就會自檢之後回正, 但有時候卻回不到中間(角度也不大,約10度左右)<br>雖然10度但是開起來超有感阿, <del>整個人都歪一邊拉!!</del> 而且玩Project Cars 2的時候還會越歪越多(汗, 跑趟拉力賽下來整個方向盤歪了快90度QQ</p>
+        <p class="article-more-link">
+            <a href="/2018/01/logitech-g27-方向盤-回正-校正問題維修筆記/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -679,24 +388,16 @@
         <span class="column is-narrow">
             
             
-            3 分钟 讀完 (約 380 字)
+            3 分钟 讀完 (約 381 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p>ONE RGB用到目前為止都很滿意, 不過有個小缺點就是看鍵盤角度太低的時候<br>空白鍵下兩側的補光LED會閃到眼睛RRR<br>雖然我自己的角度不常看到, 但有時候被閃一下還是不太爽(#`Д´)ﾉ<br>這時候既然原廠沒有設計擋光板, 只好自己動手了</p>
-<p><del>恩 拍起來還好, 可是實際被閃到就是這個樣子</del></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275725/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/meme-1024x689.jpg" alt=""></p>
-<p>要解決也不難就是, 當然首先把空白鍵拆下</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275740/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/P_20180103_183823-1024x576.jpg" alt=""></p>
-<p>然後裁個大概3x1.5cm的描圖紙(一個LED要兩層效果比較好)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275757/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/P_20180103_184211-1024x757.jpg" alt=""></p>
-<p>接著找個無痕雙面膠之類的把它固定在定位板上, 光線就不會辣麼刺眼了(ﾟ∀ﾟ)<br>這樣也不至於影響到燈光讓那邊變得比較暗d(`･∀･)b</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275771/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/P_20180103_184811-1024x576.jpg" alt=""></p>
-<p>大功告成!! 雖然不是什麼太麻煩的MOD不過希望Ducky以後設計這部分的燈光要注意一下啊XD</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275787/blog/2018/01/11/Ducky _ONE_RGB_解決空白鍵漏光問題/P_20180103_185328-1024x576.jpg" alt=""></p>
-
+        <p class="article-more-link">
+            <a href="/2018/01/ducky-one-rgb-解決空白鍵漏光問題/#more">閱讀更多</a>
+        </p>
     
     </div>
     

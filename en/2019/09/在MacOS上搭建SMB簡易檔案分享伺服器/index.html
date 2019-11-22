@@ -20,22 +20,22 @@
 
 
 
-    <meta name="description" content="前言有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。 MacOS 搭建 SMB 伺服器首先開啟系統設定(System Preferences)，接著選擇分享(Sharing)  接著勾選左邊的檔案分享(File Sharing)  在分享資料夾列表下面，點選”+">
+    <meta name="description" content="有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。">
 <meta name="keywords" content="MacOS,檔案分享,SMB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 MacOS 上搭建 SMB 簡易檔案分享伺服器">
 <meta property="og:url" content="https://blog.driftkingtw.me/en/2019/09/在MacOS上搭建SMB簡易檔案分享伺服器/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
-<meta property="og:description" content="前言有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。 MacOS 搭建 SMB 伺服器首先開啟系統設定(System Preferences)，接著選擇分享(Sharing)  接著勾選左邊的檔案分享(File Sharing)  在分享資料夾列表下面，點選”+">
+<meta property="og:description" content="有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189697/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/Screen_Shot_2019-10-04_at_7.44.42_PM.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189783/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/.Screen_Shot_2019-10-04_at_7.49.26_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189911/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/.Screen_Shot_2019-10-04_at_7.51.41_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570190209/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/IMG_0621.png">
-<meta property="og:updated_time" content="2019-11-22T04:50:25.014Z">
+<meta property="og:updated_time" content="2019-11-22T06:47:33.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 MacOS 上搭建 SMB 簡易檔案分享伺服器">
-<meta name="twitter:description" content="前言有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。 MacOS 搭建 SMB 伺服器首先開啟系統設定(System Preferences)，接著選擇分享(Sharing)  接著勾選左邊的檔案分享(File Sharing)  在分享資料夾列表下面，點選”+">
+<meta name="twitter:description" content="有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。">
 <meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189697/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/Screen_Shot_2019-10-04_at_7.44.42_PM.jpg">
 
 
@@ -169,13 +169,13 @@
         <span class="column is-narrow">
             
             
-            4 minutes read (About 581 words)
+            4 minutes read (About 580 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。</p>
+        <p>有時候會想要在iPad上無線存取一些電腦裡的檔案，卻沒有NAS或在外面不方便，其實 MacOS 也有提供像 Windows 網路芳鄰的檔案分享功能，而且設定操作非常簡單，步驟如下。<a id="more"></a></p>
 <h1 id="MacOS-搭建-SMB-伺服器"><a href="#MacOS-搭建-SMB-伺服器" class="headerlink" title="MacOS 搭建 SMB 伺服器"></a>MacOS 搭建 SMB 伺服器</h1><p>首先開啟系統設定(System Preferences)，接著選擇分享(Sharing)</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570189697/blog/2019/10/%E5%9C%A8%20MacOS%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20SMB%20%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/Screen_Shot_2019-10-04_at_7.44.42_PM.jpg" alt=""></p>
 <p>接著勾選左邊的檔案分享(File Sharing)</p>
