@@ -53,7 +53,7 @@
         // 2.安裝語言
         valine.installLocale(localeName, localeMode)
         // 3.初始化
-    new Valine({
+    var valine = new Valine({
         el: '#valine-thread',
         appId: '<%= get_config('comment.app_id') %>',
         appKey: '<%= get_config('comment.app_key') %>',
