@@ -13,7 +13,7 @@ open_graph:
 # It can either be an url to an image or a string if the following option is set.
 # logo:
 #   text: <logo string>
-logo: DriftKingTW
+logo: 
 
 article:
   # Show word count and estimated reading time.
@@ -23,11 +23,7 @@ article:
 
 # Navigation bar menu links.
 menu:
-  DriftKingTW's Blog: /en/index.html
   Archives: /en/archives
-#  Lifestyle: /categories/LifeStyle
-#  Music: /categories/Music
-#  Technology: /categories/Technology
   About: /en/about
 
 # Search plugin settings.

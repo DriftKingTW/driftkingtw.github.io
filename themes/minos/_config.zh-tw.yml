@@ -13,7 +13,7 @@ open_graph:
 # It can either be an url to an image or a string if the following option is set.
 # logo:
 #   text: <logo string>
-logo: DriftKingTW
+logo: 
 
 article:
   # Show word count and estimated reading time.
@@ -23,7 +23,6 @@ article:
 
 # Navigation bar menu links.
 menu:
-  DriftKingTW's Blog: /
   封存: /archives
 #  分類: /categories/LifeStyle
 #  標籤: /categories/Music
