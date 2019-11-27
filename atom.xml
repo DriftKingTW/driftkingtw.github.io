@@ -5,9 +5,9 @@
   <subtitle>printf(&quot;%s&quot;, &quot;Stay Curious, Stay Creative&quot;);</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://blog.driftkingtw.me/"/>
+  <link href="https://blog.driftking.tw/"/>
   <updated>2019-11-27T04:50:22.912Z</updated>
-  <id>https://blog.driftkingtw.me/</id>
+  <id>https://blog.driftking.tw/</id>
   
   <author>
     <name>DriftKingTW</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>利用 Raspberry Pi 控制 PWM 風扇及轉速偵測</title>
-    <link href="https://blog.driftkingtw.me/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/"/>
-    <id>https://blog.driftkingtw.me/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</id>
+    <link href="https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/"/>
+    <id>https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</id>
     <published>2019-11-25T14:00:00.000Z</published>
     <updated>2019-11-27T04:50:22.912Z</updated>
     
@@ -33,16 +33,16 @@
     </summary>
     
     
-      <category term="DIY" scheme="https://blog.driftkingtw.me/tags/DIY/"/>
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
   </entry>
   
   <entry>
     <title>利用 Raspberry Pi 控制 PWM 風扇及轉速偵測</title>
-    <link href="https://blog.driftkingtw.me/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/"/>
-    <id>https://blog.driftkingtw.me/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</id>
+    <link href="https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/"/>
+    <id>https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</id>
     <published>2019-11-25T14:00:00.000Z</published>
     <updated>2019-11-27T03:58:49.099Z</updated>
     
@@ -56,16 +56,16 @@
     </summary>
     
     
-      <category term="DIY" scheme="https://blog.driftkingtw.me/tags/DIY/"/>
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
   </entry>
   
   <entry>
     <title>電腦/伺服器跨平臺的開源監控好幫手 - Glances</title>
-    <link href="https://blog.driftkingtw.me/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/"/>
-    <id>https://blog.driftkingtw.me/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</id>
+    <link href="https://blog.driftking.tw/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/"/>
+    <id>https://blog.driftking.tw/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</id>
     <published>2019-11-18T11:50:00.000Z</published>
     <updated>2019-11-24T14:21:45.158Z</updated>
     
@@ -78,16 +78,16 @@
     </summary>
     
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
-      <category term="MonitoringTool/監控軟體" scheme="https://blog.driftkingtw.me/tags/MonitoringTool-%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94/"/>
+      <category term="MonitoringTool/監控軟體" scheme="https://blog.driftking.tw/tags/MonitoringTool-%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94/"/>
     
   </entry>
   
   <entry>
     <title>A Better Server Status Monitoring Tool - Glances (htop/top Alternative)</title>
-    <link href="https://blog.driftkingtw.me/en/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/"/>
-    <id>https://blog.driftkingtw.me/en/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</id>
+    <link href="https://blog.driftking.tw/en/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/"/>
+    <id>https://blog.driftking.tw/en/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</id>
     <published>2019-11-18T11:50:00.000Z</published>
     <updated>2019-11-22T06:54:42.637Z</updated>
     
@@ -100,16 +100,16 @@
     </summary>
     
     
-      <category term="RaspberryPi" scheme="https://blog.driftkingtw.me/tags/RaspberryPi/"/>
+      <category term="RaspberryPi" scheme="https://blog.driftking.tw/tags/RaspberryPi/"/>
     
-      <category term="StatusMonitor" scheme="https://blog.driftkingtw.me/tags/StatusMonitor/"/>
+      <category term="StatusMonitor" scheme="https://blog.driftking.tw/tags/StatusMonitor/"/>
     
   </entry>
   
   <entry>
     <title>安裝 Aria2 在 RaspberryPi 上搭建低耗下載機</title>
-    <link href="https://blog.driftkingtw.me/en/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/"/>
-    <id>https://blog.driftkingtw.me/en/2019/11/安裝 Aria2 在 RaspberryPi 上搭建低耗下載機安裝 Aria2 在 RaspberryPi 上搭建低耗下載機/</id>
+    <link href="https://blog.driftking.tw/en/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/"/>
+    <id>https://blog.driftking.tw/en/2019/11/安裝 Aria2 在 RaspberryPi 上搭建低耗下載機安裝 Aria2 在 RaspberryPi 上搭建低耗下載機/</id>
     <published>2019-11-15T16:15:00.000Z</published>
     <updated>2019-11-22T06:55:17.374Z</updated>
     
@@ -122,14 +122,14 @@
     </summary>
     
     
-      <category term="RaspberryPi" scheme="https://blog.driftkingtw.me/tags/RaspberryPi/"/>
+      <category term="RaspberryPi" scheme="https://blog.driftking.tw/tags/RaspberryPi/"/>
     
   </entry>
   
   <entry>
     <title>安裝 Aria2 在 RaspberryPi 上搭建低耗下載機</title>
-    <link href="https://blog.driftkingtw.me/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/"/>
-    <id>https://blog.driftkingtw.me/2019/11/安裝 Aria2 在 RaspberryPi 上搭建低耗下載機安裝 Aria2 在 RaspberryPi 上搭建低耗下載機/</id>
+    <link href="https://blog.driftking.tw/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/"/>
+    <id>https://blog.driftking.tw/2019/11/安裝 Aria2 在 RaspberryPi 上搭建低耗下載機安裝 Aria2 在 RaspberryPi 上搭建低耗下載機/</id>
     <published>2019-11-15T16:15:00.000Z</published>
     <updated>2019-11-24T14:20:47.478Z</updated>
     
@@ -142,14 +142,14 @@
     </summary>
     
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
   </entry>
   
   <entry>
     <title>Use Raspberry Pi to build a FAKE TimeCapsule (and NAS) - Hardware</title>
-    <link href="https://blog.driftkingtw.me/en/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/"/>
-    <id>https://blog.driftkingtw.me/en/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/</id>
+    <link href="https://blog.driftking.tw/en/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/"/>
+    <id>https://blog.driftking.tw/en/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/</id>
     <published>2019-11-12T13:25:00.000Z</published>
     <updated>2019-11-22T15:56:23.959Z</updated>
     
@@ -164,22 +164,22 @@
     </summary>
     
     
-      <category term="DIY" scheme="https://blog.driftkingtw.me/tags/DIY/"/>
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="NAS" scheme="https://blog.driftkingtw.me/tags/NAS/"/>
+      <category term="NAS" scheme="https://blog.driftking.tw/tags/NAS/"/>
     
-      <category term="TimeCapsule" scheme="https://blog.driftkingtw.me/tags/TimeCapsule/"/>
+      <category term="TimeCapsule" scheme="https://blog.driftking.tw/tags/TimeCapsule/"/>
     
-      <category term="TimeMachine" scheme="https://blog.driftkingtw.me/tags/TimeMachine/"/>
+      <category term="TimeMachine" scheme="https://blog.driftking.tw/tags/TimeMachine/"/>
     
   </entry>
   
   <entry>
     <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 硬體篇</title>
-    <link href="https://blog.driftkingtw.me/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/"/>
-    <id>https://blog.driftkingtw.me/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/</id>
+    <link href="https://blog.driftking.tw/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/"/>
+    <id>https://blog.driftking.tw/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/</id>
     <published>2019-11-12T13:25:00.000Z</published>
     <updated>2019-11-24T14:20:59.617Z</updated>
     
@@ -193,24 +193,24 @@
     </summary>
     
     
-      <category term="DIY" scheme="https://blog.driftkingtw.me/tags/DIY/"/>
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
-      <category term="NAS" scheme="https://blog.driftkingtw.me/tags/NAS/"/>
+      <category term="NAS" scheme="https://blog.driftking.tw/tags/NAS/"/>
     
-      <category term="TimeCapsule" scheme="https://blog.driftkingtw.me/tags/TimeCapsule/"/>
+      <category term="TimeCapsule" scheme="https://blog.driftking.tw/tags/TimeCapsule/"/>
     
-      <category term="TimeMachine" scheme="https://blog.driftkingtw.me/tags/TimeMachine/"/>
+      <category term="TimeMachine" scheme="https://blog.driftking.tw/tags/TimeMachine/"/>
     
   </entry>
   
   <entry>
     <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈</title>
-    <link href="https://blog.driftkingtw.me/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/"/>
-    <id>https://blog.driftkingtw.me/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/</id>
+    <link href="https://blog.driftking.tw/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/"/>
+    <id>https://blog.driftking.tw/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/</id>
     <published>2019-11-11T13:25:00.000Z</published>
     <updated>2019-11-24T14:20:29.938Z</updated>
     
@@ -224,16 +224,16 @@
     </summary>
     
     
-      <category term="DIY" scheme="https://blog.driftkingtw.me/tags/DIY/"/>
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
   </entry>
   
   <entry>
     <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</title>
-    <link href="https://blog.driftkingtw.me/en/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/"/>
-    <id>https://blog.driftkingtw.me/en/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/</id>
+    <link href="https://blog.driftking.tw/en/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/"/>
+    <id>https://blog.driftking.tw/en/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/</id>
     <published>2019-11-11T13:25:00.000Z</published>
     <updated>2019-11-22T06:55:18.708Z</updated>
     
@@ -247,16 +247,16 @@
     </summary>
     
     
-      <category term="DIY" scheme="https://blog.driftkingtw.me/tags/DIY/"/>
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
-      <category term="RaspberryPi" scheme="https://blog.driftkingtw.me/tags/RaspberryPi/"/>
+      <category term="RaspberryPi" scheme="https://blog.driftking.tw/tags/RaspberryPi/"/>
     
   </entry>
   
   <entry>
     <title>理解 Raspberry 4 Type C 設計問題</title>
-    <link href="https://blog.driftkingtw.me/en/2019/10/%E7%90%86%E8%A7%A3_Raspberry_Pi_4_Type_C_%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/"/>
-    <id>https://blog.driftkingtw.me/en/2019/10/理解_Raspberry_Pi_4_Type_C_設計問題/</id>
+    <link href="https://blog.driftking.tw/en/2019/10/%E7%90%86%E8%A7%A3_Raspberry_Pi_4_Type_C_%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/"/>
+    <id>https://blog.driftking.tw/en/2019/10/理解_Raspberry_Pi_4_Type_C_設計問題/</id>
     <published>2019-10-26T13:25:00.000Z</published>
     <updated>2019-11-22T06:52:12.571Z</updated>
     
@@ -269,16 +269,16 @@
     </summary>
     
     
-      <category term="USB-C" scheme="https://blog.driftkingtw.me/tags/USB-C/"/>
+      <category term="USB-C" scheme="https://blog.driftking.tw/tags/USB-C/"/>
     
-      <category term="RaspberryPi" scheme="https://blog.driftkingtw.me/tags/RaspberryPi/"/>
+      <category term="RaspberryPi" scheme="https://blog.driftking.tw/tags/RaspberryPi/"/>
     
   </entry>
   
   <entry>
     <title>理解 Raspberry 4 Type C 設計問題</title>
-    <link href="https://blog.driftkingtw.me/2019/10/%E7%90%86%E8%A7%A3_Raspberry_Pi_4_Type_C_%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/"/>
-    <id>https://blog.driftkingtw.me/2019/10/理解_Raspberry_Pi_4_Type_C_設計問題/</id>
+    <link href="https://blog.driftking.tw/2019/10/%E7%90%86%E8%A7%A3_Raspberry_Pi_4_Type_C_%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/"/>
+    <id>https://blog.driftking.tw/2019/10/理解_Raspberry_Pi_4_Type_C_設計問題/</id>
     <published>2019-10-26T13:25:00.000Z</published>
     <updated>2019-11-24T14:25:29.275Z</updated>
     
@@ -291,16 +291,16 @@
     </summary>
     
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
-      <category term="USB-C" scheme="https://blog.driftkingtw.me/tags/USB-C/"/>
+      <category term="USB-C" scheme="https://blog.driftking.tw/tags/USB-C/"/>
     
   </entry>
   
   <entry>
     <title>利用 Raspberry Pi 搭建 NAS</title>
-    <link href="https://blog.driftkingtw.me/en/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BANAS/"/>
-    <id>https://blog.driftkingtw.me/en/2019/10/利用RaspberryPi搭建NAS/</id>
+    <link href="https://blog.driftking.tw/en/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BANAS/"/>
+    <id>https://blog.driftking.tw/en/2019/10/利用RaspberryPi搭建NAS/</id>
     <published>2019-10-12T13:25:00.000Z</published>
     <updated>2019-11-22T06:44:25.869Z</updated>
     
@@ -314,16 +314,16 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="NAS" scheme="https://blog.driftkingtw.me/tags/NAS/"/>
+      <category term="NAS" scheme="https://blog.driftking.tw/tags/NAS/"/>
     
   </entry>
   
   <entry>
     <title>利用 Raspberry Pi 搭建 NAS</title>
-    <link href="https://blog.driftkingtw.me/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BANAS/"/>
-    <id>https://blog.driftkingtw.me/2019/10/利用RaspberryPi搭建NAS/</id>
+    <link href="https://blog.driftking.tw/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BANAS/"/>
+    <id>https://blog.driftking.tw/2019/10/利用RaspberryPi搭建NAS/</id>
     <published>2019-10-12T13:25:00.000Z</published>
     <updated>2019-11-24T14:25:25.876Z</updated>
     
@@ -337,18 +337,18 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
-      <category term="NAS" scheme="https://blog.driftkingtw.me/tags/NAS/"/>
+      <category term="NAS" scheme="https://blog.driftking.tw/tags/NAS/"/>
     
   </entry>
   
   <entry>
     <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
-    <link href="https://blog.driftkingtw.me/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/"/>
-    <id>https://blog.driftkingtw.me/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/</id>
+    <link href="https://blog.driftking.tw/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/"/>
+    <id>https://blog.driftking.tw/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/</id>
     <published>2019-10-11T13:25:00.000Z</published>
     <updated>2019-11-24T14:25:20.658Z</updated>
     
@@ -363,20 +363,20 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftkingtw.me/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
-      <category term="TimeCapsule" scheme="https://blog.driftkingtw.me/tags/TimeCapsule/"/>
+      <category term="TimeCapsule" scheme="https://blog.driftking.tw/tags/TimeCapsule/"/>
     
-      <category term="TimeMachine" scheme="https://blog.driftkingtw.me/tags/TimeMachine/"/>
+      <category term="TimeMachine" scheme="https://blog.driftking.tw/tags/TimeMachine/"/>
     
   </entry>
   
   <entry>
     <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
-    <link href="https://blog.driftkingtw.me/en/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/"/>
-    <id>https://blog.driftkingtw.me/en/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/</id>
+    <link href="https://blog.driftking.tw/en/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/"/>
+    <id>https://blog.driftking.tw/en/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/</id>
     <published>2019-10-11T13:25:00.000Z</published>
     <updated>2019-11-22T06:46:58.669Z</updated>
     
@@ -391,18 +391,18 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="TimeCapsule" scheme="https://blog.driftkingtw.me/tags/TimeCapsule/"/>
+      <category term="TimeCapsule" scheme="https://blog.driftking.tw/tags/TimeCapsule/"/>
     
-      <category term="TimeMachine" scheme="https://blog.driftkingtw.me/tags/TimeMachine/"/>
+      <category term="TimeMachine" scheme="https://blog.driftking.tw/tags/TimeMachine/"/>
     
   </entry>
   
   <entry>
     <title>利用 SFTP 在 Android 上存取 MacOS 檔案</title>
-    <link href="https://blog.driftkingtw.me/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/"/>
-    <id>https://blog.driftkingtw.me/2019/09/利用SFTP在Android上存取MacOS檔案/</id>
+    <link href="https://blog.driftking.tw/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/"/>
+    <id>https://blog.driftking.tw/2019/09/利用SFTP在Android上存取MacOS檔案/</id>
     <published>2019-10-04T14:00:00.000Z</published>
     <updated>2019-11-22T06:48:00.459Z</updated>
     
@@ -415,16 +415,16 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="SFTP" scheme="https://blog.driftkingtw.me/tags/SFTP/"/>
+      <category term="SFTP" scheme="https://blog.driftking.tw/tags/SFTP/"/>
     
   </entry>
   
   <entry>
     <title>利用 SFTP 在 Android 上存取 MacOS 檔案</title>
-    <link href="https://blog.driftkingtw.me/en/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/"/>
-    <id>https://blog.driftkingtw.me/en/2019/09/利用SFTP在Android上存取MacOS檔案/</id>
+    <link href="https://blog.driftking.tw/en/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/"/>
+    <id>https://blog.driftking.tw/en/2019/09/利用SFTP在Android上存取MacOS檔案/</id>
     <published>2019-10-04T14:00:00.000Z</published>
     <updated>2019-11-22T06:48:00.459Z</updated>
     
@@ -437,16 +437,16 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="SFTP" scheme="https://blog.driftkingtw.me/tags/SFTP/"/>
+      <category term="SFTP" scheme="https://blog.driftking.tw/tags/SFTP/"/>
     
   </entry>
   
   <entry>
     <title>在 MacOS 上搭建 SMB 簡易檔案分享伺服器</title>
-    <link href="https://blog.driftkingtw.me/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/"/>
-    <id>https://blog.driftkingtw.me/2019/09/在MacOS上搭建SMB簡易檔案分享伺服器/</id>
+    <link href="https://blog.driftking.tw/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/"/>
+    <id>https://blog.driftking.tw/2019/09/在MacOS上搭建SMB簡易檔案分享伺服器/</id>
     <published>2019-10-04T13:00:00.000Z</published>
     <updated>2019-11-22T06:47:33.047Z</updated>
     
@@ -459,16 +459,16 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="SMB" scheme="https://blog.driftkingtw.me/tags/SMB/"/>
+      <category term="SMB" scheme="https://blog.driftking.tw/tags/SMB/"/>
     
   </entry>
   
   <entry>
     <title>在 MacOS 上搭建 SMB 簡易檔案分享伺服器</title>
-    <link href="https://blog.driftkingtw.me/en/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/"/>
-    <id>https://blog.driftkingtw.me/en/2019/09/在MacOS上搭建SMB簡易檔案分享伺服器/</id>
+    <link href="https://blog.driftking.tw/en/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/"/>
+    <id>https://blog.driftking.tw/en/2019/09/在MacOS上搭建SMB簡易檔案分享伺服器/</id>
     <published>2019-10-04T13:00:00.000Z</published>
     <updated>2019-11-22T06:47:33.047Z</updated>
     
@@ -481,9 +481,9 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://blog.driftkingtw.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="SMB" scheme="https://blog.driftkingtw.me/tags/SMB/"/>
+      <category term="SMB" scheme="https://blog.driftking.tw/tags/SMB/"/>
     
   </entry>
   
