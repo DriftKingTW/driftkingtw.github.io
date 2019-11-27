@@ -1,7 +1,7 @@
 ---
-title: 替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制
+title: 替 Raspberry Pi 添加開關、外接電源燈、狀態燈
 tags:
-  - RaspberryPi
+  - RaspberryPi/樹莓派
   - DIY
 keywords:
   - RaspberryPi

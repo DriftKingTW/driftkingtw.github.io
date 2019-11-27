@@ -1,7 +1,7 @@
 ---
 title: 安裝 Aria2 在 RaspberryPi 上搭建低耗下載機
 tags:
-  - RaspberryPi
+  - RaspberryPi/樹莓派
 keywords:
   - RaspberryPi
   - 樹莓派

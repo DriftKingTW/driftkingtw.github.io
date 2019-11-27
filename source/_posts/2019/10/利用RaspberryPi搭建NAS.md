@@ -2,6 +2,7 @@
 title: 利用 Raspberry Pi 搭建 NAS
 tags:
   - MacOS
+  - RaspberryPi/樹莓派
   - NAS
 keywords:
   - MacOS

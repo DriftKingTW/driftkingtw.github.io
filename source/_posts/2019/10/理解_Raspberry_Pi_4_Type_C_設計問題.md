@@ -1,7 +1,7 @@
 ---
 title: 理解 Raspberry 4 Type C 設計問題
 tags:
-  - RaspberryPi
+  - RaspberryPi/樹莓派
   - USB-C
 keywords:
   - RaspberryPi

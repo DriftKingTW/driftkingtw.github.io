@@ -1,8 +1,8 @@
 ---
 title: 電腦/伺服器跨平臺的開源監控好幫手 - Glances
 tags:
-  - RaspberryPi
-  - 監控軟體
+  - RaspberryPi/樹莓派
+  - MonitoringTool/監控軟體
 keywords:
   - RaspberryPi
   - 監控軟體

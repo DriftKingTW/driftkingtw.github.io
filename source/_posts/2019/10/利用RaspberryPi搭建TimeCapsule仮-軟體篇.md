@@ -2,6 +2,7 @@
 title: 利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇
 tags:
   - MacOS
+  - RaspberryPi/樹莓派
   - TimeCapsule
   - TimeMachine
 keywords:
