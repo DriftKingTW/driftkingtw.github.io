@@ -15,7 +15,7 @@ keywords: 網頁, 程式, 科技, 電腦, 賽車, 繪圖, DIY, Maker, Web, Sim r
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://blog.driftkingtw.me/
+url: https://blog.driftking.tw
 root: /
 #permalink: :year/:month/:day/:title/
 # permalink: archives/:abbrlink.html
@@ -86,7 +86,7 @@ theme: minos
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
   type: git
-  repo: git@github.com:driftkingtw/driftkingtw.github.io.git
+  repo: https://github.com/DriftKingTW/driftkingtw.github.io.git
   branch: 
 
 #hexo sitemap
