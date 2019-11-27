@@ -189,7 +189,7 @@
         <p>相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。</p>
 <p>不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是群輝（Synology）的 NAS 都有提供 TimeMachine 無線備份的功能，然而這兩者的價格都還是偏高的QwQ</p>
 <p>所以在一輪 Google 後，我的解決方法就是利用此篇的主角：樹莓派（Raspberry Pi）來完成這項任務，在 Pi 4 推出後，硬體規格升級到了USB3.0、Gigabit Ethrnet，做個人用的簡易 NAS 已經算是堪用，更不用說對速度要求不高的 TimeMachine 了！<a id="more"></a></p>
-<h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
+<h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html" target="_blank" rel="noopener">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
 <p><code>sudo raspi-config</code></p>
 <p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p>
 <p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p>
