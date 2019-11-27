@@ -23,9 +23,7 @@ article:
 
 # Navigation bar menu links.
 menu:
-  封存: /archives
-#  分類: /categories/LifeStyle
-#  標籤: /categories/Music
+  目錄: /archives
   關於: /about
 
 # Search plugin settings.
@@ -58,7 +56,7 @@ plugins:
   gallery: true
   clipboard: true
   google-analytics:
-    tracking_id:
+    tracking_id: UA-115026468-1
 
 # Additional navigation bar links on the right.
 # Links can either be text or icon. The following link is set to be an icon link whose icon
