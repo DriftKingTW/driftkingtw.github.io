@@ -64,6 +64,15 @@
     
     
     
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
 
     
 
@@ -89,7 +98,7 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">封存</a>
+               href="/archives">目錄</a>
             
             <a class="navbar-item "
                href="/about">關於</a>
@@ -142,11 +151,50 @@
             </a>
                
             
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png" />
+            </a>
         </div>
     </div>
 </nav>
     <section class="section">
     <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/" itemprop="url">利用 Raspberry Pi 控制 PWM 風扇及轉速偵測</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-11-25T14:00:00.000Z" itemprop="datePublished">11月 25 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            17 分钟 讀完 (約 2533 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574826956/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/Fur_chan_w_Noctua_fan_2.jpg" alt=""></p>
+<p>相信不少人都會為熱情的 Pi 4 加上風扇散熱，不過小風扇噪音就成了問題，由於 Pi 也不是隨時都滿載需要風扇全速運轉，所以我們可以利用 <a href="https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E5%AF%AC%E5%BA%A6%E8%AA%BF%E8%AE%8A" target="_blank" rel="noopener">PWM (Pulse Width Modulation)</a> 來控制轉速。讓風扇在提高到一定溫度時才啟動，或是降低轉速來降低噪音。</p>
+        <p class="article-more-link">
+            <a href="/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
     
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
@@ -257,7 +305,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" itemprop="url">替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</a>
+            <a href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" itemprop="url">替 Raspberry Pi 添加開關、外接電源燈、狀態燈</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -468,41 +516,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2018/12/利用Applescript快速切換TrueTone/" itemprop="url">利用Applescript快速切換TrueTone</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2018-12-01T16:20:52.000Z" itemprop="datePublished">12月 2 2018</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分钟 讀完 (約 466 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>2018 Macbook Pro終於可以使用原先發佈在iPad Pro的True Tone功能，讓螢幕偵測周圍的光線來改變螢幕顏色，使用上相當舒服。<br>不過如果要使用影像處理或繪圖等對顏色準確度有需求的工作時就得把它暫時關掉才不會影響，然而每次都要進入設定調整也是挺麻煩的，不如利用Applescript爲我們代勞。</p>
-        <p class="article-more-link">
-            <a href="/2018/12/利用Applescript快速切換TrueTone/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -519,6 +532,8 @@
         <li><a class="pagination-link" href="/page/2/">2</a></li>
         
         <li><a class="pagination-link" href="/page/3/">3</a></li>
+        
+        <li><a class="pagination-link" href="/page/4/">4</a></li>
         
     </ul>
 </nav>
@@ -549,37 +564,6 @@
                 </div>
             </div>
             
-            
-<div class="column is-narrow has-text-centered">
-    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
-         <!-- margin-top: -0.2em; -->
-        <div class="dropdown-trigger">
-            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
-                <span class="icon">
-                    <i class="fas fa-globe"></i>
-                </span>
-                <span>繁體中文</span>
-                <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-            </button>
-        </div>
-        <div class="dropdown-menu has-text-left" role="menu">
-            <div class="dropdown-content">
-            
-                <a href="/index.html" class="dropdown-item">
-                    繁體中文
-                </a>
-            
-                <a href="/en/index.html" class="dropdown-item">
-                    English
-                </a>
-            
-            </div>
-        </div>
-    </div>
-</div>
-
         </div>
     </div>
 </footer>

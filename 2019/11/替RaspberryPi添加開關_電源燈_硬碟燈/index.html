@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制 - DriftKingTW&#39;s Blog</title>
+<title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈 - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -23,7 +23,7 @@
     <meta name="description" content="用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4">
 <meta name="keywords" content="RaspberryPi,DIY,電源燈,風扇控制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制">
+<meta property="og:title" content="替 Raspberry Pi 添加開關、外接電源燈、狀態燈">
 <meta property="og:url" content="https://blog.driftkingtw.me/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4">
@@ -31,9 +31,9 @@
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278749/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_DC3D9F54D1D5-1.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278969/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_4CCC4C50487E-1.jpg">
-<meta property="og:updated_time" content="2019-11-22T06:55:27.949Z">
+<meta property="og:updated_time" content="2019-11-24T14:20:29.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制">
+<meta name="twitter:title" content="替 Raspberry Pi 添加開關、外接電源燈、狀態燈">
 <meta name="twitter:description" content="用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4">
 <meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg">
 
@@ -69,6 +69,15 @@
     
     
     
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
 
     
 
@@ -94,7 +103,7 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">封存</a>
+               href="/archives">目錄</a>
             
             <a class="navbar-item "
                href="/about">關於</a>
@@ -147,6 +156,9 @@
             </a>
                
             
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png" />
+            </a>
         </div>
     </div>
 </nav>
@@ -155,7 +167,7 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制
+            替 Raspberry Pi 添加開關、外接電源燈、狀態燈
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -211,7 +223,7 @@
     
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/DIY/">#DIY</a></span>
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/RaspberryPi/">#RaspberryPi</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/RaspberryPi-樹莓派/">#RaspberryPi/樹莓派</a></span>
     
     </div>
     
@@ -336,37 +348,6 @@
                 </div>
             </div>
             
-            
-<div class="column is-narrow has-text-centered">
-    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
-         <!-- margin-top: -0.2em; -->
-        <div class="dropdown-trigger">
-            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
-                <span class="icon">
-                    <i class="fas fa-globe"></i>
-                </span>
-                <span>繁體中文</span>
-                <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-            </button>
-        </div>
-        <div class="dropdown-menu has-text-left" role="menu">
-            <div class="dropdown-content">
-            
-                <a href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" class="dropdown-item">
-                    繁體中文
-                </a>
-            
-                <a href="/en/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" class="dropdown-item">
-                    English
-                </a>
-            
-            </div>
-        </div>
-    </div>
-</div>
-
         </div>
     </div>
 </footer>

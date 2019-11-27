@@ -4,6 +4,191 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
+    <lastmod>2019-11-27T04:50:22.912Z</lastmod>
+    <data>
+        <display>
+        <title>利用 Raspberry Pi 控制 PWM 風扇及轉速偵測</title>
+        <pubTime>2019-11-25T14:00:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>RaspberryPi/樹莓派</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
+    <lastmod>2019-11-27T03:58:49.099Z</lastmod>
+    <data>
+        <display>
+        <title>利用 Raspberry Pi 控制 PWM 風扇及轉速偵測</title>
+        <pubTime>2019-11-25T14:00:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>RaspberryPi/樹莓派</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/2019/10/%E7%90%86%E8%A7%A3_Raspberry_Pi_4_Type_C_%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/</loc>
+    <lastmod>2019-11-24T14:25:29.275Z</lastmod>
+    <data>
+        <display>
+        <title>理解 Raspberry 4 Type C 設計問題</title>
+        <pubTime>2019-10-26T13:25:00.000Z</pubTime>
+        
+        <tag>RaspberryPi/樹莓派</tag>
+         
+        <tag>USB-C</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BANAS/</loc>
+    <lastmod>2019-11-24T14:25:25.876Z</lastmod>
+    <data>
+        <display>
+        <title>利用 Raspberry Pi 搭建 NAS</title>
+        <pubTime>2019-10-12T13:25:00.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>RaspberryPi/樹莓派</tag>
+         
+        <tag>NAS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/</loc>
+    <lastmod>2019-11-24T14:25:20.658Z</lastmod>
+    <data>
+        <display>
+        <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
+        <pubTime>2019-10-11T13:25:00.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>RaspberryPi/樹莓派</tag>
+         
+        <tag>TimeCapsule</tag>
+         
+        <tag>TimeMachine</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</loc>
+    <lastmod>2019-11-24T14:21:45.158Z</lastmod>
+    <data>
+        <display>
+        <title>電腦/伺服器跨平臺的開源監控好幫手 - Glances</title>
+        <pubTime>2019-11-18T11:50:00.000Z</pubTime>
+        
+        <tag>RaspberryPi/樹莓派</tag>
+         
+        <tag>MonitoringTool/監控軟體</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/</loc>
+    <lastmod>2019-11-24T14:20:59.617Z</lastmod>
+    <data>
+        <display>
+        <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 硬體篇</title>
+        <pubTime>2019-11-12T13:25:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>MacOS</tag>
+         
+        <tag>RaspberryPi/樹莓派</tag>
+         
+        <tag>NAS</tag>
+         
+        <tag>TimeCapsule</tag>
+         
+        <tag>TimeMachine</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/</loc>
+    <lastmod>2019-11-24T14:20:47.478Z</lastmod>
+    <data>
+        <display>
+        <title>安裝 Aria2 在 RaspberryPi 上搭建低耗下載機</title>
+        <pubTime>2019-11-15T16:15:00.000Z</pubTime>
+        
+        <tag>RaspberryPi/樹莓派</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/</loc>
+    <lastmod>2019-11-24T14:20:29.938Z</lastmod>
+    <data>
+        <display>
+        <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈</title>
+        <pubTime>2019-11-11T13:25:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>RaspberryPi/樹莓派</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/en/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/</loc>
     <lastmod>2019-11-22T15:56:23.959Z</lastmod>
     <data>
@@ -20,67 +205,6 @@
         <tag>TimeCapsule</tag>
          
         <tag>TimeMachine</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/</loc>
-    <lastmod>2019-11-22T15:53:45.182Z</lastmod>
-    <data>
-        <display>
-        <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 硬體篇</title>
-        <pubTime>2019-11-12T13:25:00.000Z</pubTime>
-        
-        <tag>DIY</tag>
-         
-        <tag>MacOS</tag>
-         
-        <tag>NAS</tag>
-         
-        <tag>TimeCapsule</tag>
-         
-        <tag>TimeMachine</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/</loc>
-    <lastmod>2019-11-22T06:55:27.949Z</lastmod>
-    <data>
-        <display>
-        <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</title>
-        <pubTime>2019-11-11T13:25:00.000Z</pubTime>
-        
-        <tag>DIY</tag>
-         
-        <tag>RaspberryPi</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/</loc>
-    <lastmod>2019-11-22T06:55:27.189Z</lastmod>
-    <data>
-        <display>
-        <title>安裝 Aria2 在 RaspberryPi 上搭建低耗下載機</title>
-        <pubTime>2019-11-15T16:15:00.000Z</pubTime>
-        
-        <tag>RaspberryPi</tag>
          
          
            
@@ -152,9 +276,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>螢幕</tag>
-         
         <tag>Macbook Pro</tag>
+         
+        <tag>螢幕</tag>
          
          
            
@@ -171,9 +295,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>螢幕</tag>
-         
         <tag>Macbook Pro</tag>
+         
+        <tag>螢幕</tag>
          
          
            
@@ -183,7 +307,7 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/en/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
+    <loc>https://blog.driftkingtw.me/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
     <lastmod>2019-11-22T06:53:25.087Z</lastmod>
     <data>
         <display>
@@ -202,7 +326,7 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
+    <loc>https://blog.driftkingtw.me/en/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
     <lastmod>2019-11-22T06:53:25.087Z</lastmod>
     <data>
         <display>
@@ -255,7 +379,7 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/en/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
+    <loc>https://blog.driftkingtw.me/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
     <lastmod>2019-11-22T06:52:39.989Z</lastmod>
     <data>
         <display>
@@ -274,7 +398,7 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
+    <loc>https://blog.driftkingtw.me/en/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
     <lastmod>2019-11-22T06:52:39.989Z</lastmod>
     <data>
         <display>
@@ -331,25 +455,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/2019/10/%E7%90%86%E8%A7%A3_Raspberry_Pi_4_Type_C_%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/</loc>
-    <lastmod>2019-11-22T06:52:12.571Z</lastmod>
-    <data>
-        <display>
-        <title>理解 Raspberry 4 Type C 設計問題</title>
-        <pubTime>2019-10-26T13:25:00.000Z</pubTime>
-        
-        <tag>RaspberryPi</tag>
-         
-        <tag>USB-C</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/en/2019/10/%E7%90%86%E8%A7%A3_Raspberry_Pi_4_Type_C_%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:52:12.571Z</lastmod>
     <data>
@@ -357,28 +462,9 @@
         <title>理解 Raspberry 4 Type C 設計問題</title>
         <pubTime>2019-10-26T13:25:00.000Z</pubTime>
         
-        <tag>RaspberryPi</tag>
-         
         <tag>USB-C</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/2018/10/YD68%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D%E5%8F%8A%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2019-11-22T06:51:19.190Z</lastmod>
-    <data>
-        <display>
-        <title>YD68藍牙機械鍵盤組裝及心得</title>
-        <pubTime>2018-10-03T02:54:05.000Z</pubTime>
-        
-        <tag>Keyboard</tag>
-         
-        <tag>DIY</tag>
+        <tag>RaspberryPi</tag>
          
          
            
@@ -407,6 +493,25 @@
 
     
   <url>
+    <loc>https://blog.driftkingtw.me/2018/10/YD68%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D%E5%8F%8A%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2019-11-22T06:51:19.190Z</lastmod>
+    <data>
+        <display>
+        <title>YD68藍牙機械鍵盤組裝及心得</title>
+        <pubTime>2018-10-03T02:54:05.000Z</pubTime>
+        
+        <tag>Keyboard</tag>
+         
+        <tag>DIY</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftkingtw.me/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
     <lastmod>2019-11-22T06:51:14.333Z</lastmod>
     <data>
@@ -414,9 +519,9 @@
         <title>MacOS強制外接螢幕輸出RGB</title>
         <pubTime>2018-10-12T01:16:28.000Z</pubTime>
         
-        <tag>MacOS</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>MacOS</tag>
          
          
            
@@ -433,9 +538,9 @@
         <title>MacOS強制外接螢幕輸出RGB</title>
         <pubTime>2018-10-12T01:16:28.000Z</pubTime>
         
-        <tag>MacOS</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>MacOS</tag>
          
          
            
@@ -605,25 +710,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/2018/03/DIY-IR-Tracker-%E7%B4%85%E5%A4%96%E7%B7%9A%E9%A0%AD%E6%88%B4%E8%BF%BD%E8%B9%A4%E5%99%A8%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2019-11-22T06:50:30.597Z</lastmod>
-    <data>
-        <display>
-        <title>DIY IR Tracker 紅外線頭戴追蹤器筆記</title>
-        <pubTime>2018-03-20T15:05:00.000Z</pubTime>
-        
-        <tag>DIY</tag>
-         
-        <tag>SIM-Racing</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/en/2018/03/DIY-IR-Tracker-%E7%B4%85%E5%A4%96%E7%B7%9A%E9%A0%AD%E6%88%B4%E8%BF%BD%E8%B9%A4%E5%99%A8%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:30.597Z</lastmod>
     <data>
@@ -643,16 +729,16 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/en/2018/03/Hexo-Github-deploy-%E5%95%8F%E9%A1%8C%E4%BF%AE%E6%AD%A3%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2019-11-22T06:50:18.808Z</lastmod>
+    <loc>https://blog.driftkingtw.me/2018/03/DIY-IR-Tracker-%E7%B4%85%E5%A4%96%E7%B7%9A%E9%A0%AD%E6%88%B4%E8%BF%BD%E8%B9%A4%E5%99%A8%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2019-11-22T06:50:30.597Z</lastmod>
     <data>
         <display>
-        <title>Hexo Github deploy 問題修正</title>
-        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
+        <title>DIY IR Tracker 紅外線頭戴追蹤器筆記</title>
+        <pubTime>2018-03-20T15:05:00.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>DIY</tag>
          
-        <tag>Github</tag>
+        <tag>SIM-Racing</tag>
          
          
            
@@ -669,9 +755,28 @@
         <title>Hexo Github deploy 問題修正</title>
         <pubTime>2018-03-03T05:38:43.000Z</pubTime>
         
+        <tag>Github</tag>
+         
         <tag>hexo</tag>
          
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/en/2018/03/Hexo-Github-deploy-%E5%95%8F%E9%A1%8C%E4%BF%AE%E6%AD%A3%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2019-11-22T06:50:18.808Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo Github deploy 問題修正</title>
+        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
+        
         <tag>Github</tag>
+         
+        <tag>hexo</tag>
          
          
            
@@ -719,25 +824,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/en/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
-    <lastmod>2019-11-22T06:49:41.374Z</lastmod>
-    <data>
-        <display>
-        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
-        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
-        
-        <tag>Github</tag>
-         
-        <tag>SSL</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
     <lastmod>2019-11-22T06:49:41.374Z</lastmod>
     <data>
@@ -757,18 +843,16 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/en/2018/02/iPad-Pro-10.5-%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1+%E7%B9%AA%E5%9C%96%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2019-11-22T06:49:35.349Z</lastmod>
+    <loc>https://blog.driftkingtw.me/en/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
+    <lastmod>2019-11-22T06:49:41.374Z</lastmod>
     <data>
         <display>
-        <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
-        <pubTime>2018-02-21T07:00:42.000Z</pubTime>
+        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
+        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
         
-        <tag>開箱</tag>
+        <tag>Github</tag>
          
-        <tag>iPad</tag>
-         
-        <tag>illustration</tag>
+        <tag>SSL</tag>
          
          
            
@@ -785,11 +869,32 @@
         <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
         <pubTime>2018-02-21T07:00:42.000Z</pubTime>
         
-        <tag>開箱</tag>
-         
         <tag>iPad</tag>
          
         <tag>illustration</tag>
+         
+        <tag>開箱</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftkingtw.me/en/2018/02/iPad-Pro-10.5-%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1+%E7%B9%AA%E5%9C%96%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2019-11-22T06:49:35.349Z</lastmod>
+    <data>
+        <display>
+        <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
+        <pubTime>2018-02-21T07:00:42.000Z</pubTime>
+        
+        <tag>iPad</tag>
+         
+        <tag>illustration</tag>
+         
+        <tag>開箱</tag>
          
          
            
@@ -879,7 +984,7 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/en/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
+    <loc>https://blog.driftkingtw.me/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-11-22T06:48:46.150Z</lastmod>
     <data>
         <display>
@@ -898,7 +1003,7 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
+    <loc>https://blog.driftkingtw.me/en/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-11-22T06:48:46.150Z</lastmod>
     <data>
         <display>
@@ -993,7 +1098,7 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/en/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/</loc>
+    <loc>https://blog.driftkingtw.me/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/</loc>
     <lastmod>2019-11-22T06:48:00.459Z</lastmod>
     <data>
         <display>
@@ -1012,7 +1117,7 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/</loc>
+    <loc>https://blog.driftkingtw.me/en/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/</loc>
     <lastmod>2019-11-22T06:48:00.459Z</lastmod>
     <data>
         <display>
@@ -1069,27 +1174,6 @@
 
     
   <url>
-    <loc>https://blog.driftkingtw.me/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/</loc>
-    <lastmod>2019-11-22T06:46:58.669Z</lastmod>
-    <data>
-        <display>
-        <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
-        <pubTime>2019-10-11T13:25:00.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>TimeCapsule</tag>
-         
-        <tag>TimeMachine</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftkingtw.me/en/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/</loc>
     <lastmod>2019-11-22T06:46:58.669Z</lastmod>
     <data>
@@ -1121,44 +1205,6 @@
         <tag>MacOS</tag>
          
         <tag>NAS</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BANAS/</loc>
-    <lastmod>2019-11-22T06:44:25.869Z</lastmod>
-    <data>
-        <display>
-        <title>利用 Raspberry Pi 搭建 NAS</title>
-        <pubTime>2019-10-12T13:25:00.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>NAS</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftkingtw.me/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</loc>
-    <lastmod>2019-11-22T06:41:53.690Z</lastmod>
-    <data>
-        <display>
-        <title>電腦/伺服器跨平臺的開源監控好幫手 - Glances</title>
-        <pubTime>2019-11-18T11:50:00.000Z</pubTime>
-        
-        <tag>RaspberryPi</tag>
-         
-        <tag>監控軟體</tag>
          
          
            

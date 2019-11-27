@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572071612/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.33.18_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572072226/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.43.37_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572071448/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.30.35_PM.png">
-<meta property="og:updated_time" content="2019-11-22T06:52:12.571Z">
+<meta property="og:updated_time" content="2019-11-24T14:25:29.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解 Raspberry 4 Type C 設計問題">
 <meta name="twitter:description" content="今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C (終於有種進化成現代化單片機的感覺)不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一般線">
@@ -71,6 +71,15 @@
     
     
     
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
 
     
 
@@ -96,7 +105,7 @@
         <div class="navbar-menu navbar-start">
             
             <a class="navbar-item "
-               href="/archives">封存</a>
+               href="/archives">目錄</a>
             
             <a class="navbar-item "
                href="/about">關於</a>
@@ -149,6 +158,9 @@
             </a>
                
             
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png" />
+            </a>
         </div>
     </div>
 </nav>
@@ -220,7 +232,7 @@
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/RaspberryPi/">#RaspberryPi</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/RaspberryPi-樹莓派/">#RaspberryPi/樹莓派</a></span>
     
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/USB-C/">#USB-C</a></span>
     
@@ -230,7 +242,7 @@
     <div class="columns is-mobile is-multiline article-nav">
         <span class="column is-12-mobile is-half-desktop  article-nav-prev">
             
-            <a href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/">替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</a>
+            <a href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/">替 Raspberry Pi 添加開關、外接電源燈、狀態燈</a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
@@ -347,37 +359,6 @@
                 </div>
             </div>
             
-            
-<div class="column is-narrow has-text-centered">
-    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
-         <!-- margin-top: -0.2em; -->
-        <div class="dropdown-trigger">
-            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
-                <span class="icon">
-                    <i class="fas fa-globe"></i>
-                </span>
-                <span>繁體中文</span>
-                <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-            </button>
-        </div>
-        <div class="dropdown-menu has-text-left" role="menu">
-            <div class="dropdown-content">
-            
-                <a href="/2019/10/理解_Raspberry_Pi_4_Type_C_設計問題/" class="dropdown-item">
-                    繁體中文
-                </a>
-            
-                <a href="/en/2019/10/理解_Raspberry_Pi_4_Type_C_設計問題/" class="dropdown-item">
-                    English
-                </a>
-            
-            </div>
-        </div>
-    </div>
-</div>
-
         </div>
     </div>
 </footer>
