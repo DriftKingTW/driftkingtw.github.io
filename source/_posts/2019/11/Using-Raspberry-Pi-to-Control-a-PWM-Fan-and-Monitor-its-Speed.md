@@ -92,7 +92,7 @@ sudo dpkg -i wiringpi-latest.deb
 
 ### PWM 訊號控制轉速
 
-我把控制程式放在 Github 上了，可以點擊參考：[DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/blob/master/fan_contorl.py)
+我把控制程式放在 Github 上了，可以點擊參考：[DriftKingTW/Raspberry-Pi-PWM-Fan-Control](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/blob/master/fan_control.py)
 
 建立資料夾存放要用到的程式：
 
@@ -103,7 +103,7 @@ sudo dpkg -i wiringpi-latest.deb
 下載程式：
 
 ```shell
-wget https://raw.githubusercontent.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/master/fan_contorl.py
+wget https://raw.githubusercontent.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/master/fan_control.py
 ```
 
 開啟試試能不能成功控制：
@@ -209,10 +209,10 @@ except KeyboardInterrupt: # 如果使用者按下 ctrl+c 的例外處理
 
 ### 讀取轉速訊號
 
-程式同樣放在 Github 上：[DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/blob/master/read_fan_speed.py)
+程式同樣放在 Github 上：[DriftKingTW/Raspberry-Pi-PWM-Fan-Control](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control/blob/master/read_fan_speed.py)
 
 ```shell
-wget https://raw.githubusercontent.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/master/read_fan_speed.py
+wget https://raw.githubusercontent.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control/master/read_fan_speed.py
 ```
 
 開啟即可開始輸出風扇的轉速(RPM)，預設每秒偵測一次
