@@ -90,7 +90,7 @@ Check the fan is working as you expect.
 ### Use PWM to Control Fan Speed
 
 
-The control script is on: [DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/blob/master/fan_contorl.py)
+The control script is on: [DriftKingTW/Raspberry-Pi-PWM-Fan-Control](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control/blob/master/fan_control.py)
 
 `mkdir -p Scripts`
 
@@ -99,7 +99,7 @@ The control script is on: [DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl](https://git
 Download the python script:
 
 ```shell
-wget https://raw.githubusercontent.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/master/fan_contorl.py
+wget https://raw.githubusercontent.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control/master/fan_control.py
 ```
 
 `python fan_control.py`
@@ -200,10 +200,10 @@ except KeyboardInterrupt: # trap a CTRL+C keyboard interrupt
 
 ### Reading RPM Signal
 
-Github: [DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/blob/master/read_fan_speed.py)
+Github: [DriftKingTW/Raspberry-Pi-PWM-Fan-Control](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control/blob/master/read_fan_speed.py)
 
 ```shell
-wget https://raw.githubusercontent.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/master/read_fan_speed.py
+wget https://raw.githubusercontent.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control/master/read_fan_speed.py
 ```
 
 Run script and you will get RPM value every second:
