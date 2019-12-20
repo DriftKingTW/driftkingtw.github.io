@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
-    <lastmod>2019-11-27T07:01:12.034Z</lastmod>
+    <lastmod>2019-12-20T09:57:39.318Z</lastmod>
     <data>
         <display>
         <title>Using Raspberry Pi to Control a PWM Fan and Monitor its Speed</title>
@@ -22,10 +22,9 @@
     </url>
 
     
-    
   <url>
     <loc>https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
-    <lastmod>2019-11-27T03:58:49.099Z</lastmod>
+    <lastmod>2019-12-20T09:56:08.793Z</lastmod>
     <data>
         <display>
         <title>利用 Raspberry Pi 控制 PWM 風扇及轉速偵測</title>
@@ -41,6 +40,7 @@
     </data>
     </url>
 
+    
     
     
   <url>
@@ -276,9 +276,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>螢幕</tag>
-         
         <tag>Macbook Pro</tag>
+         
+        <tag>螢幕</tag>
          
          
            
@@ -295,28 +295,9 @@
         <title>Macbook Pro 2018 Color Banding 問題</title>
         <pubTime>2018-10-12T09:51:04.000Z</pubTime>
         
-        <tag>螢幕</tag>
-         
         <tag>Macbook Pro</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.driftking.tw/en/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
-    <lastmod>2019-11-22T06:53:25.087Z</lastmod>
-    <data>
-        <display>
-        <title>利用 BetterTouchTool 在 Touchbar 上顯示 CPU 溫度</title>
-        <pubTime>2018-10-26T01:16:36.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>Touchbar</tag>
+        <tag>螢幕</tag>
          
          
            
@@ -345,14 +326,16 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2017/12/raspberry-zero-w-headless-%E8%87%AA%E5%8B%95%E9%80%A3%E4%B8%8A%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF%E8%88%87%E9%96%8B%E5%95%9FSSH%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2019-11-22T06:52:43.749Z</lastmod>
+    <loc>https://blog.driftking.tw/en/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
+    <lastmod>2019-11-22T06:53:25.087Z</lastmod>
     <data>
         <display>
-        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
-        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
+        <title>利用 BetterTouchTool 在 Touchbar 上顯示 CPU 溫度</title>
+        <pubTime>2018-10-26T01:16:36.000Z</pubTime>
         
-        <tag>Raspberry Pi</tag>
+        <tag>MacOS</tag>
+         
+        <tag>Touchbar</tag>
          
          
            
@@ -379,7 +362,24 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
+    <loc>https://blog.driftking.tw/en/2017/12/raspberry-zero-w-headless-%E8%87%AA%E5%8B%95%E9%80%A3%E4%B8%8A%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF%E8%88%87%E9%96%8B%E5%95%9FSSH%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2019-11-22T06:52:43.749Z</lastmod>
+    <data>
+        <display>
+        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
+        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
+        
+        <tag>Raspberry Pi</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
     <lastmod>2019-11-22T06:52:39.989Z</lastmod>
     <data>
         <display>
@@ -398,7 +398,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
+    <loc>https://blog.driftking.tw/en/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
     <lastmod>2019-11-22T06:52:39.989Z</lastmod>
     <data>
         <display>
@@ -512,16 +512,16 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
+    <loc>https://blog.driftking.tw/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
     <lastmod>2019-11-22T06:51:14.333Z</lastmod>
     <data>
         <display>
         <title>MacOS強制外接螢幕輸出RGB</title>
         <pubTime>2018-10-12T01:16:28.000Z</pubTime>
         
-        <tag>MacOS</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>MacOS</tag>
          
          
            
@@ -531,16 +531,16 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
+    <loc>https://blog.driftking.tw/en/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
     <lastmod>2019-11-22T06:51:14.333Z</lastmod>
     <data>
         <display>
         <title>MacOS強制外接螢幕輸出RGB</title>
         <pubTime>2018-10-12T01:16:28.000Z</pubTime>
         
-        <tag>MacOS</tag>
-         
         <tag>螢幕</tag>
+         
+        <tag>MacOS</tag>
          
          
            
@@ -588,7 +588,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/07/Laravel-Linux-%E4%BD%88%E7%BD%B2%E5%95%8F%E9%A1%8C%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://blog.driftking.tw/en/2018/07/Laravel-Linux-%E4%BD%88%E7%BD%B2%E5%95%8F%E9%A1%8C%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:47.290Z</lastmod>
     <data>
         <display>
@@ -609,7 +609,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/07/Laravel-Linux-%E4%BD%88%E7%BD%B2%E5%95%8F%E9%A1%8C%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://blog.driftking.tw/2018/07/Laravel-Linux-%E4%BD%88%E7%BD%B2%E5%95%8F%E9%A1%8C%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:47.290Z</lastmod>
     <data>
         <display>
@@ -748,25 +748,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/03/Hexo-Github-deploy-%E5%95%8F%E9%A1%8C%E4%BF%AE%E6%AD%A3%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2019-11-22T06:50:18.808Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo Github deploy 問題修正</title>
-        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>Github</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/en/2018/03/Hexo-Github-deploy-%E5%95%8F%E9%A1%8C%E4%BF%AE%E6%AD%A3%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:18.808Z</lastmod>
     <data>
@@ -786,7 +767,26 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
+    <loc>https://blog.driftking.tw/2018/03/Hexo-Github-deploy-%E5%95%8F%E9%A1%8C%E4%BF%AE%E6%AD%A3%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2019-11-22T06:50:18.808Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo Github deploy 問題修正</title>
+        <pubTime>2018-03-03T05:38:43.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>Github</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
     <lastmod>2019-11-22T06:50:10.333Z</lastmod>
     <data>
         <display>
@@ -805,7 +805,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
+    <loc>https://blog.driftking.tw/en/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
     <lastmod>2019-11-22T06:50:10.333Z</lastmod>
     <data>
         <display>
@@ -862,27 +862,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/02/iPad-Pro-10.5-%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1+%E7%B9%AA%E5%9C%96%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2019-11-22T06:49:35.349Z</lastmod>
-    <data>
-        <display>
-        <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
-        <pubTime>2018-02-21T07:00:42.000Z</pubTime>
-        
-        <tag>開箱</tag>
-         
-        <tag>iPad</tag>
-         
-        <tag>illustration</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/2018/02/iPad-Pro-10.5-%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1+%E7%B9%AA%E5%9C%96%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-11-22T06:49:35.349Z</lastmod>
     <data>
@@ -904,16 +883,18 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/01/ducky-one-rgb-%E8%A7%A3%E6%B1%BA%E7%A9%BA%E7%99%BD%E9%8D%B5%E6%BC%8F%E5%85%89%E5%95%8F%E9%A1%8C/</loc>
-    <lastmod>2019-11-22T06:49:27.752Z</lastmod>
+    <loc>https://blog.driftking.tw/en/2018/02/iPad-Pro-10.5-%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1+%E7%B9%AA%E5%9C%96%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2019-11-22T06:49:35.349Z</lastmod>
     <data>
         <display>
-        <title>Ducky ONE RGB 解決空白鍵漏光問題</title>
-        <pubTime>2018-01-11T06:25:40.000Z</pubTime>
+        <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
+        <pubTime>2018-02-21T07:00:42.000Z</pubTime>
         
-        <tag>Keyboard</tag>
+        <tag>開箱</tag>
          
-        <tag>DIY</tag>
+        <tag>iPad</tag>
+         
+        <tag>illustration</tag>
          
          
            
@@ -942,18 +923,16 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/01/logitech-g27-%E6%96%B9%E5%90%91%E7%9B%A4-%E5%9B%9E%E6%AD%A3-%E6%A0%A1%E6%AD%A3%E5%95%8F%E9%A1%8C%E7%B6%AD%E4%BF%AE%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2019-11-22T06:49:21.310Z</lastmod>
+    <loc>https://blog.driftking.tw/2018/01/ducky-one-rgb-%E8%A7%A3%E6%B1%BA%E7%A9%BA%E7%99%BD%E9%8D%B5%E6%BC%8F%E5%85%89%E5%95%8F%E9%A1%8C/</loc>
+    <lastmod>2019-11-22T06:49:27.752Z</lastmod>
     <data>
         <display>
-        <title>Logitech G27方向盤 回正/校正問題維修</title>
-        <pubTime>2018-01-17T13:16:00.000Z</pubTime>
+        <title>Ducky ONE RGB 解決空白鍵漏光問題</title>
+        <pubTime>2018-01-11T06:25:40.000Z</pubTime>
         
+        <tag>Keyboard</tag>
+         
         <tag>DIY</tag>
-         
-        <tag>SIM-Racing</tag>
-         
-        <tag>G27</tag>
          
          
            
@@ -984,7 +963,28 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
+    <loc>https://blog.driftking.tw/2018/01/logitech-g27-%E6%96%B9%E5%90%91%E7%9B%A4-%E5%9B%9E%E6%AD%A3-%E6%A0%A1%E6%AD%A3%E5%95%8F%E9%A1%8C%E7%B6%AD%E4%BF%AE%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2019-11-22T06:49:21.310Z</lastmod>
+    <data>
+        <display>
+        <title>Logitech G27方向盤 回正/校正問題維修</title>
+        <pubTime>2018-01-17T13:16:00.000Z</pubTime>
+        
+        <tag>DIY</tag>
+         
+        <tag>SIM-Racing</tag>
+         
+        <tag>G27</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/en/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-11-22T06:48:46.150Z</lastmod>
     <data>
         <display>
@@ -1003,7 +1003,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
+    <loc>https://blog.driftking.tw/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-11-22T06:48:46.150Z</lastmod>
     <data>
         <display>
@@ -1060,7 +1060,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/12/%E5%88%A9%E7%94%A8Applescript%E5%BF%AB%E9%80%9F%E5%88%87%E6%8F%9BTrueTone/</loc>
+    <loc>https://blog.driftking.tw/en/2018/12/%E5%88%A9%E7%94%A8Applescript%E5%BF%AB%E9%80%9F%E5%88%87%E6%8F%9BTrueTone/</loc>
     <lastmod>2019-11-22T06:48:20.626Z</lastmod>
     <data>
         <display>
@@ -1079,7 +1079,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/12/%E5%88%A9%E7%94%A8Applescript%E5%BF%AB%E9%80%9F%E5%88%87%E6%8F%9BTrueTone/</loc>
+    <loc>https://blog.driftking.tw/2018/12/%E5%88%A9%E7%94%A8Applescript%E5%BF%AB%E9%80%9F%E5%88%87%E6%8F%9BTrueTone/</loc>
     <lastmod>2019-11-22T06:48:20.626Z</lastmod>
     <data>
         <display>
@@ -1136,7 +1136,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/</loc>
+    <loc>https://blog.driftking.tw/en/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/</loc>
     <lastmod>2019-11-22T06:47:33.047Z</lastmod>
     <data>
         <display>
@@ -1155,7 +1155,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/</loc>
+    <loc>https://blog.driftking.tw/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/</loc>
     <lastmod>2019-11-22T06:47:33.047Z</lastmod>
     <data>
         <display>
