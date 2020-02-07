@@ -301,7 +301,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/</loc>
+    <loc>https://blog.driftking.tw/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:53:52.689Z</lastmod>
     <data>
         <display>
@@ -320,7 +320,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/</loc>
+    <loc>https://blog.driftking.tw/en/2018/10/Macbook-Pro-2018-Color-Banding-%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:53:52.689Z</lastmod>
     <data>
         <display>
@@ -377,23 +377,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2017/12/raspberry-zero-w-headless-%E8%87%AA%E5%8B%95%E9%80%A3%E4%B8%8A%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF%E8%88%87%E9%96%8B%E5%95%9FSSH%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2019-11-22T06:52:43.749Z</lastmod>
-    <data>
-        <display>
-        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
-        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
-        
-        <tag>Raspberry Pi</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/en/2017/12/raspberry-zero-w-headless-%E8%87%AA%E5%8B%95%E9%80%A3%E4%B8%8A%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF%E8%88%87%E9%96%8B%E5%95%9FSSH%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:52:43.749Z</lastmod>
     <data>
@@ -411,16 +394,14 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
-    <lastmod>2019-11-22T06:52:39.989Z</lastmod>
+    <loc>https://blog.driftking.tw/2017/12/raspberry-zero-w-headless-%E8%87%AA%E5%8B%95%E9%80%A3%E4%B8%8A%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF%E8%88%87%E9%96%8B%E5%95%9FSSH%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2019-11-22T06:52:43.749Z</lastmod>
     <data>
         <display>
-        <title>Ducky ONE RGB 青軸 極簡易開箱</title>
-        <pubTime>2017-12-20T18:40:08.000Z</pubTime>
+        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
+        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
         
-        <tag>Keyboard</tag>
-         
-        <tag>開箱</tag>
+        <tag>Raspberry Pi</tag>
          
          
            
@@ -449,7 +430,26 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2017/09/sketchup-2017-%E4%BF%AE%E5%BE%A9%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C/</loc>
+    <loc>https://blog.driftking.tw/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
+    <lastmod>2019-11-22T06:52:39.989Z</lastmod>
+    <data>
+        <display>
+        <title>Ducky ONE RGB 青軸 極簡易開箱</title>
+        <pubTime>2017-12-20T18:40:08.000Z</pubTime>
+        
+        <tag>Keyboard</tag>
+         
+        <tag>開箱</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/en/2017/09/sketchup-2017-%E4%BF%AE%E5%BE%A9%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:52:30.297Z</lastmod>
     <data>
         <display>
@@ -468,7 +468,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2017/09/sketchup-2017-%E4%BF%AE%E5%BE%A9%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C/</loc>
+    <loc>https://blog.driftking.tw/2017/09/sketchup-2017-%E4%BF%AE%E5%BE%A9%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:52:30.297Z</lastmod>
     <data>
         <display>
@@ -544,7 +544,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
+    <loc>https://blog.driftking.tw/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
     <lastmod>2019-11-22T06:51:14.333Z</lastmod>
     <data>
         <display>
@@ -563,7 +563,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
+    <loc>https://blog.driftking.tw/en/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
     <lastmod>2019-11-22T06:51:14.333Z</lastmod>
     <data>
         <display>
@@ -662,7 +662,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/06/Laravel-%E7%94%A2%E7%94%9F%E7%B0%A1%E6%98%93XML%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://blog.driftking.tw/en/2018/06/Laravel-%E7%94%A2%E7%94%9F%E7%B0%A1%E6%98%93XML%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:42.307Z</lastmod>
     <data>
         <display>
@@ -683,7 +683,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/06/Laravel-%E7%94%A2%E7%94%9F%E7%B0%A1%E6%98%93XML%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://blog.driftking.tw/2018/06/Laravel-%E7%94%A2%E7%94%9F%E7%B0%A1%E6%98%93XML%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:42.307Z</lastmod>
     <data>
         <display>
@@ -818,25 +818,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
-    <lastmod>2019-11-22T06:50:10.333Z</lastmod>
-    <data>
-        <display>
-        <title>Windows 10 安裝 Ubuntu bash</title>
-        <pubTime>2018-03-03T03:06:46.000Z</pubTime>
-        
-        <tag>Win10</tag>
-         
-        <tag>Ubuntu</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
     <lastmod>2019-11-22T06:50:10.333Z</lastmod>
     <data>
@@ -856,7 +837,26 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
+    <loc>https://blog.driftking.tw/en/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
+    <lastmod>2019-11-22T06:50:10.333Z</lastmod>
+    <data>
+        <display>
+        <title>Windows 10 安裝 Ubuntu bash</title>
+        <pubTime>2018-03-03T03:06:46.000Z</pubTime>
+        
+        <tag>Win10</tag>
+         
+        <tag>Ubuntu</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/en/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
     <lastmod>2019-11-22T06:49:41.374Z</lastmod>
     <data>
         <display>
@@ -875,7 +875,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
+    <loc>https://blog.driftking.tw/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
     <lastmod>2019-11-22T06:49:41.374Z</lastmod>
     <data>
         <display>
@@ -974,7 +974,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/01/logitech-g27-%E6%96%B9%E5%90%91%E7%9B%A4-%E5%9B%9E%E6%AD%A3-%E6%A0%A1%E6%AD%A3%E5%95%8F%E9%A1%8C%E7%B6%AD%E4%BF%AE%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://blog.driftking.tw/en/2018/01/logitech-g27-%E6%96%B9%E5%90%91%E7%9B%A4-%E5%9B%9E%E6%AD%A3-%E6%A0%A1%E6%AD%A3%E5%95%8F%E9%A1%8C%E7%B6%AD%E4%BF%AE%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:49:21.310Z</lastmod>
     <data>
         <display>
@@ -995,7 +995,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/01/logitech-g27-%E6%96%B9%E5%90%91%E7%9B%A4-%E5%9B%9E%E6%AD%A3-%E6%A0%A1%E6%AD%A3%E5%95%8F%E9%A1%8C%E7%B6%AD%E4%BF%AE%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://blog.driftking.tw/2018/01/logitech-g27-%E6%96%B9%E5%90%91%E7%9B%A4-%E5%9B%9E%E6%AD%A3-%E6%A0%A1%E6%AD%A3%E5%95%8F%E9%A1%8C%E7%B6%AD%E4%BF%AE%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:49:21.310Z</lastmod>
     <data>
         <display>
@@ -1054,25 +1054,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/</loc>
-    <lastmod>2019-11-22T06:48:39.673Z</lastmod>
-    <data>
-        <display>
-        <title>Google Pixel USB-C Earbuds 耳機開箱</title>
-        <pubTime>2018-11-02T13:11:33.000Z</pubTime>
-        
-        <tag>開箱</tag>
-         
-        <tag>Google</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/</loc>
     <lastmod>2019-11-22T06:48:39.673Z</lastmod>
     <data>
@@ -1092,16 +1073,16 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/12/%E5%88%A9%E7%94%A8Applescript%E5%BF%AB%E9%80%9F%E5%88%87%E6%8F%9BTrueTone/</loc>
-    <lastmod>2019-11-22T06:48:20.626Z</lastmod>
+    <loc>https://blog.driftking.tw/en/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/</loc>
+    <lastmod>2019-11-22T06:48:39.673Z</lastmod>
     <data>
         <display>
-        <title>利用Applescript快速切換TrueTone</title>
-        <pubTime>2018-12-01T16:20:52.000Z</pubTime>
+        <title>Google Pixel USB-C Earbuds 耳機開箱</title>
+        <pubTime>2018-11-02T13:11:33.000Z</pubTime>
         
-        <tag>MacOS</tag>
+        <tag>開箱</tag>
          
-        <tag>Touchbar</tag>
+        <tag>Google</tag>
          
          
            
@@ -1130,16 +1111,16 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/</loc>
-    <lastmod>2019-11-22T06:48:00.459Z</lastmod>
+    <loc>https://blog.driftking.tw/2018/12/%E5%88%A9%E7%94%A8Applescript%E5%BF%AB%E9%80%9F%E5%88%87%E6%8F%9BTrueTone/</loc>
+    <lastmod>2019-11-22T06:48:20.626Z</lastmod>
     <data>
         <display>
-        <title>利用 SFTP 在 Android 上存取 MacOS 檔案</title>
-        <pubTime>2019-10-04T14:00:00.000Z</pubTime>
+        <title>利用Applescript快速切換TrueTone</title>
+        <pubTime>2018-12-01T16:20:52.000Z</pubTime>
         
         <tag>MacOS</tag>
          
-        <tag>SFTP</tag>
+        <tag>Touchbar</tag>
          
          
            
@@ -1168,7 +1149,26 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/</loc>
+    <loc>https://blog.driftking.tw/en/2019/09/%E5%88%A9%E7%94%A8SFTP%E5%9C%A8Android%E4%B8%8A%E5%AD%98%E5%8F%96MacOS%E6%AA%94%E6%A1%88/</loc>
+    <lastmod>2019-11-22T06:48:00.459Z</lastmod>
+    <data>
+        <display>
+        <title>利用 SFTP 在 Android 上存取 MacOS 檔案</title>
+        <pubTime>2019-10-04T14:00:00.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>SFTP</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/</loc>
     <lastmod>2019-11-22T06:47:33.047Z</lastmod>
     <data>
         <display>
@@ -1187,7 +1187,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/</loc>
+    <loc>https://blog.driftking.tw/en/2019/09/%E5%9C%A8MacOS%E4%B8%8A%E6%90%AD%E5%BB%BASMB%E7%B0%A1%E6%98%93%E6%AA%94%E6%A1%88%E5%88%86%E4%BA%AB%E4%BC%BA%E6%9C%8D%E5%99%A8/</loc>
     <lastmod>2019-11-22T06:47:33.047Z</lastmod>
     <data>
         <display>

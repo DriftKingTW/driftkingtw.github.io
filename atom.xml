@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2020-02-05T14:45:22.848Z</updated>
+  <updated>2020-02-07T05:01:07.682Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -15,20 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Why_My_Account_Got_Hacked_-_The_Password_Security_and_Physical_Key</title>
-    <link href="https://blog.driftking.tw/en/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/"/>
-    <id>https://blog.driftking.tw/en/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/</id>
-    <published>2020-02-05T13:48:41.000Z</published>
-    <updated>2020-02-05T14:45:22.848Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>為什麼我的帳號會被盜？淺談密碼安全及實體金鑰</title>
@@ -48,6 +34,20 @@
     
     
       <category term="密碼" scheme="https://blog.driftking.tw/tags/%E5%AF%86%E7%A2%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Why_My_Account_Got_Hacked_-_The_Password_Security_and_Physical_Key</title>
+    <link href="https://blog.driftking.tw/en/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/"/>
+    <id>https://blog.driftking.tw/en/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/</id>
+    <published>2020-02-05T13:48:41.000Z</published>
+    <updated>2020-02-05T14:45:22.848Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
     
   </entry>
   
@@ -98,28 +98,6 @@
   </entry>
   
   <entry>
-    <title>A Better Server Status Monitoring Tool - Glances (htop/top Alternative)</title>
-    <link href="https://blog.driftking.tw/en/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/"/>
-    <id>https://blog.driftking.tw/en/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</id>
-    <published>2019-11-18T11:50:00.000Z</published>
-    <updated>2019-11-22T06:54:42.637Z</updated>
-    
-    <content type="html"><![CDATA[<p>Recently, I’m looking for a temperture and cpu status monitor for my Pi nas server. <code>vcgencmd</code> command and <code>htop</code> get the jobs done, but it’s always better to have them in the same window (<code>htop</code> can’t show temperture which bothers me alot). So I found an cross-platform, python-based <code>htop</code> alternative - <a href="https://nicolargo.github.io/glances/" target="_blank" rel="noopener">Glances</a>, it’s easy to install and super handy. The only downside is that it uses a bit more cpu resources than I expected (on Pi4 4GB version).<a id="more"></a></p><h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>In Linux (Debian, Ubuntu, etc.) you can simply use <code>apt-get</code> to install.</p><p><code>sudo apt-get install glances</code></p><p>If you have <code>Homebrew</code> installed on MacOS, use <code>brew</code> to install.</p><p><code>brew install glances</code></p><p>Note that I have run into some trouble when installing on MacOS, it shows the error message like this:</p><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "/usr/local/Cellar/glances/3.1.3/libexec/bin/glances", line 6, in &lt;module&gt;</span><br><span class="line">    from pkg_resources import load_entry_point</span><br><span class="line">ModuleNotFoundError: No module named 'pkg_resources'</span><br></pre></td></tr></table></figure><p>After googling, post-install should solved the problem.</p><p><code>brew postinstall python3</code></p><p>Windows need to install <code>python</code> first, and use <code>pip</code> to get <code>glances</code></p><p><code>pip install glances</code></p><h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><h2 id="Host-mode"><a href="#Host-mode" class="headerlink" title="Host mode"></a>Host mode</h2><p>Open Terminal and run glances</p><p><code>glances</code></p><p>Show RAW JSON status</p><p><code>glances --stdout cpu.user,mem.used,load</code></p><p>or in CSV format</p><p><code>glances --stdout-csv now,cpu.user,mem.used,load</code></p><p>Enter <code>q</code> or <code>Esc</code> to quit</p><h2 id="Server-Client-Mode"><a href="#Server-Client-Mode" class="headerlink" title="Server/Client Mode"></a>Server/Client Mode</h2><p>Server side:</p><p><code>glances -s</code></p><p>Client side (change SERVER-IP to your own server ip):</p><p><code>glances -s SERVER-IP</code></p><h2 id="Remote-mode-Web-UI"><a href="#Remote-mode-Web-UI" class="headerlink" title="Remote mode (Web-UI)"></a>Remote mode (Web-UI)</h2><p>Server side:</p><p><code>glances -w</code></p><p>Client side (change SERVER-IP to your own server ip, default port <code>61208</code>):</p><p><code>http://SERVER-IP:61208</code></p><p>Done! Now you can monitoring all status (including cpu-temperture) in comfort! (Image shows my Pi nas’ status)</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574080130/blog/2019/11/%E9%9B%BB%E8%85%A6%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%B7%A8%E5%B9%B3%E8%87%BA%E7%9A%84%E9%96%8B%E6%BA%90%E7%9B%A3%E6%8E%A7%E5%A5%BD%E5%B9%AB%E6%89%8B%20-%20Glances/Screen_Shot_2019-11-18_at_7.54.46_PM.png" alt=""></p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://nicolargo.github.io/glances/" target="_blank" rel="noopener">Glances</a></p><p><a href="https://github.com/asciinema/asciinema/issues/260" target="_blank" rel="noopener">fails after brew installation: ModuleNotFoundError: No module named ‘pkg_resources’ #260</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Recently, I’m looking for a temperture and cpu status monitor for my Pi nas server. &lt;code&gt;vcgencmd&lt;/code&gt; command and &lt;code&gt;htop&lt;/code&gt; get the jobs done, but it’s always better to have them in the same window (&lt;code&gt;htop&lt;/code&gt; can’t show temperture which bothers me alot). So I found an cross-platform, python-based &lt;code&gt;htop&lt;/code&gt; alternative - &lt;a href=&quot;https://nicolargo.github.io/glances/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Glances&lt;/a&gt;, it’s easy to install and super handy. The only downside is that it uses a bit more cpu resources than I expected (on Pi4 4GB version).&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="RaspberryPi" scheme="https://blog.driftking.tw/tags/RaspberryPi/"/>
-    
-      <category term="StatusMonitor" scheme="https://blog.driftking.tw/tags/StatusMonitor/"/>
-    
-  </entry>
-  
-  <entry>
     <title>電腦/伺服器跨平臺的開源監控好幫手 - Glances</title>
     <link href="https://blog.driftking.tw/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/"/>
     <id>https://blog.driftking.tw/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</id>
@@ -138,6 +116,28 @@
       <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
     
       <category term="MonitoringTool/監控軟體" scheme="https://blog.driftking.tw/tags/MonitoringTool-%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A Better Server Status Monitoring Tool - Glances (htop/top Alternative)</title>
+    <link href="https://blog.driftking.tw/en/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/"/>
+    <id>https://blog.driftking.tw/en/2019/11/A-Better-Server-Status-Monitoring-Tool-Glances-htop-top-Alternative/</id>
+    <published>2019-11-18T11:50:00.000Z</published>
+    <updated>2019-11-22T06:54:42.637Z</updated>
+    
+    <content type="html"><![CDATA[<p>Recently, I’m looking for a temperture and cpu status monitor for my Pi nas server. <code>vcgencmd</code> command and <code>htop</code> get the jobs done, but it’s always better to have them in the same window (<code>htop</code> can’t show temperture which bothers me alot). So I found an cross-platform, python-based <code>htop</code> alternative - <a href="https://nicolargo.github.io/glances/" target="_blank" rel="noopener">Glances</a>, it’s easy to install and super handy. The only downside is that it uses a bit more cpu resources than I expected (on Pi4 4GB version).<a id="more"></a></p><h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>In Linux (Debian, Ubuntu, etc.) you can simply use <code>apt-get</code> to install.</p><p><code>sudo apt-get install glances</code></p><p>If you have <code>Homebrew</code> installed on MacOS, use <code>brew</code> to install.</p><p><code>brew install glances</code></p><p>Note that I have run into some trouble when installing on MacOS, it shows the error message like this:</p><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "/usr/local/Cellar/glances/3.1.3/libexec/bin/glances", line 6, in &lt;module&gt;</span><br><span class="line">    from pkg_resources import load_entry_point</span><br><span class="line">ModuleNotFoundError: No module named 'pkg_resources'</span><br></pre></td></tr></table></figure><p>After googling, post-install should solved the problem.</p><p><code>brew postinstall python3</code></p><p>Windows need to install <code>python</code> first, and use <code>pip</code> to get <code>glances</code></p><p><code>pip install glances</code></p><h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><h2 id="Host-mode"><a href="#Host-mode" class="headerlink" title="Host mode"></a>Host mode</h2><p>Open Terminal and run glances</p><p><code>glances</code></p><p>Show RAW JSON status</p><p><code>glances --stdout cpu.user,mem.used,load</code></p><p>or in CSV format</p><p><code>glances --stdout-csv now,cpu.user,mem.used,load</code></p><p>Enter <code>q</code> or <code>Esc</code> to quit</p><h2 id="Server-Client-Mode"><a href="#Server-Client-Mode" class="headerlink" title="Server/Client Mode"></a>Server/Client Mode</h2><p>Server side:</p><p><code>glances -s</code></p><p>Client side (change SERVER-IP to your own server ip):</p><p><code>glances -s SERVER-IP</code></p><h2 id="Remote-mode-Web-UI"><a href="#Remote-mode-Web-UI" class="headerlink" title="Remote mode (Web-UI)"></a>Remote mode (Web-UI)</h2><p>Server side:</p><p><code>glances -w</code></p><p>Client side (change SERVER-IP to your own server ip, default port <code>61208</code>):</p><p><code>http://SERVER-IP:61208</code></p><p>Done! Now you can monitoring all status (including cpu-temperture) in comfort! (Image shows my Pi nas’ status)</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574080130/blog/2019/11/%E9%9B%BB%E8%85%A6%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%B7%A8%E5%B9%B3%E8%87%BA%E7%9A%84%E9%96%8B%E6%BA%90%E7%9B%A3%E6%8E%A7%E5%A5%BD%E5%B9%AB%E6%89%8B%20-%20Glances/Screen_Shot_2019-11-18_at_7.54.46_PM.png" alt=""></p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://nicolargo.github.io/glances/" target="_blank" rel="noopener">Glances</a></p><p><a href="https://github.com/asciinema/asciinema/issues/260" target="_blank" rel="noopener">fails after brew installation: ModuleNotFoundError: No module named ‘pkg_resources’ #260</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Recently, I’m looking for a temperture and cpu status monitor for my Pi nas server. &lt;code&gt;vcgencmd&lt;/code&gt; command and &lt;code&gt;htop&lt;/code&gt; get the jobs done, but it’s always better to have them in the same window (&lt;code&gt;htop&lt;/code&gt; can’t show temperture which bothers me alot). So I found an cross-platform, python-based &lt;code&gt;htop&lt;/code&gt; alternative - &lt;a href=&quot;https://nicolargo.github.io/glances/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Glances&lt;/a&gt;, it’s easy to install and super handy. The only downside is that it uses a bit more cpu resources than I expected (on Pi4 4GB version).&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="RaspberryPi" scheme="https://blog.driftking.tw/tags/RaspberryPi/"/>
+    
+      <category term="StatusMonitor" scheme="https://blog.driftking.tw/tags/StatusMonitor/"/>
     
   </entry>
   
@@ -382,32 +382,6 @@
   
   <entry>
     <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
-    <link href="https://blog.driftking.tw/en/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/"/>
-    <id>https://blog.driftking.tw/en/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/</id>
-    <published>2019-10-11T13:25:00.000Z</published>
-    <updated>2019-11-22T06:46:58.669Z</updated>
-    
-    <content type="html"><![CDATA[<p>相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。</p><p>不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是群輝（Synology）的 NAS 都有提供 TimeMachine 無線備份的功能，然而這兩者的價格都還是偏高的QwQ</p><p>所以在一輪 Google 後，我的解決方法就是利用此篇的主角：樹莓派（Raspberry Pi）來完成這項任務，在 Pi 4 推出後，硬體規格升級到了USB3.0、Gigabit Ethrnet，做個人用的簡易 NAS 已經算是堪用，更不用說對速度要求不高的 TimeMachine 了！<a id="more"></a></p><h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html" target="_blank" rel="noopener">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p><p><code>sudo raspi-config</code></p><p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p><p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p><p>接著重啟樹莓派。</p><p><code>sudo reboot</code></p><h1 id="分割磁碟-可選"><a href="#分割磁碟-可選" class="headerlink" title="分割磁碟(可選)"></a>分割磁碟(可選)</h1><p>如果整顆硬碟都是要拿來做 TimeCapsule 的話此步驟可以跳過，直接續讀<strong><a href="#安裝過程">安裝過程</a></strong>。</p><p>首先列出硬碟情況：</p><p><code>lsblk</code></p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812124/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.41.53_AM.png" alt=""></p><p>找到硬碟代號，例如這邊sda是我的外接硬碟，裡面有之前的分區。<br>首先用 <code>fdisk</code> 重新分割這顆硬碟：</p><p><code>sudo fdisk /dev/sda</code></p><p>進入 <code>fdisk</code> 可以按 <code>m</code> 顯示使用說明，這邊簡述我的硬碟分割過程：</p><ol><li><p>輸入兩次 <code>d</code> 刪除兩個原先的分區</p></li><li><p><code>n</code> 新增分區，分區代號以及起始區塊預設，結束區塊 <code>+450G</code> (這樣會建立一個代號1，450G大小的分區)</p></li><li><p>再次用 <code>n</code> 新增第二分區，一路 <code>Enter</code> 完成剩下硬碟空間的分區</p></li><li><p><code>w</code> 寫入硬碟分區資料並退出 <code>fdisk</code></p></li></ol><p>接著再次查看分割結果是否正確</p><p><code>lsblk</code></p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812186/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.42.56_AM.png" alt=""></p><p>圖中可以看到硬碟已經成功分割成希望的數量以及大小<br>(注意：<code>fdisk</code> 僅支援分割2TB內的硬碟，若要分割更大的需要安裝 <code>gparted</code> 在桌面環境下操作)</p><h1 id="安裝過程"><a href="#安裝過程" class="headerlink" title="安裝過程"></a>安裝過程</h1><h2 id="準備硬碟"><a href="#準備硬碟" class="headerlink" title="準備硬碟"></a>準備硬碟</h2><p>首先格式化硬碟(<code>sda1</code>是我要格式化的分區，請依照<code>lsblk</code>顯示的自行更換)</p><p><code>sudo mkfs.ext4 /dev/sda1</code></p><p>這邊建議以 <code>ext4</code> 格式化達到最佳效能，雖然有工具可以讓 Linux 讀取 <code>hfsplus</code> 等蘋果檔案格式，但是我測試之後速度慢到想哭(／‵Д′)／~ ╧╧（這邊不太確定是不是我不會設定問題，若有錯誤歡迎指正</p><p>而且 <code>hfsplus</code> 也無法把硬碟拆下來接上 MacOS 就直接兩邊互通，索性直接用 <code>ext4</code>，以後連復原都透過網路了。</p><p>建立掛載點</p><p><code>sudo mkdir /mnt/TimeCapsule</code></p><p>查看分區的 <code>UUID</code> 並把它複製下來</p><p><code>sudo blkid</code></p><p>編輯 <code>fstab</code> 添加掛載資訊</p><p><code>sudo vim /etc/fstab</code></p><p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p><p><code>UUID=YOUR_UUID  /mnt/TimeCapsule  ext4  defaults  0 2</code></p><p>掛載硬碟(分區)</p><p><code>sudo mount -a</code></p><p>查看掛載狀態</p><p><code>df -h</code></p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812250/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.44.00_AM.png" alt=""></p><p>可以看到 <code>sda1</code> 已成功掛載到 <code>/mnt/TimeCapsule</code> 了</p><p>最後開啟硬碟權限</p><p><code>chmod 777 /mnt/TimeCapsule</code></p><h2 id="安裝及設定-Netatalk"><a href="#安裝及設定-Netatalk" class="headerlink" title="安裝及設定 Netatalk"></a>安裝及設定 Netatalk</h2><p>安裝 <code>Netatalk</code></p><p><code>sudo apt-get install netatalk</code></p><p>安裝完成後用 <code>netatalk -v</code> 查看版本以及設定檔位置</p><p>接著編輯 <code>nsswitch.conf</code></p><p><code>sudo vim /etc/nsswitch.conf</code></p><p>在 <code>host</code> 那行的最後加上 <code>mdns4 mdns</code> 如下</p><p><code>hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4 mdns</code></p><p>設定 <code>afp.conf</code></p><p><code>sudo vim /etc/netatalk/afp.conf</code></p><p>內容如下</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Global]</span><br><span class="line">  mimic model = TimeCapsule6,106</span><br><span class="line"></span><br><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br></pre></td></tr></table></figure><p>保存後退出，最後啟動服務：</p><p><code>sudo service avahi-daemon start</code></p><p><code>sudo service netatalk start</code></p><p>這時應該能在 MacOS 看到你的網路硬碟了！</p><p>為了確定開機時會自動啟動服務，輸入以下指令：</p><p><code>sudo systemctl enable avahi-daemon</code></p><p><code>sudo systemctl enable netatalk</code></p><h2 id="MacOS-端設定"><a href="#MacOS-端設定" class="headerlink" title="MacOS 端設定"></a>MacOS 端設定</h2><p>接著打開 TimeMachine 設定，按選擇備份碟之後就能夠看到我們用 Raspberry Pi 的備份硬碟囉！選擇它之後輸入 Pi 的帳號密碼即可開始備份（第一次備份時間通常較長，如果開啟加密會更久），完成首次備份後接著以後就是差異備份，只要連上就會自動定期執行，在也不用怕麻煩或忘記備份了！</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812960/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.55.43_AM.png" alt=""></p><h2 id="進階設定"><a href="#進階設定" class="headerlink" title="進階設定"></a>進階設定</h2><h3 id="Raspberry-Pi-端"><a href="#Raspberry-Pi-端" class="headerlink" title="Raspberry Pi 端"></a>Raspberry Pi 端</h3><h4 id="用戶管理"><a href="#用戶管理" class="headerlink" title="用戶管理"></a>用戶管理</h4><p>新增用戶（username改成自己需要的使用者名稱）</p><p><code>useradd --create-home --groups users --user-group username</code></p><p>建立密碼</p><p><code>passwd username</code></p><p>編輯 <code>afp.conf</code></p><p><code>sudo vim /etc/netatalk/afp.conf</code></p><p>在 <code>[Time Machine]</code> (顯示名稱依照之前設定的可能會有不同)新增使用者</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br><span class="line">  valid user = username</span><br></pre></td></tr></table></figure><h4 id="靜態-IP"><a href="#靜態-IP" class="headerlink" title="靜態 IP"></a>靜態 IP</h4><p>固定 Pi 的 IP，這部分可以前往路由器設定，由於每家路由器不一定相同，所以另外依照各廠商提供的說明設定。</p><h3 id="Mac-端"><a href="#Mac-端" class="headerlink" title="Mac 端"></a>Mac 端</h3><p>首次備份時若覺得備份速度太慢可以執行以下 Script 關閉限流：</p><p><code>sudo sysctl debug.lowpri_throttle_enabled=0</code></p><p>恢復方式：</p><p><code>sudo sysctl debug.lowpri_throttle_enabled=1</code></p><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.gtwang.org/linux/linux-add-format-mount-harddisk/" target="_blank" rel="noopener">替 Linux 新增硬碟（磁碟分割、格式化與掛載）</a></p><p><a href="https://www.youtube.com/watch?v=yJs8f0spJO4" target="_blank" rel="noopener">How to Use Your Raspberry Pi as a Time Machine Backup Server for macOS</a></p><p><a href="https://www.imore.com/how-speed-your-time-machine-backups" target="_blank" rel="noopener">How to speed up your Time Machine backups</a></p><p><a href="https://openwrt.org/docs/guide-user/services/nas/netatalk_configuration" target="_blank" rel="noopener">AFP Netatalk share configuration (aka Apple Time Machine).</a></p><p><a href="https://gregology.net/2018/09/raspberry-pi-time-machine/" target="_blank" rel="noopener">Raspberry Pi Time Machine (2019 update)</a></p><p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p><p><a href="https://github.com/mr-bt/raspberrypi-timemachine" target="_blank" rel="noopener">Apple Time machine on RaspberryPI</a></p><p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p><p><a href="https://aunicorn.io/2018/08/15/how-to-make-a-time-capsule-with-your-raspberry-pi/" target="_blank" rel="noopener">利用 Raspberry Pi（树莓派）打造 Time Capsule（时间胶囊）</a></p><p>PS 因為各種文章新舊版本問題，所以參考了不少資料才整理出一個目前可以使用，快速的設定過程。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。&lt;/p&gt;
-&lt;p&gt;不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是群輝（Synology）的 NAS 都有提供 TimeMachine 無線備份的功能，然而這兩者的價格都還是偏高的QwQ&lt;/p&gt;
-&lt;p&gt;所以在一輪 Google 後，我的解決方法就是利用此篇的主角：樹莓派（Raspberry Pi）來完成這項任務，在 Pi 4 推出後，硬體規格升級到了USB3.0、Gigabit Ethrnet，做個人用的簡易 NAS 已經算是堪用，更不用說對速度要求不高的 TimeMachine 了！&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
-    
-      <category term="TimeCapsule" scheme="https://blog.driftking.tw/tags/TimeCapsule/"/>
-    
-      <category term="TimeMachine" scheme="https://blog.driftking.tw/tags/TimeMachine/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
     <link href="https://blog.driftking.tw/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/"/>
     <id>https://blog.driftking.tw/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/</id>
     <published>2019-10-11T13:25:00.000Z</published>
@@ -427,6 +401,32 @@
       <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
       <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
+    
+      <category term="TimeCapsule" scheme="https://blog.driftking.tw/tags/TimeCapsule/"/>
+    
+      <category term="TimeMachine" scheme="https://blog.driftking.tw/tags/TimeMachine/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇</title>
+    <link href="https://blog.driftking.tw/en/2019/10/%E5%88%A9%E7%94%A8RaspberryPi%E6%90%AD%E5%BB%BATimeCapsule%E4%BB%AE-%E8%BB%9F%E9%AB%94%E7%AF%87/"/>
+    <id>https://blog.driftking.tw/en/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/</id>
+    <published>2019-10-11T13:25:00.000Z</published>
+    <updated>2019-11-22T06:46:58.669Z</updated>
+    
+    <content type="html"><![CDATA[<p>相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。</p><p>不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是群輝（Synology）的 NAS 都有提供 TimeMachine 無線備份的功能，然而這兩者的價格都還是偏高的QwQ</p><p>所以在一輪 Google 後，我的解決方法就是利用此篇的主角：樹莓派（Raspberry Pi）來完成這項任務，在 Pi 4 推出後，硬體規格升級到了USB3.0、Gigabit Ethrnet，做個人用的簡易 NAS 已經算是堪用，更不用說對速度要求不高的 TimeMachine 了！<a id="more"></a></p><h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html" target="_blank" rel="noopener">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p><p><code>sudo raspi-config</code></p><p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p><p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p><p>接著重啟樹莓派。</p><p><code>sudo reboot</code></p><h1 id="分割磁碟-可選"><a href="#分割磁碟-可選" class="headerlink" title="分割磁碟(可選)"></a>分割磁碟(可選)</h1><p>如果整顆硬碟都是要拿來做 TimeCapsule 的話此步驟可以跳過，直接續讀<strong><a href="#安裝過程">安裝過程</a></strong>。</p><p>首先列出硬碟情況：</p><p><code>lsblk</code></p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812124/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.41.53_AM.png" alt=""></p><p>找到硬碟代號，例如這邊sda是我的外接硬碟，裡面有之前的分區。<br>首先用 <code>fdisk</code> 重新分割這顆硬碟：</p><p><code>sudo fdisk /dev/sda</code></p><p>進入 <code>fdisk</code> 可以按 <code>m</code> 顯示使用說明，這邊簡述我的硬碟分割過程：</p><ol><li><p>輸入兩次 <code>d</code> 刪除兩個原先的分區</p></li><li><p><code>n</code> 新增分區，分區代號以及起始區塊預設，結束區塊 <code>+450G</code> (這樣會建立一個代號1，450G大小的分區)</p></li><li><p>再次用 <code>n</code> 新增第二分區，一路 <code>Enter</code> 完成剩下硬碟空間的分區</p></li><li><p><code>w</code> 寫入硬碟分區資料並退出 <code>fdisk</code></p></li></ol><p>接著再次查看分割結果是否正確</p><p><code>lsblk</code></p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812186/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.42.56_AM.png" alt=""></p><p>圖中可以看到硬碟已經成功分割成希望的數量以及大小<br>(注意：<code>fdisk</code> 僅支援分割2TB內的硬碟，若要分割更大的需要安裝 <code>gparted</code> 在桌面環境下操作)</p><h1 id="安裝過程"><a href="#安裝過程" class="headerlink" title="安裝過程"></a>安裝過程</h1><h2 id="準備硬碟"><a href="#準備硬碟" class="headerlink" title="準備硬碟"></a>準備硬碟</h2><p>首先格式化硬碟(<code>sda1</code>是我要格式化的分區，請依照<code>lsblk</code>顯示的自行更換)</p><p><code>sudo mkfs.ext4 /dev/sda1</code></p><p>這邊建議以 <code>ext4</code> 格式化達到最佳效能，雖然有工具可以讓 Linux 讀取 <code>hfsplus</code> 等蘋果檔案格式，但是我測試之後速度慢到想哭(／‵Д′)／~ ╧╧（這邊不太確定是不是我不會設定問題，若有錯誤歡迎指正</p><p>而且 <code>hfsplus</code> 也無法把硬碟拆下來接上 MacOS 就直接兩邊互通，索性直接用 <code>ext4</code>，以後連復原都透過網路了。</p><p>建立掛載點</p><p><code>sudo mkdir /mnt/TimeCapsule</code></p><p>查看分區的 <code>UUID</code> 並把它複製下來</p><p><code>sudo blkid</code></p><p>編輯 <code>fstab</code> 添加掛載資訊</p><p><code>sudo vim /etc/fstab</code></p><p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p><p><code>UUID=YOUR_UUID  /mnt/TimeCapsule  ext4  defaults  0 2</code></p><p>掛載硬碟(分區)</p><p><code>sudo mount -a</code></p><p>查看掛載狀態</p><p><code>df -h</code></p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812250/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.44.00_AM.png" alt=""></p><p>可以看到 <code>sda1</code> 已成功掛載到 <code>/mnt/TimeCapsule</code> 了</p><p>最後開啟硬碟權限</p><p><code>chmod 777 /mnt/TimeCapsule</code></p><h2 id="安裝及設定-Netatalk"><a href="#安裝及設定-Netatalk" class="headerlink" title="安裝及設定 Netatalk"></a>安裝及設定 Netatalk</h2><p>安裝 <code>Netatalk</code></p><p><code>sudo apt-get install netatalk</code></p><p>安裝完成後用 <code>netatalk -v</code> 查看版本以及設定檔位置</p><p>接著編輯 <code>nsswitch.conf</code></p><p><code>sudo vim /etc/nsswitch.conf</code></p><p>在 <code>host</code> 那行的最後加上 <code>mdns4 mdns</code> 如下</p><p><code>hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4 mdns</code></p><p>設定 <code>afp.conf</code></p><p><code>sudo vim /etc/netatalk/afp.conf</code></p><p>內容如下</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Global]</span><br><span class="line">  mimic model = TimeCapsule6,106</span><br><span class="line"></span><br><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br></pre></td></tr></table></figure><p>保存後退出，最後啟動服務：</p><p><code>sudo service avahi-daemon start</code></p><p><code>sudo service netatalk start</code></p><p>這時應該能在 MacOS 看到你的網路硬碟了！</p><p>為了確定開機時會自動啟動服務，輸入以下指令：</p><p><code>sudo systemctl enable avahi-daemon</code></p><p><code>sudo systemctl enable netatalk</code></p><h2 id="MacOS-端設定"><a href="#MacOS-端設定" class="headerlink" title="MacOS 端設定"></a>MacOS 端設定</h2><p>接著打開 TimeMachine 設定，按選擇備份碟之後就能夠看到我們用 Raspberry Pi 的備份硬碟囉！選擇它之後輸入 Pi 的帳號密碼即可開始備份（第一次備份時間通常較長，如果開啟加密會更久），完成首次備份後接著以後就是差異備份，只要連上就會自動定期執行，在也不用怕麻煩或忘記備份了！</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812960/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.55.43_AM.png" alt=""></p><h2 id="進階設定"><a href="#進階設定" class="headerlink" title="進階設定"></a>進階設定</h2><h3 id="Raspberry-Pi-端"><a href="#Raspberry-Pi-端" class="headerlink" title="Raspberry Pi 端"></a>Raspberry Pi 端</h3><h4 id="用戶管理"><a href="#用戶管理" class="headerlink" title="用戶管理"></a>用戶管理</h4><p>新增用戶（username改成自己需要的使用者名稱）</p><p><code>useradd --create-home --groups users --user-group username</code></p><p>建立密碼</p><p><code>passwd username</code></p><p>編輯 <code>afp.conf</code></p><p><code>sudo vim /etc/netatalk/afp.conf</code></p><p>在 <code>[Time Machine]</code> (顯示名稱依照之前設定的可能會有不同)新增使用者</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br><span class="line">  valid user = username</span><br></pre></td></tr></table></figure><h4 id="靜態-IP"><a href="#靜態-IP" class="headerlink" title="靜態 IP"></a>靜態 IP</h4><p>固定 Pi 的 IP，這部分可以前往路由器設定，由於每家路由器不一定相同，所以另外依照各廠商提供的說明設定。</p><h3 id="Mac-端"><a href="#Mac-端" class="headerlink" title="Mac 端"></a>Mac 端</h3><p>首次備份時若覺得備份速度太慢可以執行以下 Script 關閉限流：</p><p><code>sudo sysctl debug.lowpri_throttle_enabled=0</code></p><p>恢復方式：</p><p><code>sudo sysctl debug.lowpri_throttle_enabled=1</code></p><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.gtwang.org/linux/linux-add-format-mount-harddisk/" target="_blank" rel="noopener">替 Linux 新增硬碟（磁碟分割、格式化與掛載）</a></p><p><a href="https://www.youtube.com/watch?v=yJs8f0spJO4" target="_blank" rel="noopener">How to Use Your Raspberry Pi as a Time Machine Backup Server for macOS</a></p><p><a href="https://www.imore.com/how-speed-your-time-machine-backups" target="_blank" rel="noopener">How to speed up your Time Machine backups</a></p><p><a href="https://openwrt.org/docs/guide-user/services/nas/netatalk_configuration" target="_blank" rel="noopener">AFP Netatalk share configuration (aka Apple Time Machine).</a></p><p><a href="https://gregology.net/2018/09/raspberry-pi-time-machine/" target="_blank" rel="noopener">Raspberry Pi Time Machine (2019 update)</a></p><p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p><p><a href="https://github.com/mr-bt/raspberrypi-timemachine" target="_blank" rel="noopener">Apple Time machine on RaspberryPI</a></p><p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p><p><a href="https://aunicorn.io/2018/08/15/how-to-make-a-time-capsule-with-your-raspberry-pi/" target="_blank" rel="noopener">利用 Raspberry Pi（树莓派）打造 Time Capsule（时间胶囊）</a></p><p>PS 因為各種文章新舊版本問題，所以參考了不少資料才整理出一個目前可以使用，快速的設定過程。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。&lt;/p&gt;
+&lt;p&gt;不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是群輝（Synology）的 NAS 都有提供 TimeMachine 無線備份的功能，然而這兩者的價格都還是偏高的QwQ&lt;/p&gt;
+&lt;p&gt;所以在一輪 Google 後，我的解決方法就是利用此篇的主角：樹莓派（Raspberry Pi）來完成這項任務，在 Pi 4 推出後，硬體規格升級到了USB3.0、Gigabit Ethrnet，做個人用的簡易 NAS 已經算是堪用，更不用說對速度要求不高的 TimeMachine 了！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
       <category term="TimeCapsule" scheme="https://blog.driftking.tw/tags/TimeCapsule/"/>
     
