@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1581007571/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/furchenpasswd.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1580971326/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/IMG_20191223_165024.jpg">
-<meta property="og:updated_time" content="2020-02-06T16:55:42.360Z">
+<meta property="og:updated_time" content="2020-02-07T05:01:07.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="為什麼我的帳號會被盜？淺談密碼安全及實體金鑰">
 <meta name="twitter:description" content="還在不同網站使用相同的密碼嗎？你的密碼是常見的組合或幾個英文數字湊合嗎？在資訊科技的進步的現在，不論年紀大小、身份，幾乎人人都有數個甚至上百的帳號密碼。網路上層出不窮的帳號被駭客攻擊、個資洩漏事件，就算是 Google、Amazon、Facebook 等大型企業也都無可避免，那麼這時候如何靠自己保護好帳號安全就顯得非常重要了。">
@@ -178,7 +178,7 @@
         <span class="column is-narrow">
             
             
-            25 分钟 讀完 (約 3784 字)
+            26 分钟 讀完 (約 3857 字)
         </span>
         
     </div>
@@ -238,6 +238,8 @@
 </table>
 <p>這種方法比起方法比起明文儲存好了些，因為攻擊者就算得到了資料庫也只能看到 Hash 過後的值。但是這種方式也不是沒有缺點，如果有兩個帳號使用了相同的密碼，那麼他們的 Hash 結果就會相同，這時可以靠其他資料猜測或彩虹表(Rainbow Table 一種整理出來的常見密碼 Hash 值表)輕易的找出密碼的原文。</p>
 <p>簡單來說，相當於密碼寫在紙上後，會用先一把對應的鑰匙鎖起來，但是如果有相同的密碼會被放到同樣的保險箱中(原文值相等所以 Hash 值也相等)，在資料庫中可以看到這兩個相同密碼是被放在一起的，這樣只要保險箱被破解，其他放在同樣的密碼也就跟著全遭殃了。</p>
+<blockquote class="colorquote info"><p>補充：Hash 處理過後是不可逆的，相當於這把鑰匙只能把它鎖起來不能解開，而加密的鑰匙是能夠加/解密的（依照不同加密方式可以視同一把鑰匙或不同把鑰匙）</p>
+</blockquote>
 <h2 id="Hash-Salting-加鹽"><a href="#Hash-Salting-加鹽" class="headerlink" title="Hash + Salting (加鹽)"></a>Hash + Salting (加鹽)</h2><p>Salting 加鹽是在上述 Hash 前，在密碼後面加上一串隨機產生的字符（像是隨機撒些鹽巴的感覺），然後再進行 Hash ，這樣即使是相同密碼，Hash 出來也是完全不同的結果，增加攻擊者破譯出密碼的難度。</p>
 <table>
 <thead>
