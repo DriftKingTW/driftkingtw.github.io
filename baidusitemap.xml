@@ -4,6 +4,38 @@
 
     
   <url>
+    <loc>https://blog.driftking.tw/2020/06/macos-app-cant-be-opened/</loc>
+    <lastmod>2020-06-08T13:14:22.741Z</lastmod>
+    <data>
+        <display>
+        <title>MacOS - 軟體無法開啟</title>
+        <pubTime>2020-06-08T12:44:57.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/en/2020/06/macos-app-cant-be-opened/</loc>
+    <lastmod>2020-06-08T12:52:13.740Z</lastmod>
+    <data>
+        <display>
+        <title>macos-app-cant-be-opened</title>
+        <pubTime>2020-06-08T12:44:57.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftking.tw/2020/02/Logitech-Master-2S-Gesture-Button-Fix/</loc>
     <lastmod>2020-02-12T14:29:32.801Z</lastmod>
     <data>
@@ -396,25 +428,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
-    <lastmod>2019-11-22T06:53:25.087Z</lastmod>
-    <data>
-        <display>
-        <title>利用 BetterTouchTool 在 Touchbar 上顯示 CPU 溫度</title>
-        <pubTime>2018-10-26T01:16:36.000Z</pubTime>
-        
-        <tag>MacOS</tag>
-         
-        <tag>Touchbar</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
     <lastmod>2019-11-22T06:53:25.087Z</lastmod>
     <data>
@@ -434,14 +447,16 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2017/12/raspberry-zero-w-headless-%E8%87%AA%E5%8B%95%E9%80%A3%E4%B8%8A%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF%E8%88%87%E9%96%8B%E5%95%9FSSH%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2019-11-22T06:52:43.749Z</lastmod>
+    <loc>https://blog.driftking.tw/en/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/</loc>
+    <lastmod>2019-11-22T06:53:25.087Z</lastmod>
     <data>
         <display>
-        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
-        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
+        <title>利用 BetterTouchTool 在 Touchbar 上顯示 CPU 溫度</title>
+        <pubTime>2018-10-26T01:16:36.000Z</pubTime>
         
-        <tag>Raspberry Pi</tag>
+        <tag>MacOS</tag>
+         
+        <tag>Touchbar</tag>
          
          
            
@@ -468,6 +483,23 @@
 
     
   <url>
+    <loc>https://blog.driftking.tw/2017/12/raspberry-zero-w-headless-%E8%87%AA%E5%8B%95%E9%80%A3%E4%B8%8A%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF%E8%88%87%E9%96%8B%E5%95%9FSSH%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2019-11-22T06:52:43.749Z</lastmod>
+    <data>
+        <display>
+        <title>Raspberry Zero W Headless 自動連上無線網路與開啟SSH</title>
+        <pubTime>2017-12-13T16:35:47.000Z</pubTime>
+        
+        <tag>Raspberry Pi</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftking.tw/2017/12/ducky-one-rgb-%E9%9D%92%E8%BB%B8-%E6%A5%B5%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1/</loc>
     <lastmod>2019-11-22T06:52:39.989Z</lastmod>
     <data>
@@ -475,9 +507,9 @@
         <title>Ducky ONE RGB 青軸 極簡易開箱</title>
         <pubTime>2017-12-20T18:40:08.000Z</pubTime>
         
-        <tag>Keyboard</tag>
-         
         <tag>開箱</tag>
+         
+        <tag>Keyboard</tag>
          
          
            
@@ -494,9 +526,9 @@
         <title>Ducky ONE RGB 青軸 極簡易開箱</title>
         <pubTime>2017-12-20T18:40:08.000Z</pubTime>
         
-        <tag>Keyboard</tag>
-         
         <tag>開箱</tag>
+         
+        <tag>Keyboard</tag>
          
          
            
@@ -506,7 +538,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2017/09/sketchup-2017-%E4%BF%AE%E5%BE%A9%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C/</loc>
+    <loc>https://blog.driftking.tw/2017/09/sketchup-2017-%E4%BF%AE%E5%BE%A9%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:52:30.297Z</lastmod>
     <data>
         <display>
@@ -525,7 +557,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2017/09/sketchup-2017-%E4%BF%AE%E5%BE%A9%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C/</loc>
+    <loc>https://blog.driftking.tw/en/2017/09/sketchup-2017-%E4%BF%AE%E5%BE%A9%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:52:30.297Z</lastmod>
     <data>
         <display>
@@ -563,25 +595,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/10/YD68%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D%E5%8F%8A%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2019-11-22T06:51:19.190Z</lastmod>
-    <data>
-        <display>
-        <title>YD68藍牙機械鍵盤組裝及心得</title>
-        <pubTime>2018-10-03T02:54:05.000Z</pubTime>
-        
-        <tag>Keyboard</tag>
-         
-        <tag>DIY</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/en/2018/10/YD68%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D%E5%8F%8A%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-11-22T06:51:19.190Z</lastmod>
     <data>
@@ -601,7 +614,26 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
+    <loc>https://blog.driftking.tw/2018/10/YD68%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E7%B5%84%E8%A3%9D%E5%8F%8A%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2019-11-22T06:51:19.190Z</lastmod>
+    <data>
+        <display>
+        <title>YD68藍牙機械鍵盤組裝及心得</title>
+        <pubTime>2018-10-03T02:54:05.000Z</pubTime>
+        
+        <tag>Keyboard</tag>
+         
+        <tag>DIY</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/en/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
     <lastmod>2019-11-22T06:51:14.333Z</lastmod>
     <data>
         <display>
@@ -620,7 +652,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
+    <loc>https://blog.driftking.tw/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/</loc>
     <lastmod>2019-11-22T06:51:14.333Z</lastmod>
     <data>
         <display>
@@ -677,27 +709,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/07/Laravel-Linux-%E4%BD%88%E7%BD%B2%E5%95%8F%E9%A1%8C%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2019-11-22T06:50:47.290Z</lastmod>
-    <data>
-        <display>
-        <title>Laravel Linux 佈署問題筆記</title>
-        <pubTime>2018-07-09T16:49:57.000Z</pubTime>
-        
-        <tag>PHP</tag>
-         
-        <tag>Laravel</tag>
-         
-        <tag>Linux</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/2018/07/Laravel-Linux-%E4%BD%88%E7%BD%B2%E5%95%8F%E9%A1%8C%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:47.290Z</lastmod>
     <data>
@@ -719,7 +730,28 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/06/Laravel-%E7%94%A2%E7%94%9F%E7%B0%A1%E6%98%93XML%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://blog.driftking.tw/en/2018/07/Laravel-Linux-%E4%BD%88%E7%BD%B2%E5%95%8F%E9%A1%8C%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2019-11-22T06:50:47.290Z</lastmod>
+    <data>
+        <display>
+        <title>Laravel Linux 佈署問題筆記</title>
+        <pubTime>2018-07-09T16:49:57.000Z</pubTime>
+        
+        <tag>PHP</tag>
+         
+        <tag>Laravel</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/2018/06/Laravel-%E7%94%A2%E7%94%9F%E7%B0%A1%E6%98%93XML%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:42.307Z</lastmod>
     <data>
         <display>
@@ -740,7 +772,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/06/Laravel-%E7%94%A2%E7%94%9F%E7%B0%A1%E6%98%93XML%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://blog.driftking.tw/en/2018/06/Laravel-%E7%94%A2%E7%94%9F%E7%B0%A1%E6%98%93XML%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2019-11-22T06:50:42.307Z</lastmod>
     <data>
         <display>
@@ -875,25 +907,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
-    <lastmod>2019-11-22T06:50:10.333Z</lastmod>
-    <data>
-        <display>
-        <title>Windows 10 安裝 Ubuntu bash</title>
-        <pubTime>2018-03-03T03:06:46.000Z</pubTime>
-        
-        <tag>Win10</tag>
-         
-        <tag>Ubuntu</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
     <lastmod>2019-11-22T06:50:10.333Z</lastmod>
     <data>
@@ -913,16 +926,16 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
-    <lastmod>2019-11-22T06:49:41.374Z</lastmod>
+    <loc>https://blog.driftking.tw/en/2018/03/Windows-10-%E5%AE%89%E8%A3%9D-Ubuntu-bash/</loc>
+    <lastmod>2019-11-22T06:50:10.333Z</lastmod>
     <data>
         <display>
-        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
-        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
+        <title>Windows 10 安裝 Ubuntu bash</title>
+        <pubTime>2018-03-03T03:06:46.000Z</pubTime>
         
-        <tag>Github</tag>
+        <tag>Win10</tag>
          
-        <tag>SSL</tag>
+        <tag>Ubuntu</tag>
          
          
            
@@ -951,6 +964,25 @@
 
     
   <url>
+    <loc>https://blog.driftking.tw/en/2018/03/%E5%9C%A8Github-Page%E4%B8%8A%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E8%87%AA%E8%A8%82HTTPS%E7%B6%B2%E5%9F%9F%E5%90%8D%E7%A8%B1/</loc>
+    <lastmod>2019-11-22T06:49:41.374Z</lastmod>
+    <data>
+        <display>
+        <title>在Github-Page上免費使用自訂HTTPS網域名稱</title>
+        <pubTime>2018-03-04T08:33:13.000Z</pubTime>
+        
+        <tag>Github</tag>
+         
+        <tag>SSL</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.driftking.tw/2018/02/iPad-Pro-10.5-%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1+%E7%B9%AA%E5%9C%96%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-11-22T06:49:35.349Z</lastmod>
     <data>
@@ -958,11 +990,11 @@
         <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
         <pubTime>2018-02-21T07:00:42.000Z</pubTime>
         
-        <tag>開箱</tag>
-         
         <tag>iPad</tag>
          
         <tag>illustration</tag>
+         
+        <tag>開箱</tag>
          
          
            
@@ -979,11 +1011,11 @@
         <title>iPad Pro 10.5 簡易開箱+繪圖心得</title>
         <pubTime>2018-02-21T07:00:42.000Z</pubTime>
         
-        <tag>開箱</tag>
-         
         <tag>iPad</tag>
          
         <tag>illustration</tag>
+         
+        <tag>開箱</tag>
          
          
            
@@ -993,7 +1025,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/01/ducky-one-rgb-%E8%A7%A3%E6%B1%BA%E7%A9%BA%E7%99%BD%E9%8D%B5%E6%BC%8F%E5%85%89%E5%95%8F%E9%A1%8C/</loc>
+    <loc>https://blog.driftking.tw/en/2018/01/ducky-one-rgb-%E8%A7%A3%E6%B1%BA%E7%A9%BA%E7%99%BD%E9%8D%B5%E6%BC%8F%E5%85%89%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:49:27.752Z</lastmod>
     <data>
         <display>
@@ -1012,7 +1044,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/01/ducky-one-rgb-%E8%A7%A3%E6%B1%BA%E7%A9%BA%E7%99%BD%E9%8D%B5%E6%BC%8F%E5%85%89%E5%95%8F%E9%A1%8C/</loc>
+    <loc>https://blog.driftking.tw/2018/01/ducky-one-rgb-%E8%A7%A3%E6%B1%BA%E7%A9%BA%E7%99%BD%E9%8D%B5%E6%BC%8F%E5%85%89%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2019-11-22T06:49:27.752Z</lastmod>
     <data>
         <display>
@@ -1052,25 +1084,6 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2019-11-22T06:48:46.150Z</lastmod>
-    <data>
-        <display>
-        <title>Delux Designer 單手機械鍵盤使用心得</title>
-        <pubTime>2018-11-05T08:38:27.000Z</pubTime>
-        
-        <tag>Keyboard</tag>
-         
-        <tag>開箱</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.driftking.tw/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-11-22T06:48:46.150Z</lastmod>
     <data>
@@ -1078,9 +1091,9 @@
         <title>Delux Designer 單手機械鍵盤使用心得</title>
         <pubTime>2018-11-05T08:38:27.000Z</pubTime>
         
-        <tag>Keyboard</tag>
-         
         <tag>開箱</tag>
+         
+        <tag>Keyboard</tag>
          
          
            
@@ -1090,7 +1103,26 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/</loc>
+    <loc>https://blog.driftking.tw/en/2018/11/Delux_Designer_%E5%96%AE%E6%89%8B%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2019-11-22T06:48:46.150Z</lastmod>
+    <data>
+        <display>
+        <title>Delux Designer 單手機械鍵盤使用心得</title>
+        <pubTime>2018-11-05T08:38:27.000Z</pubTime>
+        
+        <tag>開箱</tag>
+         
+        <tag>Keyboard</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.driftking.tw/en/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/</loc>
     <lastmod>2019-11-22T06:48:39.673Z</lastmod>
     <data>
         <display>
@@ -1109,7 +1141,7 @@
 
     
   <url>
-    <loc>https://blog.driftking.tw/en/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/</loc>
+    <loc>https://blog.driftking.tw/2018/11/Google-Pixel-USB-C-%E8%80%B3%E6%A9%9F%E9%96%8B%E7%AE%B1/</loc>
     <lastmod>2019-11-22T06:48:39.673Z</lastmod>
     <data>
         <display>
