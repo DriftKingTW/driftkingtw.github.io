@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="has-navbar-fixed-top">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
 <title>Using Raspberry Pi to Control a PWM Fan and Monitor its Speed - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/" rel="alternate" hreflang="zh-TW" />
+<link href="/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/" rel="alternate" hreflang="zh-TW">
     
 
 
-<meta name="description" content="printf("%s", "Stay Curious, Stay Creative");">
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
 
 
 
@@ -93,7 +93,7 @@
         <div class="navbar-brand">
             <a class="navbar-item navbar-logo" href="/en">
                 
-                <img src="/images/logo.png" alt="" height="28">
+                <img src="/images/logo.png" alt height="28">
                 
             </a>
             <div class="navbar-burger">
@@ -105,11 +105,9 @@
         
         <div class="navbar-menu navbar-start">
             
-            <a class="navbar-item "
-               href="/en/archives">Archives</a>
+            <a class="navbar-item " href="/en/archives">Archives</a>
             
-            <a class="navbar-item "
-               href="/en/about">About</a>
+            <a class="navbar-item " href="/en/about">About</a>
             
         </div>
         
@@ -160,7 +158,7 @@
                
             
             <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
-                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png" />
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
             </a>
         </div>
     </div>
@@ -188,7 +186,7 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574826956/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/Fur_chan_w_Noctua_fan_2.jpg" alt=""></p>
+        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574826956/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/Fur_chan_w_Noctua_fan_2.jpg" alt></p>
 <p>A lot of people uses fan to cool down their Raspberry Pi 4, but the fan’s noise is quiet problem (in a quiet room). In most case pi didn’t need that amount of cooling performance, so we can use <a href="https://en.wikipedia.org/wiki/Pulse-width_modulation" target="_blank" rel="noopener">PWM (Pulse Width Modulation)</a> to control fan speed and reduce the noise.<a id="more"></a></p>
 <h1 id="Wiring"><a href="#Wiring" class="headerlink" title="Wiring"></a>Wiring</h1><p>I use <a href="https://noctua.at/en/nf-a4x10-5v-pwm" target="_blank" rel="noopener">Noctua NF-A4 5V PWM</a>, a 40mm, 5V PWM fan. Here’s the wiring diagram:</p>
 <ul>
@@ -199,17 +197,17 @@
 </ul>
 <blockquote class="colorquote info"><p>If your fan doesn’t support PWM control, then you can see <a href="https://www.youtube.com/watch?v=oJ32CMxliCQ" target="_blank" rel="noopener">#138 Variable Speed Cooling Fan for Raspberry Pi using PWM and PID controller</a> or <a href="https://www.instructables.com/id/PWM-Regulated-Fan-Based-on-CPU-Temperature-for-Ras/" target="_blank" rel="noopener">PWM Regulated Fan Based on CPU Temperature for Raspberry Pi</a> to use a BJT transistor to use PWM control.</p>
 </blockquote>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574608109/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_93F334AD3BFC-1.jpg" alt=""></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574608109/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_93F334AD3BFC-1.jpg" alt></p>
 <p>The fan’s RPM signal is an OC(Open-Collector) circuit design (in most fan), so you’ll need a pull-up resistor to measure output waveform according to <a href="https://noctua.at/media/wysiwyg/Noctua_PWM_specifications_white_paper.pdf" target="_blank" rel="noopener">Noctua PWM white paper</a>.</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574608621/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_6F5175335AA4-1.jpg" alt=""></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574608621/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_6F5175335AA4-1.jpg" alt></p>
 <blockquote class="colorquote danger"><p>Warning! The Pi has 3.3V GPIO, so your pull-up resistor must be connect to 3.3V ONLY! You will fry your Pi if Vcc is connected to 5V.</p>
 </blockquote>
 <p>The pull-up resistor that I use is 1kΩ 1/4W. The white paper says the maximum current is 5mA. According to Ohm’s Law: $V=IR$, the resistor should be 660Ω or larger to protect your fan.</p>
 <p>Most micro-controller or SBC already have a decent circuit to generate PWM signal, you don’t need special circuit to generate it.</p>
 <p>I use a Molex 2510 4PIN (2.54mm) connector to connect the fan. (Need to cut out some fool-proof board to fit.)</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610745/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191123_141251.jpg" alt=""></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610745/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191123_141251.jpg" alt></p>
 <p>Here’s a photo testing hardware and program on Pi 3B.`</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610248/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191124_234259.jpg" alt=""></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610248/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191124_234259.jpg" alt></p>
 <h1 id="Program-Control"><a href="#Program-Control" class="headerlink" title="Program Control"></a>Program Control</h1><h3 id="PWM-GPIO-Test"><a href="#PWM-GPIO-Test" class="headerlink" title="PWM GPIO Test"></a>PWM GPIO Test</h3><p>I use <a href="http://wiringpi.com/" target="_blank" rel="noopener">Wiring Pi</a> to test PWM signal. If you don’t want to test it, jump to <a href="#Use-PWM-to-Control-Fan-Speed">Use PWM to Control Fan Speed</a>.</p>
 <p>The Pi4 haven’t update to latest version of wiring-pi yet, need to update it manually.</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line">wget https://project-downloads.drogon.net/wiringpi-latest.deb</span><br><span class="line">sudo dpkg -i wiringpi-latest.deb</span><br></pre></td></tr></table></figure>
@@ -243,7 +241,7 @@
 </blockquote>
 <p>If you don’t want to know the theory part, than go ahead to: <a href="#Reading-RPM-Signal">Reading RPM Signal</a></p>
 <p>PWM uses square wave’s duty-cycle to reduce the average value of voltage, if the duty cycle is 50%, the fan will spin at 50% of it’s full speed; duty cycle 75%, fan 75%, and so on. More detail: <a href="https://en.wikipedia.org/wiki/Pulse-width_modulation" target="_blank" rel="noopener">Pulse-width modulation</a></p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574611525/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_AABD9EE6FAB5-1.jpg" alt=""></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574611525/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_AABD9EE6FAB5-1.jpg" alt></p>
 <p>And we can take a look at the control script:</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> RPi.GPIO <span class="hljs-keyword">as</span> GPIO</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> signal</span><br><span class="line"><span class="hljs-keyword">import</span> sys</span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Configuration</span></span><br><span class="line">FAN_PIN = <span class="hljs-number">18</span>            <span class="hljs-comment"># BCM pin used to drive PWM fan</span></span><br><span class="line">WAIT_TIME = <span class="hljs-number">1</span>           <span class="hljs-comment"># [s] Time to wait between each refresh</span></span><br><span class="line">PWM_FREQ = <span class="hljs-number">25000</span>        <span class="hljs-comment"># [Hz] 25kHz for Noctua PWM control</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Configurable temperature and fan speed</span></span><br><span class="line">MIN_TEMP = <span class="hljs-number">40</span></span><br><span class="line">MAX_TEMP = <span class="hljs-number">70</span></span><br><span class="line">FAN_LOW = <span class="hljs-number">40</span></span><br><span class="line">FAN_HIGH = <span class="hljs-number">100</span></span><br><span class="line">FAN_OFF = <span class="hljs-number">0</span></span><br><span class="line">FAN_MAX = <span class="hljs-number">100</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Get CPU's temperature</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getCpuTemperature</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    res = os.popen(<span class="hljs-string">'vcgencmd measure_temp'</span>).readline()</span><br><span class="line">    temp =(res.replace(<span class="hljs-string">"temp="</span>,<span class="hljs-string">""</span>).replace(<span class="hljs-string">"'C\n"</span>,<span class="hljs-string">""</span>))</span><br><span class="line">    <span class="hljs-comment">#print("temp is &#123;0&#125;".format(temp)) # Uncomment for testing</span></span><br><span class="line">    <span class="hljs-keyword">return</span> temp</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Set fan speed</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setFanSpeed</span><span class="hljs-params">(speed)</span>:</span></span><br><span class="line">    fan.start(speed)</span><br><span class="line">    <span class="hljs-keyword">return</span>()</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Handle fan speed</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handleFanSpeed</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    temp = float(getCpuTemperature())</span><br><span class="line">    <span class="hljs-comment"># Turn off the fan if temperature is below MIN_TEMP</span></span><br><span class="line">    <span class="hljs-keyword">if</span> temp &lt; MIN_TEMP:</span><br><span class="line">        setFanSpeed(FAN_OFF)</span><br><span class="line">        <span class="hljs-comment">#print("Fan OFF") # Uncomment for testing</span></span><br><span class="line">    <span class="hljs-comment"># Set fan speed to MAXIMUM if the temperature is above MAX_TEMP</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> temp &gt; MAX_TEMP:</span><br><span class="line">        setFanSpeed(FAN_MAX)</span><br><span class="line">        <span class="hljs-comment">#print("Fan MAX") # Uncomment for testing</span></span><br><span class="line">    <span class="hljs-comment"># Caculate dynamic fan speed</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        step = (FAN_HIGH - FAN_LOW)/(MAX_TEMP - MIN_TEMP)   </span><br><span class="line">        temp -= MIN_TEMP</span><br><span class="line">        setFanSpeed(FAN_LOW + ( round(temp) * step ))</span><br><span class="line">        <span class="hljs-comment">#print(FAN_LOW + ( round(temp) * step )) # Uncomment for testing</span></span><br><span class="line">    <span class="hljs-keyword">return</span> ()</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    <span class="hljs-comment"># Setup GPIO pin</span></span><br><span class="line">    GPIO.setwarnings(<span class="hljs-keyword">False</span>)</span><br><span class="line">    GPIO.setmode(GPIO.BCM)</span><br><span class="line">    GPIO.setup(FAN_PIN, GPIO.OUT, initial=GPIO.LOW)</span><br><span class="line">    fan = GPIO.PWM(FAN_PIN,PWM_FREQ)</span><br><span class="line">    setFanSpeed(FAN_OFF)</span><br><span class="line">    <span class="hljs-comment"># Handle fan speed every WAIT_TIME sec</span></span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:</span><br><span class="line">        handleFanSpeed()</span><br><span class="line">        time.sleep(WAIT_TIME)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">except</span> KeyboardInterrupt: <span class="hljs-comment"># trap a CTRL+C keyboard interrupt</span></span><br><span class="line">    setFanSpeed(FAN_HIGH)</span><br><span class="line">    <span class="hljs-comment">#GPIO.cleanup() # resets all GPIO ports used by this function</span></span><br></pre></td></tr></table></figure>
 
@@ -305,7 +303,7 @@
     
 <div id="valine-thread"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     // 1.定義localeName 和localeMode 
         var localeName = 'zh-tw',
@@ -376,8 +374,7 @@
         <div class="columns content">
             <div class="column is-narrow has-text-centered">
                 &copy; 2020 DriftKingTW&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>
             <div class="column is-hidden-mobile"></div>
 
@@ -547,7 +544,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">

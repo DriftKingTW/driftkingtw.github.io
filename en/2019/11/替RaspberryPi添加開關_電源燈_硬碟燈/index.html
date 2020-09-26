@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="has-navbar-fixed-top">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
 <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制 - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" rel="alternate" hreflang="zh-TW" />
+<link href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" rel="alternate" hreflang="zh-TW">
     
 
 
-<meta name="description" content="printf("%s", "Stay Curious, Stay Creative");">
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
 
 
 
@@ -90,7 +90,7 @@
         <div class="navbar-brand">
             <a class="navbar-item navbar-logo" href="/en">
                 
-                <img src="/images/logo.png" alt="" height="28">
+                <img src="/images/logo.png" alt height="28">
                 
             </a>
             <div class="navbar-burger">
@@ -102,11 +102,9 @@
         
         <div class="navbar-menu navbar-start">
             
-            <a class="navbar-item "
-               href="/en/archives">Archives</a>
+            <a class="navbar-item " href="/en/archives">Archives</a>
             
-            <a class="navbar-item "
-               href="/en/about">About</a>
+            <a class="navbar-item " href="/en/about">About</a>
             
         </div>
         
@@ -157,7 +155,7 @@
                
             
             <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
-                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png" />
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
             </a>
         </div>
     </div>
@@ -185,14 +183,14 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg" alt=""></p>
+        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg" alt></p>
 <p>用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4 <a id="more"></a></p>
 <p>還有很多時候因為 Pi 裝著殼，要得知是否開機、狀態燈有沒有在閃爍並不是那麼方便，本篇也一並記錄了裝上外接電源燈、狀態燈的步驟！</p>
 <p>最後另外在補上風扇的控制方式（ Pi 4 工作時很熱情，大部分人可能會選擇上風扇XD ）但是溫度也不是隨時都那麼高，有了風扇控制可以依照溫度所需啟動，不但降低噪音也能增加風扇使用壽命，順便省一點點電，拯救北極熊（？）（風扇控制目前還在準備中，測試完成後會在更新電路圖）</p>
 <h1 id="硬體設定"><a href="#硬體設定" class="headerlink" title="硬體設定"></a>硬體設定</h1><p>開關 &amp;&amp; 電源燈線路圖</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278749/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_DC3D9F54D1D5-1.jpg" alt=""></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278749/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_DC3D9F54D1D5-1.jpg" alt></p>
 <p>SD讀取燈 &amp;&amp; 風扇（控制電路待補）</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278969/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_4CCC4C50487E-1.jpg" alt=""></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278969/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_4CCC4C50487E-1.jpg" alt></p>
 <h1 id="軟體設定"><a href="#軟體設定" class="headerlink" title="軟體設定"></a>軟體設定</h1><h3 id="開關（正常軟體關機程序）"><a href="#開關（正常軟體關機程序）" class="headerlink" title="開關（正常軟體關機程序）"></a>開關（正常軟體關機程序）</h3><p>這邊開關的部分參考了 howchoo 上的一篇文章：<a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a>，以下是直接使用作者所寫好的 Script 安裝，詳細背後的 Code 以及原理可以點進連結裡查看（英文）。</p>
 <p>安裝 Git</p>
 <p><code>sudo apt-get install git</code></p>
@@ -258,7 +256,7 @@
     
 <div id="valine-thread"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     // 1.定義localeName 和localeMode 
         var localeName = 'zh-tw',
@@ -329,8 +327,7 @@
         <div class="columns content">
             <div class="column is-narrow has-text-centered">
                 &copy; 2020 DriftKingTW&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>
             <div class="column is-hidden-mobile"></div>
 
@@ -500,7 +497,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="has-navbar-fixed-top">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
 <title>為什麼我的帳號會被盜？淺談密碼安全及實體金鑰 - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/en/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/" rel="alternate" hreflang="en" />
+<link href="/en/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/" rel="alternate" hreflang="en">
     
 
 
-<meta name="description" content="printf("%s", "Stay Curious, Stay Creative");">
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
 
 
 
@@ -89,7 +89,7 @@
         <div class="navbar-brand">
             <a class="navbar-item navbar-logo" href="/">
                 
-                <img src="/images/logo.png" alt="" height="28">
+                <img src="/images/logo.png" alt height="28">
                 
             </a>
             <div class="navbar-burger">
@@ -101,11 +101,9 @@
         
         <div class="navbar-menu navbar-start">
             
-            <a class="navbar-item "
-               href="/archives">目錄</a>
+            <a class="navbar-item " href="/archives">目錄</a>
             
-            <a class="navbar-item "
-               href="/about">關於</a>
+            <a class="navbar-item " href="/about">關於</a>
             
         </div>
         
@@ -156,7 +154,7 @@
                
             
             <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
-                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png" />
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
             </a>
         </div>
     </div>
@@ -184,7 +182,7 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1581007571/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/furchenpasswd.jpg" alt=""></p>
+        <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1581007571/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/furchenpasswd.jpg" alt></p>
 <p>還在不同網站使用相同的密碼嗎？你的密碼是常見的組合或幾個英文數字湊合嗎？在資訊科技的進步的現在，不論年紀大小、身份，幾乎人人都有數個甚至上百的帳號密碼。網路上層出不窮的帳號被駭客攻擊、個資洩漏事件，就算是 Google、Amazon、Facebook 等大型企業也都無可避免，那麼這時候如何靠自己保護好帳號安全就顯得非常重要了。<a id="more"></a></p>
 <p>我想這如果是方面的專家應該也不會看這篇文XD，所以會盡量用簡單易懂的方式說明。如果沒興趣知道背後的原理，只想知道如何保護帳號的朋友們可以直接跳到結論：<a href="#如何保護好自己的帳號安全？">如何保護好自己的帳號安全？</a></p>
 <p>在知道如何保護自己前，當然要先來瞭解密碼這玩意到底是如何運作的。</p>
@@ -304,7 +302,7 @@
 </ul>
 <blockquote class="colorquote info"><p>目前簡訊方式的 2FA 已經被認為不夠安全、能夠利用攔截或釣魚的方式攻擊，可以的話盡量不要使用。</p>
 </blockquote>
-<h2 id="實體金鑰"><a href="#實體金鑰" class="headerlink" title="實體金鑰"></a>實體金鑰</h2><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1580971326/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/IMG_20191223_165024.jpg" alt=""></p>
+<h2 id="實體金鑰"><a href="#實體金鑰" class="headerlink" title="實體金鑰"></a>實體金鑰</h2><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1580971326/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/IMG_20191223_165024.jpg" alt></p>
 <p>實體金鑰顧名思義就是一把實體的 USB 鑰匙(通常作為實體的 2FA 驗證手段)，設定完成之後會要求插入該金鑰才能夠登入，常見的有 <a href="https://www.yubico.com/" target="_blank" rel="noopener">Yubikey</a> 、 <a href="https://cloud.google.com/titan-security-key" target="_blank" rel="noopener">Titan Security Key</a> 等。是目前安全性最高的等級的 2FA 方式，而且相比其他方式使用上不算是麻煩（某些程度上用實體金鑰還比輸入TOTP或等簡訊還快）</p>
 <p>實體金鑰相對於傳統 2FA 的優勢是，斷絕了被釣魚網站騙的可能。簡訊等方式還是有可能會被攔截或利用欺騙方式取得，但實體金鑰是無法偽造及複製的，唯一的攻擊方法只有取得帳號密碼而且實體金鑰物理上被拿走才能夠登入。</p>
 <p>不過我認為對於一般使用者來說，實體金鑰目前還是非必要的，目前很多主流網路服務商都有提供實體金鑰的 2FA 選項了(Google、Twitter、Facebook、Gandi等)，但是還是沒有到很普及的程度，通常一隻金鑰需要花費 40~50USD 不等，加上在行動裝置支援上還不算非常成熟，對大部分人來說不一定是那麼適合。</p>
@@ -361,7 +359,7 @@
     
 <div id="valine-thread"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     // 1.定義localeName 和localeMode 
         var localeName = 'zh-tw',
@@ -432,8 +430,7 @@
         <div class="columns content">
             <div class="column is-narrow has-text-centered">
                 &copy; 2020 DriftKingTW&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>
             <div class="column is-hidden-mobile"></div>
 
@@ -603,7 +600,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
