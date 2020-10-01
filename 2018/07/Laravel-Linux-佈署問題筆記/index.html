@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。環境若沒特別說明就代表使用的OS為Ubuntu">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-09-26T06:17:33.615Z">
+<meta property="og:updated_time" content="2020-10-01T01:44:46.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel Linux 佈署問題筆記">
 <meta name="twitter:description" content="整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。環境若沒特別說明就代表使用的OS為Ubuntu">
@@ -173,7 +173,7 @@
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 1047 字)
+            7 分鐘 讀完 (約 1182 字)
         </span>
         
     </div>
@@ -251,7 +251,16 @@
 
 <h3 id="Q10-Laravel-6-以後更改-AppName-的方式"><a href="#Q10-Laravel-6-以後更改-AppName-的方式" class="headerlink" title="Q10. Laravel 6 以後更改 AppName 的方式"></a>Q10. Laravel 6 以後更改 AppName 的方式</h3><p>由於原本的 <figure class="highlight php hljs"><figcaption><span>artisan app:name NewAppName``` 方式已經在版本 6 被移除</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以安裝 [andrey-helldar/laravel-app](https:<span class="hljs-comment">//github.com/andrey-helldar/laravel-app) 套件達到一樣的功能：</span></span><br><span class="line"></span><br><span class="line">```composer <span class="hljs-keyword">require</span> andrey-helldar/laravel-app</span><br></pre></td></tr></table></figure></p>
 <p>完成後使用同樣方式更改即可：</p>
-<p><code>php artisan app:name NewAppName</code></p>
+<figure class="highlight php hljs"><figcaption><span>artisan app:name NewAppName```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">### Q11. MacOS 安裝 Laravel 權限問題</span></span><br><span class="line"></span><br><span class="line">執行 ```composer <span class="hljs-keyword">global</span> <span class="hljs-keyword">require</span> laravel/installer``` 若時出現以下錯誤</span><br><span class="line"></span><br><span class="line">```./composer.json is not writable.</span><br></pre></td></tr></table></figure>
+
+<p>先執行以下指令</p>
+<figure class="highlight ls hljs"><figcaption><span>-lh ~/.composer/composer.json```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果權限是 `root` 則用以下指令修改(`username`替換為自己的用戶名)</span><br><span class="line"></span><br><span class="line">```sudo chown -R username:staff ~/.composer/composer.json</span><br></pre></td></tr></table></figure>
+
+<p>接著執行安裝可能會遇到如下的 <code>cache</code> 資料夾權限問題</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ErrorException]</span><br><span class="line">  file_put_contents(/Users/username/.composer/vendor/composer/installed.json): failed to open stream: Permission denied</span><br></pre></td></tr></table></figure>
+
+<p>更改權限後即可正常安裝</p>
+<p><code>sudo chown -R $USER ~/.composer/</code></p>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo" target="_blank" rel="noopener">Cloning a private Github repo</a></p>
 <p><a href="https://laracasts.com/discuss/channels/general-discussion/laravel-framework-file-permission-security" target="_blank" rel="noopener">Laravel framework file permission - Security</a></p>
 <p><a href="https://www.youtube.com/watch?v=7CatEn5IAlo" target="_blank" rel="noopener">Laravel 5.4 problem - Wrong Route (Not Found) on Ubuntu 16.04</a></p>
@@ -263,7 +272,7 @@
 <p><a href="https://stackoverflow.com/questions/48381322/laravel-5-4-cant-run-php-artisan-preset-react-comand" target="_blank" rel="noopener">Laravel 5.4 can’t run “php artisan preset react” comand</a></p>
 <p><a href="https://stackoverflow.com/questions/58099003/how-can-i-change-the-application-namespace-in-laravel-6" target="_blank" rel="noopener">How can I change the application name(space) in Laravel 6</a></p>
 <hr>
-<p>日後遇到其他問題會再持續更新(最後更新日期：2020/9/26)</p>
+<p>日後遇到其他問題會再持續更新(建立日期：2018/07/10，最後更新日期：2020/10/1)</p>
 
     
     </div>
