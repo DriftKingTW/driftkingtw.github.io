@@ -17,6 +17,7 @@ article:
   words: 'words'
   comments: 'Comments'
   contents: 'Contents'
+  minutes: 'Minutes'
 search:
   hint: 'Type something...'
 insight:

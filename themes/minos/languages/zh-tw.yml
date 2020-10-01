@@ -17,6 +17,7 @@ article:
   words: '字'
   comments: '評論'
   contents: '目錄'
+  minutes: '分鐘'
 search:
   hint: '站內搜尋'
 insight:
