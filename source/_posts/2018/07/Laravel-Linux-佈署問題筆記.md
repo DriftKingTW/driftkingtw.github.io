@@ -169,6 +169,55 @@ MacOS 環境變數設定：
 ```shell
 export PATH=~/.composer/vendor/bin:$PATH
 ```
+### Q9. Laravel 7 使用 React 的方法
+
+Laravel 之前使用 React 的指令為：
+
+```php artisan preset react```
+
+7 之後由於移除 ```preset``` 指令，要使用以下方法：
+
+```shell
+composer require laravel/ui
+php artisan ui react
+```
+
+### Q10. Laravel 6 以後更改 AppName 的方式
+
+由於原本的 ```php artisan app:name NewAppName``` 方式已經在版本 6 被移除
+可以安裝 [andrey-helldar/laravel-app](https://github.com/andrey-helldar/laravel-app) 套件達到一樣的功能：
+
+```composer require andrey-helldar/laravel-app```
+
+完成後使用同樣方式更改即可：
+
+```php artisan app:name NewAppName```
+
+### Q11. MacOS 安裝 Laravel 權限問題
+
+執行 ```composer global require laravel/installer``` 若時出現以下錯誤
+
+```./composer.json is not writable.```
+
+先執行以下指令
+
+```ls -lh ~/.composer/composer.json```
+
+如果權限是 `root` 則用以下指令修改(`username`替換為自己的用戶名)
+
+```sudo chown -R username:staff ~/.composer/composer.json```
+
+接著執行安裝可能會遇到如下的 `cache` 資料夾權限問題
+
+```shell
+[ErrorException]
+  file_put_contents(/Users/username/.composer/vendor/composer/installed.json): failed to open stream: Permission denied
+```
+
+更改權限後即可正常安裝
+
+```sudo chown -R $USER ~/.composer/```
+
 
 ## 參考資料
 
@@ -188,6 +237,10 @@ export PATH=~/.composer/vendor/bin:$PATH
 
 [Mac $PATH 環境變量設置及查詢](https://adon988.logdown.com/posts/7809799-mac-path-environment-variables)
 
+[Laravel 5.4 can't run “php artisan preset react” comand](https://stackoverflow.com/questions/48381322/laravel-5-4-cant-run-php-artisan-preset-react-comand)
+
+[How can I change the application name(space) in Laravel 6](https://stackoverflow.com/questions/58099003/how-can-i-change-the-application-namespace-in-laravel-6)
+
 ---
 
-日後遇到其他問題會再持續更新
+日後遇到其他問題會再持續更新(建立日期：2018/07/10，最後更新日期：2020/10/1)
