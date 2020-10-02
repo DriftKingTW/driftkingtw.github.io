@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。環境若沒特別說明就代表使用的OS為Ubuntu">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-10-01T01:44:46.324Z">
+<meta property="og:updated_time" content="2020-10-02T01:12:59.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel Linux 佈署問題筆記">
 <meta name="twitter:description" content="整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。環境若沒特別說明就代表使用的OS為Ubuntu">
@@ -173,7 +173,7 @@
         <span class="column is-narrow">
             
             
-            7 分鐘 讀完 (約 1182 字)
+            7 分鐘 讀完 (約 1188 字)
         </span>
         
     </div>
@@ -247,20 +247,30 @@
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=~/.composer/vendor/bin:$PATH</span><br></pre></td></tr></table></figure>
 
 <h3 id="Q9-Laravel-7-使用-React-的方法"><a href="#Q9-Laravel-7-使用-React-的方法" class="headerlink" title="Q9. Laravel 7 使用 React 的方法"></a>Q9. Laravel 7 使用 React 的方法</h3><p>Laravel 之前使用 React 的指令為：</p>
-<figure class="highlight php hljs"><figcaption><span>artisan preset react```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-number">7</span> 之後由於移除 ```preset``` 指令，要使用以下方法：</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">composer <span class="hljs-keyword">require</span> laravel/ui</span><br><span class="line">php artisan ui react</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan preset react</span><br></pre></td></tr></table></figure>
 
-<h3 id="Q10-Laravel-6-以後更改-AppName-的方式"><a href="#Q10-Laravel-6-以後更改-AppName-的方式" class="headerlink" title="Q10. Laravel 6 以後更改 AppName 的方式"></a>Q10. Laravel 6 以後更改 AppName 的方式</h3><p>由於原本的 <figure class="highlight php hljs"><figcaption><span>artisan app:name NewAppName``` 方式已經在版本 6 被移除</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以安裝 [andrey-helldar/laravel-app](https:<span class="hljs-comment">//github.com/andrey-helldar/laravel-app) 套件達到一樣的功能：</span></span><br><span class="line"></span><br><span class="line">```composer <span class="hljs-keyword">require</span> andrey-helldar/laravel-app</span><br></pre></td></tr></table></figure></p>
+<p>7 之後由於移除 <figure class="highlight plain hljs"><figcaption><span>指令，要使用以下方法：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```shell</span><br><span class="line">composer require laravel/ui</span><br><span class="line">php artisan ui react</span><br></pre></td></tr></table></figure></p>
+<h3 id="Q10-Laravel-6-以後更改-AppName-的方式"><a href="#Q10-Laravel-6-以後更改-AppName-的方式" class="headerlink" title="Q10. Laravel 6 以後更改 AppName 的方式"></a>Q10. Laravel 6 以後更改 AppName 的方式</h3><p>由於原本的 <code>php artisan app:name NewAppName</code> 方式已經在版本 6 被移除<br>可以安裝 <a href="https://github.com/andrey-helldar/laravel-app" target="_blank" rel="noopener">andrey-helldar/laravel-app</a> 套件達到一樣的功能：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require andrey-helldar/laravel-app</span><br></pre></td></tr></table></figure>
+
 <p>完成後使用同樣方式更改即可：</p>
-<figure class="highlight php hljs"><figcaption><span>artisan app:name NewAppName```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">### Q11. MacOS 安裝 Laravel 權限問題</span></span><br><span class="line"></span><br><span class="line">執行 ```composer <span class="hljs-keyword">global</span> <span class="hljs-keyword">require</span> laravel/installer``` 若時出現以下錯誤</span><br><span class="line"></span><br><span class="line">```./composer.json is not writable.</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan app:name NewAppName</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q11-MacOS-安裝-Laravel-權限問題"><a href="#Q11-MacOS-安裝-Laravel-權限問題" class="headerlink" title="Q11. MacOS 安裝 Laravel 權限問題"></a>Q11. MacOS 安裝 Laravel 權限問題</h3><p>執行 <code>composer global require laravel/installer</code> 若時出現以下錯誤</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./composer.json is not writable.</span><br></pre></td></tr></table></figure>
 
 <p>先執行以下指令</p>
-<figure class="highlight ls hljs"><figcaption><span>-lh ~/.composer/composer.json```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果權限是 `root` 則用以下指令修改(`username`替換為自己的用戶名)</span><br><span class="line"></span><br><span class="line">```sudo chown -R username:staff ~/.composer/composer.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lh ~/.composer/composer.json</span><br></pre></td></tr></table></figure>
+
+<p>如果權限是 <code>root</code> 則用以下指令修改(<code>username</code>替換為自己的用戶名)</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R username:staff ~/.composer/composer.json</span><br></pre></td></tr></table></figure>
 
 <p>接著執行安裝可能會遇到如下的 <code>cache</code> 資料夾權限問題</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ErrorException]</span><br><span class="line">  file_put_contents(/Users/username/.composer/vendor/composer/installed.json): failed to open stream: Permission denied</span><br></pre></td></tr></table></figure>
 
 <p>更改權限後即可正常安裝</p>
-<p><code>sudo chown -R $USER ~/.composer/</code></p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $USER ~/.composer/</span><br></pre></td></tr></table></figure>
+
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/2505096/cloning-a-private-github-repo" target="_blank" rel="noopener">Cloning a private Github repo</a></p>
 <p><a href="https://laracasts.com/discuss/channels/general-discussion/laravel-framework-file-permission-security" target="_blank" rel="noopener">Laravel framework file permission - Security</a></p>
 <p><a href="https://www.youtube.com/watch?v=7CatEn5IAlo" target="_blank" rel="noopener">Laravel 5.4 problem - Wrong Route (Not Found) on Ubuntu 16.04</a></p>
