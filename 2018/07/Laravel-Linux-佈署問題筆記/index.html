@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。環境若沒特別說明就代表使用的OS為Ubuntu">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-10-02T01:12:59.454Z">
+<meta property="og:updated_time" content="2020-10-02T01:15:32.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel Linux 佈署問題筆記">
 <meta name="twitter:description" content="整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。環境若沒特別說明就代表使用的OS為Ubuntu">
@@ -249,7 +249,9 @@
 <h3 id="Q9-Laravel-7-使用-React-的方法"><a href="#Q9-Laravel-7-使用-React-的方法" class="headerlink" title="Q9. Laravel 7 使用 React 的方法"></a>Q9. Laravel 7 使用 React 的方法</h3><p>Laravel 之前使用 React 的指令為：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan preset react</span><br></pre></td></tr></table></figure>
 
-<p>7 之後由於移除 <figure class="highlight plain hljs"><figcaption><span>指令，要使用以下方法：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```shell</span><br><span class="line">composer require laravel/ui</span><br><span class="line">php artisan ui react</span><br></pre></td></tr></table></figure></p>
+<p>7 之後由於移除 <code>preset</code> 指令，要使用以下方法：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer require laravel/ui</span><br><span class="line">php artisan ui react</span><br></pre></td></tr></table></figure>
+
 <h3 id="Q10-Laravel-6-以後更改-AppName-的方式"><a href="#Q10-Laravel-6-以後更改-AppName-的方式" class="headerlink" title="Q10. Laravel 6 以後更改 AppName 的方式"></a>Q10. Laravel 6 以後更改 AppName 的方式</h3><p>由於原本的 <code>php artisan app:name NewAppName</code> 方式已經在版本 6 被移除<br>可以安裝 <a href="https://github.com/andrey-helldar/laravel-app" target="_blank" rel="noopener">andrey-helldar/laravel-app</a> 套件達到一樣的功能：</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require andrey-helldar/laravel-app</span><br></pre></td></tr></table></figure>
 
