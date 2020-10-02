@@ -169,13 +169,16 @@ MacOS 環境變數設定：
 ```shell
 export PATH=~/.composer/vendor/bin:$PATH
 ```
+
 ### Q9. Laravel 7 使用 React 的方法
 
 Laravel 之前使用 React 的指令為：
 
-```php artisan preset react```
+```shell
+php artisan preset react
+```
 
-7 之後由於移除 ```preset``` 指令，要使用以下方法：
+7 之後由於移除 `preset` 指令，要使用以下方法：
 
 ```shell
 composer require laravel/ui
@@ -184,28 +187,38 @@ php artisan ui react
 
 ### Q10. Laravel 6 以後更改 AppName 的方式
 
-由於原本的 ```php artisan app:name NewAppName``` 方式已經在版本 6 被移除
+由於原本的 `php artisan app:name NewAppName` 方式已經在版本 6 被移除
 可以安裝 [andrey-helldar/laravel-app](https://github.com/andrey-helldar/laravel-app) 套件達到一樣的功能：
 
-```composer require andrey-helldar/laravel-app```
+```shell
+composer require andrey-helldar/laravel-app
+```
 
 完成後使用同樣方式更改即可：
 
-```php artisan app:name NewAppName```
+```shell
+php artisan app:name NewAppName
+```
 
 ### Q11. MacOS 安裝 Laravel 權限問題
 
-執行 ```composer global require laravel/installer``` 若時出現以下錯誤
+執行 `composer global require laravel/installer` 若時出現以下錯誤
 
-```./composer.json is not writable.```
+```shell
+./composer.json is not writable.
+```
 
 先執行以下指令
 
-```ls -lh ~/.composer/composer.json```
+```shell
+ls -lh ~/.composer/composer.json
+```
 
 如果權限是 `root` 則用以下指令修改(`username`替換為自己的用戶名)
 
-```sudo chown -R username:staff ~/.composer/composer.json```
+```shell
+sudo chown -R username:staff ~/.composer/composer.json
+```
 
 接著執行安裝可能會遇到如下的 `cache` 資料夾權限問題
 
@@ -216,7 +229,9 @@ php artisan ui react
 
 更改權限後即可正常安裝
 
-```sudo chown -R $USER ~/.composer/```
+```shell
+sudo chown -R $USER ~/.composer/
+```
 
 
 ## 參考資料
