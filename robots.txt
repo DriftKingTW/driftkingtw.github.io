@@ -7,5 +7,6 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
+Disallow: /demo/
 Sitemap: https://blog.driftking.tw/sitemap.xml
 Sitemap: https://blog.driftking.tw/baidusitemap.xml

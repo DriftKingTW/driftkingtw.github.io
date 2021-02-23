@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。環境若沒特別說明就代表使用的OS為Ubuntu">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-10-02T01:15:32.794Z">
+<meta property="og:updated_time" content="2021-02-23T06:48:23.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel Linux 佈署問題筆記">
 <meta name="twitter:description" content="整理了自己在佈署Laravel專案到Server時(Linux)所遇到的一些問題處理方式。環境若沒特別說明就代表使用的OS為Ubuntu">
@@ -173,7 +173,7 @@
         <span class="column is-narrow">
             
             
-            7 分鐘 讀完 (約 1188 字)
+            7 分鐘 讀完 (約 1189 字)
         </span>
         
     </div>
@@ -247,7 +247,7 @@
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=~/.composer/vendor/bin:$PATH</span><br></pre></td></tr></table></figure>
 
 <h3 id="Q9-Laravel-7-使用-React-的方法"><a href="#Q9-Laravel-7-使用-React-的方法" class="headerlink" title="Q9. Laravel 7 使用 React 的方法"></a>Q9. Laravel 7 使用 React 的方法</h3><p>Laravel 之前使用 React 的指令為：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan preset react</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan preset react</span><br></pre></td></tr></table></figure>
 
 <p>7 之後由於移除 <code>preset</code> 指令，要使用以下方法：</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer require laravel/ui</span><br><span class="line">php artisan ui react</span><br></pre></td></tr></table></figure>
@@ -400,7 +400,7 @@
     <div class="container">
         <div class="columns content">
             <div class="column is-narrow has-text-centered">
-                &copy; 2020 DriftKingTW&nbsp;
+                &copy; 2021 DriftKingTW&nbsp;
                 Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>
             <div class="column is-hidden-mobile"></div>
