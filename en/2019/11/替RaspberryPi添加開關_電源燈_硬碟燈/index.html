@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制 - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" rel="alternate" hreflang="zh-TW">
+    
+
+
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
+
+
+
+<meta name="keywords" content="RaspberryPi,DIY,電源燈,風扇控制">
+
+
+
+    <meta name="description" content="Sorry, this post in currently in Chinese only :(  用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4">
+<meta name="keywords" content="RaspberryPi,DIY,電源燈,風扇控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制">
+<meta property="og:url" content="https://blog.driftking.tw/en/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/index.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="Sorry, this post in currently in Chinese only :(  用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278749/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_DC3D9F54D1D5-1.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278969/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_4CCC4C50487E-1.jpg">
+<meta property="og:updated_time" content="2021-03-22T14:30:24.330Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制">
+<meta name="twitter:description" content="Sorry, this post in currently in Chinese only :(  用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4">
+<meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/en">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/en/archives">Archives</a>
+            
+            <a class="navbar-item " href="/en/about">About</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
+         <!-- margin-top: -0.2em; -->
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>English</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <a class="navbar-item search" title="Search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/driftkingtw">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
+            </a>
+        </div>
+    </div>
+</nav>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-11-11T13:25:00.000Z" itemprop="datePublished">Nov 11 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 Minutes read (About 977 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>Sorry, this post in currently in Chinese only :(</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg" alt></p>
+<p>用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4 <a id="more"></a></p>
+<p>還有很多時候因為 Pi 裝著殼，要得知是否開機、狀態燈有沒有在閃爍並不是那麼方便，本篇也一並記錄了裝上外接電源燈、狀態燈的步驟！</p>
+<p>最後另外在補上風扇的控制方式（ Pi 4 工作時很熱情，大部分人可能會選擇上風扇XD ）但是溫度也不是隨時都那麼高，有了風扇控制可以依照溫度所需啟動，不但降低噪音也能增加風扇使用壽命，順便省一點點電，拯救北極熊（？）（風扇控制目前還在準備中，測試完成後會在更新電路圖）</p>
+<h1 id="硬體設定"><a href="#硬體設定" class="headerlink" title="硬體設定"></a>硬體設定</h1><p>開關 &amp;&amp; 電源燈線路圖</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278749/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_DC3D9F54D1D5-1.jpg" alt></p>
+<p>SD讀取燈 &amp;&amp; 風扇（控制電路待補）</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278969/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_4CCC4C50487E-1.jpg" alt></p>
+<h1 id="軟體設定"><a href="#軟體設定" class="headerlink" title="軟體設定"></a>軟體設定</h1><h3 id="開關（正常軟體關機程序）"><a href="#開關（正常軟體關機程序）" class="headerlink" title="開關（正常軟體關機程序）"></a>開關（正常軟體關機程序）</h3><p>這邊開關的部分參考了 howchoo 上的一篇文章：<a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a>，以下是直接使用作者所寫好的 Script 安裝，詳細背後的 Code 以及原理可以點進連結裡查看（英文）。</p>
+<p>安裝 Git</p>
+<p><code>sudo apt-get install git</code></p>
+<p>接著 clone 作者所寫好的 Script <a href="https://github.com/Howchoo/pi-power-button" target="_blank" rel="noopener">Howchoo/pi-power-button</a></p>
+<p><code>git clone https://github.com/Howchoo/pi-power-button.git</code></p>
+<p>安裝即可</p>
+<p><code>./pi-power-button/script/install</code></p>
+<h3 id="電源燈"><a href="#電源燈" class="headerlink" title="電源燈"></a>電源燈</h3><p>進入樹莓派設定界面</p>
+<p><code>sudo raspi-config</code></p>
+<p>選擇 <code>Interface Options</code> 開啟 <code>Serial</code> 來允許串列讀取，這樣我們就可以利用 GPIO 上的 TXD 來讓 LED 顯示目前是否為開機狀態（直接接 5V 的話只要插上電就會亮，沒辦法判斷樹莓派是否在開機狀態）</p>
+<p>接著重啟樹莓派即可看到電源燈正常運作了</p>
+<p><code>sudo reboot</code></p>
+<h3 id="SD-卡讀取燈"><a href="#SD-卡讀取燈" class="headerlink" title="SD 卡讀取燈"></a>SD 卡讀取燈</h3><p>將 SD 卡插入電腦中，打開至根目錄找到一個叫做 <code>config.txt</code> 的設定檔，在底部添加以下設定。<br>最後的 GPIO 選擇自己要用的腳位即可（<a href="https://pinout.xyz/pinout/" target="_blank" rel="noopener">腳位參考</a>）</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Use external LED as ACT LED</span><br><span class="line">dtoverlay=pi3-act-led,gpio=19</span><br></pre></td></tr></table></figure>
+
+<h3 id="風扇控制"><a href="#風扇控制" class="headerlink" title="風扇控制"></a>風扇控制</h3><p><strong>待補</strong></p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.youtube.com/watch?v=_REhMZJ8GJY" target="_blank" rel="noopener">Add An External Sd Activity Light Raspberry Pi 3 Retropie Or Raspbian</a></p>
+<p><a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a></p>
+<p><a href="https://www.youtube.com/watch?v=P5o0PpfzuW8" target="_blank" rel="noopener">#131 Pimp my Raspberry: Automatic fan, automatic shutdown, automatic Python</a></p>
+<p><a href="https://howchoo.com/g/ytzjyzy4m2e/build-a-simple-raspberry-pi-led-power-status-indicator" target="_blank" rel="noopener">Build a Simple Raspberry Pi LED Power/Status Indicator</a></p>
+<p><a href="http://www.irf.com/product-info/datasheets/data/irl530n.pdf" target="_blank" rel="noopener">IRL530N Datasheet</a></p>
+<p><a href="https://www.youtube.com/watch?v=P5o0PpfzuW8" target="_blank" rel="noopener">#131 Pimp my Raspberry: Automatic fan, automatic shutdown, automatic Python</a></p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/en/tags/DIY/">#DIY</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/en/tags/RaspberryPi/">#RaspberryPi</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/en/2019/11/Use-RaspberryPi-to-build-a-FAKE-TimeCapsule-and-NAS-Hardware/">Use Raspberry Pi to build a FAKE TimeCapsule (and NAS) - Hardware</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/en/2019/10/理解_Raspberry_Pi_4_Type_C_設計問題/">理解 Raspberry 4 Type C 設計問題</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var valine = new Valine({
+        el: "#valine-thread",
+        appId: "mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI",
+        appKey: "zkROC4QzyTeu7fzjhTbxEY0k",
+        notify: "true",
+        verify: "true",
+        avatar: "mp",
+        placeholder: "Feel free to leave a comment ! :D",
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: "en"
+    })
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2021 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/driftkingtw">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.en.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>

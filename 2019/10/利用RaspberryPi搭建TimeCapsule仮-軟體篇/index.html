@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇 - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/" rel="alternate" hreflang="en">
+    
+
+
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
+
+
+
+<meta name="keywords" content="MacOS,TimeCapsule,TimeMachine,時光機備份">
+
+
+
+    <meta name="description" content="相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。 不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是">
+<meta name="keywords" content="MacOS,TimeCapsule,TimeMachine,時光機備份">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇">
+<meta property="og:url" content="https://blog.driftking.tw/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/index.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。 不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812124/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.41.53_AM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812186/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.42.56_AM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812250/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.44.00_AM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812960/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.55.43_AM.png">
+<meta property="og:updated_time" content="2021-02-23T06:48:23.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇">
+<meta name="twitter:description" content="相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。 不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是">
+<meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812124/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.41.53_AM.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">目錄</a>
+            
+            <a class="navbar-item " href="/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
+         <!-- margin-top: -0.2em; -->
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2019/10/利用RaspberryPi搭建TimeCapsule仮-軟體篇/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/driftkingtw">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
+            </a>
+        </div>
+    </div>
+</nav>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            利用 Raspberry Pi 搭建 TimeCapsule（仮）- 軟體篇
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-10-11T13:25:00.000Z" itemprop="datePublished">10月 11 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            12 分鐘 讀完 (約 1868 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>相信 MacOS 的使用者應該都熟悉官方提供的備份軟體「TimeMachine」，不過如果是 Macbook 等筆電就比較麻煩了，三不五時就要接上隨身硬碟來備份對於我這種懶人來說，定時備份根本是不可能的任務。</p>
+<p>不過備份依然是相當重要的，除了升級系統有機會用到，再來就是現在的 Macbook 硬體如此不可靠你敢不備份嗎(笑)。為了解決懶的問題，我想用無線的方式進行備份。停產的 Airport ，或是群輝（Synology）的 NAS 都有提供 TimeMachine 無線備份的功能，然而這兩者的價格都還是偏高的QwQ</p>
+<p>所以在一輪 Google 後，我的解決方法就是利用此篇的主角：樹莓派（Raspberry Pi）來完成這項任務，在 Pi 4 推出後，硬體規格升級到了USB3.0、Gigabit Ethrnet，做個人用的簡易 NAS 已經算是堪用，更不用說對速度要求不高的 TimeMachine 了！<a id="more"></a></p>
+<h1 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a>準備工作</h1><p>首先安裝好最新的 Raspbian Lite 版本，開機後先進行基本設定（ 可以單純ssh操作省去外接的麻煩，關於headless可以參考我之前的文章：<a href="https://blog.driftkingtw.me/archives/6759087b.html" target="_blank" rel="noopener">Raspberry Zero W Headless 自動連上無線網路與開啟SSH</a> ）</p>
+<p><code>sudo raspi-config</code></p>
+<p>把預設密碼之類改一改，還有地區之類等基本設定。<br>設定完後先更新一下套件。</p>
+<p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p>
+<p>接著重啟樹莓派。</p>
+<p><code>sudo reboot</code></p>
+<h1 id="分割磁碟-可選"><a href="#分割磁碟-可選" class="headerlink" title="分割磁碟(可選)"></a>分割磁碟(可選)</h1><p>如果整顆硬碟都是要拿來做 TimeCapsule 的話此步驟可以跳過，直接續讀<strong><a href="#安裝過程">安裝過程</a></strong>。</p>
+<p>首先列出硬碟情況：</p>
+<p><code>lsblk</code></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812124/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.41.53_AM.png" alt></p>
+<p>找到硬碟代號，例如這邊sda是我的外接硬碟，裡面有之前的分區。<br>首先用 <code>fdisk</code> 重新分割這顆硬碟：</p>
+<p><code>sudo fdisk /dev/sda</code></p>
+<p>進入 <code>fdisk</code> 可以按 <code>m</code> 顯示使用說明，這邊簡述我的硬碟分割過程：</p>
+<ol>
+<li><p>輸入兩次 <code>d</code> 刪除兩個原先的分區</p>
+</li>
+<li><p><code>n</code> 新增分區，分區代號以及起始區塊預設，結束區塊 <code>+450G</code> (這樣會建立一個代號1，450G大小的分區)</p>
+</li>
+<li><p>再次用 <code>n</code> 新增第二分區，一路 <code>Enter</code> 完成剩下硬碟空間的分區</p>
+</li>
+<li><p><code>w</code> 寫入硬碟分區資料並退出 <code>fdisk</code></p>
+</li>
+</ol>
+<p>接著再次查看分割結果是否正確</p>
+<p><code>lsblk</code></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812186/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.42.56_AM.png" alt></p>
+<p>圖中可以看到硬碟已經成功分割成希望的數量以及大小<br>(注意：<code>fdisk</code> 僅支援分割2TB內的硬碟，若要分割更大的需要安裝 <code>gparted</code> 在桌面環境下操作)</p>
+<h1 id="安裝過程"><a href="#安裝過程" class="headerlink" title="安裝過程"></a>安裝過程</h1><h2 id="準備硬碟"><a href="#準備硬碟" class="headerlink" title="準備硬碟"></a>準備硬碟</h2><p>首先格式化硬碟(<code>sda1</code>是我要格式化的分區，請依照<code>lsblk</code>顯示的自行更換)</p>
+<p><code>sudo mkfs.ext4 /dev/sda1</code></p>
+<p>這邊建議以 <code>ext4</code> 格式化達到最佳效能，雖然有工具可以讓 Linux 讀取 <code>hfsplus</code> 等蘋果檔案格式，但是我測試之後速度慢到想哭(／‵Д′)／~ ╧╧（這邊不太確定是不是我不會設定問題，若有錯誤歡迎指正</p>
+<p>而且 <code>hfsplus</code> 也無法把硬碟拆下來接上 MacOS 就直接兩邊互通，索性直接用 <code>ext4</code>，以後連復原都透過網路了。</p>
+<p>建立掛載點</p>
+<p><code>sudo mkdir /mnt/TimeCapsule</code></p>
+<p>查看分區的 <code>UUID</code> 並把它複製下來</p>
+<p><code>sudo blkid</code></p>
+<p>編輯 <code>fstab</code> 添加掛載資訊</p>
+<p><code>sudo vim /etc/fstab</code></p>
+<p>在最底行填上（”YOUR_UUID”替換成剛才複製的UUID）</p>
+<p><code>UUID=YOUR_UUID  /mnt/TimeCapsule  ext4  defaults  0 2</code></p>
+<p>掛載硬碟(分區)</p>
+<p><code>sudo mount -a</code></p>
+<p>查看掛載狀態</p>
+<p><code>df -h</code></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812250/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.44.00_AM.png" alt></p>
+<p>可以看到 <code>sda1</code> 已成功掛載到 <code>/mnt/TimeCapsule</code> 了</p>
+<p>最後開啟硬碟權限</p>
+<p><code>chmod 777 /mnt/TimeCapsule</code></p>
+<h2 id="安裝及設定-Netatalk"><a href="#安裝及設定-Netatalk" class="headerlink" title="安裝及設定 Netatalk"></a>安裝及設定 Netatalk</h2><p>安裝 <code>Netatalk</code></p>
+<p><code>sudo apt-get install netatalk</code></p>
+<p>安裝完成後用 <code>netatalk -v</code> 查看版本以及設定檔位置</p>
+<p>接著編輯 <code>nsswitch.conf</code></p>
+<p><code>sudo vim /etc/nsswitch.conf</code></p>
+<p>在 <code>host</code> 那行的最後加上 <code>mdns4 mdns</code> 如下</p>
+<p><code>hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4 mdns</code></p>
+<p>設定 <code>afp.conf</code></p>
+<p><code>sudo vim /etc/netatalk/afp.conf</code></p>
+<p>內容如下</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Global]</span><br><span class="line">  mimic model = TimeCapsule6,106</span><br><span class="line"></span><br><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br></pre></td></tr></table></figure>
+
+<p>保存後退出，最後啟動服務：</p>
+<p><code>sudo service avahi-daemon start</code></p>
+<p><code>sudo service netatalk start</code></p>
+<p>這時應該能在 MacOS 看到你的網路硬碟了！</p>
+<p>為了確定開機時會自動啟動服務，輸入以下指令：</p>
+<p><code>sudo systemctl enable avahi-daemon</code></p>
+<p><code>sudo systemctl enable netatalk</code></p>
+<h2 id="MacOS-端設定"><a href="#MacOS-端設定" class="headerlink" title="MacOS 端設定"></a>MacOS 端設定</h2><p>接著打開 TimeMachine 設定，按選擇備份碟之後就能夠看到我們用 Raspberry Pi 的備份硬碟囉！選擇它之後輸入 Pi 的帳號密碼即可開始備份（第一次備份時間通常較長，如果開啟加密會更久），完成首次備份後接著以後就是差異備份，只要連上就會自動定期執行，在也不用怕麻煩或忘記備份了！</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812960/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.55.43_AM.png" alt></p>
+<h2 id="進階設定"><a href="#進階設定" class="headerlink" title="進階設定"></a>進階設定</h2><h3 id="Raspberry-Pi-端"><a href="#Raspberry-Pi-端" class="headerlink" title="Raspberry Pi 端"></a>Raspberry Pi 端</h3><h4 id="用戶管理"><a href="#用戶管理" class="headerlink" title="用戶管理"></a>用戶管理</h4><p>新增用戶（username改成自己需要的使用者名稱）</p>
+<p><code>useradd --create-home --groups users --user-group username</code></p>
+<p>建立密碼</p>
+<p><code>passwd username</code></p>
+<p>編輯 <code>afp.conf</code></p>
+<p><code>sudo vim /etc/netatalk/afp.conf</code></p>
+<p>在 <code>[Time Machine]</code> (顯示名稱依照之前設定的可能會有不同)新增使用者</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Time Machine]</span><br><span class="line">  path = /mnt/TimeCapsule</span><br><span class="line">  time machine = yes</span><br><span class="line">  valid user = username</span><br></pre></td></tr></table></figure>
+
+<h4 id="靜態-IP"><a href="#靜態-IP" class="headerlink" title="靜態 IP"></a>靜態 IP</h4><p>固定 Pi 的 IP，這部分可以前往路由器設定，由於每家路由器不一定相同，所以另外依照各廠商提供的說明設定。</p>
+<h3 id="Mac-端"><a href="#Mac-端" class="headerlink" title="Mac 端"></a>Mac 端</h3><p>首次備份時若覺得備份速度太慢可以執行以下 Script 關閉限流：</p>
+<p><code>sudo sysctl debug.lowpri_throttle_enabled=0</code></p>
+<p>恢復方式：</p>
+<p><code>sudo sysctl debug.lowpri_throttle_enabled=1</code></p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.gtwang.org/linux/linux-add-format-mount-harddisk/" target="_blank" rel="noopener">替 Linux 新增硬碟（磁碟分割、格式化與掛載）</a></p>
+<p><a href="https://www.youtube.com/watch?v=yJs8f0spJO4" target="_blank" rel="noopener">How to Use Your Raspberry Pi as a Time Machine Backup Server for macOS</a></p>
+<p><a href="https://www.imore.com/how-speed-your-time-machine-backups" target="_blank" rel="noopener">How to speed up your Time Machine backups</a></p>
+<p><a href="https://openwrt.org/docs/guide-user/services/nas/netatalk_configuration" target="_blank" rel="noopener">AFP Netatalk share configuration (aka Apple Time Machine).</a></p>
+<p><a href="https://gregology.net/2018/09/raspberry-pi-time-machine/" target="_blank" rel="noopener">Raspberry Pi Time Machine (2019 update)</a></p>
+<p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p>
+<p><a href="https://github.com/mr-bt/raspberrypi-timemachine" target="_blank" rel="noopener">Apple Time machine on RaspberryPI</a></p>
+<p><a href="https://www.jannikarndt.de/blog/2018/01/how_to_use_a_raspberry_pi_for_your_time_machine_backups/" target="_blank" rel="noopener">How to use a Raspberry Pi for your Time Machine backups</a></p>
+<p><a href="https://aunicorn.io/2018/08/15/how-to-make-a-time-capsule-with-your-raspberry-pi/" target="_blank" rel="noopener">利用 Raspberry Pi（树莓派）打造 Time Capsule（时间胶囊）</a></p>
+<p>PS 因為各種文章新舊版本問題，所以參考了不少資料才整理出一個目前可以使用，快速的設定過程。</p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/MacOS/">#MacOS</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/RaspberryPi-樹莓派/">#RaspberryPi/樹莓派</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/TimeCapsule/">#TimeCapsule</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/TimeMachine/">#TimeMachine</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2019/10/利用RaspberryPi搭建NAS/">利用 Raspberry Pi 搭建 NAS</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2019/09/利用SFTP在Android上存取MacOS檔案/">利用 SFTP 在 Android 上存取 MacOS 檔案</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var valine = new Valine({
+        el: "#valine-thread",
+        appId: "mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI",
+        appKey: "zkROC4QzyTeu7fzjhTbxEY0k",
+        notify: "true",
+        verify: "true",
+        avatar: "mp",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: "zh-tw"
+    })
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2021 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/driftkingtw">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
