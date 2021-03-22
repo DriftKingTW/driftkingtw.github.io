@@ -10,6 +10,8 @@ abbrlink: b2345c23
 date: 2019-10-26 21:25:00
 ---
 
+Sorry, this post in currently in Chinese only :(
+
 今年(2019)樹莓派基金會發表了久違的硬體更新，升級到了4代，相信有在關注的朋友們都知道，本次供電設計終於換成了 Type-C ~~(終於有種進化成現代化單片機的感覺)~~
 不過也因為電源電路設計的一些問題導致了有 E-Mark 晶片的 USB-C 線材無法為樹莓派供電（例如 Apple 的 Macbook USB-C 充電線、Google Pixel 3 附帶的 USB-C 線材等），反倒是便宜的一般線材能夠正常運作XD<!--more--> ~~證明樹莓派是給窮人家的玩具~~ 。
 

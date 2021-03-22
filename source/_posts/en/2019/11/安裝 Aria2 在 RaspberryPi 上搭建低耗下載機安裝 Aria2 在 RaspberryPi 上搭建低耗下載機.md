@@ -10,6 +10,8 @@ abbrlink: '8907503'
 date: 2019-11-16 00:15:00
 ---
 
+Sorry, this post in currently in Chinese only :(
+
 [Aria2](https://aria2.github.io/) 是一個超輕量但功能的強大開源下載器，支援多點下載、多種協定、檔案分割下載、可透過 JSON-PRC 或 XML-PRC 遠端控制等功能。<!--more-->
 
 [Aria2](https://aria2.github.io/) 的特性讓他非常適合放在樹莓派等單晶片上執行，輕量不耗資源、又能遠端操作，我的 Pi 剛好作為 NAS，搭配下載器可以直接存入 NAS 硬碟中，在做遠端存取且不用關機非常方便，本篇將會記錄安裝 [Aria2](https://aria2.github.io/) 在 Pi 上的過程。
