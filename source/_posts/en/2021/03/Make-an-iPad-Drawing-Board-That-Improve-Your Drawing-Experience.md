@@ -1,5 +1,5 @@
 ---
-title: Make an iPad Drawing Board That Improve Your Drawing Experience
+title: Make an iPad Drawing Board That Improves Your Drawing Experience
 tags:
   - iPad
   - DIY
@@ -17,7 +17,7 @@ date: 2021-03-22 20:00:00
 
 iPad and Apple Pencil combo probably has the best drawing experience in the tablet market for now, tons of people love using their iPad to create amazing artworks, but you might encounter an common issue (especially for 11 inch user): The iPad's bezel is way too small for your hand to rest on, even it's laid down flat on the table.
 
-Though the iPad is already very thin (5.9mm on pro model), the drawing experience is still far from drawing on a flat thin paper, and putting hand on iPad just waste a large portion of the screen, which is the main reason I come up with this project today. The result was quite good, and it's very easy to make and costs under 35 dollar, so I want to share with you today.
+Though the iPad is already very thin (5.9mm on pro model), the drawing experience is still far from drawing on a flat thin paper, and putting hand on iPad just waste a large portion of the screen, which is the main reason I come up with this project today. The result was quite good, it's very easy to make and costs under 35 dollar, so I want to share with you today.
 
 <!-- more -->
 
