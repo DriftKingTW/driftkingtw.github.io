@@ -140,7 +140,7 @@ import os
 # Configuration
 FAN_PIN = 18            # BCM pin used to drive PWM fan
 WAIT_TIME = 1           # [s] Time to wait between each refresh
-PWM_FREQ = 25000        # [Hz] 25kHz for Noctua PWM control
+PWM_FREQ = 25           # [kHz] 25kHz for Noctua PWM control
 
 # Configurable temperature and fan speed
 MIN_TEMP = 40
@@ -252,10 +252,6 @@ try:
 except KeyboardInterrupt: # trap a CTRL+C keyboard interrupt
     GPIO.cleanup() # resets all GPIO ports used by this function
 ```
-
-# Thermal Performance
-
-My Pi4's 40mm fan mount haven't arrived yet, I'll update this section when I get it.
 
 # Reference
 

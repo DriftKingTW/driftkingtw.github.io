@@ -1,5 +1,5 @@
 ---
-title: 利用 Raspberry Pi 控制 PWM 風扇及轉速偵測
+title: 利用 Raspberry Pi 控制 PWM 風扇及轉速偵測 (軟體PWM控制)
 tags:
   - RaspberryPi/樹莓派
   - DIY
@@ -147,7 +147,7 @@ import os
 # 設定可照自身情況調整
 FAN_PIN = 18            # PWM 控制腳位，設定成你想接的位置即可，注意是 BCM 編號
 WAIT_TIME = 1           # 每次控制的更新頻率，單位為秒
-PWM_FREQ = 25000        # PWM 頻率，這邊根據 Noctua 規格使用 25kHz，其他風扇弄個 50 之類即可，若動作怪怪的可以在自行測試
+PWM_FREQ = 25           # PWM 頻率，這邊根據 Noctua 規格使用 25kHz，其他風扇弄個 50 之類即可，若動作怪怪的可以在自行測試
 
 MIN_TEMP = 40           # 最小啟動溫度
 MAX_TEMP = 70           # 最高溫度
@@ -266,10 +266,6 @@ try:
 except KeyboardInterrupt: # 同上處理 ctrl+c 例外
     GPIO.cleanup()  # 清除本程式用的 GPIO 狀態
 ```
-
-# 溫度表現
-
-目前還在等 Pi4 的 3D 列印風扇支架來，等安裝好再補上。
 
 # 參考
 
