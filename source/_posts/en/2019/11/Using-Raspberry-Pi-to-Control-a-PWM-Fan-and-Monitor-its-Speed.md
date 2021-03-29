@@ -1,5 +1,5 @@
 ---
-title: Using Raspberry Pi to Control a PWM Fan and Monitor its Speed
+title: Using Raspberry Pi to Control a PWM Fan and Monitor its Speed (Software PWM Control)
 tags:
   - RaspberryPi/樹莓派
   - DIY
