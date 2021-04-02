@@ -180,34 +180,19 @@
         <span class="column is-narrow">
             
             
-            2 分鐘 讀完 (約 383 字)
+            2 分鐘 讀完 (約 384 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p>雖然 macOS 已預裝了 Ruby ，但我在使用 <code>gem install</code> 時遇到了個問題：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You don&apos;t have write permissions for the XXX directory.</span><br></pre></td></tr></table></figure>
+<epacse hidden>14</epacse>
 
 <p>後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 <code>sudo</code> 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 <code>PATH</code> 設定到另一個 Ruby 比較方便。</p>
-<h2 id="獨立安裝方法"><a href="#獨立安裝方法" class="headerlink" title="獨立安裝方法"></a>獨立安裝方法</h2><p>利用 Homebrew 安裝 <code>chruby</code> 與 <code>ruby-install</code> （此方法屆時可自由切換所需要的 Ruby 版本）</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install chruby ruby-install</span><br></pre></td></tr></table></figure>
-
-<p>接著用 <code>ruby-install</code> 安裝 Ruby：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby-install ruby</span><br></pre></td></tr></table></figure>
-
-<p><code>ruby-install</code> 會自動使用 Homebrew 安裝各種需要的 dependencies，然後從 source 編譯 Ruby，所以需要等個一陣子，可以先去泡壺茶休息下。</p>
-<p>安裝完後在 <code>~/.zshrc</code> 或 <code>~/.bashrc</code> 中新增以下兩條路徑（看自己用的是那種 shell，macOS Catalina 之後預設皆為 zsh ）</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">source</span> /usr/<span class="hljs-built_in">local</span>/opt/chruby/share/chruby/chruby.sh</span><br><span class="line"><span class="hljs-built_in">source</span> /usr/<span class="hljs-built_in">local</span>/opt/chruby/share/chruby/auto.sh</span><br></pre></td></tr></table></figure>
-
-<p>完成後重啟 Terminal 輸入 <code>which ruby</code>，若<em>不是</em>顯示 <code>/usr/bin/ruby</code> 則代表預設的 Ruby 已經不是 macOS 預設的了！</p>
-<p>接著我們可以利用 <code>chruby</code> 選擇 ruby 版本：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chruby 3.0.0</span><br></pre></td></tr></table></figure>
-
-<p>提供給遇到相同問題的朋友們參考</p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.engineyard.com/how-to-install-ruby-on-a-mac-with-chruby-rbenv-or-rvm" target="_blank" rel="noopener">How to Install Ruby on a Mac with chruby, rbenv, or RVM</a></p>
-<p><a href="https://stackoverflow.com/questions/51126403/you-dont-have-write-permissions-for-the-library-ruby-gems-2-3-0-directory-ma" target="_blank" rel="noopener">You don’t have write permissions for the /Library/Ruby/Gems/2.3.0 directory. (mac user)</a></p>
-
+        <p class="article-more-link">
+            <a href="/2021/04/Install-Ruby-On-macOS/#more">閱讀更多</a>
+        </p>
     
     </div>
     
