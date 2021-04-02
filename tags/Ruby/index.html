@@ -2,13 +2,13 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>Archives: 2021 - DriftKingTW&#39;s Blog</title>
+<title>標籤: Ruby - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/archives/2021/index.html" rel="alternate" hreflang="zh-TW">
+<link href="/en/tags/Ruby/index.html" rel="alternate" hreflang="en">
     
 
 
@@ -24,10 +24,10 @@
 <meta name="keywords" content="網頁, 程式, 科技, 電腦, 賽車, 繪圖, DIY, Maker, Web, Sim racing, drawing">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DriftKingTW&#39;s Blog">
-<meta property="og:url" content="https://blog.driftking.tw/en/archives/2021/index.html">
+<meta property="og:url" content="https://blog.driftking.tw/tags/Ruby/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="printf(&quot;%s&quot;, &quot;Stay Curious, Stay Creative&quot;);">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="zh-tw">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DriftKingTW&#39;s Blog">
 <meta name="twitter:description" content="printf(&quot;%s&quot;, &quot;Stay Curious, Stay Creative&quot;);">
@@ -83,7 +83,7 @@
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/en">
+            <a class="navbar-item navbar-logo" href="/">
                 
                 <img src="/images/logo.png" alt height="28">
                 
@@ -97,9 +97,9 @@
         
         <div class="navbar-menu navbar-start">
             
-            <a class="navbar-item " href="/en/archives">Archives</a>
+            <a class="navbar-item " href="/archives">目錄</a>
             
-            <a class="navbar-item " href="/en/about">About</a>
+            <a class="navbar-item " href="/about">關於</a>
             
         </div>
         
@@ -113,7 +113,7 @@
                 <span class="icon">
                     <i class="fas fa-globe"></i>
                 </span>
-                <span>English</span>
+                <span>繁體中文</span>
                 <span class="icon is-small">
             <i class="fas fa-angle-down" aria-hidden="true"></i>
           </span>
@@ -122,11 +122,11 @@
         <div class="dropdown-menu has-text-left" role="menu">
             <div class="dropdown-content">
             
-                <a href="/archives/2021/index.html" class="dropdown-item">
+                <a href="/tags/Ruby/index.html" class="dropdown-item">
                     繁體中文
                 </a>
             
-                <a href="/en/archives/2021/index.html" class="dropdown-item">
+                <a href="/en/tags/Ruby/index.html" class="dropdown-item">
                     English
                 </a>
             
@@ -136,7 +136,7 @@
 </div>
 
             
-            <a class="navbar-item search" title="Search" href="javascript:;">
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -155,28 +155,68 @@
         </div>
     </div>
 </nav>
-    <section class="section">
+    <section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5>#Ruby</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
     <div class="container">
     
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2021/04/Install-Ruby-On-macOS/" itemprop="url">在 macOS 上安裝 Ruby</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2021-04-02T13:00:00.000Z" itemprop="datePublished">4月 2 2021</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 383 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <div class="archive content">
-            <h4 class="title is-4" id="2021">2021</h4>
-            <div class="articles">
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2021-04-02T13:00:00.000Z" itemprop="datePublished">
-                        Apr 2</time>
-                    <h6 class="title is-6"><a href="/en/2021/04/Install-Ruby-On-macOS/">在 macOS 上安裝 Ruby</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2021-03-22T12:00:00.000Z" itemprop="datePublished">
-                        Mar 22</time>
-                    <h6 class="title is-6"><a href="/en/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your Drawing-Experience/">Make an iPad Drawing Board That Improves Your Drawing Experience</a></h6>
-                </div>
-            
-            </div>
-        </div>
+        <p>雖然 macOS 已預裝了 Ruby ，但我在使用 <code>gem install</code> 時遇到了個問題：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You don&apos;t have write permissions for the XXX directory.</span><br></pre></td></tr></table></figure>
+
+<p>後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 <code>sudo</code> 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 <code>PATH</code> 設定到另一個 Ruby 比較方便。</p>
+<h2 id="獨立安裝方法"><a href="#獨立安裝方法" class="headerlink" title="獨立安裝方法"></a>獨立安裝方法</h2><p>利用 Homebrew 安裝 <code>chruby</code> 與 <code>ruby-install</code> （此方法屆時可自由切換所需要的 Ruby 版本）</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install chruby ruby-install</span><br></pre></td></tr></table></figure>
+
+<p>接著用 <code>ruby-install</code> 安裝 Ruby：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby-install ruby</span><br></pre></td></tr></table></figure>
+
+<p><code>ruby-install</code> 會自動使用 Homebrew 安裝各種需要的 dependencies，然後從 source 編譯 Ruby，所以需要等個一陣子，可以先去泡壺茶休息下。</p>
+<p>安裝完後在 <code>~/.zshrc</code> 或 <code>~/.bashrc</code> 中新增以下兩條路徑（看自己用的是那種 shell，macOS Catalina 之後預設皆為 zsh ）</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">source</span> /usr/<span class="hljs-built_in">local</span>/opt/chruby/share/chruby/chruby.sh</span><br><span class="line"><span class="hljs-built_in">source</span> /usr/<span class="hljs-built_in">local</span>/opt/chruby/share/chruby/auto.sh</span><br></pre></td></tr></table></figure>
+
+<p>完成後重啟 Terminal 輸入 <code>which ruby</code>，若<em>不是</em>顯示 <code>/usr/bin/ruby</code> 則代表預設的 Ruby 已經不是 macOS 預設的了！</p>
+<p>接著我們可以利用 <code>chruby</code> 選擇 ruby 版本：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chruby 3.0.0</span><br></pre></td></tr></table></figure>
+
+<p>提供給遇到相同問題的朋友們參考</p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.engineyard.com/how-to-install-ruby-on-a-mac-with-chruby-rbenv-or-rvm" target="_blank" rel="noopener">How to Install Ruby on a Mac with chruby, rbenv, or RVM</a></p>
+<p><a href="https://stackoverflow.com/questions/51126403/you-dont-have-write-permissions-for-the-library-ruby-gems-2-3-0-directory-ma" target="_blank" rel="noopener">You don’t have write permissions for the /Library/Ruby/Gems/2.3.0 directory. (mac user)</a></p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
     
     
     </div>
@@ -232,7 +272,7 @@
     window.FontAwesomeConfig = {
         searchPseudoElements: true
     }
-    moment.locale("en-AU");
+    moment.locale("zh-CN");
 </script>
 
 
@@ -356,7 +396,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -368,13 +408,13 @@
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
             },
-            CONTENT_URL: '/content.en.json',
+            CONTENT_URL: '/content.json',
         };
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
