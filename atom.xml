@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2021-04-07T14:21:15.762Z</updated>
+  <updated>2021-04-11T11:35:00.410Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -17,11 +17,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Quick Fix - 無法在 iPad 的 Affinity Photo 中開啟 PSD 檔案？</title>
+    <link href="https://blog.driftking.tw/QuickFix/cant-import-psd-on-affinity-photo-ipad/"/>
+    <id>https://blog.driftking.tw/QuickFix/cant-import-psd-on-affinity-photo-ipad/</id>
+    <published>2021-04-11T11:21:10.000Z</published>
+    <updated>2021-04-11T11:35:00.410Z</updated>
+    
+    <content type="html"><![CDATA[<p>Q: 我無法在 iPad 的 Affinity Photo 中開啟 PSD 檔案？</p><p>A: 如果裝了 Adobe Fresco，可能會造成 PSD 檔案在 Affinity Photo 中無法開啟，刪除 Fr 之後即可解決問題。</p><a id="more"></a><blockquote class="colorquote info"><p>這可能是 Affinity Photo 的一個 Bug，要看未來開發者是否會去修復</p></blockquote><blockquote><p>Quick Fix 是一些我自己平時遇到各種小問題的合輯，並提供自己的快速解法</p></blockquote><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://forum.affinity.serif.com/index.php?/topic/115770-cant-import-psd-file-to-affinity-designerphoto/" target="_blank" rel="noopener">Cant import .psd file to Affinity designer/photo</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Q: 我無法在 iPad 的 Affinity Photo 中開啟 PSD 檔案？&lt;/p&gt;
+&lt;p&gt;A: 如果裝了 Adobe Fresco，可能會造成 PSD 檔案在 Affinity Photo 中無法開啟，刪除 Fr 之後即可解決問題。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
+    
+      <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
+    
+      <category term="Affinity Photo" scheme="https://blog.driftking.tw/tags/Affinity-Photo/"/>
+    
+      <category term="Fresco" scheme="https://blog.driftking.tw/tags/Fresco/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Quick Fix - Can&#39;t import PSD on Affinity Photo iPad</title>
+    <link href="https://blog.driftking.tw/en/QuickFix/cant-import-psd-on-affinity-photo-ipad/"/>
+    <id>https://blog.driftking.tw/en/QuickFix/cant-import-psd-on-affinity-photo-ipad/</id>
+    <published>2021-04-11T11:21:10.000Z</published>
+    <updated>2021-04-11T11:36:01.947Z</updated>
+    
+    <content type="html"><![CDATA[<p>Q: I can’t import PSD file on Affinity Photo on my iPad?</p><p>A: If you have Adobe Fresco installed, uninstall Fr and try it again.</p><a id="more"></a><blockquote class="colorquote info"><p>This probably is a bug in Affinity Photo, need to wait for developer to fix it.</p></blockquote><blockquote><p>Quick Fix is a series of my solution for some random problem</p></blockquote><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://forum.affinity.serif.com/index.php?/topic/115770-cant-import-psd-file-to-affinity-designerphoto/" target="_blank" rel="noopener">Cant import .psd file to Affinity designer/photo</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Q: I can’t import PSD file on Affinity Photo on my iPad?&lt;/p&gt;
+&lt;p&gt;A: If you have Adobe Fresco installed, uninstall Fr and try it again.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
+    
+      <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
+    
+      <category term="Affinity Photo" scheme="https://blog.driftking.tw/tags/Affinity-Photo/"/>
+    
+      <category term="Fresco" scheme="https://blog.driftking.tw/tags/Fresco/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在 macOS 上安裝 Ruby</title>
     <link href="https://blog.driftking.tw/2021/04/Install-Ruby-On-macOS/"/>
     <id>https://blog.driftking.tw/2021/04/Install-Ruby-On-macOS/</id>
     <published>2021-04-02T13:00:00.000Z</published>
-    <updated>2021-04-07T14:21:15.762Z</updated>
+    <updated>2021-04-07T14:23:20.288Z</updated>
     
     <content type="html"><![CDATA[<p>雖然 macOS 已預裝了 Ruby ，但我在使用 <code>gem install</code> 時遇到了個問題：</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You don&apos;t have write permissions for the XXX directory.</span><br></pre></td></tr></table></figure><p>後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 <code>sudo</code> 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 <code>PATH</code> 設定到另一個 Ruby 比較方便。</p><a id="more"></a><h2 id="獨立安裝方法"><a href="#獨立安裝方法" class="headerlink" title="獨立安裝方法"></a>獨立安裝方法</h2><p>利用 Homebrew 安裝 <code>chruby</code> 與 <code>ruby-install</code> （此方法屆時可自由切換所需要的 Ruby 版本）</p><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install chruby ruby-install</span><br></pre></td></tr></table></figure><p>接著用 <code>ruby-install</code> 安裝 Ruby：</p><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby-install ruby</span><br></pre></td></tr></table></figure><p><code>ruby-install</code> 會自動使用 Homebrew 安裝各種需要的 dependencies，然後從 source 編譯 Ruby，所以需要等個一陣子，可以先去泡壺茶休息下 🫖</p><p>安裝完後在 <code>~/.zshrc</code> 或 <code>~/.bashrc</code> 中新增以下兩條路徑（看自己用的是那種 shell，macOS Catalina 之後預設皆為 zsh ）</p><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">source</span> /usr/<span class="hljs-built_in">local</span>/opt/chruby/share/chruby/chruby.sh</span><br><span class="line"><span class="hljs-built_in">source</span> /usr/<span class="hljs-built_in">local</span>/opt/chruby/share/chruby/auto.sh</span><br></pre></td></tr></table></figure><p>完成後重啟 Terminal 輸入 <code>which ruby</code>，若<em>不是</em>顯示 <code>/usr/bin/ruby</code> 則代表預設的 Ruby 已經不是 macOS 預設的了！</p><p>接著我們可以利用 <code>chruby</code> 選擇 ruby 版本：</p><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chruby 3.0.0</span><br></pre></td></tr></table></figure><p>提供給遇到相同問題的朋友們參考 😉</p><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.engineyard.com/how-to-install-ruby-on-a-mac-with-chruby-rbenv-or-rvm" target="_blank" rel="noopener">How to Install Ruby on a Mac with chruby, rbenv, or RVM</a></p><p><a href="https://stackoverflow.com/questions/51126403/you-dont-have-write-permissions-for-the-library-ruby-gems-2-3-0-directory-ma" target="_blank" rel="noopener">You don’t have write permissions for the /Library/Ruby/Gems/2.3.0 directory. (mac user)</a></p>]]></content>
     
@@ -110,9 +164,9 @@
     
       <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
     
-      <category term="illustration" scheme="https://blog.driftking.tw/tags/illustration/"/>
-    
       <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+      <category term="illustration" scheme="https://blog.driftking.tw/tags/illustration/"/>
     
   </entry>
   
@@ -437,53 +491,6 @@
       <category term="TimeCapsule" scheme="https://blog.driftking.tw/tags/TimeCapsule/"/>
     
       <category term="TimeMachine" scheme="https://blog.driftking.tw/tags/TimeMachine/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈</title>
-    <link href="https://blog.driftking.tw/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/"/>
-    <id>https://blog.driftking.tw/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/</id>
-    <published>2019-11-11T13:25:00.000Z</published>
-    <updated>2021-02-23T06:48:23.918Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg" alt></p><p>用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4 <a id="more"></a></p><p>還有很多時候因為 Pi 裝著殼，要得知是否開機、狀態燈有沒有在閃爍並不是那麼方便，本篇也一並記錄了裝上外接電源燈、狀態燈的步驟！</p><p>最後另外在補上風扇的控制方式（ Pi 4 工作時很熱情，大部分人可能會選擇上風扇XD ）但是溫度也不是隨時都那麼高，有了風扇控制可以依照溫度所需啟動，不但降低噪音也能增加風扇使用壽命，順便省一點點電，拯救北極熊（？）（風扇控制目前還在準備中，測試完成後會在更新電路圖）</p><h1 id="硬體設定"><a href="#硬體設定" class="headerlink" title="硬體設定"></a>硬體設定</h1><p>開關 &amp;&amp; 電源燈線路圖</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278749/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_DC3D9F54D1D5-1.jpg" alt></p><p>SD讀取燈 &amp;&amp; 風扇（控制電路待補）</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278969/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_4CCC4C50487E-1.jpg" alt></p><h1 id="軟體設定"><a href="#軟體設定" class="headerlink" title="軟體設定"></a>軟體設定</h1><h3 id="開關（正常軟體關機程序）"><a href="#開關（正常軟體關機程序）" class="headerlink" title="開關（正常軟體關機程序）"></a>開關（正常軟體關機程序）</h3><p>這邊開關的部分參考了 howchoo 上的一篇文章：<a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a>，以下是直接使用作者所寫好的 Script 安裝，詳細背後的 Code 以及原理可以點進連結裡查看（英文）。</p><p>安裝 Git</p><p><code>sudo apt-get install git</code></p><p>接著 clone 作者所寫好的 Script <a href="https://github.com/Howchoo/pi-power-button" target="_blank" rel="noopener">Howchoo/pi-power-button</a></p><p><code>git clone https://github.com/Howchoo/pi-power-button.git</code></p><p>安裝即可</p><p><code>./pi-power-button/script/install</code></p><h3 id="電源燈"><a href="#電源燈" class="headerlink" title="電源燈"></a>電源燈</h3><p>進入樹莓派設定界面</p><p><code>sudo raspi-config</code></p><p>選擇 <code>Interface Options</code> 開啟 <code>Serial</code> 來允許串列讀取，這樣我們就可以利用 GPIO 上的 TXD 來讓 LED 顯示目前是否為開機狀態（直接接 5V 的話只要插上電就會亮，沒辦法判斷樹莓派是否在開機狀態）</p><p>接著重啟樹莓派即可看到電源燈正常運作了</p><p><code>sudo reboot</code></p><h3 id="SD-卡讀取燈"><a href="#SD-卡讀取燈" class="headerlink" title="SD 卡讀取燈"></a>SD 卡讀取燈</h3><p>將 SD 卡插入電腦中，打開至根目錄找到一個叫做 <code>config.txt</code> 的設定檔，在底部添加以下設定。<br>最後的 GPIO 選擇自己要用的腳位即可（<a href="https://pinout.xyz/pinout/" target="_blank" rel="noopener">腳位參考</a>）</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Use external LED as ACT LED</span><br><span class="line">dtoverlay=pi3-act-led,gpio=19</span><br></pre></td></tr></table></figure><h3 id="風扇控制"><a href="#風扇控制" class="headerlink" title="風扇控制"></a>風扇控制</h3><p><strong>待補</strong></p><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.youtube.com/watch?v=_REhMZJ8GJY" target="_blank" rel="noopener">Add An External Sd Activity Light Raspberry Pi 3 Retropie Or Raspbian</a></p><p><a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a></p><p><a href="https://www.youtube.com/watch?v=P5o0PpfzuW8" target="_blank" rel="noopener">#131 Pimp my Raspberry: Automatic fan, automatic shutdown, automatic Python</a></p><p><a href="https://howchoo.com/g/ytzjyzy4m2e/build-a-simple-raspberry-pi-led-power-status-indicator" target="_blank" rel="noopener">Build a Simple Raspberry Pi LED Power/Status Indicator</a></p><p><a href="http://www.irf.com/product-info/datasheets/data/irl530n.pdf" target="_blank" rel="noopener">IRL530N Datasheet</a></p><p><a href="https://www.youtube.com/watch?v=P5o0PpfzuW8" target="_blank" rel="noopener">#131 Pimp my Raspberry: Automatic fan, automatic shutdown, automatic Python</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
-    
-      <category term="RaspberryPi/樹莓派" scheme="https://blog.driftking.tw/tags/RaspberryPi-%E6%A8%B9%E8%8E%93%E6%B4%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制</title>
-    <link href="https://blog.driftking.tw/en/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/"/>
-    <id>https://blog.driftking.tw/en/2019/11/替RaspberryPi添加開關_電源燈_硬碟燈/</id>
-    <published>2019-11-11T13:25:00.000Z</published>
-    <updated>2021-03-22T14:30:24.330Z</updated>
-    
-    <content type="html"><![CDATA[<p>Sorry, this post in currently in Chinese only :(</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg" alt></p><p>用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4 <a id="more"></a></p><p>還有很多時候因為 Pi 裝著殼，要得知是否開機、狀態燈有沒有在閃爍並不是那麼方便，本篇也一並記錄了裝上外接電源燈、狀態燈的步驟！</p><p>最後另外在補上風扇的控制方式（ Pi 4 工作時很熱情，大部分人可能會選擇上風扇XD ）但是溫度也不是隨時都那麼高，有了風扇控制可以依照溫度所需啟動，不但降低噪音也能增加風扇使用壽命，順便省一點點電，拯救北極熊（？）（風扇控制目前還在準備中，測試完成後會在更新電路圖）</p><h1 id="硬體設定"><a href="#硬體設定" class="headerlink" title="硬體設定"></a>硬體設定</h1><p>開關 &amp;&amp; 電源燈線路圖</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278749/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_DC3D9F54D1D5-1.jpg" alt></p><p>SD讀取燈 &amp;&amp; 風扇（控制電路待補）</p><p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573278969/blog/2019/11/%E6%9B%BF%20Raspberry%20Pi%20%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C%E3%80%81%E5%A4%96%E6%8E%A5%E9%9B%BB%E6%BA%90%E7%87%88%E3%80%81%E7%8B%80%E6%85%8B%E7%87%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%A2%A8%E6%89%87%E6%8E%A7%E5%88%B6/IMG_4CCC4C50487E-1.jpg" alt></p><h1 id="軟體設定"><a href="#軟體設定" class="headerlink" title="軟體設定"></a>軟體設定</h1><h3 id="開關（正常軟體關機程序）"><a href="#開關（正常軟體關機程序）" class="headerlink" title="開關（正常軟體關機程序）"></a>開關（正常軟體關機程序）</h3><p>這邊開關的部分參考了 howchoo 上的一篇文章：<a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a>，以下是直接使用作者所寫好的 Script 安裝，詳細背後的 Code 以及原理可以點進連結裡查看（英文）。</p><p>安裝 Git</p><p><code>sudo apt-get install git</code></p><p>接著 clone 作者所寫好的 Script <a href="https://github.com/Howchoo/pi-power-button" target="_blank" rel="noopener">Howchoo/pi-power-button</a></p><p><code>git clone https://github.com/Howchoo/pi-power-button.git</code></p><p>安裝即可</p><p><code>./pi-power-button/script/install</code></p><h3 id="電源燈"><a href="#電源燈" class="headerlink" title="電源燈"></a>電源燈</h3><p>進入樹莓派設定界面</p><p><code>sudo raspi-config</code></p><p>選擇 <code>Interface Options</code> 開啟 <code>Serial</code> 來允許串列讀取，這樣我們就可以利用 GPIO 上的 TXD 來讓 LED 顯示目前是否為開機狀態（直接接 5V 的話只要插上電就會亮，沒辦法判斷樹莓派是否在開機狀態）</p><p>接著重啟樹莓派即可看到電源燈正常運作了</p><p><code>sudo reboot</code></p><h3 id="SD-卡讀取燈"><a href="#SD-卡讀取燈" class="headerlink" title="SD 卡讀取燈"></a>SD 卡讀取燈</h3><p>將 SD 卡插入電腦中，打開至根目錄找到一個叫做 <code>config.txt</code> 的設定檔，在底部添加以下設定。<br>最後的 GPIO 選擇自己要用的腳位即可（<a href="https://pinout.xyz/pinout/" target="_blank" rel="noopener">腳位參考</a>）</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Use external LED as ACT LED</span><br><span class="line">dtoverlay=pi3-act-led,gpio=19</span><br></pre></td></tr></table></figure><h3 id="風扇控制"><a href="#風扇控制" class="headerlink" title="風扇控制"></a>風扇控制</h3><p><strong>待補</strong></p><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.youtube.com/watch?v=_REhMZJ8GJY" target="_blank" rel="noopener">Add An External Sd Activity Light Raspberry Pi 3 Retropie Or Raspbian</a></p><p><a href="https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi" target="_blank" rel="noopener">How to Add a Power Button to Your Raspberry Pi</a></p><p><a href="https://www.youtube.com/watch?v=P5o0PpfzuW8" target="_blank" rel="noopener">#131 Pimp my Raspberry: Automatic fan, automatic shutdown, automatic Python</a></p><p><a href="https://howchoo.com/g/ytzjyzy4m2e/build-a-simple-raspberry-pi-led-power-status-indicator" target="_blank" rel="noopener">Build a Simple Raspberry Pi LED Power/Status Indicator</a></p><p><a href="http://www.irf.com/product-info/datasheets/data/irl530n.pdf" target="_blank" rel="noopener">IRL530N Datasheet</a></p><p><a href="https://www.youtube.com/watch?v=P5o0PpfzuW8" target="_blank" rel="noopener">#131 Pimp my Raspberry: Automatic fan, automatic shutdown, automatic Python</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Sorry, this post in currently in Chinese only :(&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;用 Headless 方式玩樹莓派的朋友肯定都遇過一個問題，就是每次關機都要登入 ssh 才能正常關機，懶一點的直接拔電源，就算沒問題也很麻煩（ 懶到過去延長線切電源都不肯 （欸），所以不如加個開關吧，不僅省時省力還能用正常的 shutdown 程序關機，一石二鳥豈不美哉 (:3[__]4&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
-    
-      <category term="RaspberryPi" scheme="https://blog.driftking.tw/tags/RaspberryPi/"/>
     
   </entry>
   
