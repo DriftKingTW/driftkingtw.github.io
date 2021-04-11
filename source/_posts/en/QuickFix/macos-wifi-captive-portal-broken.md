@@ -44,7 +44,7 @@ A: Create a file `my.shim.catalina.captivenetworkassistant.plist` in `~/Library/
 </plist>
 ```
 
-Then do the command down below:
+Then run the command down below:
 
 ```shell
 cd ~/Library/LaunchAgents
