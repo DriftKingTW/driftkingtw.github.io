@@ -2,13 +2,13 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>在 macOS 上安裝 Ruby - DriftKingTW&#39;s Blog</title>
+<title>Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息 - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/2021/04/Install-Ruby-On-macOS/" rel="alternate" hreflang="zh-TW">
+<link href="/en/QuickFix/macos-wifi-captive-portal-broken/" rel="alternate" hreflang="en">
     
 
 
@@ -16,22 +16,22 @@
 
 
 
-<meta name="keywords" content="MacOS,Ruby,gem">
+<meta name="keywords" content="Quick Fix,MacOS,WiFi,Captive Portal,錯誤">
 
 
 
-    <meta name="description" content="Sorry, this post in currently in Chinese only :( 雖然 macOS 已預裝了 Ruby ，但我在使用 gem install 時遇到了個問題： 112  後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 sudo 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 PATH 設定到另一個 Ruby 比較方便。">
-<meta name="keywords" content="MacOS,Ruby,gem">
+    <meta name="description" content="Q: macOS 連接公用 WiFi 登入畫面一片空白並出現登入錯誤訊息？ A: 在 ~/Library/LaunchAgents 中新增一個檔案名為 my.shim.catalina.captivenetworkassistant.plist">
+<meta name="keywords" content="Quick Fix,MacOS,WiFi,Captive Portal,錯誤">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 macOS 上安裝 Ruby">
-<meta property="og:url" content="https://blog.driftking.tw/en/2021/04/Install-Ruby-On-macOS/index.html">
+<meta property="og:title" content="Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息">
+<meta property="og:url" content="https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
-<meta property="og:description" content="Sorry, this post in currently in Chinese only :( 雖然 macOS 已預裝了 Ruby ，但我在使用 gem install 時遇到了個問題： 112  後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 sudo 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 PATH 設定到另一個 Ruby 比較方便。">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-04-02T15:23:11.945Z">
+<meta property="og:description" content="Q: macOS 連接公用 WiFi 登入畫面一片空白並出現登入錯誤訊息？ A: 在 ~/Library/LaunchAgents 中新增一個檔案名為 my.shim.catalina.captivenetworkassistant.plist">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2021-04-11T11:55:27.491Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在 macOS 上安裝 Ruby">
-<meta name="twitter:description" content="Sorry, this post in currently in Chinese only :( 雖然 macOS 已預裝了 Ruby ，但我在使用 gem install 時遇到了個問題： 112  後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 sudo 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 PATH 設定到另一個 Ruby 比較方便。">
+<meta name="twitter:title" content="Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息">
+<meta name="twitter:description" content="Q: macOS 連接公用 WiFi 登入畫面一片空白並出現登入錯誤訊息？ A: 在 ~/Library/LaunchAgents 中新增一個檔案名為 my.shim.catalina.captivenetworkassistant.plist">
 
 
 
@@ -84,7 +84,7 @@
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/en">
+            <a class="navbar-item navbar-logo" href="/">
                 
                 <img src="/images/logo.png" alt height="28">
                 
@@ -98,9 +98,9 @@
         
         <div class="navbar-menu navbar-start">
             
-            <a class="navbar-item " href="/en/archives">Archives</a>
+            <a class="navbar-item " href="/archives">目錄</a>
             
-            <a class="navbar-item " href="/en/about">About</a>
+            <a class="navbar-item " href="/about">關於</a>
             
         </div>
         
@@ -114,7 +114,7 @@
                 <span class="icon">
                     <i class="fas fa-globe"></i>
                 </span>
-                <span>English</span>
+                <span>繁體中文</span>
                 <span class="icon is-small">
             <i class="fas fa-angle-down" aria-hidden="true"></i>
           </span>
@@ -123,11 +123,11 @@
         <div class="dropdown-menu has-text-left" role="menu">
             <div class="dropdown-content">
             
-                <a href="/2021/04/Install-Ruby-On-macOS/" class="dropdown-item">
+                <a href="/QuickFix/macos-wifi-captive-portal-broken/" class="dropdown-item">
                     繁體中文
                 </a>
             
-                <a href="/en/2021/04/Install-Ruby-On-macOS/" class="dropdown-item">
+                <a href="/en/QuickFix/macos-wifi-captive-portal-broken/" class="dropdown-item">
                     English
                 </a>
             
@@ -137,7 +137,7 @@
 </div>
 
             
-            <a class="navbar-item search" title="Search" href="javascript:;">
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -161,69 +161,65 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            在 macOS 上安裝 Ruby
+            Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2021-04-02T13:00:00.000Z" itemprop="datePublished">Apr 2 2021</time>
+            <time datetime="2021-04-11T11:42:36.000Z" itemprop="datePublished">4月 11 2021</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            2 Minutes read (About 391 words)
+            1 分鐘 讀完 (約 250 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>Sorry, this post in currently in Chinese only :(</p>
-<p>雖然 macOS 已預裝了 Ruby ，但我在使用 <code>gem install</code> 時遇到了個問題：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You don&apos;t have write permissions for the XXX directory.</span><br></pre></td></tr></table></figure>
-
-<p>後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 <code>sudo</code> 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 <code>PATH</code> 設定到另一個 Ruby 比較方便。</p>
+        <p>Q: macOS 連接公用 WiFi 登入畫面一片空白並出現登入錯誤訊息？</p>
+<p>A: 在 <code>~/Library/LaunchAgents</code> 中新增一個檔案名為 <code>my.shim.catalina.captivenetworkassistant.plist</code></p>
 <a id="more"></a>
-<h2 id="獨立安裝方法"><a href="#獨立安裝方法" class="headerlink" title="獨立安裝方法"></a>獨立安裝方法</h2><p>利用 Homebrew 安裝 <code>chruby</code> 與 <code>ruby-install</code> （此方法屆時可自由切換所需要的 Ruby 版本）</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install chruby ruby-install</span><br></pre></td></tr></table></figure>
+<p>內容如下：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">plist</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">"-//Apple Computer//DTD PLIST 1.0//EN"</span> \</span></span><br><span class="line"><span class="hljs-meta"><span class="hljs-meta-string">"http://www.apple.com/DTDs/PropertyList-1.0.dtd"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">plist</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1.0"</span>&gt;</span></span><br><span class="line"> <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Label<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>my.shim.catalina.captivenetworkassistant<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>LowPriorityIO<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>ProgramArguments<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>open<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>/System/Library/CoreServices/Captive Network Assistant.app<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>WatchPaths<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>/Library/Preferences/SystemConfiguration<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>RunAtLoad<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span></span><br><span class="line"> <span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>接著用 <code>ruby-install</code> 安裝 Ruby：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby-install ruby</span><br></pre></td></tr></table></figure>
+<p>接著依序執行如下指令</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Library/LaunchAgents</span><br><span class="line"></span><br><span class="line">launchctl load my.shim.catalina.captivenetworkassistant.plist</span><br><span class="line"></span><br><span class="line">launchctl start my.shim.catalina.captivenetworkassistant</span><br></pre></td></tr></table></figure>
 
-<p><code>ruby-install</code> 會自動使用 Homebrew 安裝各種需要的 dependencies，然後從 source 編譯 Ruby，所以需要等個一陣子，可以先去泡壺茶休息下 </p>
-<p>安裝完後在 <code>~/.zshrc</code> 或 <code>~/.bashrc</code> 中新增以下兩條路徑（看自己用的是那種 shell，macOS Catalina 之後預設皆為 zsh ）</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">source</span> /usr/<span class="hljs-built_in">local</span>/opt/chruby/share/chruby/chruby.sh</span><br><span class="line"><span class="hljs-built_in">source</span> /usr/<span class="hljs-built_in">local</span>/opt/chruby/share/chruby/auto.sh</span><br></pre></td></tr></table></figure>
+<p>重啟電腦即可解決問題 👌</p>
+<p>若要刪除此背景服務：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Library/LaunchAgents</span><br><span class="line"></span><br><span class="line">launchctl stop my.shim.catalina.captivenetworkassistant</span><br><span class="line"></span><br><span class="line">launchctl unload my.shim.catalina.captivenetworkassistant.plist</span><br><span class="line"></span><br><span class="line">rm my.shim.catalina.captivenetworkassistant.plist</span><br></pre></td></tr></table></figure>
 
-<p>完成後重啟 Terminal 輸入 <code>which ruby</code>，若<em>不是</em>顯示 <code>/usr/bin/ruby</code> 則代表預設的 Ruby 已經不是 macOS 預設的了！</p>
-<p>接著我們可以利用 <code>chruby</code> 選擇 ruby 版本：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chruby 3.0.0</span><br></pre></td></tr></table></figure>
-
-<p>提供給遇到相同問題的朋友們參考</p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://blog.engineyard.com/how-to-install-ruby-on-a-mac-with-chruby-rbenv-or-rvm" target="_blank" rel="noopener">How to Install Ruby on a Mac with chruby, rbenv, or RVM</a></p>
-<p><a href="https://stackoverflow.com/questions/51126403/you-dont-have-write-permissions-for-the-library-ruby-gems-2-3-0-directory-ma" target="_blank" rel="noopener">You don’t have write permissions for the /Library/Ruby/Gems/2.3.0 directory. (mac user)</a></p>
+<blockquote class="colorquote info"><p>我參考的解決文章中提到 <code>10.15.1</code> 版本中已解決此問題，但我 <code>11.2.3</code> 版本仍遇到此問題 😭</p>
+</blockquote>
+<blockquote>
+<p>Quick Fix 是一些我自己平時遇到各種小問題的合輯，並提供自己的快速解法</p>
+</blockquote>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://poweruser.blog/macos-catalina-wifi-issue-captive-portal-broken-45610cc016b5" target="_blank" rel="noopener">macOS Catalina WiFi issue — captive portal broken</a></p>
 
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/en/tags/MacOS/">#MacOS</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Quick-Fix/">#Quick Fix</a></span>
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/en/tags/Ruby/">#Ruby</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/MacOS/">#MacOS</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/WiFi/">#WiFi</a></span>
     
     </div>
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/en/QuickFix/cant-import-psd-on-affinity-photo-ipad/">Quick Fix - Can&#39;t import PSD on Affinity Photo iPad</a>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/en/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your Drawing-Experience/">Make an iPad Drawing Board That Improves Your Drawing Experience</a>
+            <a href="/QuickFix/cant-import-psd-on-affinity-photo-ipad/">Quick Fix - 無法在 iPad 的 Affinity Photo 中開啟 PSD 檔案？</a>
             
         </span>
     </div>
@@ -241,7 +237,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Comments</h3>
+    <h3 class="title is-4">評論</h3>
     
 <div id="valine-thread"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -254,10 +250,10 @@
         notify: "true",
         verify: "true",
         avatar: "mp",
-        placeholder: "Feel free to leave a comment ! :D",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
         meta: ['nick', 'mail'],
         visitor: true,
-        lang: "en"
+        lang: "zh-tw"
     })
 </script>
 
@@ -316,7 +312,7 @@
     window.FontAwesomeConfig = {
         searchPseudoElements: true
     }
-    moment.locale("en-AU");
+    moment.locale("zh-CN");
 </script>
 
 
@@ -440,7 +436,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -452,13 +448,13 @@
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
             },
-            CONTENT_URL: '/content.en.json',
+            CONTENT_URL: '/content.json',
         };
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
