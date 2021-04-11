@@ -48,9 +48,11 @@ Then run the command down below:
 
 ```shell
 cd ~/Library/LaunchAgents
-
+```
+```shell
 launchctl load my.shim.catalina.captivenetworkassistant.plist
-
+```
+```shell
 launchctl start my.shim.catalina.captivenetworkassistant
 ```
 
@@ -60,11 +62,14 @@ If you want to remove this daemon:
 
 ```shell
 cd ~/Library/LaunchAgents
-
+```
+```shell
 launchctl stop my.shim.catalina.captivenetworkassistant
-
+```
+```shell
 launchctl unload my.shim.catalina.captivenetworkassistant.plist
-
+```
+```shell
 rm my.shim.catalina.captivenetworkassistant.plist
 ```
 

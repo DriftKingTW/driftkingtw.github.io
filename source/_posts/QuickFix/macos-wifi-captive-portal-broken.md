@@ -51,9 +51,11 @@ A: 在 `~/Library/LaunchAgents` 中新增一個檔案名為 `my.shim.catalina.ca
 
 ```shell
 cd ~/Library/LaunchAgents
-
+```
+```shell
 launchctl load my.shim.catalina.captivenetworkassistant.plist
-
+```
+```shell
 launchctl start my.shim.catalina.captivenetworkassistant
 ```
 
@@ -63,11 +65,14 @@ launchctl start my.shim.catalina.captivenetworkassistant
 
 ```shell
 cd ~/Library/LaunchAgents
-
+```
+```shell
 launchctl stop my.shim.catalina.captivenetworkassistant
-
+```
+```shell
 launchctl unload my.shim.catalina.captivenetworkassistant.plist
-
+```
+```shell
 rm my.shim.catalina.captivenetworkassistant.plist
 ```
 
