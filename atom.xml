@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2021-04-17T16:34:25.950Z</updated>
+  <updated>2021-04-17T16:36:31.495Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.driftking.tw/QuickFix/node-sass-error/"/>
     <id>https://blog.driftking.tw/QuickFix/node-sass-error/</id>
     <published>2021-04-17T16:30:00.000Z</published>
-    <updated>2021-04-17T16:34:25.950Z</updated>
+    <updated>2021-04-17T16:36:31.495Z</updated>
     
     <content type="html"><![CDATA[<p>Q: 最近在利用 <code>Vue-Cli</code> 建立專案時遇到 <code>node-sass</code> 出現如下錯誤：</p><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> ERROR  Failed to compile with 1 error                             </span><br><span class="line"></span><br><span class="line"> error  in ./src/App.vue?vue&amp;type=style&amp;index=0&amp;lang=scss&amp;</span><br><span class="line"></span><br><span class="line">Syntax Error: Error: ENOENT: no such file or directory, scandir '/***/node_modules/node-sass/vendor'</span><br></pre></td></tr></table></figure><a id="more"></a><p>A: Rebuild 即可：<code>npm rebuild node-sass</code></p><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://github.com/sass/node-sass/issues/1579" target="_blank" rel="noopener">Error: ENOENT: no such file or directory, scandir ‘**/node_modules/node-sass/vendor’ #1579</a></p>]]></content>
     
@@ -44,14 +44,14 @@
     <link href="https://blog.driftking.tw/en/QuickFix/node-sass-error/"/>
     <id>https://blog.driftking.tw/en/QuickFix/node-sass-error/</id>
     <published>2021-04-17T16:30:00.000Z</published>
-    <updated>2021-04-17T16:36:19.241Z</updated>
+    <updated>2021-04-17T16:36:31.496Z</updated>
     
     <content type="html"><![CDATA[<p>Q: Recently I run into this error whe create a vue project via <code>Vue-Cli</code> :</p><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> ERROR  Failed to compile with 1 error                             </span><br><span class="line"></span><br><span class="line"> error  in ./src/App.vue?vue&amp;type=style&amp;index=0&amp;lang=scss&amp;</span><br><span class="line"></span><br><span class="line">Syntax Error: Error: ENOENT: no such file or directory, scandir '/***/node_modules/node-sass/vendor'</span><br></pre></td></tr></table></figure><a id="more"></a><p>A: Simply rebuild wil do the tirck：<code>npm rebuild node-sass</code></p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://github.com/sass/node-sass/issues/1579" target="_blank" rel="noopener">Error: ENOENT: no such file or directory, scandir ‘**/node_modules/node-sass/vendor’ #1579</a></p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;77&lt;/epacse&gt;
+&lt;epacse hidden&gt;1&lt;/epacse&gt;
     
     </summary>
     
