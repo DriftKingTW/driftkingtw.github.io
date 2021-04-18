@@ -59,6 +59,10 @@ iPad + Apple Pencil 作為目前平板市場上最強大的繪畫筆記生產力
 
 ![手托](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424240/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/Top.jpg)
 
+{% colorquote info %}
+您可以透過贊助在 [這裡](https://www.buymeacoffee.com/driftkingtw/e/28814) 取得上述的鐳切檔案 😉
+{% endcolorquote %}
+
 # 材料
 
 材料不多，如下：

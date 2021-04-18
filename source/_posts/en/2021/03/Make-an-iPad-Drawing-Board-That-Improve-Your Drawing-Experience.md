@@ -71,6 +71,10 @@ Then use Illustrator to draw the outline of the board.
 
 ![Hand rest](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424240/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/Top.jpg)
 
+{% colorquote info %}
+You can support me and download the *.ai files from [here](https://www.buymeacoffee.com/driftkingtw/e/28814) 😉
+{% endcolorquote %}
+
 # Material/Tool
 
 - Laser cutting linden plywood
