@@ -1,5 +1,5 @@
 ---
-title: Using Raspberry Pi to Control a PWM Fan and Monitor its Speed (Software PWM Control)
+title: Using Raspberry Pi to Control a PWM Fan and Monitor its Speed
 tags:
   - RaspberryPi/樹莓派
   - DIY
@@ -51,7 +51,7 @@ Here's a photo testing hardware and program on Pi 3B.`
 
 ![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610248/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191124_234259.jpg)
 
-# Program Control
+# Control Script
 
 ### PWM GPIO Test
 
@@ -91,6 +91,10 @@ Check the fan is working as you expect.
 
 
 The control script is on: [DriftKingTW/Raspberry-Pi-PWM-Fan-Control](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Control/blob/master/fan_control.py)
+
+{% colorquote danger %}
+I use GPIO18 which is the hardware PWM(12/13 and 18/19) and all other pins are software PWM. Hardware PWM and the headphone jack use the same circuits, don't use them at the smae time.
+{% endcolorquote %}
 
 `mkdir -p Scripts`
 

@@ -1,5 +1,5 @@
 ---
-title: 利用 Raspberry Pi 控制 PWM 風扇及轉速偵測 (軟體PWM控制)
+title: 利用 Raspberry Pi 控制 PWM 風扇及轉速偵測
 tags:
   - RaspberryPi/樹莓派
   - DIY
@@ -93,6 +93,10 @@ sudo dpkg -i wiringpi-latest.deb
 ### PWM 訊號控制轉速
 
 我把控制程式放在 Github 上了，可以點擊參考：[DriftKingTW/Raspberry-Pi-PWM-Fan-Control](https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/blob/master/fan_control.py)
+
+{% colorquote danger %}
+我使用的是硬體 PWM GPIO18 (12/13與18/19)，剩餘的腳位使用的話是軟體 PWM。由於硬體 PWM 跟耳機孔使用相同的電路，所以請不要同時使用
+{% endcolorquote %}
 
 建立資料夾存放要用到的程式：
 
