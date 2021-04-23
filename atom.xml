@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2021-04-19T13:14:25.158Z</updated>
+  <updated>2021-04-19T13:19:50.510Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.driftking.tw/QuickFix/navbar-covers-heading-with-anchor-link/"/>
     <id>https://blog.driftking.tw/QuickFix/navbar-covers-heading-with-anchor-link/</id>
     <published>2021-04-19T13:00:00.000Z</published>
-    <updated>2021-04-19T13:14:25.158Z</updated>
+    <updated>2021-04-19T13:19:50.510Z</updated>
     
     <content type="html"><![CDATA[<p>Q：這是個常見的 CSS 問題，當利用錨點連結 <code>&lt;a href=&quot;#heading&quot;&gt;&lt;/a&gt;</code> 跳到該標題時，如果是 <code>Fixed</code> 或 <code>Sticky</code> 的導覽列就會擋住標題，可以參考這個 <a href="https://codepen.io/DriftKingTW/pen/abpaYYb" target="_blank" rel="noopener">CodePen範例</a></p><a id="more"></a><p>A：這問題的解法有相當多種，但這邊想推薦一個最簡單的純 CSS 解法：</p><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">scroll-padding-top</span>: <span class="hljs-number">3rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="colorquote info"><p>將上述 3em 的部分替換成自己的導覽列高度即可，可以在 <a href="https://codepen.io/DriftKingTW/pen/abpaYYb" target="_blank" rel="noopener">CodePen範例</a> 中玩玩看！</p></blockquote><blockquote><p>Quick Fix 是一些我自己平時遇到各種小問題的合輯，並提供自己的快速解法</p></blockquote><h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.youtube.com/watch?v=JSURzPQnkl0" target="_blank" rel="noopener">3 More Life-Changing CSS Tips</a></p><p><a href="https://www.youtube.com/watch?v=pKO1ktPQByk" target="_blank" rel="noopener">5 More Must Know CSS Tricks That Almost Nobody Knows</a></p><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding-top" target="_blank" rel="noopener">MDN: scroll-padding-top</a></p>]]></content>
     
@@ -43,7 +43,7 @@
     <link href="https://blog.driftking.tw/en/QuickFix/navbar-covers-heading-with-anchor-link/"/>
     <id>https://blog.driftking.tw/en/QuickFix/navbar-covers-heading-with-anchor-link/</id>
     <published>2021-04-19T13:00:00.000Z</published>
-    <updated>2021-04-19T13:19:37.580Z</updated>
+    <updated>2021-04-19T13:19:50.512Z</updated>
     
     <content type="html"><![CDATA[<p>Q: This is a common CSS issue. When using <code>&lt;a href=&quot;#heading&quot;&gt;&lt;/a&gt;</code> to navigate around the article, the <code>Fixed</code> or <code>Sticky</code> will coverd the heading like this <a href="https://codepen.io/DriftKingTW/pen/abpaYYb" target="_blank" rel="noopener">CodePen</a></p><a id="more"></a><p>A: There’s hundred of ways to fix it, but this is probably the easiest way to do it (CSS only):</p><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">scroll-padding-top</span>: <span class="hljs-number">3rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="colorquote info"><p>You need to replace <code>3rem</code> with the height of your nav, play with it in  <a href="https://codepen.io/DriftKingTW/pen/abpaYYb" target="_blank" rel="noopener">CodePen</a>!</p></blockquote><blockquote><p>Quick Fix is a series of my solution for some random problem</p></blockquote><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.youtube.com/watch?v=JSURzPQnkl0" target="_blank" rel="noopener">3 More Life-Changing CSS Tips</a></p><p><a href="https://www.youtube.com/watch?v=pKO1ktPQByk" target="_blank" rel="noopener">5 More Must Know CSS Tricks That Almost Nobody Knows</a></p><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding-top" target="_blank" rel="noopener">MDN: scroll-padding-top</a></p>]]></content>
     

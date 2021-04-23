@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
+    
+    <lastmod>2021-04-23T11:50:25.067Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
+    
+    <lastmod>2021-04-23T11:50:21.180Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.driftking.tw/en/QuickFix/navbar-covers-heading-with-anchor-link/</loc>
     
-    <lastmod>2021-04-19T13:19:37.580Z</lastmod>
+    <lastmod>2021-04-19T13:19:50.512Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.driftking.tw/QuickFix/navbar-covers-heading-with-anchor-link/</loc>
     
-    <lastmod>2021-04-19T13:14:25.158Z</lastmod>
+    <lastmod>2021-04-19T13:19:50.510Z</lastmod>
     
   </url>
   
@@ -96,20 +110,6 @@
     <loc>https://blog.driftking.tw/en/2021/04/Install-Ruby-On-macOS/</loc>
     
     <lastmod>2021-04-02T15:23:11.945Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
-    
-    <lastmod>2021-03-29T14:25:15.753Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
-    
-    <lastmod>2021-03-29T14:24:31.347Z</lastmod>
     
   </url>
   

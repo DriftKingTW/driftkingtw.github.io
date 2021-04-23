@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>利用 Raspberry Pi 控制 PWM 風扇及轉速偵測 (軟體PWM控制) - DriftKingTW&#39;s Blog</title>
+<title>利用 Raspberry Pi 控制 PWM 風扇及轉速偵測 - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -23,7 +23,7 @@
     <meta name="description" content="相信不少人都會為熱情的 Pi 4 加上風扇散熱，不過小風扇噪音就成了問題，由於 Pi 也不是隨時都滿載需要風扇全速運轉，所以我們可以利用 PWM (Pulse Width Modulation) 來控制轉速。讓風扇在提高到一定溫度時才啟動，或是降低轉速來降低噪音。">
 <meta name="keywords" content="Raspberry Pi,樹莓派,PWM Fan Control,PWM 風扇控制,Tachometer,轉速偵測">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用 Raspberry Pi 控制 PWM 風扇及轉速偵測 (軟體PWM控制)">
+<meta property="og:title" content="利用 Raspberry Pi 控制 PWM 風扇及轉速偵測">
 <meta property="og:url" content="https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="相信不少人都會為熱情的 Pi 4 加上風扇散熱，不過小風扇噪音就成了問題，由於 Pi 也不是隨時都滿載需要風扇全速運轉，所以我們可以利用 PWM (Pulse Width Modulation) 來控制轉速。讓風扇在提高到一定溫度時才啟動，或是降低轉速來降低噪音。">
@@ -34,9 +34,9 @@
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610745/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191123_141251.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610248/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191124_234259.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574611525/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_AABD9EE6FAB5-1.jpg">
-<meta property="og:updated_time" content="2021-03-29T14:25:15.753Z">
+<meta property="og:updated_time" content="2021-04-23T11:50:21.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用 Raspberry Pi 控制 PWM 風扇及轉速偵測 (軟體PWM控制)">
+<meta name="twitter:title" content="利用 Raspberry Pi 控制 PWM 風扇及轉速偵測">
 <meta name="twitter:description" content="相信不少人都會為熱情的 Pi 4 加上風扇散熱，不過小風扇噪音就成了問題，由於 Pi 也不是隨時都滿載需要風扇全速運轉，所以我們可以利用 PWM (Pulse Width Modulation) 來控制轉速。讓風扇在提高到一定溫度時才啟動，或是降低轉速來降低噪音。">
 <meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574826956/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/Fur_chan_w_Noctua_fan_2.jpg">
 
@@ -168,7 +168,7 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            利用 Raspberry Pi 控制 PWM 風扇及轉速偵測 (軟體PWM控制)
+            利用 Raspberry Pi 控制 PWM 風扇及轉速偵測
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -180,7 +180,7 @@
         <span class="column is-narrow">
             
             
-            16 分鐘 讀完 (約 2505 字)
+            17 分鐘 讀完 (約 2559 字)
         </span>
         
     </div>
@@ -224,6 +224,8 @@
 <p><code>gpio pwm 1 [數值]</code></p>
 <p>檢查風扇是否成功用 PWM 控制，如果有隨著設定數值改變就沒問題了！</p>
 <h3 id="PWM-訊號控制轉速"><a href="#PWM-訊號控制轉速" class="headerlink" title="PWM 訊號控制轉速"></a>PWM 訊號控制轉速</h3><p>我把控制程式放在 Github 上了，可以點擊參考：<a href="https://github.com/DriftKingTW/Raspberry-Pi-PWM-Fan-Contorl/blob/master/fan_control.py" target="_blank" rel="noopener">DriftKingTW/Raspberry-Pi-PWM-Fan-Control</a></p>
+<blockquote class="colorquote danger"><p>我使用的是硬體 PWM GPIO18 (12/13與18/19)，剩餘的腳位使用的話是軟體 PWM。由於硬體 PWM 跟耳機孔使用相同的電路，所以請不要同時使用</p>
+</blockquote>
 <p>建立資料夾存放要用到的程式：</p>
 <p><code>mkdir -p Scripts</code></p>
 <p><code>cd Scripts/</code></p>

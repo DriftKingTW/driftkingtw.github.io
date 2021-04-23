@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>
+  <url>
     <loc>https://blog.driftking.tw/en/QuickFix/navbar-covers-heading-with-anchor-link/</loc>
     <lastmod>2021-04-19</lastmod>
   </url>
@@ -55,14 +63,6 @@
   <url>
     <loc>https://blog.driftking.tw/en/2021/04/Install-Ruby-On-macOS/</loc>
     <lastmod>2021-04-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
-    <lastmod>2021-03-29</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</loc>
-    <lastmod>2021-03-29</lastmod>
   </url>
   <url>
     <loc>https://blog.driftking.tw/en/2020/06/macos-app-cant-be-opened/</loc>
