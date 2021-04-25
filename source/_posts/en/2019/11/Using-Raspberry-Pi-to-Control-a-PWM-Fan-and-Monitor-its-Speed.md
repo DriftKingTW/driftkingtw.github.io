@@ -116,7 +116,7 @@ Edit `rc.local`
 sudo vim /etc/rc.local
 ```
 
-Add the following line after `exit 0` :
+Add the following line before `exit 0` :
 
 ```shell
 python /home/pi/Scripts/fan_control.py &
