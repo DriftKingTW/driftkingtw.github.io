@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610745/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191123_141251.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610248/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191124_234259.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574611525/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_AABD9EE6FAB5-1.jpg">
-<meta property="og:updated_time" content="2021-04-23T11:50:25.067Z">
+<meta property="og:updated_time" content="2021-04-25T12:56:47.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using Raspberry Pi to Control a PWM Fan and Monitor its Speed">
 <meta name="twitter:description" content="A lot of people uses fan to cool down their Raspberry Pi 4, but the fan’s noise is quiet problem (in a quiet room). In most case pi didn’t need that amount of cooling performance, so we can use PWM (">
@@ -236,7 +236,7 @@
 <p>Edit <code>rc.local</code></p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/rc.local</span><br></pre></td></tr></table></figure>
 
-<p>Add the following line after <code>exit 0</code> :</p>
+<p>Add the following line before <code>exit 0</code> :</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python /home/pi/Scripts/fan_control.py &amp;</span><br></pre></td></tr></table></figure>
 
 <blockquote class="colorquote info"><p>The route might be different for you. Make sure you’re using absolute path. The ‘&amp;’ symbol means this script runs in background.</p>
