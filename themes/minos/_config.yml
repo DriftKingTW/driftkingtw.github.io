@@ -19,7 +19,7 @@ article:
   # Show word count and estimated reading time.
   readtime: true
   # Code highlight theme, please see https://highlightjs.org/static/demo/
-  highlight: atom-one-light
+  # highlight: vs2015
 
 # Navigation bar menu links.
 menu:
@@ -65,6 +65,9 @@ navbar_links:
   GitHub:
     icon: fab fa-github
     url: https://github.com/driftkingtw
+  RSS:
+    icon: fas fa-rss
+    url: /atom.xml
 
 # Links at the bottom of the page.
 footer_links:

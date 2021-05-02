@@ -19,7 +19,7 @@ article:
   # Show word count and estimated reading time.
   readtime: true
   # Code highlight theme, please see https://highlightjs.org/static/demo/
-  highlight: atom-one-light
+  # highlight: vs2015
 
 # Navigation bar menu links.
 menu:
@@ -57,15 +57,6 @@ plugins:
   clipboard: true
   google-analytics:
     tracking_id: UA-115026468-1
-
-# Additional navigation bar links on the right.
-# Links can either be text or icon. The following link is set to be an icon link whose icon
-# is set to the class name of a FontAwesome 5 icon. The `footer_links` below also gives an
-# example of setting plain text links.
-navbar_links:
-  GitHub:
-    icon: fab fa-github
-    url: https://github.com/driftkingtw
 
 # Links at the bottom of the page.
 footer_links:
