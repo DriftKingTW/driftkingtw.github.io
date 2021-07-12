@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2021-04-19T13:19:50.510Z</updated>
+  <updated>2021-07-12T16:59:04.921Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>找不到喜歡的單手鍵盤？那就自己做阿！</title>
+    <link href="https://blog.driftking.tw/2021/07/diy-bluetooth-marco-pad/"/>
+    <id>https://blog.driftking.tw/2021/07/diy-bluetooth-marco-pad/</id>
+    <published>2021-07-12T16:00:00.000Z</published>
+    <updated>2021-07-12T16:59:04.921Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626107749/blog/2021/07/IMG_2151.jpg&quot; alt=&quot;Keypad Using with iPad&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在這繪圖螢幕入門門檻越來越低及iPad逐漸成為專業繪圖板的時代，市面上也跟著出現不少主打創作者/遊戲用的單手鍵盤或是快捷操作裝置。但是等了好幾年了，還是找不到「適合」自己的鍵盤 🤨 那麼，與其繼續等下去不如自幹一個適合自己的單手鍵盤吧！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
+    
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+      <category term="Keyboard" scheme="https://blog.driftking.tw/tags/Keyboard/"/>
+    
+  </entry>
   
   <entry>
     <title>Quick Fix - 網頁利用錨點連結導航時，導覽列遮住了標題怎麼辦</title>
@@ -66,7 +89,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;9&lt;/epacse&gt;
+&lt;epacse hidden&gt;8&lt;/epacse&gt;
     
     </summary>
     
@@ -87,7 +110,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;87&lt;/epacse&gt;
+&lt;epacse hidden&gt;62&lt;/epacse&gt;
     
     </summary>
     
@@ -249,7 +272,7 @@
     <summary type="html">
     
       &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;65&lt;/epacse&gt;
+&lt;epacse hidden&gt;49&lt;/epacse&gt;
 
 &lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
     
@@ -273,7 +296,7 @@
     
       &lt;p&gt;Sorry, this post in currently in Chinese only :(&lt;/p&gt;
 &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;133&lt;/epacse&gt;
+&lt;epacse hidden&gt;97&lt;/epacse&gt;
 
 &lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
     
@@ -432,28 +455,6 @@
     
     
       <category term="密碼" scheme="https://blog.driftking.tw/tags/%E5%AF%86%E7%A2%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Why_My_Account_Got_Hacked_-_The_Password_Security_and_Physical_Key</title>
-    <link href="https://blog.driftking.tw/en/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/"/>
-    <id>https://blog.driftking.tw/en/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/</id>
-    <published>2020-02-05T13:48:41.000Z</published>
-    <updated>2021-03-22T14:30:39.975Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Sorry, this post in currently in Chinese only
-        
-      
-    
-    </summary>
-    
     
   </entry>
   
