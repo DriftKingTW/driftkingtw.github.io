@@ -33,9 +33,9 @@
     
       <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
     
-      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
-    
       <category term="Keyboard" scheme="https://blog.driftking.tw/tags/Keyboard/"/>
+    
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
   </entry>
   
@@ -89,7 +89,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;8&lt;/epacse&gt;
+&lt;epacse hidden&gt;9&lt;/epacse&gt;
     
     </summary>
     
@@ -110,7 +110,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;62&lt;/epacse&gt;
+&lt;epacse hidden&gt;87&lt;/epacse&gt;
     
     </summary>
     
@@ -272,7 +272,7 @@
     <summary type="html">
     
       &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;49&lt;/epacse&gt;
+&lt;epacse hidden&gt;65&lt;/epacse&gt;
 
 &lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
     
@@ -296,7 +296,7 @@
     
       &lt;p&gt;Sorry, this post in currently in Chinese only :(&lt;/p&gt;
 &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;97&lt;/epacse&gt;
+&lt;epacse hidden&gt;117&lt;/epacse&gt;
 
 &lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
     
