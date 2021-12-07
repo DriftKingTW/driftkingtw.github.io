@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2021-07-13T06:07:12.281Z</updated>
+  <updated>2021-12-07T11:19:24.991Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -15,6 +15,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Express.js 接收 Text/Plain 請求只解析出空物件問題</title>
+    <link href="https://blog.driftking.tw/QuickFix/expressjs-parse-text-plain-request/"/>
+    <id>https://blog.driftking.tw/QuickFix/expressjs-parse-text-plain-request/</id>
+    <published>2021-10-29T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.991Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近使用 Express 接收 &lt;code&gt;FilePond&lt;/code&gt; 套件回傳的 &lt;code&gt;Content-Type: text/plain&lt;/code&gt; 請求時，透過 &lt;code&gt;req.body&lt;/code&gt; 取得資料時總是拿到空資料。&lt;/p&gt;
+&lt;p&gt;解法是要另外使用 &lt;code&gt;express.text()&lt;/code&gt; 來進行解析：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
+    
+      <category term="express" scheme="https://blog.driftking.tw/tags/express/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PM2 各專案 Dotenv 路徑設定</title>
+    <link href="https://blog.driftking.tw/QuickFix/pm2-dotenv-configuration/"/>
+    <id>https://blog.driftking.tw/QuickFix/pm2-dotenv-configuration/</id>
+    <published>2021-10-15T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
+&lt;epacse hidden&gt;1&lt;/epacse&gt;
+
+&lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="pm2" scheme="https://blog.driftking.tw/tags/pm2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vuetify 圖片垂直置中</title>
+    <link href="https://blog.driftking.tw/QuickFix/vuetify-image-vertical-centering/"/>
+    <id>https://blog.driftking.tw/QuickFix/vuetify-image-vertical-centering/</id>
+    <published>2021-10-15T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;利用 &lt;code&gt;v-layout&lt;/code&gt; 達成：&lt;/p&gt;
+&lt;epacse hidden&gt;4&lt;/epacse&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
+    
+      <category term="vuetify" scheme="https://blog.driftking.tw/tags/vuetify/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 localStorage 儲存布林值(Boolean)</title>
+    <link href="https://blog.driftking.tw/QuickFix/save-boolean-value-using-localstorage%20/"/>
+    <id>https://blog.driftking.tw/QuickFix/save-boolean-value-using-localstorage /</id>
+    <published>2021-10-01T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由於 &lt;code&gt;localStorage&lt;/code&gt; 規範中只能儲存字串，但如果想儲存布林值或其他格式可利用 &lt;code&gt;JSON&lt;/code&gt; 的方式達成：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://blog.driftking.tw/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js dotenv 環境變數使用及注意事項</title>
+    <link href="https://blog.driftking.tw/QuickFix/vuejs-dotenv-file-configuration/"/>
+    <id>https://blog.driftking.tw/QuickFix/vuejs-dotenv-file-configuration/</id>
+    <published>2021-08-18T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近遇到了 API URL 分 Development 及 Production 不同設定的問題，想使用環境變數來解決，讓 URL 在不同的環境下自動使用對應的設定，嘗試後發現有些使用重點跟容易忽略的地方：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
+    
+      <category term="dotenv" scheme="https://blog.driftking.tw/tags/dotenv/"/>
+    
+  </entry>
   
   <entry>
     <title>找不到喜歡的單手鍵盤？那就自己做阿！</title>
@@ -351,110 +453,6 @@
       <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
       <category term="illustration" scheme="https://blog.driftking.tw/tags/illustration/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MacOS - 軟體無法開啟</title>
-    <link href="https://blog.driftking.tw/2020/06/macos-app-cant-be-opened/"/>
-    <id>https://blog.driftking.tw/2020/06/macos-app-cant-be-opened/</id>
-    <published>2020-06-08T12:44:57.000Z</published>
-    <updated>2021-02-23T06:48:23.921Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1591620644/blog/2020/06/Screen_Shot_2020-06-08_at_8.47.52_PM.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;在網路上下載了一個 MacOS 的 App，但卻提示如上圖一樣無法開啟該如何處理？&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>macos-app-cant-be-opened</title>
-    <link href="https://blog.driftking.tw/en/2020/06/macos-app-cant-be-opened/"/>
-    <id>https://blog.driftking.tw/en/2020/06/macos-app-cant-be-opened/</id>
-    <published>2020-06-08T12:44:57.000Z</published>
-    <updated>2021-03-22T14:30:45.484Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Sorry, this post in currently in Chinese only
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>羅技 Master 2S 拇指鍵維修筆記</title>
-    <link href="https://blog.driftking.tw/2020/02/Logitech-Master-2S-Gesture-Button-Fix/"/>
-    <id>https://blog.driftking.tw/2020/02/Logitech-Master-2S-Gesture-Button-Fix/</id>
-    <published>2020-02-09T15:48:17.000Z</published>
-    <updated>2021-02-23T06:48:23.919Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1581517605/blog/2020/02/Logitech-Master-2S-Gesture-Button-Fix/IMG_20200212_214829.jpg&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;前陣子我的滑鼠：Logitech Master 2S 左邊的拇指鍵突然按下之後卡住了，連帶的整個滑鼠都沒辦法使用（包括去 Logitech Option 裡面把拇指鍵禁用都無效），看了下保固發現剛好也過了(´･_･`) &lt;/p&gt;
-&lt;p&gt;Google 了下發現不少人都有同樣問題，幸好維修不難，只要把兩個螺絲轉鬆即可，也不用買新零件來替換。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
-    
-      <category term="維修筆記" scheme="https://blog.driftking.tw/tags/%E7%B6%AD%E4%BF%AE%E7%AD%86%E8%A8%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Logitech_Master_2S_Gesture_Button_Fix</title>
-    <link href="https://blog.driftking.tw/en/2020/02/Logitech-Master-2S-Gesture-Button-Fix/"/>
-    <id>https://blog.driftking.tw/en/2020/02/Logitech-Master-2S-Gesture-Button-Fix/</id>
-    <published>2020-02-09T15:48:17.000Z</published>
-    <updated>2021-03-22T14:30:42.766Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Sorry, this post in currently in Chinese only
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>為什麼我的帳號會被盜？淺談密碼安全及實體金鑰</title>
-    <link href="https://blog.driftking.tw/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/"/>
-    <id>https://blog.driftking.tw/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/</id>
-    <published>2020-02-05T13:48:41.000Z</published>
-    <updated>2021-02-23T06:48:23.920Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1581007571/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/furchenpasswd.jpg&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;還在不同網站使用相同的密碼嗎？你的密碼是常見的組合或幾個英文數字湊合嗎？在資訊科技的進步的現在，不論年紀大小、身份，幾乎人人都有數個甚至上百的帳號密碼。網路上層出不窮的帳號被駭客攻擊、個資洩漏事件，就算是 Google、Amazon、Facebook 等大型企業也都無可避免，那麼這時候如何靠自己保護好帳號安全就顯得非常重要了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="密碼" scheme="https://blog.driftking.tw/tags/%E5%AF%86%E7%A2%BC/"/>
     
   </entry>
   

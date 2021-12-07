@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.driftking.tw/QuickFix/pm2-dotenv-configuration/</loc>
+    <lastmod>2021-12-07</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.driftking.tw/QuickFix/save-boolean-value-using-localstorage%20/</loc>
+    <lastmod>2021-12-07</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.driftking.tw/QuickFix/vuejs-dotenv-file-configuration/</loc>
+    <lastmod>2021-12-07</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.driftking.tw/QuickFix/vuetify-image-vertical-centering/</loc>
+    <lastmod>2021-12-07</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.driftking.tw/QuickFix/expressjs-parse-text-plain-request/</loc>
+    <lastmod>2021-12-07</lastmod>
+  </url>
+  <url>
     <loc>https://blog.driftking.tw/2021/07/diy-bluetooth-marco-pad/</loc>
     <lastmod>2021-07-13</lastmod>
   </url>
