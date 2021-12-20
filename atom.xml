@@ -47,7 +47,7 @@
     <summary type="html">
     
       &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
-&lt;epacse hidden&gt;11&lt;/epacse&gt;
+&lt;epacse hidden&gt;12&lt;/epacse&gt;
 
 &lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
@@ -191,7 +191,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;9&lt;/epacse&gt;
+&lt;epacse hidden&gt;10&lt;/epacse&gt;
     
     </summary>
     
@@ -212,7 +212,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;92&lt;/epacse&gt;
+&lt;epacse hidden&gt;91&lt;/epacse&gt;
     
     </summary>
     
@@ -374,7 +374,7 @@
     <summary type="html">
     
       &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;70&lt;/epacse&gt;
+&lt;epacse hidden&gt;54&lt;/epacse&gt;
 
 &lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
     
@@ -398,7 +398,7 @@
     
       &lt;p&gt;Sorry, this post in currently in Chinese only :(&lt;/p&gt;
 &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;135&lt;/epacse&gt;
+&lt;epacse hidden&gt;123&lt;/epacse&gt;
 
 &lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
     
@@ -450,9 +450,9 @@
     
       <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
     
-      <category term="illustration" scheme="https://blog.driftking.tw/tags/illustration/"/>
-    
       <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+      <category term="illustration" scheme="https://blog.driftking.tw/tags/illustration/"/>
     
   </entry>
   
