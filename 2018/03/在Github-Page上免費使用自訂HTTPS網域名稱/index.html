@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>在Github-Page上免費使用自訂HTTPS網域名稱 - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2018/03/在Github-Page上免費使用自訂HTTPS網域名稱/" rel="alternate" hreflang="en">
+    
+
+
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
+
+
+
+<meta name="keywords" content="Github,HTTPS,網域,免費">
+
+
+
+    <meta name="description" content="Why在Github上建好靜態網站後, 都是利用 username.github.io 進行瀏覽但是Github也有可以讓我們使用自己的域名(Domain Name)的設定假設選擇自訂域名就無法使用它所提供的SSL連線服務, 需要找第三方來使用HTTPS">
+<meta name="keywords" content="Github,HTTPS,網域,免費">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Github-Page上免費使用自訂HTTPS網域名稱">
+<meta property="og:url" content="https://blog.driftking.tw/2018/03/在Github-Page上免費使用自訂HTTPS網域名稱/index.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="Why在Github上建好靜態網站後, 都是利用 username.github.io 進行瀏覽但是Github也有可以讓我們使用自己的域名(Domain Name)的設定假設選擇自訂域名就無法使用它所提供的SSL連線服務, 需要找第三方來使用HTTPS">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520154032/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/github_domain.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/c_scale,h_250/v1520160636/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dns.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520161993/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/active.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520161622/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dnscf.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520162125/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/sslactive.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520162472/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/pagerulehttps.png">
+<meta property="og:updated_time" content="2021-02-23T06:48:23.900Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Github-Page上免費使用自訂HTTPS網域名稱">
+<meta name="twitter:description" content="Why在Github上建好靜態網站後, 都是利用 username.github.io 進行瀏覽但是Github也有可以讓我們使用自己的域名(Domain Name)的設定假設選擇自訂域名就無法使用它所提供的SSL連線服務, 需要找第三方來使用HTTPS">
+<meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520154032/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/github_domain.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">目錄</a>
+            
+            <a class="navbar-item " href="/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
+         <!-- margin-top: -0.2em; -->
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2018/03/在Github-Page上免費使用自訂HTTPS網域名稱/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2018/03/在Github-Page上免費使用自訂HTTPS網域名稱/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/driftkingtw">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            <a class="navbar-item" title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+               
+            
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
+            </a>
+        </div>
+    </div>
+</nav>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            在Github-Page上免費使用自訂HTTPS網域名稱
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-03-04T08:33:13.000Z" itemprop="datePublished">3月 4 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 1004 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>在<a href="https://github.com/" target="_blank" rel="noopener">Github</a>上建好靜態網站後, 都是利用 username.github.io 進行瀏覽<br>但是<a href="https://github.com/" target="_blank" rel="noopener">Github</a>也有可以讓我們使用自己的域名(Domain Name)的設定<br>假設選擇自訂域名就無法使用它所提供的SSL連線服務, 需要找第三方來使用HTTPS<a id="more"></a></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520154032/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/github_domain.png" alt="Github自訂域名"></p>
+<p>為了達成HTTPS自訂域名, 需要要利用<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>所提供的免費服務<br>至於堅持使用HTTPS的原因, 我到時候再寫另外一篇文章詳細補充</p>
+<h1 id="How"><a href="#How" class="headerlink" title="How"></a>How</h1><ol>
+<li><p>確認已經註冊好一個域名</p>
+</li>
+<li><p>確認已經在<a href="https://github.com/" target="_blank" rel="noopener">Github</a>上建立一個靜態網站</p>
+</li>
+<li><p>前往<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>註冊然後按照指示加入你的站點</p>
+</li>
+<li><p>到Github靜態網站的Repo裡面點選設定, 然後往下拉找到自訂網域(Custom domain), 填上要設定的網域按下儲存</p>
+</li>
+<li><p>回到<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>在DNS頁面新增CNAME連結到 username.github.io (username為Github用戶名)<br>在這個範例設定中, 我要讓原本的主機名稱連到原先架設在GCP上的網站, 而blog子網域連到Github的靜態網頁</p>
+</li>
+</ol>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/c_scale,h_250/v1520160636/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dns.png" alt="CNAME"><br>(第二個CNAME的紀錄是為了讓不論前面有沒有輸入www的網址都能連線到我的網站)<br>確認成功連線應該會出現如下的Active字樣(設定完成需要等5~10分鐘生效)</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520161993/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/active.png" alt="Status: Active"></p>
+<ol start="6">
+<li>如果原本有設定過DNS的部分, 要去把他們都替換成CloudFlare提供的DNS Server(在DNS設定頁籤中)</li>
+</ol>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520161622/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/dnscf.png" alt="CloudFlare DNS Server"></p>
+<ol start="7">
+<li>接著設定SSL的部分, 選擇加密(Crypto)頁籤SSL是否為FULL模式(若沒有手動設定成FULL)(設定完成需要等5~10分鐘)<br>當畫面顯示Active Certificate字樣代表SSL已啟用</li>
+</ol>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520162125/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/sslactive.png" alt="Active Certificate"></p>
+<ol start="8">
+<li>此時應該已經可以使用https訪問我們的Github page了, 但若是使用者輸入http則無效, 所以需要作強制導向HTTPS的設定<br>選擇頁面規則(Page Rules)後點選新增規則<br>在URL Match的部分打上http的網域名, 最後加上星號代表此網域底下通用規則, 然後設定選擇Always Use HTTPS強制導向</li>
+</ol>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1520162472/blog/2018/03/04/在Github-Page上免費使用HTTPS自定網域名稱/pagerulehttps.png" alt="強制導向HTTPS"></p>
+<ol start="9">
+<li>這時候就算URL輸入http也會自動連向https的頁面了, 設定完成!</li>
+</ol>
+<h2 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h2><ul>
+<li><p>如果使用的是<a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>, <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>之類的靜態網站產生器(Static Site Generator)的話, 記得內容連結也都要是https,否則會出現Mix Content的問題, 這樣是無法看到SSL綠色鎖頭的哦</p>
+</li>
+<li><p>使用<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>這種利用Push更新文章的靜態網站, 因為每次更新都會把全部檔案洗掉, 所以我們要把設定Github Custom Domain所產生的CNAME檔案(無附檔名), 複製一份放在Hexo的source資料夾, 才不會造成CNAME被覆蓋掉而要重新設定的情況<br>CNAME內容就是Github Page的Custom Domain, 也可以自己建立一份, 例如</p>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blog.driftkingtw.me</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以在<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>的Page Rules頁籤新增Cache規則, 加快網站載入速度</p>
+</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/" target="_blank" rel="noopener">Secure and fast GitHub Pages with CloudFlare</a><br><a href="https://help.github.com/articles/setting-up-a-custom-subdomain/" target="_blank" rel="noopener">Setting up a custom subdomain</a></p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Github/">#Github</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/SSL/">#SSL</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2018/03/DIY-IR-Tracker-紅外線頭戴追蹤器筆記/">DIY IR Tracker 紅外線頭戴追蹤器筆記</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2018/03/Hexo-Github-deploy-問題修正筆記/">Hexo Github deploy 問題修正</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
+
+    <a href="https://www.buymeacoffee.com/driftkingtw" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var valine = new Valine({
+        el: "#valine-thread",
+        appId: "mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI",
+        appKey: "zkROC4QzyTeu7fzjhTbxEY0k",
+        // notify: "true",
+        // verify: "true",
+        avatar: "mp",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: "zh-tw"
+    })
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2021 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/driftkingtw">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
