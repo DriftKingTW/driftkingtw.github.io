@@ -48,6 +48,7 @@ comment:
   placeholder: Feel free to leave a comment ! :D   # (optional) comment box placeholder text
   lang: en
   avatar: mp
+  serverURLs: https://mLsnpgAj.api.lncldglobal.com
 
 # Other plugins and their settings.
 plugins:

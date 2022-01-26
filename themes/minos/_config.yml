@@ -47,6 +47,7 @@ comment:
   verify: true           # (optional) show verification code
   lang: en
   avatar: mp
+  serverURLs: https://mLsnpgAj.api.lncldglobal.com
 
 # Other plugins and their settings.
 plugins:
