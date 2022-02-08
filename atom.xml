@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2021-12-07T11:19:24.991Z</updated>
+  <updated>2022-02-08T03:24:10.016Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器</title>
+    <link href="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
+    <id>https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
+    <published>2022-02-07T11:00:00.000Z</published>
+    <updated>2022-02-08T03:24:10.016Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後&lt;br&gt;在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
+    
+      <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+      <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac</title>
+    <link href="https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
+    <id>https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
+    <published>2022-02-07T11:00:00.000Z</published>
+    <updated>2022-02-08T03:24:02.458Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use &lt;code&gt;DisplayCAL&lt;/code&gt; to recalibrate my external monitor, but the it didn’t recognize both of my external monitor.&lt;/p&gt;
+&lt;p&gt;Here’s the workaround for this issue:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
+    
+      <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+      <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
+    
+  </entry>
   
   <entry>
     <title>Express.js 接收 Text/Plain 請求只解析出空物件問題</title>
@@ -47,7 +94,7 @@
     <summary type="html">
     
       &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
-&lt;epacse hidden&gt;11&lt;/epacse&gt;
+&lt;epacse hidden&gt;10&lt;/epacse&gt;
 
 &lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
@@ -69,7 +116,7 @@
     <summary type="html">
     
       &lt;p&gt;利用 &lt;code&gt;v-layout&lt;/code&gt; 達成：&lt;/p&gt;
-&lt;epacse hidden&gt;14&lt;/epacse&gt;
+&lt;epacse hidden&gt;13&lt;/epacse&gt;
     
     </summary>
     
@@ -191,7 +238,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;10&lt;/epacse&gt;
+&lt;epacse hidden&gt;14&lt;/epacse&gt;
     
     </summary>
     
@@ -408,51 +455,6 @@
       <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
       <category term="Ruby" scheme="https://blog.driftking.tw/tags/Ruby/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何讓 iPad 成為一個專業的畫板</title>
-    <link href="https://blog.driftking.tw/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/"/>
-    <id>https://blog.driftking.tw/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your Drawing-Experience/</id>
-    <published>2021-03-22T12:00:00.000Z</published>
-    <updated>2021-04-18T11:25:35.208Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424248/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/IMG_1700.jpg&quot; alt=&quot;iPad 繪圖支架&quot;&gt;&lt;/p&gt;
-&lt;p&gt;iPad + Apple Pencil 作為目前平板市場上最強大的繪畫筆記生產力組合，令許多人愛不釋手，但大部分使用者可能都會遇到這個問題（特別是使用11吋的朋友）：用筆作業時，光是手放螢幕上就佔了將近 $1/4$ ~ $1/3$ 的螢幕空間，就算將 iPad 平放於桌面手放在旁邊，邊緣與機身的厚度差還是相當卡手，讓體驗不是那麼完美，於是我設計了個算是經濟實惠效果又不錯的繪圖用支架，與各位分享 (&lt;em&gt; ´▽` &lt;/em&gt;)&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
-    
-      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Make an iPad Drawing Board That Improves Your Drawing Experience</title>
-    <link href="https://blog.driftking.tw/en/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/"/>
-    <id>https://blog.driftking.tw/en/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your Drawing-Experience/</id>
-    <published>2021-03-22T12:00:00.000Z</published>
-    <updated>2021-04-18T11:25:38.789Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424248/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/IMG_1700.jpg&quot; alt=&quot;iPad Drawing Board&quot;&gt;&lt;/p&gt;
-&lt;p&gt;iPad and Apple Pencil combo probably has the best drawing experience in the tablet market for now, tons of people love using their iPad to create amazing artworks, but you might encounter an common issue (especially for 11 inch user): The iPad’s bezel is way too small for your hand to rest on, even it’s laid down flat on the table.&lt;/p&gt;
-&lt;p&gt;Though the iPad is already very thin (5.9mm on pro model), the drawing experience is still far from drawing on a flat thin paper, and putting hand on iPad just waste a large portion of the screen, which is the main reason I come up with this project today. The result was quite good, it’s very easy to make and costs under 35 dollar, so I want to share with you today.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
-    
-      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
-    
-      <category term="illustration" scheme="https://blog.driftking.tw/tags/illustration/"/>
     
   </entry>
   
