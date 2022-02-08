@@ -94,7 +94,7 @@
     <summary type="html">
     
       &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
-&lt;epacse hidden&gt;12&lt;/epacse&gt;
+&lt;epacse hidden&gt;11&lt;/epacse&gt;
 
 &lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
@@ -182,9 +182,9 @@
     
       <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
     
-      <category term="Keyboard" scheme="https://blog.driftking.tw/tags/Keyboard/"/>
-    
       <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+      <category term="Keyboard" scheme="https://blog.driftking.tw/tags/Keyboard/"/>
     
   </entry>
   
@@ -238,7 +238,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;2&lt;/epacse&gt;
+&lt;epacse hidden&gt;10&lt;/epacse&gt;
     
     </summary>
     
