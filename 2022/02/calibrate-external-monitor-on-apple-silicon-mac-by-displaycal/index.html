@@ -2,13 +2,13 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac - DriftKingTW&#39;s Blog</title>
+<title>在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器 - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/" rel="alternate" hreflang="zh-TW">
+<link href="/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/" rel="alternate" hreflang="en">
     
 
 
@@ -16,26 +16,26 @@
 
 
 
-<meta name="keywords" content="Apple Silicon,Apple,M1,Mac,Color Calibration,DisplayCAL">
+<meta name="keywords" content="Apple Silicon,Apple,M1,Mac,校色,DisplayCAL">
 
 
 
-    <meta name="description" content="I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use DisplayCAL to recalibrate my external monitor, but the it didn">
-<meta name="keywords" content="Apple Silicon,Apple,M1,Mac,Color Calibration,DisplayCAL">
+    <meta name="description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
+<meta name="keywords" content="Apple Silicon,Apple,M1,Mac,校色,DisplayCAL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac">
-<meta property="og:url" content="https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/index.html">
+<meta property="og:title" content="在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器">
+<meta property="og:url" content="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
-<meta property="og:description" content="I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use DisplayCAL to recalibrate my external monitor, but the it didn">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
+<meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/no-external-screen-detected.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal-argyllcms-install.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/external-screen-detected.png">
-<meta property="og:updated_time" content="2022-02-08T03:24:02.458Z">
+<meta property="og:updated_time" content="2022-02-08T03:31:05.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac">
-<meta name="twitter:description" content="I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use DisplayCAL to recalibrate my external monitor, but the it didn">
+<meta name="twitter:title" content="在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器">
+<meta name="twitter:description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
 <meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png">
 
 
@@ -89,7 +89,7 @@
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/en">
+            <a class="navbar-item navbar-logo" href="/">
                 
                 <img src="/images/logo.png" alt height="28">
                 
@@ -103,9 +103,9 @@
         
         <div class="navbar-menu navbar-start">
             
-            <a class="navbar-item " href="/en/archives">Archives</a>
+            <a class="navbar-item " href="/archives">目錄</a>
             
-            <a class="navbar-item " href="/en/about">About</a>
+            <a class="navbar-item " href="/about">關於</a>
             
         </div>
         
@@ -119,7 +119,7 @@
                 <span class="icon">
                     <i class="fas fa-globe"></i>
                 </span>
-                <span>English</span>
+                <span>繁體中文</span>
                 <span class="icon is-small">
             <i class="fas fa-angle-down" aria-hidden="true"></i>
           </span>
@@ -128,11 +128,11 @@
         <div class="dropdown-menu has-text-left" role="menu">
             <div class="dropdown-content">
             
-                <a href="/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/" class="dropdown-item">
+                <a href="/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/" class="dropdown-item">
                     繁體中文
                 </a>
             
-                <a href="/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/" class="dropdown-item">
+                <a href="/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/" class="dropdown-item">
                     English
                 </a>
             
@@ -142,7 +142,7 @@
 </div>
 
             
-            <a class="navbar-item search" title="Search" href="javascript:;">
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -172,57 +172,56 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac
+            在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2022-02-07T11:00:00.000Z" itemprop="datePublished">Feb 7 2022</time>
+            <time datetime="2022-02-07T11:00:00.000Z" itemprop="datePublished">2月 7 2022</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            2 Minutes read (About 442 words)
+            5 分鐘 讀完 (約 750 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use <code>DisplayCAL</code> to recalibrate my external monitor, but the it didn’t recognize both of my external monitor.</p>
-<p>Here’s the workaround for this issue:</p>
+        <p>最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後<br>在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png" alt="DisplayCAL"></p>
 <a id="more"></a>
-<h1 id="Wrong-ArgyllCMS-Version"><a href="#Wrong-ArgyllCMS-Version" class="headerlink" title="Wrong ArgyllCMS Version"></a>Wrong ArgyllCMS Version</h1><p><code>DisplayCAL</code> will install <code>ArgyllCMS</code> when first launch, but it won’t recognize my external monitor:</p>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/no-external-screen-detected.png" alt="DisplayCAL can&#39;t detect any external monitor"></p>
-<p>The reason why is <code>DisplayCAL</code> actually not install the latest version of <code>ArgyllCMS</code> (though it says it’s the latest)</p>
-<p>So we need to install the latest version of <code>ArgyllCMS</code> by ourselves and replace it (<code>v2.3.0</code> when I writing this)</p>
+<h1 id="問題與解決方式"><a href="#問題與解決方式" class="headerlink" title="問題與解決方式"></a>問題與解決方式</h1><p><code>DisplayCAL</code> 在安裝後會安裝一套叫做 <code>ArgyllCMS</code> 開源的色彩管理系統，<br>但是安裝完成後可以看到我的外接螢幕 Dell U2520D 並沒有顯示在顯示器列表中…如下圖：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/no-external-screen-detected.png" alt="DisplayCAL 無法偵測外接顯示器"></p>
+<p>造成這個問題的原因是 <code>DisplayCAL</code> 雖然安裝時說會下載最新的 <code>ArgyllCMS</code> ，<br>但其實預設安裝的版本為 <code>v2.1.2</code></p>
+<p>目前的解決方法則是透過手動下載新版 <code>ArgyllCMS</code> 後覆蓋掉 <code>DisplayCAL</code> 安裝的版本：</p>
 <ol>
-<li><p>Go to <a href="https://displaycal.net/" target="_blank" rel="noopener">DisplayCAL</a> and download the latest version of <code>DisplayCAL</code></p>
+<li><p>首先到 <a href="https://displaycal.net/" target="_blank" rel="noopener">DisplayCAL</a> 下載安裝最新版本</p>
 </li>
-<li><p>Plug in your monitor calibrator (<code>SpyderX</code> in my case)</p>
+<li><p>插上校色儀後啟動 <code>DisplayCAL</code> ，筆者自己的校色器是 <code>SpyderX</code></p>
 </li>
-<li><p>It will prompt you to download the “latest version” of <code>ArgyllCMS</code></p>
+<li><p>首次啟動時會提示需要安裝 <code>ArgyllCMS</code>：</p>
 </li>
 </ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal-argyllcms-install.png" alt="DisplayCAL installs ArgyllCMS"></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal-argyllcms-install.png" alt="DisplayCAL 安裝 ArgyllCMS"></p>
 <ol start="4">
-<li><p>Cancel it and download <code>Intel OS X 10.6 64 bit or later</code> from <a href="https://www.argyllcms.com/downloadmac.html" target="_blank" rel="noopener">ArgyllCMS</a></p>
+<li><p>這邊先選擇取消安裝，然後到 <a href="https://www.argyllcms.com/downloadmac.html" target="_blank" rel="noopener">ArgyllCMS</a><br>下載 <code>Intel OS X 10.6 64 bit or later</code> 的最新版本（筆者22年2月撰文時為 <code>v2.3.0</code>，接下來提到的路徑可能版本號會有不同請注意）</p>
 </li>
-<li><p>Unzip the <code>.tgz</code> archive, and move <code>Argyll_V2.3.0</code> folder to <code>~/Library/Application Support/DisplayCAL/dl</code> (version might be different)</p>
+<li><p>解壓縮下載回來的 <code>.tgz</code> 檔案，並將解壓出來的 <code>Argyll_V2.3.0</code> 資料夾整個移動至<br><code>~/Library/Application Support/DisplayCAL/dl</code> (可透過在 <code>Finder</code> 中按下 <code>⌘Command + ⇧Shift + G</code> 後貼上路徑直接開啟資料夾)</p>
 </li>
-<li><p>Go back to <code>DisplayCAL</code> and choose <code>File &gt; Locate ArgyllCMS executables...</code> from menu bar.</p>
+<li><p>接著回到 <code>DisplayCAL</code> 中上方菜單欄選擇 <code>File &gt; Locate ArgyllCMS executables...</code></p>
 </li>
-<li><p>Set <code>ArgyllCMS</code> location to <code>~/Library/Application Support/DisplayCAL/dl/Argyll_V2.3.0/bin/</code></p>
+<li><p>選擇 <code>~/Library/Application Support/DisplayCAL/dl/Argyll_V2.3.0/bin/</code> 點選開啟</p>
 </li>
-<li><p>The external monitor should appear in list after restarting <code>DisplayCAL</code>, macOS might prompt you to prevent from unauthorized app to run,<br>remember to force open all executables from Security and Privacy settings.</p>
+<li><p>接下來應該就能夠正常識別外接螢幕了，校色過程中可能會出現 <code>macOS</code> 阻擋非安全執行的對話框，記得去系統隱私安全設定那邊點選允許執行</p>
 </li>
 </ol>
-<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/external-screen-detected.png" alt="DisplayCAL detected external monitor"></p>
-<blockquote class="colorquote warning"><p>I’ve ran into some glitches with this solution, it will turn the monitor black when the calibration is completed at first time, I need to re-plug the monitor cable to lit up again and allow macOS to run the last step to finish install ICC profile. It’s better to run a quick calibration at first to see if there’s any problem.</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/external-screen-detected.png" alt="DisplayCAL 成功識別外接螢幕"></p>
+<blockquote class="colorquote warning"><p>筆者在校色過程中有遇到一些奇怪的小bug，在校色快完成時如果跳出非安全執行的對話框會有可能導致外接顯示器全黑沒畫面需要重新連接，推測可能是在套用 ICC Profile 時被擋住的問題，<br>這部分可以自行嘗試時間比較短的校色流程試試，流程跑完沒問題後再做詳細校色比較省時間</p>
 </blockquote>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><ul>
 <li><a href="https://www.reddit.com/r/macmini/comments/kembz2/mac_mini_m1_color_calibration/" target="_blank" rel="noopener">Mac Mini M1 color calibration</a></li>
 <li><a href="https://displaycal.net/" target="_blank" rel="noopener">DisplayCAL</a></li>
 <li><a href="https://www.argyllcms.com/" target="_blank" rel="noopener">ArgyllCMS</a></li>
@@ -233,11 +232,11 @@
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/en/tags/Apple-Silicon/">#Apple Silicon</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Apple-Silicon/">#Apple Silicon</a></span>
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/en/tags/macOS/">#macOS</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/macOS/">#macOS</a></span>
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/en/tags/DisplayCAL/">#DisplayCAL</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/DisplayCAL/">#DisplayCAL</a></span>
     
     </div>
     
@@ -248,7 +247,7 @@
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/en/QuickFix/navbar-covers-heading-with-anchor-link/">Quick Fix - Navbar Covers Heading While Using Anchor Link</a>
+            <a href="/QuickFix/expressjs-parse-text-plain-request/">Express.js 接收 Text/Plain 請求只解析出空物件問題</a>
             
         </span>
     </div>
@@ -267,7 +266,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Comments</h3>
+    <h3 class="title is-4">評論</h3>
     
 <div id="valine-thread"></div>
 <script sre="//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
@@ -280,10 +279,10 @@
         // notify: "true",
         // verify: "true",
         avatar: "mp",
-        placeholder: "Feel free to leave a comment ! :D",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
         meta: ['nick', 'mail'],
         visitor: true,
-        lang: "en",
+        lang: "zh-tw",
         serverURLs: "https://mLsnpgAj.api.lncldglobal.com"
     })
 </script>
@@ -343,7 +342,7 @@
     window.FontAwesomeConfig = {
         searchPseudoElements: true
     }
-    moment.locale("en-AU");
+    moment.locale("zh-CN");
 </script>
 
 
@@ -467,7 +466,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -479,13 +478,13 @@
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
             },
-            CONTENT_URL: '/content.en.json',
+            CONTENT_URL: '/content.json',
         };
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
