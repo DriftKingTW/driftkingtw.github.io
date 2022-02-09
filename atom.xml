@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2022-02-08T12:53:36.694Z</updated>
+  <updated>2022-02-09T01:06:33.129Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
     <id>https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
     <published>2022-02-07T11:00:00.000Z</published>
-    <updated>2022-02-08T12:53:36.694Z</updated>
+    <updated>2022-02-09T01:06:33.129Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後&lt;br&gt;在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
+      &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
     
     </summary>
@@ -94,7 +94,7 @@
     <summary type="html">
     
       &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
-&lt;epacse hidden&gt;12&lt;/epacse&gt;
+&lt;epacse hidden&gt;8&lt;/epacse&gt;
 
 &lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
@@ -238,7 +238,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;9&lt;/epacse&gt;
+&lt;epacse hidden&gt;13&lt;/epacse&gt;
     
     </summary>
     
@@ -421,7 +421,7 @@
     <summary type="html">
     
       &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;32&lt;/epacse&gt;
+&lt;epacse hidden&gt;70&lt;/epacse&gt;
 
 &lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
     
@@ -445,7 +445,7 @@
     
       &lt;p&gt;Sorry, this post in currently in Chinese only :(&lt;/p&gt;
 &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;139&lt;/epacse&gt;
+&lt;epacse hidden&gt;138&lt;/epacse&gt;
 
 &lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
     

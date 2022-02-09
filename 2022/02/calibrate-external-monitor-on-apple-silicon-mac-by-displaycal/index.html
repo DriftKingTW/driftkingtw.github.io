@@ -20,22 +20,22 @@
 
 
 
-    <meta name="description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
+    <meta name="description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
 <meta name="keywords" content="Apple Silicon,Apple,M1,Mac,校色,DisplayCAL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器">
 <meta property="og:url" content="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
-<meta property="og:description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
+<meta property="og:description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/no-external-screen-detected.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal-argyllcms-install.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/external-screen-detected.png">
-<meta property="og:updated_time" content="2022-02-08T12:53:36.694Z">
+<meta property="og:updated_time" content="2022-02-09T01:06:33.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器">
-<meta name="twitter:description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
+<meta name="twitter:description" content="最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：">
 <meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png">
 
 
@@ -184,13 +184,13 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 746 字)
+            4 分鐘 讀完 (約 747 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後<br>在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：</p>
+        <p>最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：</p>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png" alt="DisplayCAL"></p>
 <a id="more"></a>
 <h1 id="問題與解決方式"><a href="#問題與解決方式" class="headerlink" title="問題與解決方式"></a>問題與解決方式</h1><p><code>DisplayCAL</code> 在安裝後會安裝一套叫做 <code>ArgyllCMS</code> 開源的色彩管理系統，<br>但是安裝完成後可以看到我的外接螢幕 Dell U2520D 並沒有顯示在顯示器列表中…如下圖：</p>
@@ -207,7 +207,7 @@
 </ol>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal-argyllcms-install.png" alt="DisplayCAL 安裝 ArgyllCMS"></p>
 <ol start="4">
-<li><p>這邊先選擇取消安裝，然後到 <a href="https://www.argyllcms.com/downloadmac.html" target="_blank" rel="noopener">ArgyllCMS</a><br>下載 <code>Intel OS X 10.6 64 bit or later</code> 的最新版本（22年2月撰文時為 <code>v2.3.0</code>，接下來提到的路徑可能版本號會有不同請注意）</p>
+<li><p>這邊先選擇取消安裝，然後到 <a href="https://www.argyllcms.com/downloadmac.html" target="_blank" rel="noopener">ArgyllCMS</a> 下載 <code>Intel OS X 10.6 64 bit or later</code> 的最新版本（22年2月撰文時為 <code>v2.3.0</code>，接下來提到的路徑可能版本號會有不同請注意）</p>
 </li>
 <li><p>解壓縮下載回來的 <code>.tgz</code> 檔案，並將解壓出來的 <code>Argyll_V2.3.0</code> 資料夾整個移動至<br><code>~/Library/Application Support/DisplayCAL/dl</code> (可透過在 <code>Finder</code> 中按下 <code>⌘Command + ⇧Shift + G</code> 後貼上路徑直接開啟資料夾)</p>
 </li>
@@ -219,7 +219,7 @@
 </li>
 </ol>
 <p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/external-screen-detected.png" alt="DisplayCAL 成功識別外接螢幕"></p>
-<blockquote class="colorquote warning"><p>在校色過程中有遇到一些奇怪的小bug，在校色快完成時如果跳出非安全執行的對話框會有可能導致外接顯示器全黑沒畫面需要重新連接，推測可能是在套用 ICC Profile 時被擋住的問題，<br>這部分可以自行嘗試時間比較短的校色流程試試，流程跑完沒問題後再做詳細校色比較省時間</p>
+<blockquote class="colorquote warning"><p>在校色過程中有遇到一些奇怪的小bug，在校色快完成時如果跳出非安全執行的對話框會有可能導致外接顯示器全黑沒畫面需要重新連接，推測可能是在套用 ICC Profile 時被擋住的問題，這部分可以自行嘗試時間比較短的校色流程試試，流程跑完沒問題後再做詳細校色比較省時間</p>
 </blockquote>
 <h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><ul>
 <li><a href="https://www.reddit.com/r/macmini/comments/kembz2/mac_mini_m1_color_calibration/" target="_blank" rel="noopener">Mac Mini M1 color calibration</a></li>
