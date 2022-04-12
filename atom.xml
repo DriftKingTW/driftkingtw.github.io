@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2022-02-09T01:06:33.129Z</updated>
+  <updated>2022-04-12T16:16:59.967Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Logitech Master 3 拇指鍵切換裝置功能改裝</title>
+    <link href="https://blog.driftking.tw/2022/04/logitech-master-3-gesture-button-modify/"/>
+    <id>https://blog.driftking.tw/2022/04/logitech-master-3-gesture-button-modify/</id>
+    <published>2022-04-11T14:00:00.000Z</published>
+    <updated>2022-04-12T16:16:59.967Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg&quot; alt=&quot;Master 3 拇指鍵切換裝置功能改裝&quot;&gt;&lt;/p&gt;
+&lt;p&gt;雖然很喜歡羅技 Master/Anywhere 系列的滑鼠，不過對於多裝置切換的功能上不太滿意，主要是因為鍵盤不是羅技的，所以 Logitech Flow 的軟體切換只能切滑鼠對我來說沒有什麼卯月(加上需要切換的裝置也不在同一個區網裡面)，這樣的情境下就必須得使用滑鼠底部的切換裝置按鈕，但每次要切換就得把滑鼠拿起來按實在太麻煩了…羅技也不開放把手勢按鍵改成切換裝置的功能，既然如此只好自己來手動擴充功能了 ᕕ( ᐛ )ᕗ&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Logitech Master 3 Guesture Button Modification</title>
+    <link href="https://blog.driftking.tw/en/2022/04/logitech-master-3-gesture-button-modify/"/>
+    <id>https://blog.driftking.tw/en/2022/04/logitech-master-3-gesture-button-modify/</id>
+    <published>2022-04-11T14:00:00.000Z</published>
+    <updated>2022-04-12T16:16:55.887Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg&quot; alt=&quot;Master 3 Guesture Button Modification&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Logitech’s Master/Anywhere series has been my favorite mice for years. But recently I don’t feel very comfortable when using my Master 3 with multiple devices, because the only button that switches device is located under the mouse. Since my 2 devices aren’t in the same network so Logitech Flow won’t work either.&lt;/p&gt;
+&lt;p&gt;Not really sure why Logitech doesn’t allow user to configure guesture button to switch devices :( so I came up with a idea to solve it.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+  </entry>
   
   <entry>
     <title>在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器</title>
@@ -182,9 +221,9 @@
     
       <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
     
-      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
-    
       <category term="Keyboard" scheme="https://blog.driftking.tw/tags/Keyboard/"/>
+    
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
     
   </entry>
   
@@ -238,7 +277,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;2&lt;/epacse&gt;
+&lt;epacse hidden&gt;10&lt;/epacse&gt;
     
     </summary>
     
@@ -408,53 +447,6 @@
       <category term="Affinity Photo" scheme="https://blog.driftking.tw/tags/Affinity-Photo/"/>
     
       <category term="Fresco" scheme="https://blog.driftking.tw/tags/Fresco/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在 macOS 上安裝 Ruby</title>
-    <link href="https://blog.driftking.tw/2021/04/Install-Ruby-On-macOS/"/>
-    <id>https://blog.driftking.tw/2021/04/Install-Ruby-On-macOS/</id>
-    <published>2021-04-02T13:00:00.000Z</published>
-    <updated>2021-04-07T14:23:20.288Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;78&lt;/epacse&gt;
-
-&lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
-    
-      <category term="Ruby" scheme="https://blog.driftking.tw/tags/Ruby/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在 macOS 上安裝 Ruby</title>
-    <link href="https://blog.driftking.tw/en/2021/04/Install-Ruby-On-macOS/"/>
-    <id>https://blog.driftking.tw/en/2021/04/Install-Ruby-On-macOS/</id>
-    <published>2021-04-02T13:00:00.000Z</published>
-    <updated>2021-04-02T15:23:11.945Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Sorry, this post in currently in Chinese only :(&lt;/p&gt;
-&lt;p&gt;雖然 macOS 已預裝了 Ruby ，但我在使用 &lt;code&gt;gem install&lt;/code&gt; 時遇到了個問題：&lt;/p&gt;
-&lt;epacse hidden&gt;139&lt;/epacse&gt;
-
-&lt;p&gt;後來發現是 macOS 不讓使用者更變預設 Ruby 相關的玩意，用 &lt;code&gt;sudo&lt;/code&gt; 去跑安裝當然也不是個選項，所以還是另外獨立安裝一個，再把 &lt;code&gt;PATH&lt;/code&gt; 設定到另一個 Ruby 比較方便。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
-    
-      <category term="Ruby" scheme="https://blog.driftking.tw/tags/Ruby/"/>
     
   </entry>
   
