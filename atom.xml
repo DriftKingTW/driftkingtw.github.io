@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2022-04-12T17:40:45.520Z</updated>
+  <updated>2022-04-14T06:44:36.436Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>30 款 macOS 生產力軟體推薦</title>
+    <link href="https://blog.driftking.tw/2022/04/macos-productivity-tools-recommendation/"/>
+    <id>https://blog.driftking.tw/2022/04/macos-productivity-tools-recommendation/</id>
+    <published>2022-04-14T11:00:00.000Z</published>
+    <updated>2022-04-14T06:44:36.436Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;雖然 macOS 已經預設了不少實用的工具軟體，但還是有不少可以改善的空間。幸好相較 iOS 來說它有著更高的自由度，所以這篇就來推薦一下我自己在 macOS 中最常使用的第三方開發的生產力軟體吧！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Logitech Master 3 拇指鍵切換裝置功能改裝</title>
@@ -133,7 +151,7 @@
     <summary type="html">
     
       &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
-&lt;epacse hidden&gt;11&lt;/epacse&gt;
+&lt;epacse hidden&gt;10&lt;/epacse&gt;
 
 &lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
@@ -155,7 +173,7 @@
     <summary type="html">
     
       &lt;p&gt;利用 &lt;code&gt;v-layout&lt;/code&gt; 達成：&lt;/p&gt;
-&lt;epacse hidden&gt;14&lt;/epacse&gt;
+&lt;epacse hidden&gt;13&lt;/epacse&gt;
     
     </summary>
     
@@ -277,7 +295,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;10&lt;/epacse&gt;
+&lt;epacse hidden&gt;14&lt;/epacse&gt;
     
     </summary>
     
@@ -298,7 +316,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;91&lt;/epacse&gt;
+&lt;epacse hidden&gt;92&lt;/epacse&gt;
     
     </summary>
     
@@ -411,31 +429,6 @@
     
       &lt;p&gt;Q: 我無法在 iPad 的 Affinity Photo 中開啟 PSD 檔案？&lt;/p&gt;
 &lt;p&gt;A: 如果裝了 Adobe Fresco，可能會造成 PSD 檔案在 Affinity Photo 中無法開啟，刪除 Fr 之後即可解決問題。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
-    
-      <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
-    
-      <category term="Affinity Photo" scheme="https://blog.driftking.tw/tags/Affinity-Photo/"/>
-    
-      <category term="Fresco" scheme="https://blog.driftking.tw/tags/Fresco/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Quick Fix - Can&#39;t import PSD on Affinity Photo iPad</title>
-    <link href="https://blog.driftking.tw/en/QuickFix/cant-import-psd-on-affinity-photo-ipad/"/>
-    <id>https://blog.driftking.tw/en/QuickFix/cant-import-psd-on-affinity-photo-ipad/</id>
-    <published>2021-04-11T11:21:10.000Z</published>
-    <updated>2021-04-11T11:36:01.947Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Q: I can’t import PSD file on Affinity Photo on my iPad?&lt;/p&gt;
-&lt;p&gt;A: If you have Adobe Fresco installed, uninstall Fr and try it again.&lt;/p&gt;
     
     </summary>
     
