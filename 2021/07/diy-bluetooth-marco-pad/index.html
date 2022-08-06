@@ -39,7 +39,11 @@
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626106448/blog/2021/07/IMG_2146.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626107749/blog/2021/07/IMG_2148.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626107749/blog/2021/07/IMG_2151.jpg">
-<meta property="og:updated_time" content="2021-07-13T06:07:12.281Z">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4496.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805524/blog/2021/07/IMG_4491.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805527/blog/2021/07/IMG_4492.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4495.jpg">
+<meta property="og:updated_time" content="2022-08-06T17:17:45.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="找不到喜歡的單手鍵盤？那就自己做阿！">
 <meta name="twitter:description" content="在這繪圖螢幕入門門檻越來越低及iPad逐漸成為專業繪圖板的時代，市面上也跟著出現不少主打創作者/遊戲用的單手鍵盤或是快捷操作裝置。但是等了好幾年了，還是找不到「適合」自己的鍵盤 🤨 那麼，與其繼續等下去不如自幹一個適合自己的單手鍵盤吧！">
@@ -191,7 +195,7 @@
         <span class="column is-narrow">
             
             
-            18 分鐘 讀完 (約 2771 字)
+            22 分鐘 讀完 (約 3347 字)
         </span>
         
     </div>
@@ -274,12 +278,36 @@
 <li style="list-style: none"><input type="checkbox" checked> 機械式</li>
 <li style="list-style: none"><input type="checkbox" checked> Type - C 接口</li>
 <li style="list-style: none"><input type="checkbox" checked> 按鍵做到TGB那行，帶1.5u以上的Modifier鍵</li>
-<li style="list-style: none"><input type="checkbox"> 螢幕擴充支援（目前做半套）</li>
-<li style="list-style: none"><input type="checkbox"> 可自定義鍵位/巨集/Layer（目前做半套）</li>
+<li style="list-style: none"><input type="checkbox" checked> 螢幕擴充支援（目前做半套）</li>
+<li style="list-style: none"><input type="checkbox" checked> 可自定義鍵位/巨集/Layer（目前做半套）</li>
+<li style="list-style: none"><input type="checkbox" checked> Web UI 鍵位設定</li>
 <li style="list-style: none"><input type="checkbox"> 旋鈕（預計下個版本支援）</li>
 </ul>
 <p>未來還想用 TinyPICO 再做一個類似 Joycon 那種搖桿的快捷手把，在外出或比較擁擠的地方應該挺適合也方便拿在手上，有機會再來試試看。</p>
 <p>那這次簡單的設計跟製作跟大家分享到這，感謝你/妳的閱讀，那我們下次見 🖐</p>
+<h1 id="2022-08-完善功能更新記錄"><a href="#2022-08-完善功能更新記錄" class="headerlink" title="2022-08 完善功能更新記錄"></a>2022-08 完善功能更新記錄</h1><p>我也不知道為什麼拖了那麼久，不過最近突然有動力回去自己把之前想做的功能繼續完善，主要有下面幾項功能/改動：</p>
+<ul>
+<li>開發了鍵位設定用的網站，並架設於 Github 上 (<a href="https://blog.driftking.tw/TinyPICO-BLE-Keypad-Key-Configuration-Tool/">TinyPICO BLE Keypad Configuration Tool</a>)</li>
+<li>設定鍵位由程式寫死改為燒錄 JSON 格式的設定到 SPIFFS 內來更新鍵位</li>
+<li>弄了批次檔整合 ESPTool，將燒入 SPIFFS 的過程盡量簡化，不過目前還是需要在有 Python 的環境下執行(CLI Tool)</li>
+<li>增加休眠模式(透過 ESP32 Deep Sleep 實現)，並且時間內未使用自動進入休眠省電</li>
+<li>電量計算改善，沒想到電量的計算意外的麻煩呢…</li>
+<li>完善螢幕顯示功能，支援顯示自定按鍵 Label (不過網頁上還沒法設定)，顯示電量</li>
+<li>把之前的破爛 Code 修一下，大概變成可以回收的等級了 =&gt; <a href="https://github.com/DriftKingTW/TinyPICO-BLE-Keypad" target="_blank" rel="noopener">DriftKingTW/TinyPICO-BLE-Keypad</a></li>
+<li>畫了壓克力外殼，完成度更高了點</li>
+<li>更換了好一點的衛星軸、Tape mod 提升大鍵跟整體的聲音 (還偷換了鍵帽 🤣</li>
+</ul>
+<p>以下為改造後的樣子：</p>
+<p>搭配 Filco Macaron Wrist Rest</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4496.jpg" alt></p>
+<p>正面</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805524/blog/2021/07/IMG_4491.jpg" alt></p>
+<p>背面（做了 Tape mod 的話好像反而不適合用透明的殼🤣 ）</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805527/blog/2021/07/IMG_4492.jpg" alt></p>
+<p>使用情境大概長這樣，搭配之前做的 <a href="https://blog.driftking.tw/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/">iPad 畫板</a></p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4495.jpg" alt></p>
+<p>第二版打算要重新設計電路了，看能不能塞個旋鈕跟整個位置再改良一下，不過按照我這拖延症不知道還要多久就是了 XD</p>
+<p>之後可能再考慮換個主控，<a href="https://nicekeyboards.com/nice-nano" target="_blank" rel="noopener">nice!nano</a> 看起來不錯的樣子，不過為了不浪費我自己寫的韌體跟網站可能還是先讓 TinyPICO 撐住第二版吧！</p>
 <h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://www.tinypico.com/" target="_blank" rel="noopener">TinyPICO</a><br><a href="http://builder.swillkb.com/" target="_blank" rel="noopener">swillkb Plate &amp; Case Builder</a><br><a href="http://www.keyboard-layout-editor.com/" target="_blank" rel="noopener">keyboard-layout-editor.com</a></p>
 
     
