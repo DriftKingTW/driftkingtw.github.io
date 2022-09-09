@@ -29,7 +29,7 @@
 <meta property="og:description" content="Sorry, this post in currently in Chinese only :( Aria2 是一個超輕量但功能的強大開源下載器，支援多點下載、多種協定、檔案分割下載、可透過 JSON-PRC 或 XML-PRC 遠端控制等功能。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/v1573834062/blog/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/Screen_Shot_2019-11-16_at_12.07.37_AM.png">
-<meta property="og:updated_time" content="2021-03-22T14:30:21.316Z">
+<meta property="og:updated_time" content="2022-09-09T12:29:11.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安裝 Aria2 在 RaspberryPi 上搭建低耗下載機">
 <meta name="twitter:description" content="Sorry, this post in currently in Chinese only :( Aria2 是一個超輕量但功能的強大開源下載器，支援多點下載、多種協定、檔案分割下載、可透過 JSON-PRC 或 XML-PRC 遠端控制等功能。">
@@ -181,7 +181,7 @@
         <span class="column is-narrow">
             
             
-            6 Minutes read (About 961 words)
+            6 Minutes read (About 960 words)
         </span>
         
     </div>
@@ -193,7 +193,7 @@
 <h1 id="安裝-Aria2"><a href="#安裝-Aria2" class="headerlink" title="安裝 Aria2"></a>安裝 Aria2</h1><p><code>sudo apt-get update</code></p>
 <p><code>sudo apt-get install aria2</code></p>
 <h1 id="設定-Aria2"><a href="#設定-Aria2" class="headerlink" title="設定 Aria2"></a>設定 Aria2</h1><p>建立設定資料夾與檔案(注意這邊不用 <code>sudo</code>，否則還要回過頭來改資料夾權限給 user)</p>
-<p><code>mkdir -p ~/.aria/aria2/</code></p>
+<p><code>mkdir -p ~/.aria2/</code></p>
 <p><code>touch ~/.aria2/aria2.session</code></p>
 <p><code>vim ~/.aria2/aria2.conf</code></p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">## Files</span><br><span class="line">dir=/mnt/Share/Downloads</span><br><span class="line">disk-cache=32M</span><br><span class="line">file-allocation=trunc</span><br><span class="line">continue=true</span><br><span class="line"></span><br><span class="line">## Downloads</span><br><span class="line">max-concurrent-downloads=10</span><br><span class="line">max-connection-per-server=16</span><br><span class="line">min-split-size=10M</span><br><span class="line">split=5</span><br><span class="line">max-overall-download-limit=0</span><br><span class="line">#max-download-limit=0</span><br><span class="line">#max-overall-upload-limit=0</span><br><span class="line">#max-upload-limit=0</span><br><span class="line">disable-ipv6=false</span><br><span class="line"></span><br><span class="line">## Sessions</span><br><span class="line">save-session=/home/pi/.aria2/aria2.session</span><br><span class="line">input-file=/home/pi/.aria2/aria2.session</span><br><span class="line">save-session-interval=60</span><br><span class="line"></span><br><span class="line">## RPC Settings</span><br><span class="line">enable-rpc=true</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line">rpc-listen-all=true</span><br><span class="line">#rpc-secret=secret</span><br><span class="line">#event-poll=select</span><br><span class="line">#rpc-listen-port=6800</span><br><span class="line"></span><br><span class="line">## Others</span><br><span class="line">enable-dht=true</span><br><span class="line">enable-dht6=true</span><br><span class="line">enable-peer-exchange=true</span><br></pre></td></tr></table></figure>
