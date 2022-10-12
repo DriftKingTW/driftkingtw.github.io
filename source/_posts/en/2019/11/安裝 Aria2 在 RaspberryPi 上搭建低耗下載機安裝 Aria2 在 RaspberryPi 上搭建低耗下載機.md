@@ -26,7 +26,7 @@ Sorry, this post in currently in Chinese only :(
 
 建立設定資料夾與檔案(注意這邊不用 `sudo`，否則還要回過頭來改資料夾權限給 user)
 
-`mkdir -p ~/.aria/aria2/`
+`mkdir -p ~/.aria2/`
 
 `touch ~/.aria2/aria2.session`
 
