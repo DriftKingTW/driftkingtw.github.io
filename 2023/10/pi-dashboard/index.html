@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/v1697635263/blog/2023/10/Pi-Dash/Screenshot_2023-10-18_at_9.19.37_PM.png">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/v1697635305/blog/2023/10/Pi-Dash/IMG_7160.jpg">
 <meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/v1697618842/blog/2023/10/Pi-Dash/IMG_7157.jpg">
-<meta property="og:updated_time" content="2023-10-18T13:32:32.466Z">
+<meta property="og:updated_time" content="2023-10-18T13:37:34.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pi Dash - 一個比較大的桌上型 Touch Bar 還是 Cyberdeck ？">
 <meta name="twitter:description" content="那個被詬病已久，大家喜聞樂見被砍掉的 Touch Bar，偏偏是我最喜歡的功能之一！！ 😭😭😭（蘋果怎麼在這種地方聽到了使用者的回饋）既然官方不幹了，那就是時候來弄一個更強並更符合自己需要的替代品吧。 偷偷說一下，其實這個小專案已經完成並使用超過一年了，中間也陸續對軟硬體設計進行改良，至於為什麼現在才有這篇文就…不要問 🤣">
@@ -194,7 +194,7 @@
         <span class="column is-narrow">
             
             
-            18 分鐘 讀完 (約 2740 字)
+            18 分鐘 讀完 (約 2732 字)
         </span>
         
     </div>
@@ -206,7 +206,7 @@
 <a id="more"></a>
 <h2 id="發想"><a href="#發想" class="headerlink" title="發想"></a>發想</h2><p>起初我是先從一些 PC 機箱內的長條狀 Performance Monitor 找到靈感，想找一塊長條的觸控螢幕來做，<br>玩家常會用長條形的螢幕放置在機箱中顯示一些系統溫度/效能等訊息（<del>還有一些油油或潮到出水的圖</del> 💦）<br>這種螢幕通常是直接當作一個小的外接螢幕接到顯示輸出，或 USB 傳送到螢幕上附帶的處理器去顯示資料。</p>
 <p>但外接螢幕的話對我來說會有些問題，首先是這種小外接螢幕容易影響到原本遊標的操作，<br>要是不小心移動到小螢幕裡還以為主螢幕內的遊標消失了。<br>再來就是我目前的主力機 Macbook Pro 14 M1 Pro 只支援兩個外接顯示器，<br>沒辦法再多接一個螢幕（<del>為了 Apple Silicon 真是有得必有失</del>）。</p>
-<p>加上不想被現成的軟體功能綁著，便想到了用樹莓派跑獨立的系統去控制螢幕顯示跟內容部分並且想連接 Mac 與 PC，<br>再透過 API 與電腦主機這邊溝通後透過網頁 UI 進行操作顯示的方式實作。<br>這樣不但可以不影響原本電腦的使用，也能夠把一些定期任務跟家庭控制丟給樹莓派處理，<br>使用上相對一般的做法可說是靈活了不少（缺點就是軟體部分很多要自己搞）</p>
+<p>加上不想被現成的軟體功能綁著，便想到了用樹莓派跑獨立的系統去控制螢幕顯示跟內容部分，<br>再透過 API 與電腦主機這邊溝通後透過網頁 UI 進行操作顯示的方式實作。<br>這樣不但可以不影響原本電腦的使用，也能夠把一些定期任務跟家庭控制丟給樹莓派處理，<br>使用上相對一般的做法可說是靈活了不少（缺點就是軟體部分很多要自己搞）</p>
 <p>把問題點與需求列出來之後，就可以把需要的材料跟技術整理一下開始進行：</p>
 <ul>
 <li><p>硬體：<br>由於這次硬體核心部分就是樹莓派搭配觸控螢幕而已，<del>相對簡單</del>，只需要另外自己做個外殼跟支架。<br>螢幕部分我找的是 Waveshare 的 11.9 吋長條形螢幕，剛好有設計可以直接把樹莓派裝在後面的機構，能夠省下不少工夫。<br>樹莓派則是使用 Pi 4B 8G。另外偷抱怨一下這螢幕雖然是 IPS 但不是全貼合，感覺讓色彩跟抗反射效果略差…但也暫時找不到更好的替代方案了 🥹</p>
