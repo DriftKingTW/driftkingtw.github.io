@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>DriftKingTW&#39;s Blog</title>
+  
+  <subtitle>printf(&quot;%s&quot;, &quot;Stay Curious, Stay Creative&quot;);</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.driftking.tw/"/>
+  <updated>2024-06-23T14:38:17.769Z</updated>
+  <id>https://blog.driftking.tw/</id>
+  
+  <author>
+    <name>DriftKingTW</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>透過 Cloudflare Zero Trsut 與 WARP Client 從外網連回 Synology DSM</title>
+    <link href="https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/"/>
+    <id>https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/</id>
+    <published>2024-06-20T13:00:00.000Z</published>
+    <updated>2024-06-23T14:38:17.769Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由於網路環境有兩層路由並且對外的路由我並沒有控制權，以前要從外網連回家中的 Synology NAS 都要透過群暉的 &lt;code&gt;QuickConnect&lt;/code&gt; 實現，後來經朋友推薦發現 &lt;code&gt;Cloudflare Zero Trust&lt;/code&gt; 可以達成類似功能，並且可以掛上自己的域名！！(重要)&lt;/p&gt;
+&lt;p&gt;搜尋了一下發現設定方式相對不算太難，所以把設定過程紀錄下來供大家參考或是未來自己複習用！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="NAS" scheme="https://blog.driftking.tw/tags/NAS/"/>
+    
+      <category term="Synology" scheme="https://blog.driftking.tw/tags/Synology/"/>
+    
+      <category term="DSM" scheme="https://blog.driftking.tw/tags/DSM/"/>
+    
+      <category term="Cloudflare" scheme="https://blog.driftking.tw/tags/Cloudflare/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pi Dash - 一個比較大的桌上型 Touch Bar 還是 Cyberdeck ？</title>
+    <link href="https://blog.driftking.tw/2023/10/pi-dashboard/"/>
+    <id>https://blog.driftking.tw/2023/10/pi-dashboard/</id>
+    <published>2023-10-18T13:00:00.000Z</published>
+    <updated>2023-10-18T16:44:03.033Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/v1697618842/blog/2023/10/Pi-Dash/IMG_7157.jpg&quot; alt=&quot;Pi Dash - Raspberry Pi Dashboard&quot;&gt;&lt;/p&gt;
+&lt;p&gt;那個被詬病已久，大家喜聞樂見被砍掉的 Touch Bar，偏偏是我最喜歡的功能之一！！ 😭😭😭（&lt;del&gt;蘋果怎麼在這種地方聽到了使用者的回饋&lt;/del&gt;）&lt;br&gt;既然官方不幹了，那就是時候來弄一個更強並更符合自己需要的替代品吧。&lt;/p&gt;
+&lt;p&gt;偷偷說一下，其實這個小專案已經完成並使用超過一年了，中間也陸續對軟硬體設計進行改良，至於為什麼現在才有這篇文就…不要問 🤣&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Raspberry Pi" scheme="https://blog.driftking.tw/tags/Raspberry-Pi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>30 款 macOS 生產力軟體推薦</title>
+    <link href="https://blog.driftking.tw/2022/04/macos-productivity-tools-recommendation/"/>
+    <id>https://blog.driftking.tw/2022/04/macos-productivity-tools-recommendation/</id>
+    <published>2022-04-14T11:00:00.000Z</published>
+    <updated>2022-04-14T06:54:01.801Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;雖然 macOS 已經預設了不少實用的工具軟體，但還是有不少可以改善的空間。幸好相較 iOS 來說它有著更高的自由度，所以這篇就來推薦一下我自己在 macOS 中最常使用的第三方開發的生產力軟體吧！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Logitech Master 3 拇指鍵切換裝置功能改裝</title>
+    <link href="https://blog.driftking.tw/2022/04/logitech-master-3-gesture-button-modify/"/>
+    <id>https://blog.driftking.tw/2022/04/logitech-master-3-gesture-button-modify/</id>
+    <published>2022-04-11T14:00:00.000Z</published>
+    <updated>2022-04-12T17:40:45.520Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg&quot; alt=&quot;Master 3 拇指鍵切換裝置功能改裝&quot;&gt;&lt;/p&gt;
+&lt;p&gt;雖然很喜歡羅技 Master/Anywhere 系列的滑鼠，不過對於多裝置切換的功能上不太滿意，主要是因為鍵盤不是羅技的，所以 Logitech Flow 的軟體切換只能切滑鼠對我來說沒有什麼卯月(加上需要切換的裝置也不在同一個區網裡面)，這樣的情境下就必須得使用滑鼠底部的切換裝置按鈕，但每次要切換就得把滑鼠拿起來按實在太麻煩了…羅技也不開放把手勢按鍵改成切換裝置的功能，既然如此只好自己來手動擴充功能了 ᕕ( ᐛ )ᕗ&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Logitech Master 3 Gesture Button Modification</title>
+    <link href="https://blog.driftking.tw/en/2022/04/logitech-master-3-gesture-button-modify/"/>
+    <id>https://blog.driftking.tw/en/2022/04/logitech-master-3-gesture-button-modify/</id>
+    <published>2022-04-11T14:00:00.000Z</published>
+    <updated>2022-04-12T16:25:29.738Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg&quot; alt=&quot;Master 3 Gesture Button Modification&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Logitech’s Master/Anywhere series has been my favorite mice for years. But recently I don’t feel very comfortable when using my Master 3 with multiple devices, because the only button that switches device is located under the mouse. Since my 2 devices aren’t in the same network so Logitech Flow won’t work either.&lt;/p&gt;
+&lt;p&gt;Not really sure why Logitech doesn’t allow user to configure gesture button to switch devices :( so I came up with an idea to solve it.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器</title>
+    <link href="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
+    <id>https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
+    <published>2022-02-07T11:00:00.000Z</published>
+    <updated>2022-02-09T01:06:33.129Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
+    
+      <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+      <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac</title>
+    <link href="https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
+    <id>https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
+    <published>2022-02-07T11:00:00.000Z</published>
+    <updated>2022-02-08T03:31:15.193Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use &lt;code&gt;DisplayCAL&lt;/code&gt; to recalibrate my external monitor, but the it didn’t recognize both of my external monitor.&lt;/p&gt;
+&lt;p&gt;Here’s the workaround for this issue:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
+    
+      <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+      <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Express.js 接收 Text/Plain 請求只解析出空物件問題</title>
+    <link href="https://blog.driftking.tw/QuickFix/expressjs-parse-text-plain-request/"/>
+    <id>https://blog.driftking.tw/QuickFix/expressjs-parse-text-plain-request/</id>
+    <published>2021-10-29T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.991Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近使用 Express 接收 &lt;code&gt;FilePond&lt;/code&gt; 套件回傳的 &lt;code&gt;Content-Type: text/plain&lt;/code&gt; 請求時，透過 &lt;code&gt;req.body&lt;/code&gt; 取得資料時總是拿到空資料。&lt;/p&gt;
+&lt;p&gt;解法是要另外使用 &lt;code&gt;express.text()&lt;/code&gt; 來進行解析：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
+    
+      <category term="express" scheme="https://blog.driftking.tw/tags/express/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vuetify 圖片垂直置中</title>
+    <link href="https://blog.driftking.tw/QuickFix/vuetify-image-vertical-centering/"/>
+    <id>https://blog.driftking.tw/QuickFix/vuetify-image-vertical-centering/</id>
+    <published>2021-10-15T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;利用 &lt;code&gt;v-layout&lt;/code&gt; 達成：&lt;/p&gt;
+&lt;epacse hidden&gt;12&lt;/epacse&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
+    
+      <category term="vuetify" scheme="https://blog.driftking.tw/tags/vuetify/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PM2 各專案 Dotenv 路徑設定</title>
+    <link href="https://blog.driftking.tw/QuickFix/pm2-dotenv-configuration/"/>
+    <id>https://blog.driftking.tw/QuickFix/pm2-dotenv-configuration/</id>
+    <published>2021-10-15T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
+&lt;epacse hidden&gt;13&lt;/epacse&gt;
+
+&lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="pm2" scheme="https://blog.driftking.tw/tags/pm2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 localStorage 儲存布林值(Boolean)</title>
+    <link href="https://blog.driftking.tw/QuickFix/save-boolean-value-using-localstorage%20/"/>
+    <id>https://blog.driftking.tw/QuickFix/save-boolean-value-using-localstorage /</id>
+    <published>2021-10-01T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由於 &lt;code&gt;localStorage&lt;/code&gt; 規範中只能儲存字串，但如果想儲存布林值或其他格式可利用 &lt;code&gt;JSON&lt;/code&gt; 的方式達成：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://blog.driftking.tw/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js dotenv 環境變數使用及注意事項</title>
+    <link href="https://blog.driftking.tw/QuickFix/vuejs-dotenv-file-configuration/"/>
+    <id>https://blog.driftking.tw/QuickFix/vuejs-dotenv-file-configuration/</id>
+    <published>2021-08-18T08:00:00.000Z</published>
+    <updated>2021-12-07T11:19:24.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近遇到了 API URL 分 Development 及 Production 不同設定的問題，想使用環境變數來解決，讓 URL 在不同的環境下自動使用對應的設定，嘗試後發現有些使用重點跟容易忽略的地方：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
+    
+      <category term="dotenv" scheme="https://blog.driftking.tw/tags/dotenv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>找不到喜歡的單手鍵盤？那就自己做吧</title>
+    <link href="https://blog.driftking.tw/2021/07/diy-bluetooth-marco-pad/"/>
+    <id>https://blog.driftking.tw/2021/07/diy-bluetooth-marco-pad/</id>
+    <published>2021-07-12T16:00:00.000Z</published>
+    <updated>2022-08-07T04:05:18.492Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4496.jpg&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;在這繪圖螢幕入門門檻越來越低及iPad逐漸成為專業繪圖板的時代，市面上也跟著出現不少主打創作者/遊戲用的單手鍵盤或是快捷操作裝置。但是等了好幾年了，還是找不到「適合」自己的鍵盤 🤨 那麼，與其繼續等下去不如自幹一個適合自己的單手鍵盤吧！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iPad" scheme="https://blog.driftking.tw/tags/iPad/"/>
+    
+      <category term="Keyboard" scheme="https://blog.driftking.tw/tags/Keyboard/"/>
+    
+      <category term="DIY" scheme="https://blog.driftking.tw/tags/DIY/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Quick Fix - 網頁利用錨點連結導航時，導覽列遮住了標題怎麼辦</title>
+    <link href="https://blog.driftking.tw/QuickFix/navbar-covers-heading-with-anchor-link/"/>
+    <id>https://blog.driftking.tw/QuickFix/navbar-covers-heading-with-anchor-link/</id>
+    <published>2021-04-19T13:00:00.000Z</published>
+    <updated>2021-04-19T13:19:50.510Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Q：這是個常見的 CSS 問題，當利用錨點連結 &lt;code&gt;&amp;lt;a href=&amp;quot;#heading&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&lt;/code&gt; 跳到該標題時，如果是 &lt;code&gt;Fixed&lt;/code&gt; 或 &lt;code&gt;Sticky&lt;/code&gt; 的導覽列就會擋住標題，可以參考這個 &lt;a href=&quot;https://codepen.io/DriftKingTW/pen/abpaYYb&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CodePen範例&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
+    
+      <category term="CSS" scheme="https://blog.driftking.tw/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Quick Fix - Navbar Covers Heading While Using Anchor Link</title>
+    <link href="https://blog.driftking.tw/en/QuickFix/navbar-covers-heading-with-anchor-link/"/>
+    <id>https://blog.driftking.tw/en/QuickFix/navbar-covers-heading-with-anchor-link/</id>
+    <published>2021-04-19T13:00:00.000Z</published>
+    <updated>2021-04-19T13:19:50.512Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Q: This is a common CSS issue. When using &lt;code&gt;&amp;lt;a href=&amp;quot;#heading&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&lt;/code&gt; to navigate around the article, the &lt;code&gt;Fixed&lt;/code&gt; or &lt;code&gt;Sticky&lt;/code&gt; will coverd the heading like this &lt;a href=&quot;https://codepen.io/DriftKingTW/pen/abpaYYb&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
+    
+      <category term="CSS" scheme="https://blog.driftking.tw/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Quick-Fix node-sass no such file or directory 錯誤</title>
+    <link href="https://blog.driftking.tw/QuickFix/node-sass-error/"/>
+    <id>https://blog.driftking.tw/QuickFix/node-sass-error/</id>
+    <published>2021-04-17T16:30:00.000Z</published>
+    <updated>2021-04-17T16:36:31.495Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
+&lt;epacse hidden&gt;9&lt;/epacse&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
+    
+      <category term="node-sass" scheme="https://blog.driftking.tw/tags/node-sass/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Quick-Fix node-sass no such file or directory error</title>
+    <link href="https://blog.driftking.tw/en/QuickFix/node-sass-error/"/>
+    <id>https://blog.driftking.tw/en/QuickFix/node-sass-error/</id>
+    <published>2021-04-17T16:30:00.000Z</published>
+    <updated>2021-04-17T16:36:31.496Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
+&lt;epacse hidden&gt;93&lt;/epacse&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
+    
+      <category term="node-sass" scheme="https://blog.driftking.tw/tags/node-sass/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用 Valine-Admin 與 Gmail 為 Valine 留言系統提供 Email 通知功能及留言管理</title>
+    <link href="https://blog.driftking.tw/2021/04/add-email-notification-to-valine/"/>
+    <id>https://blog.driftking.tw/2021/04/add-email-notification-to-valine/</id>
+    <published>2021-04-13T11:00:00.000Z</published>
+    <updated>2021-04-13T10:59:48.121Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本站使用的是 Valine 留言系統，但是之前忘了加上留言通知導致有些留言沒看到（非常抱歉😅，後來事物繁忙到現在才加上通知功能。&lt;/p&gt;
+&lt;p&gt;這次就來記錄如何使用 Valine-Admin 透過 Gamil 的 SMPT 服務免費加上 Email 通知功能以及留言管理後台吧！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://blog.driftking.tw/tags/hexo/"/>
+    
+      <category term="valine" scheme="https://blog.driftking.tw/tags/valine/"/>
+    
+      <category term="blog" scheme="https://blog.driftking.tw/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>add-email-notification-to-valine</title>
+    <link href="https://blog.driftking.tw/en/2021/04/add-email-notification-to-valine/"/>
+    <id>https://blog.driftking.tw/en/2021/04/add-email-notification-to-valine/</id>
+    <published>2021-04-13T11:00:00.000Z</published>
+    <updated>2021-04-13T11:04:41.661Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Sorry, this post in currently in Chinese only :(&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://blog.driftking.tw/tags/hexo/"/>
+    
+      <category term="valine" scheme="https://blog.driftking.tw/tags/valine/"/>
+    
+      <category term="blog" scheme="https://blog.driftking.tw/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息</title>
+    <link href="https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/"/>
+    <id>https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/</id>
+    <published>2021-04-11T11:42:36.000Z</published>
+    <updated>2021-04-11T11:59:04.086Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Q: macOS 連接公用 WiFi 登入畫面一片空白並出現登入錯誤訊息？&lt;/p&gt;
+&lt;p&gt;A: 在 &lt;code&gt;~/Library/LaunchAgents&lt;/code&gt; 中新增一個檔案名為 &lt;code&gt;my.shim.catalina.captivenetworkassistant.plist&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
+    
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
+    
+      <category term="WiFi" scheme="https://blog.driftking.tw/tags/WiFi/"/>
+    
+  </entry>
+  
+</feed>

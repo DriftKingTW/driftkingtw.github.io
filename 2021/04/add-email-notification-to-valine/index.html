@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>利用 Valine-Admin 與 Gmail 為 Valine 留言系統提供 Email 通知功能及留言管理 - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2021/04/add-email-notification-to-valine/" rel="alternate" hreflang="en">
+    
+
+
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
+
+
+
+<meta name="keywords" content="hexo,valine,blog,email,通知,LeanCloud">
+
+
+
+    <meta name="description" content="本站使用的是 Valine 留言系統，但是之前忘了加上留言通知導致有些留言沒看到（非常抱歉😅，後來事物繁忙到現在才加上通知功能。 這次就來記錄如何使用 Valine-Admin 透過 Gamil 的 SMPT 服務免費加上 Email 通知功能以及留言管理後台吧！">
+<meta name="keywords" content="hexo,valine,blog,email,通知,LeanCloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 Valine-Admin 與 Gmail 為 Valine 留言系統提供 Email 通知功能及留言管理">
+<meta property="og:url" content="https://blog.driftking.tw/2021/04/add-email-notification-to-valine/index.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="本站使用的是 Valine 留言系統，但是之前忘了加上留言通知導致有些留言沒看到（非常抱歉😅，後來事物繁忙到現在才加上通知功能。 這次就來記錄如何使用 Valine-Admin 透過 Gamil 的 SMPT 服務免費加上 Email 通知功能以及留言管理後台吧！">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618308412/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.04.48_PM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618308411/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.05.23_PM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304057/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_4.50.54_PM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304811/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_5.05.21_PM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304654/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_5.03.44_PM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618309232/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.20.22_PM.png">
+<meta property="og:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618310383/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.39.24_PM.png">
+<meta property="og:updated_time" content="2021-04-13T10:59:48.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用 Valine-Admin 與 Gmail 為 Valine 留言系統提供 Email 通知功能及留言管理">
+<meta name="twitter:description" content="本站使用的是 Valine 留言系統，但是之前忘了加上留言通知導致有些留言沒看到（非常抱歉😅，後來事物繁忙到現在才加上通知功能。 這次就來記錄如何使用 Valine-Admin 透過 Gamil 的 SMPT 服務免費加上 Email 通知功能以及留言管理後台吧！">
+<meta name="twitter:image" content="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618308412/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.04.48_PM.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">目錄</a>
+            
+            <a class="navbar-item " href="/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
+         <!-- margin-top: -0.2em; -->
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2021/04/add-email-notification-to-valine/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2021/04/add-email-notification-to-valine/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/driftkingtw">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            <a class="navbar-item" title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+               
+            
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
+            </a>
+        </div>
+    </div>
+</nav>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            利用 Valine-Admin 與 Gmail 為 Valine 留言系統提供 Email 通知功能及留言管理
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2021-04-13T11:00:00.000Z" itemprop="datePublished">4月 13 2021</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分鐘 讀完 (約 1644 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>本站使用的是 Valine 留言系統，但是之前忘了加上留言通知導致有些留言沒看到（非常抱歉😅，後來事物繁忙到現在才加上通知功能。</p>
+<p>這次就來記錄如何使用 Valine-Admin 透過 Gamil 的 SMPT 服務免費加上 Email 通知功能以及留言管理後台吧！</p>
+<a id="more"></a>
+<h1 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h1><p>這邊預設已經安裝設定好環境（或已啟用）<a href="https://valine.js.org/index.html" target="_blank" rel="noopener">Valine</a> 留言功能並能夠正常使用，雲端運算平台為 <a href="https://leancloud.app" target="_blank" rel="noopener">LeanCloud</a>（國際版），其實我想用 Firebase 不過 Valine 官方尚未支援😭</p>
+<h1 id="Valine-Admin-Email-通知設定"><a href="#Valine-Admin-Email-通知設定" class="headerlink" title="Valine-Admin Email 通知設定"></a>Valine-Admin Email 通知設定</h1><p>這邊要使用的是官方推薦的 <a href="https://github.com/DesertsP/Valine-Admin" target="_blank" rel="noopener">DesertsP/Valine-Admin</a> 實現即時通知功能，並透過 Gmail 的 SMTP 服務發送 Email。</p>
+<p>關於 Gmail 的部分我們要先去 <a href="https://myaccount.google.com/apppasswords" target="_blank" rel="noopener">Google Account/App Password</a> 中進行 App 設定（需要開啟 2FA 驗證，關於 2FA 相關知識可以參考<a href="https://blog.driftking.tw/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/">之前的文章</a>）</p>
+<p>新增一個 App Password，選擇自定選項並輸入一個名稱讓自己知道這串密碼是給什麼服務用的，如下圖：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618308412/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.04.48_PM.png" alt="App Password"></p>
+<p>接著 Google 會產生 App 密碼給你，複製黃框區域的密碼，稍後要填到 SMTP 密碼欄位中：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618308411/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.05.23_PM.png" alt="App Password"></p>
+<p>再來進入使用 Valine 的 LeanCloud App 中，選擇 <code>LeanEngine &gt; Web &gt; Settings</code> 點擊 <code>Add a new variable</code> 設定以下各項環境變數（範例僅供參考）：</p>
+<table>
+<thead>
+<tr>
+<th>變數</th>
+<th>範例</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SITE_NAME</td>
+<td>DriftKingTW’s Blog</td>
+<td>[必須]網站名稱</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td><a href="https://blog.driftking/tw" target="_blank" rel="noopener">https://blog.driftking/tw</a></td>
+<td>[必須]網站URL</td>
+</tr>
+<tr>
+<td>SMTP_SERVICE</td>
+<td>Gmail</td>
+<td>[必須]SMTP服務</td>
+</tr>
+<tr>
+<td>SMTP_USER</td>
+<td>&lt;Your_Gmail_Account&gt;</td>
+<td>[必須]Gmail帳號</td>
+</tr>
+<tr>
+<td>SMTP_PASS</td>
+<td>&lt;Your_Google_App_Pass&gt;</td>
+<td>[必須]剛才產生的App密碼</td>
+</tr>
+<tr>
+<td>SENDER_NAME</td>
+<td>DriftKingTW</td>
+<td>[必須]寄件人名稱</td>
+</tr>
+<tr>
+<td>SENDER_EMAIL</td>
+<td><a href="mailto:xxx@gmail.com" target="_blank" rel="noopener">xxx@gmail.com</a></td>
+<td>[必須]寄件人Email</td>
+</tr>
+<tr>
+<td>ADMIN_URL</td>
+<td>Text</td>
+<td>[建議]自動喚醒服務用</td>
+</tr>
+<tr>
+<td>BLOGGER_EMAIL</td>
+<td><a href="mailto:xxx@gmail.com" target="_blank" rel="noopener">xxx@gmail.com</a></td>
+<td>[可選]自己的收件Email</td>
+</tr>
+<tr>
+<td>AKISMET_KEY</td>
+<td>XXX</td>
+<td>[可選]Akismet垃圾留言檢測</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304057/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_4.50.54_PM.png" alt="設定範例"></p>
+<p>完成後點擊 <code>Save</code> 儲存設定</p>
+<blockquote class="colorquote info"><p>圖中 <code>MAIL_SUBJECT</code>、<code>MAIL_SUBJECT_ADMIN</code>、<code>MAIL_TEMPLATE</code>、<code>MAIL_TEMPLATE_ADMIN</code>為 Email 的樣版設定，會在<a href="#自定義-Email-模板">自定義 Email 模板</a>設定中提到。</p>
+</blockquote>
+<h1 id="雲端後台管理部署"><a href="#雲端後台管理部署" class="headerlink" title="雲端後台管理部署"></a>雲端後台管理部署</h1><p>首先在環境變數下方找到 <code>LeanEngine domain</code> 欄位，填入自己想要的網頁名稱（將來會透過這個網址連接留言管理後台）</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304811/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_5.05.21_PM.png" alt="LeanEngine domain"></p>
+<p>接下來在左方導覽列切換至 <code>Deploy</code> 中，選擇 <code>Deploy from Git</code> 填入 Git Repo： <code>https://github.com/DesertsP/Valine-Admin.git</code>。選擇 <code>Production</code> 模式後點擊 <code>Deploy</code> 進行手動部署。</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304654/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_5.03.44_PM.png" alt="部署設定"></p>
+<p>完成設定後透過剛才設定的網址（如：<a href="https://driftkingtw.avosapps.us/sign-up" target="_blank" rel="noopener">driftkingtw.avosapps.us</a>，註冊自己的管理員帳密）</p>
+<blockquote class="colorquote info"><p>若進入後自動轉跳到登入頁面，需要手動去 <code>DataStorage</code> 將 <code>_User</code> 資料表清空。</p>
+</blockquote>
+<p>完成後即可透過後台網址登入到後台管理系統了！後台的操作應該相當直覺，這邊就不多介紹了😉</p>
+<h1 id="防止免費版-LeanCloud-自動休眠"><a href="#防止免費版-LeanCloud-自動休眠" class="headerlink" title="防止免費版 LeanCloud 自動休眠"></a>防止免費版 LeanCloud 自動休眠</h1><p>由於免費版的 LeanCloud 容器會有自動休眠的限制，一天強制休眠 6hr，半小時內沒有新的請求也會自動進入休眠狀態，雖然發送請求的時候會自動喚醒但該則請求的 Email 通知會發送失敗，以下提供 Valine-Admin 官方的解決方法：</p>
+<ul>
+<li>自動喚醒</li>
+</ul>
+<p>透過環境變數 <code>ADMIN_URL</code> 到 <code>LeanEngine &gt; Scheduled Tasks</code> 中新建自動喚醒任務：</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618309232/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.20.22_PM.png" alt="自動喚醒"></p>
+<p>填入自訂名稱後，動作選擇 <code>self_awake</code>，Corn 表達式部分填入 <code>0 */25 0-15,23 * * ?</code> （國際版 LeanCloud 使用時間為 UTC+0，代表從台北時間 7:00AM～11:50PM 中每30分鐘會自動喚醒）</p>
+<ul>
+<li>自動重發 24h 內漏發的 Email</li>
+</ul>
+<p>原理同上，再新增一個自動任務，動作選擇 <code>resend_mails</code> ，Corn 表達式則為 <code>0 10 23 * * ?</code> （國際版 LeanCloud 使用時間為 UTC+0，代表從台北時間 7:10AM 會自動重發 24h 內漏發的 Email）</p>
+<p>到此基本設定全部完成，可以自己測試一下功能是否正常運作 😎</p>
+<h1 id="自定義-Email-模板"><a href="#自定義-Email-模板" class="headerlink" title="自定義 Email 模板"></a>自定義 Email 模板</h1><p>可以透過新增以下幾種環境變數來達成自定義 Email 模板：</p>
+<table>
+<thead>
+<tr>
+<th>變數</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAIL_SUBJECT</td>
+<td>[可選]郵件主旨</td>
+</tr>
+<tr>
+<td>MAIL_TEMPLATE</td>
+<td>[可選]郵件樣板</td>
+</tr>
+<tr>
+<td>MAIL_SUBJECT_ADMIN</td>
+<td>[可選]通知自己郵件的主旨</td>
+</tr>
+<tr>
+<td>MAIL_TEMPLATE_ADMIN</td>
+<td>[可選]通知自己郵件的樣本</td>
+</tr>
+</tbody>
+</table>
+<p>這邊提供自己翻譯官方樣板的繁體中文及英文版本：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 繁體中文 MAIL_SUBJECT --&gt;</span></span><br><span class="line">$&#123;PARENT_NICK&#125;，您在『$&#123;SITE_NAME&#125;』上的留言有新回應！</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 繁體中文 MAIL_TEMPLATE --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">style</span>=<span class="hljs-string">"border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"</span>&gt;</span> 您在 <span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none;color: #12ADDB;"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;SITE_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span> $&#123;SITE_NAME&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> 上的留言有新回應</span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span> $&#123;PARENT_NICK&#125; 您曾發表留言：<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding:0 12px 0 12px;margin-top:18px"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span> $&#123;PARENT_COMMENT&#125;</span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> 回應：<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span> $&#123;COMMENT&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>您可以點擊<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none; color:#12addb"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;POST_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>查看完整回應<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>，歡迎再次光臨 <span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><br><span class="line"><span class="hljs-tag">                <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none; color:#12addb"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;SITE_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>。<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 繁體中文 MAIL_SUBJECT_ADMIN --&gt;</span></span><br><span class="line">$&#123;SITE_NAME&#125; 上有新留言！</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 繁體中文 MAIL_TEMPLATE_ADMIN --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">style</span>=<span class="hljs-string">"border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"</span>&gt;</span> 您在 <span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none;color: #12ADDB;"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;SITE_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> 上的文章有了新的留言！</span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> 回覆：<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span> $&#123;COMMENT&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>您可以點擊<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none; color:#12addb"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;POST_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>查看完整留言<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- English MAIL_SUBJECT --&gt;</span></span><br><span class="line">$&#123;PARENT_NICK&#125;, your comment on 『$&#123;SITE_NAME&#125;』 got a new response!</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- English MAIL_TEMPLATE --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">style</span>=<span class="hljs-string">"border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"</span>&gt;</span>Your comment on</span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none;color: #12ADDB;"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;SITE_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span> $&#123;SITE_NAME&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> have a new</span><br><span class="line">        response!</span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span> $&#123;PARENT_NICK&#125; You says：<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding:0 12px 0 12px;margin-top:18px"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span> $&#123;PARENT_COMMENT&#125;</span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> Replied：<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span> $&#123;COMMENT&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You can <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none; color:#12addb"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;POST_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>view full</span><br><span class="line">                response<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>, Cheers! <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none; color:#12addb"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;SITE_URL&#125;"</span></span></span><br><span class="line"><span class="hljs-tag">                <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>。<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- English MAIL_SUBJECT_ADMIN --&gt;</span></span><br><span class="line">New comment on $&#123;SITE_NAME&#125;.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- English MAIL_TEMPLATE_ADMIN --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">style</span>=<span class="hljs-string">"border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"</span>&gt;</span>You have a new</span><br><span class="line">        comment on <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none;color: #12ADDB;"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;SITE_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> .</span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> comment：<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span> $&#123;COMMENT&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You can <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-decoration:none; color:#12addb"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"$&#123;POST_URL&#125;"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>view full</span><br><span class="line">            response<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>記得更新環境變數後要重啟容器才會生效喔，可以試著改成自己想要的樣子 😎</p>
+<p><img src="https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618310383/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.39.24_PM.png" alt="Email 範例"></p>
+<p>剩餘的其他詳細功能請參考 <a href="https://github.com/DesertsP/Valine-Admin" target="_blank" rel="noopener">DesertsP/Valine-Admin</a></p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://github.com/DesertsP/Valine-Admin" target="_blank" rel="noopener">DesertsP/Valine-Admin</a></p>
+<p><a href="https://github.com/DesertsP/Valine-Admin/issues/63" target="_blank" rel="noopener">issue:关于时区的一个问题</a></p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/hexo/">#hexo</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/valine/">#valine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blog/">#blog</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/QuickFix/node-sass-error/">Quick-Fix node-sass no such file or directory 錯誤</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/QuickFix/macos-wifi-captive-portal-broken/">Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
+
+    <a href="https://www.buymeacoffee.com/driftkingtw" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script sre="//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var valine = new Valine({
+        el: "#valine-thread",
+        appId: "mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI",
+        appKey: "zkROC4QzyTeu7fzjhTbxEY0k",
+        // notify: "true",
+        // verify: "true",
+        avatar: "mp",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: "zh-tw",
+        serverURLs: "https://mLsnpgAj.api.lncldglobal.com"
+    })
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/driftkingtw">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
