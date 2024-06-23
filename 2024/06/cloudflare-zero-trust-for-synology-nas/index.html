@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>透過 Cloudflare Zero Trsut 與 WARP Client 從外網連回 Synology DSM - DriftKingTW&#39;s Blog</title>
+<title>透過 Cloudflare Zero Trust 與 WARP Client 從外網連回 Synology DSM - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -23,7 +23,7 @@
     <meta name="description" content="由於現在的網路環境有兩層路由，且對外的路由我沒有控制權，以前要從外網連回家中的 Synology NAS 都要透過群暉的 QuickConnect 實現，後來經朋友推薦發現 Cloudflare Zero Trust 可以達成類似功能，並且可以掛上自己的域名！！(重要) 搜尋了一下發現設定方式相對不算太難，所以把設定過程紀錄下來供大家參考或是未來自己複習用！">
 <meta name="keywords" content="NAS,Synology,DSM,Cloudflare,ZeroTrust,WARP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="透過 Cloudflare Zero Trsut 與 WARP Client 從外網連回 Synology DSM">
+<meta property="og:title" content="透過 Cloudflare Zero Trust 與 WARP Client 從外網連回 Synology DSM">
 <meta property="og:url" content="https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="由於現在的網路環境有兩層路由，且對外的路由我沒有控制權，以前要從外網連回家中的 Synology NAS 都要透過群暉的 QuickConnect 實現，後來經朋友推薦發現 Cloudflare Zero Trust 可以達成類似功能，並且可以掛上自己的域名！！(重要) 搜尋了一下發現設定方式相對不算太難，所以把設定過程紀錄下來供大家參考或是未來自己複習用！">
@@ -55,9 +55,9 @@
 <meta property="og:image" content="https://static.driftking.tw/2024/06/87d0340d843ecb0e6751543387178807.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/201667ed8c1a5db7caaf0461a67cec27.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/38536fb73c17f585d4a451c43a486b30.webp">
-<meta property="og:updated_time" content="2024-06-23T17:02:39.620Z">
+<meta property="og:updated_time" content="2024-06-23T17:27:16.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="透過 Cloudflare Zero Trsut 與 WARP Client 從外網連回 Synology DSM">
+<meta name="twitter:title" content="透過 Cloudflare Zero Trust 與 WARP Client 從外網連回 Synology DSM">
 <meta name="twitter:description" content="由於現在的網路環境有兩層路由，且對外的路由我沒有控制權，以前要從外網連回家中的 Synology NAS 都要透過群暉的 QuickConnect 實現，後來經朋友推薦發現 Cloudflare Zero Trust 可以達成類似功能，並且可以掛上自己的域名！！(重要) 搜尋了一下發現設定方式相對不算太難，所以把設定過程紀錄下來供大家參考或是未來自己複習用！">
 <meta name="twitter:image" content="https://static.driftking.tw/2024/06/b3f87fbf3e051cc939e6fa28896a872a.webp">
 
@@ -195,7 +195,7 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            透過 Cloudflare Zero Trsut 與 WARP Client 從外網連回 Synology DSM
+            透過 Cloudflare Zero Trust 與 WARP Client 從外網連回 Synology DSM
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -213,7 +213,7 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><img src="https://static.driftking.tw/2024/06/b3f87fbf3e051cc939e6fa28896a872a.webp" alt="透過 Cloudflare Zero Trsut 與 WARP Client 從外網連回 Synology DSM"></p>
+        <p><img src="https://static.driftking.tw/2024/06/b3f87fbf3e051cc939e6fa28896a872a.webp" alt="透過 Cloudflare Zero Trust 與 WARP Client 從外網連回 Synology DSM"></p>
 <p>由於現在的網路環境有兩層路由，且對外的路由我沒有控制權，以前要從外網連回家中的 Synology NAS 都要透過群暉的 <code>QuickConnect</code> 實現，後來經朋友推薦發現 <code>Cloudflare Zero Trust</code> 可以達成類似功能，並且可以掛上自己的域名！！(重要)</p>
 <p>搜尋了一下發現設定方式相對不算太難，所以把設定過程紀錄下來供大家參考或是未來自己複習用！</p>
 <a id="more"></a>
