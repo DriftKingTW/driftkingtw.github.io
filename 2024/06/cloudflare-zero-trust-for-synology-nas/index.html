@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://static.driftking.tw/2024/06/66c4ce0eeb015efc7e935b8ff6296c29.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/ab63b40cad71da5ba7cb49e528296024.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/22af506d7a75d54cd95d352654802b48.webp">
-<meta property="og:image" content="https://static.driftking.tw/2024/06/330c96ebef43742c1aeed4377aebb628.webpp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/330c96ebef43742c1aeed4377aebb628.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/50122fb46abec734808b178fe1e02c02.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/668eea5e53dc19a7bc8eb042e6adcdaa.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/26784ae6dfb1af19166245735b6f9b80.webp">
@@ -55,7 +55,7 @@
 <meta property="og:image" content="https://static.driftking.tw/2024/06/87d0340d843ecb0e6751543387178807.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/201667ed8c1a5db7caaf0461a67cec27.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/38536fb73c17f585d4a451c43a486b30.webp">
-<meta property="og:updated_time" content="2024-06-23T16:49:35.571Z">
+<meta property="og:updated_time" content="2024-06-23T16:56:24.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="透過 Cloudflare Zero Trsut 與 WARP Client 從外網連回 Synology DSM">
 <meta name="twitter:description" content="由於網路環境有兩層路由並且對外的路由我並沒有控制權，以前要從外網連回家中的 Synology NAS 都要透過群暉的 QuickConnect 實現，後來經朋友推薦發現 Cloudflare Zero Trust 可以達成類似功能，並且可以掛上自己的域名！！(重要) 搜尋了一下發現設定方式相對不算太難，所以把設定過程紀錄下來供大家參考或是未來自己複習用！">
@@ -207,13 +207,13 @@
         <span class="column is-narrow">
             
             
-            17 分鐘 讀完 (約 2611 字)
+            17 分鐘 讀完 (約 2622 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><img src="https://static.driftking.tw/2024/06/b3f87fbf3e051cc939e6fa28896a872a.webp" alt="cover"></p>
+        <p><img src="https://static.driftking.tw/2024/06/b3f87fbf3e051cc939e6fa28896a872a.webp" alt="透過 Cloudflare Zero Trsut 與 WARP Client 從外網連回 Synology DSM"></p>
 <p>由於網路環境有兩層路由並且對外的路由我並沒有控制權，以前要從外網連回家中的 Synology NAS 都要透過群暉的 <code>QuickConnect</code> 實現，後來經朋友推薦發現 <code>Cloudflare Zero Trust</code> 可以達成類似功能，並且可以掛上自己的域名！！(重要)</p>
 <p>搜尋了一下發現設定方式相對不算太難，所以把設定過程紀錄下來供大家參考或是未來自己複習用！</p>
 <a id="more"></a>
@@ -228,81 +228,81 @@
 <h2 id="Zero-Trust-團隊設定"><a href="#Zero-Trust-團隊設定" class="headerlink" title="Zero Trust 團隊設定"></a>Zero Trust 團隊設定</h2><p>首先登入 <a href="https://one.dash.cloudflare.com/" target="_blank" rel="noopener">Cloudflare Zero Trust</a> 並建立團隊 (名稱任意)</p>
 <p>選擇付費方案：一般個人使用 Free 應該就相當夠用，但記得即使免費方案還是需要輸入付費資訊才能夠使用喔！</p>
 <p>成功建立好團隊及付款設定後會進到如下的 Dashboard 頁面</p>
-<p><img src="https://static.driftking.tw/2024/06/189164e66a8800e0406aaf8eb5409022.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/189164e66a8800e0406aaf8eb5409022.webp" alt="Zero Trust Dashboard"></p>
 <h2 id="建立-Application"><a href="#建立-Application" class="headerlink" title="建立 Application"></a>建立 Application</h2><p>接下來要建立一層 Cloudflare Zero Trust 的保護應用在我們的 Tunnel 之前，這樣就可以讓使用者連入相關服務時讓平台<br>協助確認使用者的身份 (須先登入稍候設定的帳號或經過第三方登入驗證) 確保應用的安全，強力建議設定！</p>
 <h3 id="新增-Application"><a href="#新增-Application" class="headerlink" title="新增 Application"></a>新增 Application</h3><p>在左側導覽的 <code>Access</code> 選擇 <code>Application</code> 進入以下頁面，點擊 <code>+ Add an application</code> (首次設定的話頁面會稍有不同)</p>
-<p><img src="https://static.driftking.tw/2024/06/a7e256cbfcbea23c35dae518e5541bd3.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/a7e256cbfcbea23c35dae518e5541bd3.webp" alt="Application"></p>
 <p>接著選擇 <code>Self-hosted</code></p>
-<p><img src="https://static.driftking.tw/2024/06/b2ba4bd4ba880456c9a3e5f92c178891.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/b2ba4bd4ba880456c9a3e5f92c178891.webp" alt="Self-hosted"></p>
 <h3 id="Application-設定"><a href="#Application-設定" class="headerlink" title="Application 設定"></a>Application 設定</h3><p>自行設定想要的 <code>Application name</code>，另外可以選擇性調整 <code>Session Duration</code> 讓使用者可以保持驗證狀態多長時間。</p>
 <p>在 <code>Application domain</code> 設定自己的域名，若要掛在 Subdomain 底下也請再此設定。</p>
 <p>另外下方的 <code>Identity providers</code> 則是可以設定不同的登入方式 (預設為 OTP 登入)，這邊可以先不做變動，<br>稍候到 <a href="#第三方登入驗證方式">第三方登入驗證方式</a> 會做 Github 登入的設定範例：</p>
 <p><img src="https://static.driftking.tw/2024/06/cd064f17315a2954d9a7fcaca6ff2069.webp" alt="alt text"></p>
 <h3 id="Policy-設定"><a href="#Policy-設定" class="headerlink" title="Policy 設定"></a>Policy 設定</h3><p><code>Policy Name</code> 隨意填入，<code>Action</code> 選擇 <code>Allow</code> 代表我們正在設定允許連入的規則，<code>Session duration</code> 預設為跟應用相同即可。</p>
 <p>由於要限制只有我們自己的 Email 能夠登入，所以在 <code>Configure rules</code> 的 <code>Selector</code> 選擇 <code>Emails</code>，<br>並在 <code>Value</code> 填入自己的信箱。同理若要讓其他人連入也可進行相對的設定。</p>
-<p><img src="https://static.driftking.tw/2024/06/b517f4ebfceaf02903cc5496a33b75ce.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/b517f4ebfceaf02903cc5496a33b75ce.webp" alt="Policy Configuration"></p>
 <p>接下來 <code>Next</code> 下一頁後，可以直接使用預設設定拉到最下面並點擊 <code>Add application</code> 完成新增！</p>
 <h2 id="建立與-NAS-連線的-Tunnel"><a href="#建立與-NAS-連線的-Tunnel" class="headerlink" title="建立與 NAS 連線的 Tunnel"></a>建立與 NAS 連線的 Tunnel</h2><p>接著我們要建立一個與 NAS 連線的 Tunnel，在左側導覽找到 <code>Network</code> 並選擇 <code>Tunnels</code> 進入設定頁面。</p>
 <p>點擊 <code>+ Create a tunnel</code> 來建立通道 (首次設定的話頁面會稍有不同)：</p>
-<p><img src="https://static.driftking.tw/2024/06/d9349cf0168bdbf6019b1825c35746c7.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/d9349cf0168bdbf6019b1825c35746c7.webp" alt="Tunnels"></p>
 <p>這邊選擇預設的 <code>Cloudflared</code> 連接器即可點選下一步：</p>
-<p><img src="https://static.driftking.tw/2024/06/13c11a751f8698ca0bd50559be6f358e.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/13c11a751f8698ca0bd50559be6f358e.webp" alt="Cloudflared Tunnel"></p>
 <p>輸入喜歡的 Tunnel 名稱，點擊 <code>Save tunnel</code>：</p>
-<p><img src="https://static.driftking.tw/2024/06/66c4ce0eeb015efc7e935b8ff6296c29.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/66c4ce0eeb015efc7e935b8ff6296c29.webp" alt="Tunnel Configuration"></p>
 <p>接著會顯示如何安裝及運行連接器，如果是要在其他的一般機器設定可以透過提供的指令安裝。<br>我們這邊要設定在 DSM 上設定所以可以把指令複製下來後只截取後面 <code>ey...</code> 那段的 Token 保存即可，稍候設定會用到。</p>
-<p><img src="https://static.driftking.tw/2024/06/ab63b40cad71da5ba7cb49e528296024.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/ab63b40cad71da5ba7cb49e528296024.webp" alt="Connector"></p>
 <p>下一步後，設定 <code>Public Hostnames</code>，<code>Domain</code> 與剛才的設定相同，<code>Service</code><br>部分則填入 NAS 在內網的 IP 位址 (DSM 預設 HTTP 為 <code>5000</code>，HTTPS 則為 <code>5001</code>)。</p>
 <p>接著點開 <code>Additional application settings</code>，若使用 Synology 預設的憑證則要開啟 <code>No TLS Verify</code>。</p>
 <p>接著選擇 <code>Access</code> 套用剛才設定的 <code>Access Application</code> 即可儲存 Tunnel：</p>
-<p><img src="https://static.driftking.tw/2024/06/22af506d7a75d54cd95d352654802b48.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/22af506d7a75d54cd95d352654802b48.webp" alt="Route Traffic"></p>
 <h2 id="在-DSM-安裝-Cloudflare-Tunnel"><a href="#在-DSM-安裝-Cloudflare-Tunnel" class="headerlink" title="在 DSM 安裝 Cloudflare Tunnel"></a>在 DSM 安裝 Cloudflare Tunnel</h2><h3 id="新增套件來源"><a href="#新增套件來源" class="headerlink" title="新增套件來源"></a>新增套件來源</h3><p>首先透過內網登入 DSM，進入套件中心 (Package Center)，點選右上角的設定 (Settings) 並選擇套件來源 (Package Sources) 後按下新增 (Add)，<br>輸入以下資訊 (名稱選用自己看的懂得即可)：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://packages.synocommunity.com/</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://static.driftking.tw/2024/06/330c96ebef43742c1aeed4377aebb628.webpp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/330c96ebef43742c1aeed4377aebb628.webp" alt="Package Center"></p>
 <h3 id="安裝-Cloudflare-Tunnel"><a href="#安裝-Cloudflare-Tunnel" class="headerlink" title="安裝 Cloudflare Tunnel"></a>安裝 Cloudflare Tunnel</h3><p>接著在套件中心 (Package Center) 中搜尋 <code>Cloudflare Tunnel</code> 安裝：</p>
-<p><img src="https://static.driftking.tw/2024/06/50122fb46abec734808b178fe1e02c02.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/50122fb46abec734808b178fe1e02c02.webp" alt="DSM Cloudflare Tunnel"></p>
 <p>安裝完成後按照提示輸入剛才取得的 Token 並執行即可。</p>
 <h2 id="完成-Tunnel-並測試"><a href="#完成-Tunnel-並測試" class="headerlink" title="完成 Tunnel 並測試"></a>完成 Tunnel 並測試</h2><p>接著就可以到瀏覽器中輸入剛才設定過的 Domain 測試看能不能成功進入 Cloudflare Access 的頁面<br>(未設定第三方登入的話不會顯示 Github 的登入欄位)：</p>
-<p><img src="https://static.driftking.tw/2024/06/668eea5e53dc19a7bc8eb042e6adcdaa.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/668eea5e53dc19a7bc8eb042e6adcdaa.webp" alt="Cloudflare Access"></p>
 <p>登入後即可透過外網輸入自訂的網址進入 DSM 跟各種 HTTP 服務囉！ (如 <code>/file</code>、<code>/audio</code> 等 DSM 上安裝的服務)</p>
 <h2 id="第三方登入驗證方式（可選）"><a href="#第三方登入驗證方式（可選）" class="headerlink" title="第三方登入驗證方式（可選）"></a>第三方登入驗證方式（可選）</h2><p>由於 OTP 每次都要透過 Email 接收相當麻煩，我們可以加入不同的第三方登入服務讓登入更方便！</p>
 <p>回到 Zero Trust Dashboard 選擇左側導覽的 <code>Settings</code> 後點選 <code>Authentication</code> 新增不同的驗證方式：</p>
-<p><img src="https://static.driftking.tw/2024/06/26784ae6dfb1af19166245735b6f9b80.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/26784ae6dfb1af19166245735b6f9b80.webp" alt="Authentication"></p>
 <p>進入後選擇下方 <code>Login methods</code> 點選 <code>Add new</code> 新增不同的第三方登入設定：</p>
-<p><img src="https://static.driftking.tw/2024/06/b0caee4ac543e4be8433cd1a52231878.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/b0caee4ac543e4be8433cd1a52231878.webp" alt="Login methods"></p>
 <p>選擇需要的第三方服務後就會出現各服務所需要的驗證資訊，Cloudflare 都有附上圖文操作安照對應的方式填入資訊即可啟用囉！<br>設定完成後回到 Zero Trust Access 驗證頁面時就會出現 <code>Sign in with</code> 的欄位了。</p>
 <h2 id="設定-Cloudflare-WARP-搭配-WARP-Client-訪問內網-Non-HTTP-服務"><a href="#設定-Cloudflare-WARP-搭配-WARP-Client-訪問內網-Non-HTTP-服務" class="headerlink" title="設定 Cloudflare WARP 搭配 WARP Client 訪問內網 Non-HTTP 服務"></a>設定 Cloudflare WARP 搭配 WARP Client 訪問內網 Non-HTTP 服務</h2><p>以上的設定能夠讓 HTTP 服務透過外網連入了，但由於 Tunnel 是透過 WebSocket 實現並不支援 Non-HTTP 的服務 (如 SMB 等)，<br>同時官方的行動 App 會因為 Access 驗證被阻擋無法使用，所以如果需要連入其他協議的服務或訪問其他內網裝置的話，<br>我們可以透過 WARP 這個服務建立一個 Private Network 解決。</p>
 <h3 id="路由設定"><a href="#路由設定" class="headerlink" title="路由設定"></a>路由設定</h3><p>首先從左側導覽的 <code>Networks</code> 進入 <code>Routes</code>，點選 <code>+ Create route</code>：</p>
-<p><img src="https://static.driftking.tw/2024/06/030dfddfd8e907696371e8f58667cc79.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/030dfddfd8e907696371e8f58667cc79.webp" alt="Routes"></p>
 <p>我的內網環境是 <code>192.168.1.0 ~ 192.168.255</code> 故 <code>CIDR</code> 欄位需填入 <code>192.168.1.0/24</code>，<br>描述可以任意填寫，Tunnel 則選擇剛才建立的 Tunnel 即可。</p>
 <p>完成後點擊 <code>Create</code> 即可完成路由設定。</p>
 <blockquote>
 <p>CIDR 相關可參考：<a href="https://zh.wikipedia.org/zh-tw/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1" target="_blank" rel="noopener">WIKI - CIDR</a></p>
 </blockquote>
-<p><img src="https://static.driftking.tw/2024/06/fa96ad92a24eb5ba304dfb983d6c6c54.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/fa96ad92a24eb5ba304dfb983d6c6c54.webp" alt="Edit route"></p>
 <h3 id="WARP-Client-設定"><a href="#WARP-Client-設定" class="headerlink" title="WARP Client 設定"></a>WARP Client 設定</h3><p>左側導覽選擇 <code>Settings</code>，點擊 <code>WARP Client</code> 子項目：</p>
-<p><img src="https://static.driftking.tw/2024/06/a2e8a628db257c28fe007aa7d6978cb1.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/a2e8a628db257c28fe007aa7d6978cb1.webp" alt="WARP Client"></p>
 <p>在 <code>Device enrollment</code> 點選 <code>Manage</code> 設定裝置驗證：</p>
-<p><img src="https://static.driftking.tw/2024/06/4abfe07656619eeeb560b25c66e7e61d.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/4abfe07656619eeeb560b25c66e7e61d.webp" alt="Device enrollment"></p>
 <p>點擊 <code>+ Add a rule</code> 加入驗證規則，這邊跟之前設定的驗證規則類似不再贅述，完成後點選 <code>Save</code> 即可。</p>
-<p><img src="https://static.driftking.tw/2024/06/8d37cfbd53d0b626d72897626197f772.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/8d37cfbd53d0b626d72897626197f772.webp" alt="Rules"></p>
 <p>接著回到上一頁的 <code>WARP Client</code> 設定頁面 (<code>Settings</code> &gt; <code>WARP Client</code>)</p>
 <p>找到 <code>Device settings</code> 區塊，在 <code>Default</code> Profile 右側點擊 <code>Configure</code>：</p>
-<p><img src="https://static.driftking.tw/2024/06/ae66adaa596ca6936a4bdfe10cd074d6.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/ae66adaa596ca6936a4bdfe10cd074d6.webp" alt="Default Profile"></p>
 <p>找到 <code>Split Tunnels</code>，點擊 <code>Manage</code>：</p>
-<p><img src="https://static.driftking.tw/2024/06/7001a9b18df2bfd3fb9520cad3e3406b.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/7001a9b18df2bfd3fb9520cad3e3406b.webp" alt="Manage Split Tunnels"></p>
 <p>找到包含自己網域的設定項目並把他刪除 (此為 Exclude 規則故需刪除要連線的網段)</p>
-<p><img src="https://static.driftking.tw/2024/06/95e442d7c95413932061b2c3ce760cf4.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/95e442d7c95413932061b2c3ce760cf4.webp" alt="Remove from Exclude"></p>
 <p>接著從左側導覽 <code>Settings</code> 選擇 <code>Network</code>：</p>
-<p><img src="https://static.driftking.tw/2024/06/87d0340d843ecb0e6751543387178807.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/87d0340d843ecb0e6751543387178807.webp" alt="Network"></p>
 <p>到 <code>Firewall</code> 把 <code>Proxy</code> 啟用，協議部分可以把 <code>UDP</code> 一併啟用：</p>
-<p><img src="https://static.driftking.tw/2024/06/201667ed8c1a5db7caaf0461a67cec27.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/201667ed8c1a5db7caaf0461a67cec27.webp" alt="Firewall"></p>
 <h3 id="WARP-Client-安裝"><a href="#WARP-Client-安裝" class="headerlink" title="WARP Client 安裝"></a>WARP Client 安裝</h3><p>接下來到 <a href="https://one.one.one.one/" target="_blank" rel="noopener">WARP Client</a> 下載頁面下載對應的客戶端並安裝。</p>
 <p>安裝 App 後按照只是填入 Team Name 進行驗證跟 VPN 安裝成功後會出現類似畫面 (原先顯示 WARP，完成後顯示 Zero Trust)：</p>
 <blockquote>
 <p>我一開始在 iOS 安裝 VPN 時卡住導致無法驗證，建議先將系統內的原本使用的 VPN 等先關閉在進行設定</p>
 </blockquote>
-<p><img src="https://static.driftking.tw/2024/06/38536fb73c17f585d4a451c43a486b30.webp" alt="alt text"></p>
+<p><img src="https://static.driftking.tw/2024/06/38536fb73c17f585d4a451c43a486b30.webp" alt="iOS WARP Client"></p>
 <p>完成後點擊開關即可透過 WARP 連入區網，可以在外網透過 smb 等協議連上 NAS 測試是否設定成功。<br>現在就可以透過 WARP Client 夠連入內網中的其他機器囉，另外 Synology 官方的 App 也能夠直接透過區網 IP 連入使用了！</p>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
 <li><a href="https://sakkyoi.tech/articles/123#Tunnel%20%E6%90%AD%E9%85%8D%20WARP%EF%BC%8C%E7%9B%B4%E6%8E%A5%E8%A8%AA%E5%95%8F%E4%BD%A0%E7%9A%84%E5%85%A7%E7%B6%B2" target="_blank" rel="noopener">用 Cloudflare Tunnel 打通 Synology NAS</a></li>
