@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2024-06-23T17:27:16.812Z</updated>
+  <updated>2024-06-25T18:15:26.231Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份</title>
+    <link href="https://blog.driftking.tw/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/"/>
+    <id>https://blog.driftking.tw/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/</id>
+    <published>2024-06-25T14:00:00.000Z</published>
+    <updated>2024-06-25T18:15:26.231Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD&lt;/p&gt;
+&lt;p&gt;前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 &lt;del&gt;真是振奮人心&lt;/del&gt; 😭&lt;/p&gt;
+&lt;p&gt;恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Raspberry Pi" scheme="https://blog.driftking.tw/tags/Raspberry-Pi/"/>
+    
+      <category term="NAS" scheme="https://blog.driftking.tw/tags/NAS/"/>
+    
+      <category term="Synology" scheme="https://blog.driftking.tw/tags/Synology/"/>
+    
+      <category term="DSM" scheme="https://blog.driftking.tw/tags/DSM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>透過 Cloudflare Zero Trust 與 WARP Client 從外網連回 Synology DSM</title>
     <link href="https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/"/>
     <id>https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/</id>
     <published>2024-06-24T13:00:00.000Z</published>
-    <updated>2024-06-23T17:27:16.812Z</updated>
+    <updated>2024-06-24T15:25:27.393Z</updated>
     
     <summary type="html">
     
@@ -197,7 +223,7 @@
     <summary type="html">
     
       &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
-&lt;epacse hidden&gt;10&lt;/epacse&gt;
+&lt;epacse hidden&gt;11&lt;/epacse&gt;
 
 &lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
@@ -341,7 +367,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;12&lt;/epacse&gt;
+&lt;epacse hidden&gt;10&lt;/epacse&gt;
     
     </summary>
     
@@ -362,7 +388,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;85&lt;/epacse&gt;
+&lt;epacse hidden&gt;142&lt;/epacse&gt;
     
     </summary>
     
@@ -415,29 +441,6 @@
       <category term="valine" scheme="https://blog.driftking.tw/tags/valine/"/>
     
       <category term="blog" scheme="https://blog.driftking.tw/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息</title>
-    <link href="https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/"/>
-    <id>https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/</id>
-    <published>2021-04-11T11:42:36.000Z</published>
-    <updated>2021-04-11T11:59:04.086Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Q: macOS 連接公用 WiFi 登入畫面一片空白並出現登入錯誤訊息？&lt;/p&gt;
-&lt;p&gt;A: 在 &lt;code&gt;~/Library/LaunchAgents&lt;/code&gt; 中新增一個檔案名為 &lt;code&gt;my.shim.catalina.captivenetworkassistant.plist&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
-    
-      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
-    
-      <category term="WiFi" scheme="https://blog.driftking.tw/tags/WiFi/"/>
     
   </entry>
   

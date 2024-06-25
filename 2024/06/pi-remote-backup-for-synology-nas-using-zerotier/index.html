@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/" rel="alternate" hreflang="en">
+    
+
+
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
+
+
+
+<meta name="keywords" content="NAS,Synology,DSM,Raspberry Pi,Zero Tier">
+
+
+
+    <meta name="description" content="這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD 前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 真是振奮人心 😭 恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。">
+<meta name="keywords" content="NAS,Synology,DSM,Raspberry Pi,Zero Tier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份">
+<meta property="og:url" content="https://blog.driftking.tw/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/index.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD 前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 真是振奮人心 😭 恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/770c3672713fe28d71a2cb8532b5ae37.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/e2feb0b8c2cf25800a2073d35a6397b8.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/2c5a27e2b53664845db5b5d2f15efba2.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/137e2163af4afaebbf71512975b5b1c1.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/389ad8fb3482a1109ac030a369cac6d8.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/c77caa54f08c57aa35c56cdef95f0a15.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/93ee3bd6c541e6822e2db75f8df790f4.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/86fa63df8f7fb28c9998fc359bb1b1f6.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/e35b7574604b28aa8dd905b62ccad453.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/0d793c79207de8b8a388a9b39cde1973.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/b5b5f9ce94058c904d6b1219254528fe.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/ad5a3a8b5613030db0d97bf2a6670d5f.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/fa0be144e7047e873e5e848efc206253.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/5030cfd9db2702542d28da9b024e0712.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/70f1a0d10fd8c7e1c93dfce24329458d.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/441b63640fd04ca4525f491bc0c0ad88.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/24fc0d147890ac40098c9d8b8f5d0980.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/c38ea250465757d394697b9b5f8176aa.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/44ee9a5a49a213e38f75d4acd8dadb14.webp">
+<meta property="og:updated_time" content="2024-06-25T18:15:26.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份">
+<meta name="twitter:description" content="這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD 前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 真是振奮人心 😭 恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。">
+<meta name="twitter:image" content="https://static.driftking.tw/2024/06/770c3672713fe28d71a2cb8532b5ae37.webp">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">目錄</a>
+            
+            <a class="navbar-item " href="/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
+         <!-- margin-top: -0.2em; -->
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/driftkingtw">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            <a class="navbar-item" title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+               
+            
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
+            </a>
+        </div>
+    </div>
+</nav>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2024-06-25T14:00:00.000Z" itemprop="datePublished">6月 25 2024</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            34 分鐘 讀完 (約 5191 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>這玩意看起來很適合做異地備份欸！ &lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD</p>
+<p>前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 <del>真是振奮人心</del> 😭</p>
+<p>恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。</p>
+<a id="more"></a>
+<p>我看上樹莓派 5 來做異地備份主要有以下幾個原因：</p>
+<ol>
+<li>體積小功耗低，適合放在各種地方 (放老家/辦公室/朋友家等)</li>
+<li>價格(?)優勢，不含硬碟的核心的零件約 $100 美金能夠買到，加上現在供貨總算比較穩定了</li>
+<li>硬體自訂性高，雖然現在有 N100 等 CP 值極高的 x86 小主機，<del>但用樹莓派就是比較浪漫比較酷</del></li>
+<li>效能足夠 (4G 足矣)，因為單純作為異地備份 Pi 5 的效能甚至有些過盛？</li>
+<li>PCIe 插槽讓 SSD 不用再透過 USB，速度及穩定性 ⬆️⬆️</li>
+<li>這代加入了如官方主動散熱模組、電源開關等功能，除了安裝設定都更輕鬆，也可以縮小體積 (我能夠放異地備份的空間都不算很大，能省則省)</li>
+</ol>
+<p>這邊可以參考我之前用 Pi 4 製作的 <a href="https://blog.driftking.tw/2023/10/pi-dashboard/">Pi-Dash</a> 應該就會發現這代把一些我之前需要自幹的功能都已經內建或提供官方的整合方案了，不用自己弄一堆有的沒的還會減少原本就已經不多的 IO 🙏</p>
+<p>當然你可能會說能用另一台更正式的 NAS 作為異地備份是最好的選擇，確實 (？ 但我最重要且需要異地備份的量也不多(可能頂多 2T 短期內就算綽綽有餘)，加上上述幾項優點我認為這是目前最適合的選擇了！</p>
+<p>那麼如果你覺得這個方案不錯並有興趣，我也把軟硬體的一些設定寫成筆記分享給大家，歡迎繼續往下閱讀：</p>
+<h2 id="資料備份-3-2-1"><a href="#資料備份-3-2-1" class="headerlink" title="資料備份 3-2-1"></a>資料備份 3-2-1</h2><p>資料備份有個重要的 3-2-1 規則，相信應該不少人已經耳熟能詳，可以直接跳至 <a href="#硬體-amp-軟體需求">硬體 / 軟體需求</a>，如果沒聽過的話也沒關係這邊簡單介紹一下：</p>
+<p>3-2-1 代表</p>
+<ul>
+<li>至少 3 份相同的備份資料</li>
+<li>至少 2 種不同的儲存媒介</li>
+<li>至少 1 分資料要存放在物理上不同的位置</li>
+</ul>
+<p>並且這邊有些常見的誤區要注意：</p>
+<ul>
+<li>重要資料對每個人定義不同，並不是所有資料都需要完整的備份處理</li>
+<li>RAID (硬碟陣列) 上儲存的資料並不代表兩份資料，只能算一份，RAID 或 Snapshot 等只是降低了該份資料因為硬體損壞導致資料遺失的機率</li>
+<li>資料存放在物理上不同的位置就是俗稱的異地備份，定義上通常是越遠越好，但也不用太誇張，通常放幾公里外的親友家中就是可以接受的選擇 (雲端儲存也可以算是一種)</li>
+</ul>
+<p>異地備份主要保護的是同一個地點的事故可能會導致所有的備份同時被一波帶走，例如火災、雷擊、地震等災害，如果遇到這種事故在家放了幾百份資料可能也沒什麼用了 😭</p>
+<p>那麼了解了備份的規則及重要性後我們廢話不多說進入本文的重點吧！</p>
+<h2 id="硬體-amp-軟體需求"><a href="#硬體-amp-軟體需求" class="headerlink" title="硬體 &amp; 軟體需求"></a>硬體 &amp; 軟體需求</h2><h3 id="硬體"><a href="#硬體" class="headerlink" title="硬體"></a>硬體</h3><p>這邊列一下我所使用的硬體清單，當然可以針對個人需求做調整：</p>
+<ol>
+<li><a href="https://www.raspberrypi.com/products/raspberry-pi-5/" target="_blank" rel="noopener">Raspberry Pi 5 (4G RAM)</a> (Pi 4 應該也沒什麼問題，但沒有 PCIe 只能透過 USB 連接硬碟)</li>
+<li><a href="https://wiki.geekworm.com/X1004" target="_blank" rel="noopener">Geekworm (SupTronics) X1004</a> (撰文時雙 M.2 的還有 <a href="https://shop.pimoroni.com/products/nvme-base-duo-for-raspberry-pi-5" target="_blank" rel="noopener">Pimoroni</a>, <a href="https://www.waveshare.com/wiki/PCIe_TO_2-CH_M.2_HAT+" target="_blank" rel="noopener">WaveShare</a> 等廠商可選，或是使用單 M.2 HAT 當然也是沒問題的)</li>
+<li>一或兩條 HAT 支援的 M.2 NVMe SSD (注意必須要是 NVMe 協議才可以使用在 M.2 HAT 上)</li>
+<li>一台 NAS，備份資料的來源</li>
+</ol>
+<p>NAS 部分我所使用的是 Synology DS220+，其他 NAS 當然也可以，不過這篇文會以我自己使用的環境為主。<br>外殼、散熱模組等非必要零件就不另外提到了，可以按照自己的需求喜好安裝 🙌</p>
+<h3 id="軟體"><a href="#軟體" class="headerlink" title="軟體"></a>軟體</h3><ol>
+<li>x86 DSM 7.2 (我自己 NAS 的環境)</li>
+<li>Raspberry Pi OS (Bookworm)</li>
+<li>rsync 作為備份同步用</li>
+<li>ZeroTier 作虛擬內網的服務讓 NAS 能夠遠端訪問到 Pi</li>
+<li>ufw 安裝在 Pi 上的防火牆</li>
+</ol>
+<p>由於在 DSM 上跑 ZeroTier 會使用到 Docker，之前聽說 ARM 的 DSM 容易遇到架構支援問題，這邊可能需要注意一下！</p>
+<p>完成之後異地備份的服務會如下圖執行：</p>
+<!-- TODO: -->
+<p>在了解了基本服務架構之後，由於硬體安裝方式不難參照各家說明書即可，接下來為安裝軟體及設定的部分。</p>
+<h2 id="在-Pi-上安裝-rsync-伺服器"><a href="#在-Pi-上安裝-rsync-伺服器" class="headerlink" title="在 Pi 上安裝 rsync 伺服器"></a>在 Pi 上安裝 rsync 伺服器</h2><p>rsync 伺服器的作用簡單來說其實有點像 SMB，但是專門設計為備份用途，完成後會讓 NAS 透過 Hyper Backup 連入樹莓派的 rsync 進行自動備份。當然 rsync 可以安裝在任何 Linux 主機上，只是本文會以樹莓派的 Raspberry Pi OS 來做設定 ⚡️</p>
+<p>首先會需要讓樹莓派能夠執行 Raspberry Pi OS，系統可以安裝在 NVMe SSD、USB 硬碟或是 SD 卡上 (有做好系統備份的話應該還可以，但還是要準備有 SSD 或 HDD 來儲存備份資料用)，這部份因為不是本次設定重點，還請參考<a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">樹莓派 OS 官方說明</a></p>
+<p>將樹莓派安裝好系統並開機後，可以透過 GUI 或 SSH 進入 Terminal 開始安裝 rsync。</p>
+<h3 id="備份資料用硬碟分區及格式化"><a href="#備份資料用硬碟分區及格式化" class="headerlink" title="備份資料用硬碟分區及格式化"></a>備份資料用硬碟分區及格式化</h3><p>首先執行 <code>sudo fdisk -l</code> (使用 <code>sudo</code> 會跳出要求管理員密碼，輸入後按 <code>Enter</code> 即可)</p>
+<p>接著會出現一串硬碟資料，找到要當作備份用的目標硬碟，例如我的其中一段顯示 (輸出每個人會不同)：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">Disk /dev/nvme0n1: 1.86 TiB, 2048408248320 bytes, 4000797360 sectors</span><br><span class="line">Disk model: TEAM TM8FPD002T</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: gpt</span><br><span class="line">Disk identifier: XXX</span><br><span class="line"></span><br><span class="line">Device         Start        End    Sectors  Size Type</span><br><span class="line">/dev/nvme0n1p1  2048 4000796671 4000794624  1.9T [分區類型]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>這邊注意如果是 USB 外接硬碟可能會顯示 <code>/dev/sda</code> 、 <code>/dev/sdb</code> 等，若跟我一樣使用 Pi 5 的 PCIe 連接 SSD 則會顯示類似如上 <code>/dev/nvme0n1</code></p>
+<p>接著需要把硬碟格式化為 <code>ext4</code> 格式</p>
+<blockquote class="colorquote danger"><p>此動作會清除硬碟上所有資料</p>
+</blockquote>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk /dev/nvme0n</span><br></pre></td></tr></table></figure>
+
+<p>進入後輸入指令 <code>d</code> 刪除分區</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): d</span><br></pre></td></tr></table></figure>
+
+<p>輸入指令 <code>n</code> 新增分區</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): n</span><br></pre></td></tr></table></figure>
+
+<p>最後輸入 <code>w</code> 完成操作</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): w</span><br></pre></td></tr></table></figure>
+
+<p>接下來格式化硬碟為 <code>ext4</code></p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs -t ext4 /dev/nvme0n1p1</span><br></pre></td></tr></table></figure>
+
+<p>等待跑完無錯誤後就代表成功把硬碟格式化為 <code>ext4</code> 了。</p>
+<h3 id="備份資料用硬碟分區掛載"><a href="#備份資料用硬碟分區掛載" class="headerlink" title="備份資料用硬碟分區掛載"></a>備份資料用硬碟分區掛載</h3><p>建立一個掛載分區用的資料夾 (名字可以自行挑選，後續的設定記得使用相同的路徑即可)</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /mnt/backup</span><br></pre></td></tr></table></figure>
+
+<p>接下來要取得對應分區的 UUID：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid</span><br></pre></td></tr></table></figure>
+
+<p>在輸出的資料中找到對應的分區，例如：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/dev/nvme0n1p1: UUID=&quot;539f659e-cd1d-4f81-9ea5-6ec0f1344c66&quot; BLOCK_SIZE=&quot;4096&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;1685ae4a-c0c5-4259-8f96-38a660deda8a&quot;</span><br><span class="line">/dev/nvme1n1p2: LABEL=&quot;rootfs&quot; UUID=&quot;d1f0e69f-2ab2-4f75-bbe1-84db9d036629&quot; BLOCK_SIZE=&quot;4096&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;423c4ab8-02&quot;</span><br><span class="line">/dev/nvme1n1p1: LABEL_FATBOOT=&quot;bootfs&quot; LABEL=&quot;bootfs&quot; UUID=&quot;50C8-AEAE&quot; BLOCK_SIZE=&quot;512&quot; TYPE=&quot;vfat&quot; PARTUUID=&quot;423c4ab8-01&quot;</span><br></pre></td></tr></table></figure>
+
+<p>由於我們的目標硬碟是 <code>/dev/nvme0n1p1</code> 所以複製對應的 UUID <code>539f659e-cd1d-4f81-9ea5-6ec0f1344c66</code> (此 UUID 為範例用)</p>
+<p>接著我們要設定系統啟動時自動掛載這個分區</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>進去後將游標移到最下方 (不需理會井字號開頭的部分)，接著參考下方第四行 <code>UUID=...</code> 填入設定，空格部分用 <code>Tab</code> 或空白鍵分隔都可以</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">proc            /proc           proc    defaults          0       0</span><br><span class="line">PARTUUID=423c4ab8-01  /boot/firmware  vfat    defaults          0       2</span><br><span class="line">PARTUUID=423c4ab8-02  /               ext4    defaults,noatime  0       1</span><br><span class="line">UUID=539f659e-cd1d-4f81-9ea5-6ec0f1344c66       /mnt/backup     ext4    defaults,auto,users,rw,nofail   0       0</span><br><span class="line"># a swapfile is not a swap partition, no line here</span><br><span class="line">#   use  dphys-swapfile swap[on|off]  for that</span><br></pre></td></tr></table></figure>
+
+<p>完成後 <code>Control + S</code> &amp; <code>Control + X</code> 儲存並離開編輯器。</p>
+<p>接下來就可以掛載所有硬碟：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -a</span><br></pre></td></tr></table></figure>
+
+<p>檢查掛載是否成功</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
+
+<p>如果能看到剛才設定的 <code>/mnt/backup</code> 就代表成功掛載了</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span><br><span class="line">nvme0n1     259:0    0   1.9T  0 disk</span><br><span class="line">└─nvme0n1p1 259:1    0   1.9T  0 part /mnt/backup &lt;- 這裡</span><br><span class="line">nvme1n1     259:2    0 476.9G  0 disk</span><br><span class="line">├─nvme1n1p1 259:3    0   512M  0 part /boot/firmware</span><br><span class="line">└─nvme1n1p2 259:4    0 476.4G  0 part /</span><br></pre></td></tr></table></figure>
+
+<p>接下來給予掛載路徑權限 (這邊給 777 是因為備份的檔案會加密所以沒有太大問題)</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /mnt/backup</span><br></pre></td></tr></table></figure>
+
+<p>這邊測試建立一個資料夾</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch /mnt/backup/test</span><br></pre></td></tr></table></figure>
+
+<p>如果沒有報錯代表設定無誤，可以刪除該測試檔案</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /mnt/backup/test</span><br></pre></td></tr></table></figure>
+
+<h3 id="安裝-rsync-伺服器"><a href="#安裝-rsync-伺服器" class="headerlink" title="安裝 rsync 伺服器"></a>安裝 rsync 伺服器</h3><p>更新套件包</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p>安裝 rsync</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install rsync</span><br></pre></td></tr></table></figure>
+
+<p>建立 rsync 設定檔</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/rsyncd.conf</span><br></pre></td></tr></table></figure>
+
+<p>輸入以下設定</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[backup]</span><br><span class="line">        path = /mnt/backup</span><br><span class="line">        comment = For the rsync backup for Synology NAS</span><br><span class="line">        read only = false</span><br><span class="line">        timeout = 300</span><br><span class="line">        auth users = synology</span><br><span class="line">        secrets file = /etc/rsyncd.secrets</span><br></pre></td></tr></table></figure>
+
+<p>完成後 <code>Control + S</code> &amp; <code>Control + X</code> 儲存並離開編輯器。</p>
+<p>建立 rsync 密碼檔</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/rsyncd.secrets</span><br></pre></td></tr></table></figure>
+
+<p>輸入以下設定</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">synology:[輸入 rsync 密碼]</span><br></pre></td></tr></table></figure>
+
+<p>完成後 <code>Control + S</code> &amp; <code>Control + X</code> 儲存並離開編輯器。</p>
+<p>更新 secrets 檔案權限只有 root 能讀寫</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 600 /etc/rsyncd.secrets</span><br></pre></td></tr></table></figure>
+
+<p>進入 rsync 設定開啟服務</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/default/rsync</span><br></pre></td></tr></table></figure>
+
+<p>找到 <code>RSYNC_ENABLE=false</code> 並改為</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RSYNC_ENABLE=true</span><br></pre></td></tr></table></figure>
+
+<p>完成後 <code>Control + S</code> &amp; <code>Control + X</code> 儲存並離開編輯器。</p>
+<p>最後重啟樹莓派檢查 rsync 服務是否自動啟動</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<p>重啟後輸入以下指令檢查是否成功啟動 rsync</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ax | grep rsync</span><br></pre></td></tr></table></figure>
+
+<p>如果成功應該會有類似以下的輸出</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  860 ?        Ss     0:01 /usr/bin/rsync --daemon --no-detach</span><br><span class="line">12942 pts/0    S+     0:00 grep --color=auto rsync</span><br></pre></td></tr></table></figure>
+
+<p>恭喜完成！接下來可以準備前往 DSM 做設定並連到剛設定好的 rsync server 了！ 🙌</p>
+<h2 id="在-DSM-7-中安裝-Hyper-Backup-並在區網中執行首次備份"><a href="#在-DSM-7-中安裝-Hyper-Backup-並在區網中執行首次備份" class="headerlink" title="在 DSM 7 中安裝 Hyper Backup 並在區網中執行首次備份"></a>在 DSM 7 中安裝 Hyper Backup 並在區網中執行首次備份</h2><p>登入 DSM 後進入 <code>Package Center</code> 套件中心進行 <code>Hyper Backup</code> 的安裝</p>
+<p><img src="https://static.driftking.tw/2024/06/770c3672713fe28d71a2cb8532b5ae37.webp" alt="DSM Package Center - Hyper Backup"></p>
+<p>安裝完成後開啟 <code>Hyper Backup</code> 並使用第一個 <code>Folders and Packages</code> 按下一步</p>
+<p><img src="https://static.driftking.tw/2024/06/e2feb0b8c2cf25800a2073d35a6397b8.webp" alt="Backup Type"></p>
+<p>接下來拉到最下方的 <code>File Server</code> 區域，選擇 <code>rsync</code> 後下一步</p>
+<p><img src="https://static.driftking.tw/2024/06/2c5a27e2b53664845db5b5d2f15efba2.webp" alt="rsync server"></p>
+<p>這邊選擇 <code>Multiple versions</code> 即可，運作原理類似 Snapshot 會儲存不同的檔案更變，<code>Single version</code> 則是單純把檔案拷貝過去</p>
+<p><img src="https://static.driftking.tw/2024/06/137e2163af4afaebbf71512975b5b1c1.webp" alt="Backup Version Type"></p>
+<p>接著在</p>
+<ul>
+<li><code>Server name or IP address</code> 輸入樹莓派所在的區網 IP</li>
+<li><code>Username</code> 輸入剛才設定的 rsync 使用者名稱 <code>synology</code></li>
+<li><code>Password</code> 輸入剛才設定的 rsync 使用者密碼 (secrets)</li>
+</ul>
+<p>Transfer encryption 可以留著 OFF 即可，因為我們使用的 ZeroTier 連線方式已經有加密的功能，這樣可以讓備份速度更快一點。</p>
+<p>以上設定正確的話應該就能在 <code>Shared Folder</code> 下拉選單選擇剛才在 rsync 伺服器建立的資料夾了！</p>
+<p><img src="https://static.driftking.tw/2024/06/389ad8fb3482a1109ac030a369cac6d8.webp" alt="Backup Destination"></p>
+<p>下一步之後就可以選擇我們在 NAS 中所需要備份的資料夾，在下一步會選擇想備份的應用程式，這邊按自己需求選擇即可。</p>
+<p><img src="https://static.driftking.tw/2024/06/c77caa54f08c57aa35c56cdef95f0a15.webp" alt="Data Backup"></p>
+<p>最後進行備份任務的設定，這邊按自己需求調整，並記得開啟 <code>Enable client-side encryption</code> 並牢記密碼</p>
+<p><img src="https://static.driftking.tw/2024/06/93ee3bd6c541e6822e2db75f8df790f4.webp" alt="Backup Settings"></p>
+<p>下一步設定 Rotation 自動清除舊資料，選擇 <code>Smart Recycle</code> 即可</p>
+<p><img src="https://static.driftking.tw/2024/06/86fa63df8f7fb28c9998fc359bb1b1f6.webp" alt="Rotation Settings"></p>
+<p>完成後就可以來執行第一次備份啦！建議第一次檔案比較大先在區網備份速度較快，之後只會做差異備份再移至異地即可！</p>
+<p><img src="https://static.driftking.tw/2024/06/e35b7574604b28aa8dd905b62ccad453.webp" alt="HyperBackup First Backup"></p>
+<p>當檔案備份的時候，我們可以繼續往下設定 ZeroTier 的部分為外網連線做準備！</p>
+<h2 id="設定-ZeroTier-虛擬區網服務"><a href="#設定-ZeroTier-虛擬區網服務" class="headerlink" title="設定 ZeroTier 虛擬區網服務"></a>設定 ZeroTier 虛擬區網服務</h2><p>簡單來說 ZeroTier 是一個虛擬區網的服務，可以讓處在不同網路的裝置加入這個虛擬區網透過 P2P 達成互相連線，就像在一個區網中一樣。在設定上相當簡易，而且作為個人備份是完全免費的 (免費版提供 25 個裝置加入，並且無限制流量)！我們可以透過這個功能讓 NAS 透過外網連到 Pi 上的 rsync 伺服器達成備份的任務。</p>
+<p>首先需要先到 <a href="https://my.zerotier.com/" target="_blank" rel="noopener">ZeroTier</a> 註冊一個帳號並登入</p>
+<p>成功進入控制面板後會看到如下畫面，一開始應該是沒有任何網路設定的，此時按 <code>Create A Network</code> 建立虛擬區網，並點新增的項目進入設定：</p>
+<p><img src="https://static.driftking.tw/2024/06/0d793c79207de8b8a388a9b39cde1973.webp" alt="ZeroTier Dashboard"></p>
+<p>設定值基本上沒有特別需求用預設即可，點進此區網後我們先複製如圖中的 <code>Network ID</code> 的值方便設定</p>
+<p><img src="https://static.driftking.tw/2024/06/b5b5f9ce94058c904d6b1219254528fe.webp" alt="Network ID"></p>
+<p>接著就可以準備把各個需要連線的設備加入這個區網中囉！</p>
+<h2 id="在-DSM-7-上連入-ZeroTier"><a href="#在-DSM-7-上連入-ZeroTier" class="headerlink" title="在 DSM 7 上連入 ZeroTier"></a>在 DSM 7 上連入 ZeroTier</h2><p>首先先將 NAS 連入 ZeroTier 中，這部份也可以參考<a href="https://docs.zerotier.com/synology/" target="_blank" rel="noopener">官方文件</a>操作。</p>
+<h3 id="安裝-Docker-Container-Manager"><a href="#安裝-Docker-Container-Manager" class="headerlink" title="安裝 Docker (Container Manager)"></a>安裝 Docker (Container Manager)</h3><p>DSM 進入 Package Center (套件中心) 並搜尋 <code>container</code></p>
+<p>選擇 <code>Container Manager</code> 並安裝：</p>
+<blockquote class="colorquote warning"><p>舊版 DSM 套件名稱為 Docker，新版已改名為 Container Manager，這兩個是相同的東西 👌</p>
+</blockquote>
+<p><img src="https://static.driftking.tw/2024/06/ad5a3a8b5613030db0d97bf2a6670d5f.webp" alt="DSM Package Center - Container Manager"></p>
+<h3 id="開啟-SSH"><a href="#開啟-SSH" class="headerlink" title="開啟 SSH"></a>開啟 SSH</h3><p>接著我們先將 DSM 的 SSH 功能從控制台中打開，並記得點擊套用。</p>
+<p><img src="https://static.driftking.tw/2024/06/fa0be144e7047e873e5e848efc206253.webp" alt="Enabel DSM SSH"></p>
+<h3 id="建立-Persistent-TUN"><a href="#建立-Persistent-TUN" class="headerlink" title="建立 Persistent TUN"></a>建立 Persistent TUN</h3><p>SSH 進入 DSM (macOS 及 Linux 透過 Terminal 即可，Windows 可使用 Putty 等軟體)，user 使用者及 local-ip 替換為自己設定的 DSM 使用者及區網 IP</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh user@local-ip</span><br></pre></td></tr></table></figure>
+
+<p>取得 root 權限</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
+
+<p>加入啟動時的自動設定腳本</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e '#!/bin/sh -e \ninsmod /lib/modules/tun.ko' &gt; /usr/local/etc/rc.d/tun.sh</span><br></pre></td></tr></table></figure>
+
+<p>設定執行腳本所需的權限</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x /usr/local/etc/rc.d/tun.sh</span><br></pre></td></tr></table></figure>
+
+<p>執行腳本</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/etc/rc.d/tun.sh</span><br></pre></td></tr></table></figure>
+
+<p>測試通道是否建立</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/net/tun</span><br></pre></td></tr></table></figure>
+
+<p>若輸出 <code>/dev/net/tun</code> 並無報錯代表成功。</p>
+<h3 id="設定容器"><a href="#設定容器" class="headerlink" title="設定容器"></a>設定容器</h3><p>建立資料夾儲存 ZeroTier 相關的檔案及設定</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/lib/zerotier-one</span><br></pre></td></tr></table></figure>
+
+<p>建立 Docker 容器</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -d           \</span><br><span class="line">  --name zt             \</span><br><span class="line">  --restart=always      \</span><br><span class="line">  --device=/dev/net/tun \</span><br><span class="line">  --net=host            \</span><br><span class="line">  --cap-add=NET_ADMIN   \</span><br><span class="line">  --cap-add=SYS_ADMIN   \</span><br><span class="line">  -v /var/lib/zerotier-one:/var/lib/zerotier-one zerotier/zerotier-synology:latest</span><br></pre></td></tr></table></figure>
+
+<p>跑完之後可以透過以下指令確認容器是否正常執行</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<p>若顯示類似如下圖即可</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONTAINER ID   IMAGE                                 COMMAND            CREATED       STATUS       PORTS     NAMES</span><br><span class="line">451a2e9d6d02   zerotier/zerotier-synology:latest     &quot;/entrypoint.sh&quot;   2 weeks ago   Up 2 weeks             zt</span><br></pre></td></tr></table></figure>
+
+<p>接著我們要把 NAS 加入到 ZeroTier 的區網 (<code>[Network_ID]</code> 記得要換成自己的)</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it zt zerotier-cli join [Network_ID]</span><br></pre></td></tr></table></figure>
+
+<p>成功的話會回應 <code>200 join OK</code> 此時我們可以回到 ZeroTier 的控制台拉到下方 <code>Members</code> 區塊查看</p>
+<p><img src="https://static.driftking.tw/2024/06/5030cfd9db2702542d28da9b024e0712.webp" alt="ZeroTier Members"></p>
+<p>此時手動把前方的 Auth? 選取格打勾即可認證，過幾秒後 Managed IPs 下方應該就會出現該裝置在這個虛擬區網的 IP 了 (此範例為 192.168.193.78)</p>
+<p><img src="https://static.driftking.tw/2024/06/70f1a0d10fd8c7e1c93dfce24329458d.webp" alt="Auth Member"></p>
+<blockquote class="colorquote info"><p>這邊建議可以在 <code>Name</code> 與 <code>Description</code> 中填入自己看的懂得名稱和描述方便辨認裝置喔！</p>
+</blockquote>
+<p>接著在 SSH 中可透過 <code>sudo zerotier-cli listnetworks</code> 來查看加入的區網狀態</p>
+<p>最後我們還需要回到 DSM 中允許這個網域經過防火牆</p>
+<p>從 <code>控制台</code> &gt; <code>安全性</code> &gt; <code>防火牆</code> 頁籤 &gt; <code>編輯規則</code> 進入設定，並點擊 <code>新增</code> 增加規則</p>
+<p><img src="https://static.driftking.tw/2024/06/441b63640fd04ca4525f491bc0c0ad88.webp" alt="DSM Firewall"></p>
+<p>設定如下，連接埠看需求開啟， <code>來源 IP</code> 選擇指定 IP，點擊選擇後輸入剛才 ZeroTier 中的 IP 範圍 (例如範例中的 <code>192.168.193.0</code> ~ <code>192.168.193.255</code>)</p>
+<p><img src="https://static.driftking.tw/2024/06/24fc0d147890ac40098c9d8b8f5d0980.webp" alt="DSM Firewall Configuration"></p>
+<p>接著套用設定並確認 <code>Enable</code> 打勾即可，到這邊防火牆設定就完成了！</p>
+<h2 id="在-Pi-上連入-ZeroTier"><a href="#在-Pi-上連入-ZeroTier" class="headerlink" title="在 Pi 上連入 ZeroTier"></a>在 Pi 上連入 ZeroTier</h2><p>最後我們需要讓 Pi 也連上 ZeroTier，連入 Pi SSH 透過 Github 安裝 ZeroTier</p>
+<p>新增 GPG Key</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/zerotierone-archive-keyring.gpg &gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<p>接著加入 Source List 到系統中</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RELEASE=$(lsb_release -cs)</span><br><span class="line">echo "deb [signed-by=/usr/share/keyrings/zerotierone-archive-keyring.gpg] http://download.zerotier.com/debian/$RELEASE $RELEASE main" | sudo tee /etc/apt/sources.list.d/zerotier.list</span><br></pre></td></tr></table></figure>
+
+<p>更新套件倉庫</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p>即可安裝 ZeroTier</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y zerotier-one</span><br></pre></td></tr></table></figure>
+
+<p>安裝完成後就可以讓樹莓派加入 ZeroTier 區網了 (<code>[Network_ID]</code> 記得要換成自己的)</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zerotier-cli join [Network_ID]</span><br></pre></td></tr></table></figure>
+
+<p>成功的話會回應 <code>200 join OK</code> 此時操作與 DSM 加入後一致再次回到 ZeroTier 的控制台拉到下方 <code>Members</code> 區塊查看，並勾選 Auth? 方塊。</p>
+<p>接著在 SSH 中可透過 <code>sudo zerotier-cli listnetworks</code> 來查看加入的區網狀態</p>
+<p>上述步驟都成功完成後 ZeroTier 的控制面板 <code>Member</code> 區域應該會有類似下表的裝置設定</p>
+<p><img src="https://static.driftking.tw/2024/06/c38ea250465757d394697b9b5f8176aa.webp" alt="ZeroTier Members"></p>
+<h2 id="測試遠端備份"><a href="#測試遠端備份" class="headerlink" title="測試遠端備份"></a>測試遠端備份</h2><p>恭喜！設定到這邊大致就完成了，最後只要把樹莓派在 ZeroTier 中的 IP 複製下來，並回到 DSM 的 HyperBackup 中更改任務中 Target 的 Server IP 即可。</p>
+<p><img src="https://static.driftking.tw/2024/06/44ee9a5a49a213e38f75d4acd8dadb14.webp" alt="Connection Successful"></p>
+<p>完成後應該會顯示 Target On-line 綠色字樣，接著只要樹莓派在有網路的地方都能夠透過 ZeroTier 幫 NAS 做定期備份囉！</p>
+<h2 id="啟用-UFW-防火牆-可選"><a href="#啟用-UFW-防火牆-可選" class="headerlink" title="啟用 UFW 防火牆 (可選)"></a>啟用 UFW 防火牆 (可選)</h2><p>通常情況下 ZeroTier 區網應該是安全的，但如果有各種不同的設備使用者在同個虛擬區網的話可以設定一下樹莓派的防火牆比較令人安心，這邊使用的是 UFW</p>
+<p>更新套件倉庫及系統</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt full-upgrade</span><br></pre></td></tr></table></figure>
+
+<p>安裝 UFW</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ufw</span><br></pre></td></tr></table></figure>
+
+<p>接下來這部非常重要，我們要先設定讓 SSH 能夠通過防火牆，如果沒有設定的話就再也無法在透過 Headless (無頭) 模式連上樹莓派，需要接螢幕鍵盤等操作來恢復了</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
+
+<p>接著我們到 ZeroTier 主控台中找到 NAS 的 IP 並允許該 IP 的連線 (<code>[YOUR_NAS_IP]</code> 記得替換為實際的 IP)</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow [YOUR_NAS_IP]</span><br></pre></td></tr></table></figure>
+
+<p>啟動防火牆</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br></pre></td></tr></table></figure>
+
+<p>此時系統會提示如下啟用防火牆可能導致目前的 SSH Session 斷線，輸入 <code>y</code> 按下 <code>Enter</code> 即可啟用防火牆</p>
+<p><code>Command may disrupt existing ssh connections. Proceed with operation (y|n)?</code></p>
+<p>最後可以透過 <code>sudo ufw status</code> 確認防火牆的狀態，若要停用防火牆則使用 <code>sudo ufw disable</code>。</p>
+<p>以上！ <del>接下來應該不用擔心資料安全的問題了</del></p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.youtube.com/watch?v=-dhnkncnLWs" target="_blank" rel="noopener">SpaceRex - Backup Synology NAS To a $35 RaspberryPi with HyperBackup and Rsync Daemon! | 4K TUTORIAL</a></p>
+<p><a href="https://pimylifeup.com/raspberry-pi-zerotier/" target="_blank" rel="noopener">Running ZeroTier on the Raspberry Pi</a></p>
+<p><a href="https://pimylifeup.com/raspberry-pi-ufw/" target="_blank" rel="noopener">Using the UFW Firewall on the Raspberry Pi</a></p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Raspberry-Pi/">#Raspberry Pi</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/NAS/">#NAS</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Synology/">#Synology</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/DSM/">#DSM</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/06/cloudflare-zero-trust-for-synology-nas/">透過 Cloudflare Zero Trust 與 WARP Client 從外網連回 Synology DSM</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
+
+    <a href="https://www.buymeacoffee.com/driftkingtw" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script sre="//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var valine = new Valine({
+        el: "#valine-thread",
+        appId: "mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI",
+        appKey: "zkROC4QzyTeu7fzjhTbxEY0k",
+        // notify: "true",
+        // verify: "true",
+        avatar: "mp",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: "zh-tw",
+        serverURLs: "https://mLsnpgAj.api.lncldglobal.com"
+    })
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/driftkingtw">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>

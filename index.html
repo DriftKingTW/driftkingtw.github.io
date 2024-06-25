@@ -167,6 +167,43 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/" itemprop="url">透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2024-06-25T14:00:00.000Z" itemprop="datePublished">6月 25 2024</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            34 分鐘 讀完 (約 5191 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>這玩意看起來很適合做異地備份欸！ &lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD</p>
+<p>前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 <del>真是振奮人心</del> 😭</p>
+<p>恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。</p>
+        <p class="article-more-link">
+            <a href="/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/06/cloudflare-zero-trust-for-synology-nas/" itemprop="url">透過 Cloudflare Zero Trust 與 WARP Client 從外網連回 Synology DSM</a>
         
     </h1>
@@ -403,7 +440,7 @@
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p>使用 <code>PM2</code> 管理 Node App 時如果有使用 <code>doenv</code> 會讀取目前目錄的 <code>.env</code> 檔案，例如在以下的資料結構下：</p>
-<epacse hidden>10</epacse>
+<epacse hidden>11</epacse>
 
 <p>在 <code>myApp</code> 同級目錄中執行 <code>pm2 start myApp/app.js</code> 時會去讀取同層級的 <code>.env</code> ，而不會讀取到 <code>myApp/.env</code></p>
 <p>此時除了可以進入 <code>myApp</code> 後再執行 <code>pm2 start</code> 外，也可以在 <code>app.js</code> 中設定 <code>.env</code> 路徑，如下：</p>
@@ -480,41 +517,6 @@
         <p>由於 <code>localStorage</code> 規範中只能儲存字串，但如果想儲存布林值或其他格式可利用 <code>JSON</code> 的方式達成：</p>
         <p class="article-more-link">
             <a href="/QuickFix/save-boolean-value-using-localstorage /#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/QuickFix/vuejs-dotenv-file-configuration/" itemprop="url">Vue.js dotenv 環境變數使用及注意事項</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2021-08-18T08:00:00.000Z" itemprop="datePublished">8月 18 2021</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分鐘 讀完 (約 219 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>最近遇到了 API URL 分 Development 及 Production 不同設定的問題，想使用環境變數來解決，讓 URL 在不同的環境下自動使用對應的設定，嘗試後發現有些使用重點跟容易忽略的地方：</p>
-        <p class="article-more-link">
-            <a href="/QuickFix/vuejs-dotenv-file-configuration/#more">閱讀更多</a>
         </p>
     
     </div>
