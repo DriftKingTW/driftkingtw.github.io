@@ -11,7 +11,7 @@ abbrlink: cc83b42a
 date: 2018-10-26 09:16:36
 ---
 
-![Touchbar顯示CPU溫度](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1540517774/blog/2018/10/%E5%88%A9%E7%94%A8BetterTouchTool%E5%9C%A8Touchbar%E4%B8%8A%E9%A1%AF%E7%A4%BACPU%E6%BA%AB%E5%BA%A6/Touch_Bar_Shot_2018-10-26_at_9.34.17_AM.png)
+![Touchbar顯示CPU溫度](https://static.driftking.tw/2024/06/0c34eba51dc0eab28bce1b9c8826260a.png)
 
 TouchBar?覺得很雞肋的話，不如手動讓他實用吧！<!--more-->
 

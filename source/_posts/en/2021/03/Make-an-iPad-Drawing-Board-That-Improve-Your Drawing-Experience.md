@@ -13,7 +13,7 @@ abbrlink: 216d2e39
 date: 2021-03-22 20:00:00
 ---
 
-![iPad Drawing Board](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424248/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/IMG_1700.jpg)
+![iPad Drawing Board](https://static.driftking.tw/2024/06/bbcc9be3480ebf9d7a6ab841e60c1676.jpg)
 
 iPad and Apple Pencil combo probably has the best drawing experience in the tablet market for now, tons of people love using their iPad to create amazing artworks, but you might encounter an common issue (especially for 11 inch user): The iPad's bezel is way too small for your hand to rest on, even it's laid down flat on the table.
 
@@ -45,7 +45,7 @@ The goals for this project:
 
 After serious thought, here's my solution:
 
-![Design](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424235/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/Design.jpg)
+![Design](https://static.driftking.tw/2024/06/f27197b85a1c8387072279213792cbd0.jpg)
 
 The material I plan to use is linden plywood, 4 layers in total.
 
@@ -55,21 +55,21 @@ The magnet part to hold iPad is actually pretty easy to deal with, I just use th
 
 BTW for those who interest, the folio cover I use is from UGreen, I've seen ESR has the same kind of product too. All of them works I think.
 
-![Third-party folio cover](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424238/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/IMG_1687.jpg)
+![Third-party folio cover](https://static.driftking.tw/2024/06/194a09e00fd4081a1d1b2bd98d83387a.jpg)
 
 Then use Illustrator to draw the outline of the board.
 
 - 5mm Bottom plate, about $31cm * 24.5cm$ and have a notch for Apple Pencil.
 
-![Bottom plate 5mm](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424234/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/Bottom_5mm.jpg)
+![Bottom plate 5mm](https://static.driftking.tw/2024/06/45218fc23d4e39a9b3ee51606a56f106.jpg)
 
 - 3mm Bottom plate, it will glue to the top of 5mm one, it has a camera hole to fit the camera bump.
 
-![Bottom plate 3mm](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424234/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/Bottom_3mm.jpg)
+![Bottom plate 3mm](https://static.driftking.tw/2024/06/da016cb20bc2e4cb779775ae9ae27cb8.jpg)
 
 - The hand rest has 2 layers too, one for 3mm the other is 5mm. 8mm total is about as same thickness as the iPad plus the folio cover. And there's a cutout at the bottom right for power button or Air 4's finger print reader.
 
-![Hand rest](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424240/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/Top.jpg)
+![Hand rest](https://static.driftking.tw/2024/06/6dfb96ef1229fdf1f0b54b2b16427641.jpg)
 
 {% colorquote info %}
 You can support me and download the *.ai files from [here](https://www.buymeacoffee.com/driftkingtw/e/28814) 😉
@@ -87,21 +87,21 @@ You can support me and download the *.ai files from [here](https://www.buymeacof
 
 It's actually almost done after we got the laser cutting plywood.
 
-![Laser cutting linden plywood](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424241/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/IMG_1684-1.jpg)
+![Laser cutting linden plywood](https://static.driftking.tw/2024/06/c3c5e3105e52833ad652cd4e556be30b.jpg)
 
 Cut the folio cover and glue them together, done!
 
-![Add the folio cover](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424240/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/IMG_1698.jpg)
+![Add the folio cover](https://static.driftking.tw/2024/06/d43bdcffcbd52e551861c611bb013fb7.jpg)
 
 You can use it with any tablet/laptop stand you want!
 
 Landscape mode:
 
-![Landscape](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424248/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/IMG_1700.jpg)
+![Landscape](https://static.driftking.tw/2024/06/bbcc9be3480ebf9d7a6ab841e60c1676.jpg)
 
 Portrait mode:
 
-![Portrait](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1616424249/blog/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/IMG_1701.jpg)
+![Portrait](https://static.driftking.tw/2024/06/5b6455f1dc30117aa70bd0e12fc19078.jpg)
 
 It's just what we want right? And iPad is very stable thanks to the magnet cover underneath it, the speaker and buttons works just like normal, and the cutout for the Apple Pencil works as intended, it's very easy to take it down and start drawing. Plus the size isn't crazy big so we can take it to the coffee shop just like taking a 13 inch laptop. The best of all, it just cost less than 35 dollar!
 

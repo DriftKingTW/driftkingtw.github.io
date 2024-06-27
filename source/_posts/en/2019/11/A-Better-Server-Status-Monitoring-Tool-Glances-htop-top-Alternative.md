@@ -80,7 +80,7 @@ Client side (change SERVER-IP to your own server ip, default port `61208`):
 
 Done! Now you can monitoring all status (including cpu-temperture) in comfort! (Image shows my Pi nas' status)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574080130/blog/2019/11/%E9%9B%BB%E8%85%A6%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%B7%A8%E5%B9%B3%E8%87%BA%E7%9A%84%E9%96%8B%E6%BA%90%E7%9B%A3%E6%8E%A7%E5%A5%BD%E5%B9%AB%E6%89%8B%20-%20Glances/Screen_Shot_2019-11-18_at_7.54.46_PM.png)
+![](https://static.driftking.tw/2024/06/4173dbe27d6a5e064534433d0216abd2.png)
 
 
 # Reference

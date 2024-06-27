@@ -20,23 +20,23 @@ date: 2019-10-26 21:25:00
 下圖是 Type-C 的腳位圖，這次設計出現問題是位於兩個 CC 腳位的部分（ CC1 & CC2 ），
 CC (Configuration Channel) 腳位是 Type-C 重要的設定通道，可以利用不同的 CC 電阻設定判斷裝置資訊、決定模式，以及藉此支援正反插。
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572070453/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.13.59_PM.png)
+![](https://static.driftking.tw/2024/06/89fe7b3161fc9888632f6790be2da460.png)
 
 根據 [Type-C 定義文件](https://www.usb.org/document-library/usb-type-cr-cable-and-connector-specification-revision-20-august-2019)，藉由 CC 腳位的設定我們可以有以下不同的狀態：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572070948/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.22.22_PM.png)
+![](https://static.driftking.tw/2024/06/c72e97c6556f3077b4afde87447418a3.png)
 
 樹莓派所需要的是從供電端拉 5V/3A 的電力，為接受電力的設備（ Sink Device ）（這裡我不知道怎麽翻譯比較適當XD），由圖表可知我們應該要將 CC 設定在第二或第三種狀態才能正常為樹莓派提供正確的電壓。
 
 瞭解接腳定義後來看供電端與設備端連線時的簡化電路圖：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572071612/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.33.18_PM.png)
+![](https://static.driftking.tw/2024/06/4f5242a32621c29b1f323b65f04d32a9.png)
 
 上圖為一般 Type-C 線材連接時的樣子，可以看到只有一條 CC 線接通兩邊，並且在右側設備端有接一個下拉電阻（ Pull-down Resistor：簡稱Rd ），供電端會藉由偵測到的阻值判斷所需要的 USB-C 狀態。
 
 接著看看連上 E-mark 線材時的電路圖：（ E-mark 是在線裡的 IC ，可以提供 PD 通訊以及宣告這條線的資訊 ）
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572072226/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.43.37_PM.png)
+![](https://static.driftking.tw/2024/06/9a82d33e02d0bceb5c473cb3d571947e.png)
 
 由上圖可以看到，線材內會有一個 Ra 下拉電阻，可以告訴供電端（DFP：Downstream-Facing Port ）在 CC2 上對 E-mark IC 提供 Vconn 電力。
 
@@ -46,7 +46,7 @@ CC (Configuration Channel) 腳位是 Type-C 重要的設定通道，可以利用
 
 樹莓派基金會已經釋出了除了 SoC 以外的[電路設計圖](https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_4b_4p0_reduced.pdf)，首先來看看電源電路的部分：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1572071448/blog/2019/10/%E7%90%86%E8%A7%A3%20Raspberry%204%20Type%20C%20%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C/Screen_Shot_2019-10-26_at_2.30.35_PM.png)
+![](https://static.driftking.tw/2024/06/47815329825a90f8ca245e2781882358.png)
 
 左側是 Type-C 的母座，接著把注意力放到 CC1 以及 CC2 兩隻腳位上，這裡的設計是把 CC1 及 CC2 短路後共同接一個 5k1Ω Rd 下拉電阻，在普通的線材下這個設計是完全沒問題的，PD 供電端因為線材只有一條 CC 相連，只會偵測到Rd電阻，另一條 CC 空接，按照前面的圖表可以看到樹莓派狀態是 Sink attached ，可以對其供電 5V/3A。
 

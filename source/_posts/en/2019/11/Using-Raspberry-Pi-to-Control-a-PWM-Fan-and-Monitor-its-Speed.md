@@ -12,7 +12,7 @@ abbrlink: '36297e41'
 date: 2019-11-25 22:00:00
 ---
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574826956/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/Fur_chan_w_Noctua_fan_2.jpg)
+![](https://static.driftking.tw/2024/06/cf352f09347ddd5fbaa472a399ffc7b0.jpg)
 
 A lot of people uses fan to cool down their Raspberry Pi 4, but the fan's noise is quiet problem (in a quiet room). In most case pi didn't need that amount of cooling performance, so we can use [PWM (Pulse Width Modulation)](https://en.wikipedia.org/wiki/Pulse-width_modulation) to control fan speed and reduce the noise.<!--more-->
 
@@ -29,11 +29,11 @@ I use [Noctua NF-A4 5V PWM](https://noctua.at/en/nf-a4x10-5v-pwm), a 40mm, 5V PW
 If your fan doesn't support PWM control, then you can see [#138 Variable Speed Cooling Fan for Raspberry Pi using PWM and PID controller](https://www.youtube.com/watch?v=oJ32CMxliCQ) or [PWM Regulated Fan Based on CPU Temperature for Raspberry Pi](https://www.instructables.com/id/PWM-Regulated-Fan-Based-on-CPU-Temperature-for-Ras/) to use a BJT transistor to use PWM control.
 {% endcolorquote %}
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574608109/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_93F334AD3BFC-1.jpg)
+![](https://static.driftking.tw/2024/06/0c66d557055e1586e9819a4c1ee657e0.jpg)
 
 The fan's RPM signal is an OC(Open-Collector) circuit design (in most fan), so you'll need a pull-up resistor to measure output waveform according to [Noctua PWM white paper](https://noctua.at/media/wysiwyg/Noctua_PWM_specifications_white_paper.pdf).
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574608621/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_6F5175335AA4-1.jpg)
+![](https://static.driftking.tw/2024/06/066656e64d68f4acb22e1f2fa66af351.jpg)
 
 {% colorquote danger %}
 Warning! The Pi has 3.3V GPIO, so your pull-up resistor must be connect to 3.3V ONLY! You will fry your Pi if Vcc is connected to 5V.
@@ -45,11 +45,11 @@ Most micro-controller or SBC already have a decent circuit to generate PWM signa
 
 I use a Molex 2510 4PIN (2.54mm) connector to connect the fan. (Need to cut out some fool-proof board to fit.)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610745/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191123_141251.jpg)
+![](https://static.driftking.tw/2024/06/9e1647d3b09684716d8832be7dafbd8a.jpg)
 
 Here's a photo testing hardware and program on Pi 3B.`
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610248/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191124_234259.jpg)
+![](https://static.driftking.tw/2024/06/903056491cbbf54b797870686592e6da.jpg)
 
 # Control Script
 
@@ -130,7 +130,7 @@ If you don't want to know the theory part, than go ahead to: [Reading RPM Signal
 
 PWM uses square wave's duty-cycle to reduce the average value of voltage, if the duty cycle is 50%, the fan will spin at 50% of it's full speed; duty cycle 75%, fan 75%, and so on. More detail: [Pulse-width modulation](https://en.wikipedia.org/wiki/Pulse-width_modulation)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574611525/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_AABD9EE6FAB5-1.jpg)
+![](https://static.driftking.tw/2024/06/d208ecf3813e89c7fb788689c7660b78.jpg)
 
 And we can take a look at the control script:
 

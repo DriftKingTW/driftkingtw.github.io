@@ -9,7 +9,7 @@ abbrlink: 71ead4f1
 date: 2020-06-08 20:44:57
 ---
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1591620644/blog/2020/06/Screen_Shot_2020-06-08_at_8.47.52_PM.png)
+![](https://static.driftking.tw/2024/06/a1d1285b2fed2f8d82c88327d624180e.png)
 
 在網路上下載了一個 MacOS 的 App，但卻提示如上圖一樣無法開啟該如何處理？
 <!-- more -->

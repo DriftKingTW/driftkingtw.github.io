@@ -26,7 +26,7 @@ keywords:
 水果的開箱基本上就是長那樣，很有質感很爽，開箱也都有輔助拉條很方便
 這裡就簡單放個圖就好
 
-![iPad Pro & Apple Pencil](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197176/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180202_221849.jpg)
+![iPad Pro & Apple Pencil](https://static.driftking.tw/2024/06/472a5d1b1e31de47b0d23d9d23bfd510.jpg)
 
 然後我發現好像忘了拍裸機了，不過就是一如往常的，金屬的機身很有質感
 <del>當然還有潮到爆炸的LOGO</del>
@@ -38,12 +38,12 @@ keywords:
 原本有考慮霧面增加手感...不過這樣太可惜那Retina螢幕了
 而且真要手感直接用Intuos Pro比較快XDD(有貼類似紙質的膜)
 
-![iMos 玻璃貼](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197233/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195145_vHDR_Auto.jpg)
+![iMos 玻璃貼](https://static.driftking.tw/2024/06/00b365b3b2f9e6001e3c9914c2a73174.jpg)
 
 滿板的玻璃貼，很薄，官方說0.33mm 當然我也沒去量XD
 不仔細看也看不出有貼，另外也有順便貼上鏡頭跟Home鍵的保護貼
 
-![鏡頭特寫](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197247/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195220_vHDR_Auto.jpg)
+![鏡頭特寫](https://static.driftking.tw/2024/06/4e5dbe2fcc498ddc246b5b6eb9c54ac0.jpg)
 
 跟iPhone7相同的鏡頭，拍起來好但是也沒人會拿著平板到處拍吧XDD
 掃描文件之類很好用就是
@@ -57,56 +57,56 @@ keywords:
 
 包裝
 
-![Speck保護殼包裝](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/a_auto_right/v1519197295/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180209_151442_vHDR_Auto.jpg)
+![Speck保護殼包裝](https://static.driftking.tw/2024/06/5f816c3ec3a47d09cad928ac41425895.jpg)
 
 正面
 
-![Speck保護殼正面](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197283/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_160651_vHDR_Auto.jpg)
+![Speck保護殼正面](https://static.driftking.tw/2024/06/62cdfcb2d861f95524986c042146538e.jpg)
 
 背面
 
-![Speck保護殼反面](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197262/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_194849_vHDR_Auto.jpg)
+![Speck保護殼反面](https://static.driftking.tw/2024/06/ea3a3cf32ddc8a037f0bb5c68c4d4eaa.jpg)
 
 <del>掀開裙子</del>
 
-![Speck保護殼開蓋](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197205/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195011_vHDR_Auto.jpg)
+![Speck保護殼開蓋](https://static.driftking.tw/2024/06/eca7862d05e98253ec09cb63401bf495.jpg)
 
 立起來的樣子(有多段卡準可以調整角度)
 
-![Speck保護殼支架](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197237/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195035_vHDR_Auto.jpg)
+![Speck保護殼支架](https://static.driftking.tw/2024/06/20109ee671ac9651762ecfee8761c0e7.jpg)
 
 然後這是剛才提到的Studio Mode
 
-![Speck保護殼 Studio Mode](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197237/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195107_vHDR_Auto.jpg)
+![Speck保護殼 Studio Mode](https://static.driftking.tw/2024/06/c3f0fadccd415b2afa25d4dd4aa86183.jpg)
 
 旁邊還有個小扣子
 
-![Speck保護殼側扣](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197265/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180204_195237_vHDR_Auto.jpg)
+![Speck保護殼側扣](https://static.driftking.tw/2024/06/cb4113e17370d8ae989875f9f137c680.jpg)
 
 再來是那隻神奇的Apple Pencil
 有人說他很貴但是以壓感筆來說挺正常的價格
 官方沒給出壓感數據，聽說大概是1024，畫起來是挺夠了XD 
 只是當然比不上Intuos Pro 8192壓感的爽感XDD
 
-![Apple Pencil](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197185/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180209_152201_vHDR_Auto.jpg)
+![Apple Pencil](https://static.driftking.tw/2024/06/a164abab6fbb265c39371a8852a32de2.jpg)
 
 本體跟lightning轉接器+替換筆芯
 重量拿起來挺舒適的，大概是目前拿過最好拿的電池筆(Wacom基本上都是無電池)
 筆蓋是磁吸式的，吸力適中應該是不會隨便掉
 只是充電還要轉接，筆蓋得另外放就要比較小心了，東西都挺小的還會滾
 
-![Apple Pencil Logo](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519201629/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180221_161946_vHDR_Auto.jpg)
+![Apple Pencil Logo](https://static.driftking.tw/2024/06/27936fc0bec4c2f8718d94289313306e.jpg)
 
 然後這筆有個小彩蛋，裡面有特別配重，所以把筆放在桌上時會剛好讓Pencil的字樣朝上
 雖然只是小細節，不過可以感受的到設計師很用心啊XD
 
 用轉接器充電
 
-![Apple Pencil 轉接器](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197214/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180209_152431_vHDR_Auto.jpg)
+![Apple Pencil 轉接器](https://static.driftking.tw/2024/06/7db03a7f99a072fa6149ae56fdef7b12.jpg)
 
 <del>長雞雞充電法</del>
 
-![Apple Pencil 充電](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197294/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180206_233307_vHDR_Auto.jpg)
+![Apple Pencil 充電](https://static.driftking.tw/2024/06/56c373bba2887e58d4a41e841d62527e.jpg)
 
 雖然說真的我也想不到其他可以直接連接iPad又好看的充電法
 可是這樣看起來真的挺蠢<del>糟</del>的
@@ -118,19 +118,19 @@ keywords:
 
 替換筆芯的部分
 
-![Apple Pencil 筆芯](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197218/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180209_152604_vHDR_Auto.jpg)
+![Apple Pencil 筆芯](https://static.driftking.tw/2024/06/bf976163261fa2bfd769d8d2405b2ad5.jpg)
 
 先拿MediPaint來試畫一下，感覺很棒，玻璃滑我是覺得還好
 畢竟平常都在畫板子滑習慣了，如果平時是手繪的朋友可能就要注意一下了
 貼上玻璃貼比原本的滑一些，看過蠻多人說超不習慣然後又貼回普通保護貼了
 
-![試畫](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197287/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180205_005002_vHDR_Auto.jpg)
+![試畫](https://static.driftking.tw/2024/06/92d23129ce1abbd9844a9477753191b3.jpg)
 
 <del>所以我再畫什麼</del>
 
 試著上點色
 
-![上色測試](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1519197284/blog/2018/02/21/iPad-Pro-10.5-簡易開箱+繪圖心得/P_20180206_004917_vHDR_Auto.jpg)
+![上色測試](https://static.driftking.tw/2024/06/08c232ee5705d5abce5103e84b887b98.jpg)
 
 真的有種拿著鉛筆的感覺，用Sketches的時候傾斜感應也很明顯，我覺得甚至比Wacom的傾斜手感還好XDD
 其他詳細的部分我會再多畫一陣子跟多嘗試各種繪圖軟體之後再寫一篇文章

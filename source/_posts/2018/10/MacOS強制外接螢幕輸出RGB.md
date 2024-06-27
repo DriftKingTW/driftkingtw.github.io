@@ -20,9 +20,9 @@ keywords:
 
 下圖是初始的顏色設定：
 
-![顏色設定](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539307427/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.45_PM.png)
+![顏色設定](https://static.driftking.tw/2024/06/dbfc3b39dcea0c6546176e6dd917a9b5.png)
 
-![初始狀態](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539307702/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_8.56.58_PM.png)
+![初始狀態](https://static.driftking.tw/2024/06/2b217953a2b79c5c7c5c8b0bb7e0e978.png)
 
 在做之前我們需要先關閉 MacOS 的 Rootless 功能（如果會用 `sudo` 也可以不關，直接往下的步驟）
 
@@ -39,7 +39,7 @@ keywords:
    
 5. 重開機，看一下顏色設定確認強制RGB後就完成了！（有關Rootless記得開回來）
 
-![強制RGB輸出](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1539307715/blog/2018/10/MacOS%E5%BC%B7%E5%88%B6%E5%A4%96%E6%8E%A5%E8%9E%A2%E5%B9%95%E8%BC%B8%E5%87%BARGB/Screen_Shot_2018-10-10_at_9.38.03_PM.png)
+![強制RGB輸出](https://static.driftking.tw/2024/06/d6d92fac6eb4b662734e8869e0ef43a7.png)
 
 P.S. 我的EV2450強制RGB後發現對比很奇怪，後來螢幕上的設定看了一下原來Range Extension預設Auto，設定成關閉後，螢幕就正常了！
 

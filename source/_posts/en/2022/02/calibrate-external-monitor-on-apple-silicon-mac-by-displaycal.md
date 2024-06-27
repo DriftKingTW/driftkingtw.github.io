@@ -19,7 +19,7 @@ I've got myself an Apple Silicon Mac last year, although it's really amazing but
 
 Here's the workaround for this issue:
 
-![DisplayCAL](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png)
+![DisplayCAL](https://static.driftking.tw/2024/06/675f6086152e3d04ff0572c2d9968db7.png)
 
 <!-- more -->
 
@@ -27,7 +27,7 @@ Here's the workaround for this issue:
 
 `DisplayCAL` will install `ArgyllCMS` when first launch, but it won't recognize my external monitor:
 
-![DisplayCAL can't detect any external monitor](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/no-external-screen-detected.png)
+![DisplayCAL can't detect any external monitor](https://static.driftking.tw/2024/06/fd78c000cd271230e01d9fc52d2ccf05.png)
 
 The reason why is `DisplayCAL` actually not install the latest version of `ArgyllCMS` (though it says it's the latest)
 
@@ -39,7 +39,7 @@ So we need to install the latest version of `ArgyllCMS` by ourselves and replace
 
 3. It will prompt you to download the "latest version" of `ArgyllCMS`
 
-![DisplayCAL installs ArgyllCMS](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal-argyllcms-install.png)
+![DisplayCAL installs ArgyllCMS](https://static.driftking.tw/2024/06/4cf7c4696443bfa66f69a0c201a88fad.png)
 
 4. Cancel it and download `Intel OS X 10.6 64 bit or later` from [ArgyllCMS](https://www.argyllcms.com/downloadmac.html)
 
@@ -52,7 +52,7 @@ So we need to install the latest version of `ArgyllCMS` by ourselves and replace
 8. The external monitor should appear in list after restarting `DisplayCAL`, macOS might prompt you to prevent from unauthorized app to run,
 remember to force open all executables from Security and Privacy settings.
 
-![DisplayCAL detected external monitor](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/external-screen-detected.png)
+![DisplayCAL detected external monitor](https://static.driftking.tw/2024/06/c4bb12f1160dbd10a20b22dd7fe596c9.png)
 
 {% colorquote warning %}
 I've ran into some glitches with this solution, it will turn the monitor black when the calibration is completed at first time, I need to re-plug the monitor cable to lit up again and allow macOS to run the last step to finish install ICC profile. It's better to run a quick calibration at first to see if there's any problem.

@@ -11,7 +11,7 @@ keywords:
   - 帳號安全
 ---
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1581007571/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/furchenpasswd.jpg)
+![](https://static.driftking.tw/2024/06/2e6223af31d063a14879bb68b4ddfa5c.jpg)
 
 還在不同網站使用相同的密碼嗎？你的密碼是常見的組合或幾個英文數字湊合嗎？在資訊科技的進步的現在，不論年紀大小、身份，幾乎人人都有數個甚至上百的帳號密碼。網路上層出不窮的帳號被駭客攻擊、個資洩漏事件，就算是 Google、Amazon、Facebook 等大型企業也都無可避免，那麼這時候如何靠自己保護好帳號安全就顯得非常重要了。<!--more-->
 
@@ -138,7 +138,7 @@ Salting 加鹽是在上述 Hash 前，在密碼後面加上一串隨機產生的
 
 ## 實體金鑰
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1580971326/blog/2020/02/Why-My-Account-Got-Hacked-The-Password-Security-and-Physical-Key/IMG_20191223_165024.jpg)
+![](https://static.driftking.tw/2024/06/a48b18ca2f0121c2f26c0e4af1e22b2e.jpg)
 
 實體金鑰顧名思義就是一把實體的 USB 鑰匙(通常作為實體的 2FA 驗證手段)，設定完成之後會要求插入該金鑰才能夠登入，常見的有 [Yubikey](https://www.yubico.com/) 、 [Titan Security Key](https://cloud.google.com/titan-security-key) 等。是目前安全性最高的等級的 2FA 方式，而且相比其他方式使用上不算是麻煩（某些程度上用實體金鑰還比輸入TOTP或等簡訊還快）
 

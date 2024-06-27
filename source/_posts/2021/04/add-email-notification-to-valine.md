@@ -33,11 +33,11 @@ date: 2021-04-13 19:00:00
 
 新增一個 App Password，選擇自定選項並輸入一個名稱讓自己知道這串密碼是給什麼服務用的，如下圖：
 
-![App Password](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618308412/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.04.48_PM.png)
+![App Password](https://static.driftking.tw/2024/06/682cfef19e0077916d9ae69169562218.png)
 
 接著 Google 會產生 App 密碼給你，複製黃框區域的密碼，稍後要填到 SMTP 密碼欄位中：
 
-![App Password](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618308411/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.05.23_PM.png)
+![App Password](https://static.driftking.tw/2024/06/f089ab87933d2f584a9b0a39205bbd92.png)
 
 再來進入使用 Valine 的 LeanCloud App 中，選擇 `LeanEngine > Web > Settings` 點擊 `Add a new variable` 設定以下各項環境變數（範例僅供參考）：
 
@@ -54,7 +54,7 @@ date: 2021-04-13 19:00:00
 | BLOGGER_EMAIL  | xxx@gmail.com             | [可選]自己的收件Email|
 | AKISMET_KEY	   | XXX                       | [可選]Akismet垃圾留言檢測|
 
-![設定範例](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304057/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_4.50.54_PM.png)
+![設定範例](https://static.driftking.tw/2024/06/f3e34b4e0b3685fc38c64f219c455608.png)
 
 完成後點擊 `Save` 儲存設定
 
@@ -66,11 +66,11 @@ date: 2021-04-13 19:00:00
 
 首先在環境變數下方找到 `LeanEngine domain` 欄位，填入自己想要的網頁名稱（將來會透過這個網址連接留言管理後台）
 
-![LeanEngine domain](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304811/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_5.05.21_PM.png)
+![LeanEngine domain](https://static.driftking.tw/2024/06/84ef66977fd562e805626253aed65c29.png)
 
 接下來在左方導覽列切換至 `Deploy` 中，選擇 `Deploy from Git` 填入 Git Repo： `https://github.com/DesertsP/Valine-Admin.git`。選擇 `Production` 模式後點擊 `Deploy` 進行手動部署。
 
-![部署設定](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618304654/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_5.03.44_PM.png)
+![部署設定](https://static.driftking.tw/2024/06/1fe7df9c094529f4da6e53b9d828edd3.png)
 
 完成設定後透過剛才設定的網址（如：[driftkingtw.avosapps.us](https://driftkingtw.avosapps.us/sign-up)，註冊自己的管理員帳密）
 
@@ -88,7 +88,7 @@ date: 2021-04-13 19:00:00
 
 透過環境變數 `ADMIN_URL` 到 `LeanEngine > Scheduled Tasks` 中新建自動喚醒任務：
 
-![自動喚醒](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618309232/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.20.22_PM.png)
+![自動喚醒](https://static.driftking.tw/2024/06/94ca309ad90c589cdbe6d5b43eed57d1.png)
 
 填入自訂名稱後，動作選擇 `self_awake`，Corn 表達式部分填入 `0 */25 0-15,23 * * ?` （國際版 LeanCloud 使用時間為 UTC+0，代表從台北時間 7:00AM～11:50PM 中每30分鐘會自動喚醒）
 
@@ -198,7 +198,7 @@ New comment on ${SITE_NAME}.
 
 記得更新環境變數後要重啟容器才會生效喔，可以試著改成自己想要的樣子 😎
 
-![Email 範例](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1618310383/blog/2021/04/add-email-notification-to-valine/Screen_Shot_2021-04-13_at_6.39.24_PM.png)
+![Email 範例](https://static.driftking.tw/2024/06/5648e37c7b0f1e14fe9d1fe5ca2d10dc.png)
 
 剩餘的其他詳細功能請參考 [DesertsP/Valine-Admin](https://github.com/DesertsP/Valine-Admin)
 

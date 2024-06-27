@@ -18,7 +18,7 @@ abbrlink: ca77c25e
 date: 2019-11-12 21:25:00
 ---
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533117/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122944.jpg)
+![](https://static.driftking.tw/2024/06/6315a42c851dd716a1274ec285fa016b.jpg)
 
 前陣子看到國外有人把舊的 Mac Mini 的機箱拿來改造，弄成 Router 或 HTPC 等，不得不說 Mac 的全鋁一體機箱真的挺好看，雖然設計已近十年未改，但放在 2019 年的桌面上仍不顯老氣 ~~反正中間那個商標放哪都能裝逼~~。<!--more-->
 
@@ -28,13 +28,13 @@ date: 2019-11-12 21:25:00
 
 # 想法 && 設計
 
-![收到的機殼，品相良好，只有一個非常不顯眼的小喀傷](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573474005/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20190924_200321.jpg)
+![收到的機殼，品相良好，只有一個非常不顯眼的小喀傷](https://static.driftking.tw/2024/06/e39d19076b26e35c8b8e075f87a977ed.jpg)
 
 首先依照 Mac Mini 機殼的容量，大約能放下 17*17cm 的主板（ 網路上大部分是拿 Thin Mini-ITX來裝 ），高不能超過 2.5cm ，約兩個 USB Type-A 堆疊的高度，那當然我用的是更小的 Pi，只要另外考慮硬碟的擺放及走線即可。
 
 以下是一開始的設計圖（ 後來 Hub 的設計被廢掉了，詳細問題有記錄在下方遇到的問題裡 ）
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573474811/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_D5FEECE2800F-1.jpg)
+![](https://static.driftking.tw/2024/06/61ff68d9ae9472e9ac6aab614fd0d862.jpg)
 
 接著得想個辦法固定這堆玩意，最省心的方法大概就是直接做個絕緣塞進去，但是這樣實在太醜了 ~~用 Mac 機殼不就是要好看~~，而且不知道時間久了會發生什麼問題，Server 是打算 7x24 不關機的，考量到散熱及穩定性 ~~還有不想要裡面太醜的強迫症~~，最後還是乖乖畫個 3D 設計稿然後找代印來做固定支撐的部分。
 
@@ -42,41 +42,41 @@ date: 2019-11-12 21:25:00
 
 幸好最後印出來是吻合的沒問題（孔徑我開2mm，距離是以孔心為基準），這邊放個測量結果，有需要的人可以少走歪路（直接看垂直的距離就好，直線距離可能稍微跑掉）。
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573476073/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_B9730CE991B7-1.jpg)
+![](https://static.driftking.tw/2024/06/a1ee6a45480b4903575330dba00b6b2d.jpg)
 
 再來是比較棘手的硬碟支架部分，原本看上蘋果原廠自己的就支援了雙硬碟（Server版本、無光碟機版之類，記得到 2014 機箱都是 A1347），我買的機殼並沒有附送，硬碟架比較難找，後來看看只有 eBay 上有價格可以也有貨的。
 
 不過原廠的支架在不破壞結構的前提下可能要另外製作特殊的 Sata 7+15 Pin 延長線才有辦法塞雙硬碟，而且不幸的是我沒仔細看規格，以致於買回來的支架其實是有光碟機版本（那賣家圖片放成雙硬碟位的...我就傻傻相信了 ｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡ ）最後只能認命自己列印硬碟架了，原廠硬碟架再另外售出給剛好需要的人。
 
-![買錯的支架](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573476669/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191102_152723.jpg)
+![買錯的支架](https://static.driftking.tw/2024/06/0d798518454bbc0b87b570a0a5a05128.jpg)
 
 原本硬碟支架的設計圖，後來發現樹脂這個厚度不太穩，裡面的卡楯點又沒量準所以把旁邊的固定臂鋸掉了，只留下中間支撐硬碟的部分：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488724/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/HDDMount.png)
+![](https://static.driftking.tw/2024/06/fe99dba2aaa69183f4de094afe6f88b0.png)
 
 最麻煩的底部固定螺絲部分，我參考了 [ifixit](https://www.ifixit.com/Teardown/Mac+Mini+Mid+2010+Teardown/3094) 的各種拆解，都只提到底座的螺絲是 " 7.9mm Torx 6 Screw "，完全找不到有人提到直徑是多少... 在完全缺乏資訊的狀況下，我找了幾個螺絲試鎖，有一個能夠鎖進去鎖緊，但是太短了。
 
 由於沒有遊標卡尺所以只好買了 M1.4、M1.5、M1.6 的回來測試，薑薑！全錯，最後只能認命買了遊標卡尺回來測量。正確尺寸應該是 M1.7，因為是鎖金屬殼所以用自攻螺絲，更詳細的我就不太確定了（手邊工具無法量測），至少 M1.7 自攻是鎖的進去而且穩定，一樣有需要的人可以再少走一條歪路了 ｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573487949/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191111_211918.jpg)
+![](https://static.driftking.tw/2024/06/e4f9022a65f2953d14c5868a92f17ccd.jpg)
 
 GPIO 旁邊設計了擋板以免其他線材觸碰到：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488945/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/PiMountFront.png)
+![](https://static.driftking.tw/2024/06/e4c0a556fc13cdaf6b502f1aa0f6e685.png)
 
 背面加上了一些墊高用的腳腳：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573488967/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/PiMountBack.png)
+![](https://static.driftking.tw/2024/06/aa2edadab8db3c3f55c77575867ce45a.png)
 
 再來要考慮的是擋板（外框這裡是購買別人設計好的現成可以裝 Mini-ITX 擋板的塑膠框），稍微在腦中模擬了一下走線，考慮美觀的情況希望 USB-C 電源跟網路口要在一起，所以開關放左邊（以底蓋朝上的方向為基準），電源跟網路放右邊，靠樹莓派那測設計了一些出風口增加散熱能力，中間也開了一段方便進風。
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489134/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IOPanel.png)
+![](https://static.driftking.tw/2024/06/8f905ade40585d751041177b08e79241.png)
 
 中間兩個突起的三角塊原本是打算跟底板用機械螺絲固定，不過尺寸沒量好，後來直接靠網路口鎖螺絲上去固定住IO擋板，Pi 固定底座原本要固定擋板的部分就鋸掉。
 
 最後按照官方的 Pi 4 機械繪圖來做風扇支架：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489312/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/FanMount.png)
+![](https://static.driftking.tw/2024/06/9663539750fc6e1a01d72a0e6ca2cce7.png)
 
  這次用到的 3D 列印的檔案在最下面有連結，歡迎自行免費取用，但請不要拿去用於商業用途。
  
@@ -86,77 +86,77 @@ GPIO 旁邊設計了擋板以免其他線材觸碰到：
 
 這是拿到 3D 列印成品的照片，接著要把硬碟架兩側的腳跟後面量錯的定位口弄掉，然後打磨後上漆：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489504/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191105_133114.jpg)
+![](https://static.driftking.tw/2024/06/4cb977f902b7db70268216fc77f01e08.jpg)
 
 IO擋板的部分我也另外作了處理，首先是 Type-C 我測量成公頭的尺寸，所以用銼刀擴孔後母座才放的進去，以及電源開關的部分尺寸剛好，稍微擴孔後才能順暢的按壓。
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489722/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191105_144436.jpg)
+![](https://static.driftking.tw/2024/06/e4965259cb7fd1610a97228bfad1ff1a.jpg)
 
 上圖是處理過的硬碟支架，有個三角缺口是鋸的時候可能力道不平衡 (((ﾟДﾟ;)))，不過放在裡面不太影響，把尖銳的部分打磨即可。
 
 噴漆灌上漆（可以看到上面的橫條可能太細，樹脂強度不夠，不過主結構沒問題）：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489873/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_135017.jpg)
+![](https://static.driftking.tw/2024/06/e2a8bc4e88ac7b2eaaa1ed576fcf357d.jpg)
 
 Pi 支架的部分，設計的時候忘記了 Micro SD 會突出一些，所以只好擴一些空間。不過弄的時候樹脂不夠強不小心弄斷了，還好螺絲兩邊都會鎖到，所以補強一下沒問題：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573489870/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_131709.jpg)
+![](https://static.driftking.tw/2024/06/c91adb1c6577f9c8fcc2d50734105097.jpg)
 
 原本要使用 Hub 來管理硬碟，不過遇到了些問題，索性把 USB to SATA 的轉接線拆了，把供電的部分另外拉出來（原 USB 線與 PCB 的 Vbus 供電要隔離）：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490103/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_115612.jpg)
+![](https://static.driftking.tw/2024/06/abc4ff7471f8b0b06f3ebf29e8614199.jpg)
 
 上蓋就不蓋回去了，用抗靜電耐熱膠帶貼著，可以降低厚度
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490109/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_151151.jpg)
+![](https://static.driftking.tw/2024/06/e0cdf2e8daec0e2f074fa3de042b7652.jpg)
 
 每個步驟都要先用電錶量過確認，然後上機測試：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490260/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_121531.jpg)
+![](https://static.driftking.tw/2024/06/170e14d2dcf3194d6f20d2a5878ba36e.jpg)
 
 裝上硬碟架，測試高度厚度，然後假組確認尺寸跟線材長度有沒有問題：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490360/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_152116.jpg)
+![](https://static.driftking.tw/2024/06/b2d869165c6180294e208a67c36faea0.jpg)
 
 （有在硬碟上下加上 1mm 的抗靜電棉，減少震動跟防止靜電，硬碟上在仿原廠貼導電織布與機殼接觸）
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490432/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_155424.jpg)
+![](https://static.driftking.tw/2024/06/b96bcb88af19d84a031b431492c73aff.jpg)
 
 接著把兩個硬碟的電源線接上 Type-C 座，然後拉另一條給 Pi 供電，這邊使用了 5A 的線材所以有點粗，費了一番功夫才焊好（ Type-C 還真不適合手焊粗線材，後來我還有另外從兩個 CC Pin 拉出杜邦母頭，可以加上兩個 5k1 電阻讓 Pi4 支援 E-mark 線材
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490576/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_214430.jpg)
+![](https://static.driftking.tw/2024/06/0372a2ae7e6892a3183cf6cf289273f4.jpg)
 
 帶燈開關的部分，跟機殼前方的 LED 並聯，並各串上 1k 電阻（亮度我不希望太亮），關於添加燈以及風扇控制等方法請參考另一篇文章:[替 Raspberry Pi 添加開關、外接電源燈、狀態燈，以及風扇控制](https://blog.driftkingtw.me/archives/59bd89a7.html)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490776/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_215111.jpg)
+![](https://static.driftking.tw/2024/06/57ec55a5b017802d4b385da3cf0e484a.jpg)
 
 裸機測試，確定沒問題再裝機：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490872/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191108_223930.jpg)
+![](https://static.driftking.tw/2024/06/c36bffe0d1a09c00da331e8abfb12524.jpg)
 
 面板我沒想到很好的固定方法，除了網路口用螺絲外，電源跟開關都是用熱溶膠 + 防靜電膠帶弄上的，這部分設計上還有改進空間。
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490996/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191111_221457.jpg)
+![](https://static.driftking.tw/2024/06/11ca018c567c7754a629beaa46d880ff.jpg)
 
 最後完整裝機，鎖上螺絲！
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573532268/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_120240.jpg)
+![](https://static.driftking.tw/2024/06/52e77f5c79bc616936d3ddd435c9be17.jpg)
 
 關上背蓋（有點清潔時候的水漬還沒乾XD）
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573532315/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_120504.jpg)
+![](https://static.driftking.tw/2024/06/f2a9ba93a6642e86a56ccc2059ac9437.jpg)
 
 完成！來幾張照片ヽ(✿ﾟ▽ﾟ)ノ
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533117/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122944.jpg)
+![](https://static.driftking.tw/2024/06/6315a42c851dd716a1274ec285fa016b.jpg)
 
 屁屁
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533113/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_121231.jpg)
+![](https://static.driftking.tw/2024/06/795a2ea5cf93b1406de9a8217f6fdf90.jpg)
 
 Bay ~
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573533114/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191112_122934.jpg)
+![](https://static.driftking.tw/2024/06/ded31ae5bcd83fd0e493c96cea042921.jpg)
 
 ~~好吧外觀其實看起來就是個普通 Mac Mini~~
 
@@ -174,11 +174,11 @@ Pi 4 除了 USB-C 設計會 [使 E-mark 線材無法使用之外](https://blog.d
 
 大致推測下來，可能是 Pi 4 使用 USB 3 時，有獨立供電的 Hub 會反向供電（Power feedback）給 Pi，於是可以考慮將 Hub 與 Pi 之間的 Vbus 隔離，但我的 Orico Hub 仍然無法正常啟動（有些人回報切斷 Vbus 後就正常運作），論壇裡也有人和我一樣切 Vbus 仍然失敗的，韌體等更新也測試過了無法。
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573528606/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191106_221851.jpg)
+![](https://static.driftking.tw/2024/06/957b60c62cffeb6803c3d5e14f2db66b.jpg)
 
 最後只好改成直接把 SATA to USB 轉接線的電源拉出來做使用，目前解決了無法啟動的問題。目前只有少數 Hub 有辦法正常運作（通常比較貴，可能 USB 線那有做二極體防止反向供電？）選購時要注意一下。
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1573490109/blog/2019/11/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E7%A1%AC%E9%AB%94%E7%AF%87/IMG_20191107_151151.jpg)
+![](https://static.driftking.tw/2024/06/e0cdf2e8daec0e2f074fa3de042b7652.jpg)
 
 ### 2 個 HDD 直接用樹莓派官方電供供電？
 

@@ -80,7 +80,7 @@ CSV 格式
 
 就能夠遠端監控了，除了CPU、MEM等狀態，同時也能看到溫度，如下圖所示（圖中是樹莓派 NAS 的狀態）
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574080130/blog/2019/11/%E9%9B%BB%E8%85%A6%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%B7%A8%E5%B9%B3%E8%87%BA%E7%9A%84%E9%96%8B%E6%BA%90%E7%9B%A3%E6%8E%A7%E5%A5%BD%E5%B9%AB%E6%89%8B%20-%20Glances/Screen_Shot_2019-11-18_at_7.54.46_PM.png)
+![](https://static.driftking.tw/2024/06/4173dbe27d6a5e064534433d0216abd2.png)
 
 
 # 參考

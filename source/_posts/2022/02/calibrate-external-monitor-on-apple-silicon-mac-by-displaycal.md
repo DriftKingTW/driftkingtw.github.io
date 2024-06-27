@@ -17,7 +17,7 @@ date: 2022-02-07 19:00:00
 
 最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：
 
-![DisplayCAL](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png)
+![DisplayCAL](https://static.driftking.tw/2024/06/675f6086152e3d04ff0572c2d9968db7.png)
 
 <!-- more -->
 
@@ -26,7 +26,7 @@ date: 2022-02-07 19:00:00
 `DisplayCAL` 在安裝後會安裝一套叫做 `ArgyllCMS` 開源的色彩管理系統，
 但是安裝完成後可以看到我的外接螢幕 Dell U2520D 並沒有顯示在顯示器列表中...如下圖：
 
-![DisplayCAL 無法偵測外接顯示器](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/no-external-screen-detected.png)
+![DisplayCAL 無法偵測外接顯示器](https://static.driftking.tw/2024/06/fd78c000cd271230e01d9fc52d2ccf05.png)
 
 造成這個問題的原因是 `DisplayCAL` 雖然安裝時說會下載最新的 `ArgyllCMS` ，
 但其實預設安裝的版本為 `v2.1.2`
@@ -39,7 +39,7 @@ date: 2022-02-07 19:00:00
 
 3. 首次啟動時會提示需要安裝 `ArgyllCMS`：
 
-![DisplayCAL 安裝 ArgyllCMS](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal-argyllcms-install.png)
+![DisplayCAL 安裝 ArgyllCMS](https://static.driftking.tw/2024/06/4cf7c4696443bfa66f69a0c201a88fad.png)
 
 4. 這邊先選擇取消安裝，然後到 [ArgyllCMS](https://www.argyllcms.com/downloadmac.html) 下載 `Intel OS X 10.6 64 bit or later` 的最新版本（22年2月撰文時為 `v2.3.0`，接下來提到的路徑可能版本號會有不同請注意）
 
@@ -52,7 +52,7 @@ date: 2022-02-07 19:00:00
 
 8. 接下來應該就能夠正常識別外接螢幕了，校色過程中可能會出現 `macOS` 阻擋非安全執行的對話框，記得去系統隱私安全設定那邊點選允許執行
 
-![DisplayCAL 成功識別外接螢幕](https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/external-screen-detected.png)
+![DisplayCAL 成功識別外接螢幕](https://static.driftking.tw/2024/06/c4bb12f1160dbd10a20b22dd7fe596c9.png)
 
 {% colorquote warning %}
 在校色過程中有遇到一些奇怪的小bug，在校色快完成時如果跳出非安全執行的對話框會有可能導致外接顯示器全黑沒畫面需要重新連接，推測可能是在套用 ICC Profile 時被擋住的問題，這部分可以自行嘗試時間比較短的校色流程試試，流程跑完沒問題後再做詳細校色比較省時間

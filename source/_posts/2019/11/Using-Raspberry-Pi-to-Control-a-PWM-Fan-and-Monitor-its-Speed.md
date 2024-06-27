@@ -14,7 +14,7 @@ abbrlink: '36297e41'
 date: 2019-11-25 22:00:00
 ---
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574826956/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/Fur_chan_w_Noctua_fan_2.jpg)
+![](https://static.driftking.tw/2024/06/cf352f09347ddd5fbaa472a399ffc7b0.jpg)
 
 相信不少人都會為熱情的 Pi 4 加上風扇散熱，不過小風扇噪音就成了問題，由於 Pi 也不是隨時都滿載需要風扇全速運轉，所以我們可以利用 [PWM (Pulse Width Modulation)](https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E5%AF%AC%E5%BA%A6%E8%AA%BF%E8%AE%8A) 來控制轉速。讓風扇在提高到一定溫度時才啟動，或是降低轉速來降低噪音。<!--more-->
 
@@ -30,11 +30,11 @@ date: 2019-11-25 22:00:00
 若風扇不支援 PWM 轉速控制（只有兩線或三線）可以參考 [#138 Variable Speed Cooling Fan for Raspberry Pi using PWM and PID controller](https://www.youtube.com/watch?v=oJ32CMxliCQ) 此影片或 [PWM Regulated Fan Based on CPU Temperature for Raspberry Pi](https://www.instructables.com/id/PWM-Regulated-Fan-Based-on-CPU-Temperature-for-Ras/) 利用 BJT 電晶體來做 PWM 控制。
 {% endcolorquote %}
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574608109/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_93F334AD3BFC-1.jpg)
+![](https://static.driftking.tw/2024/06/0c66d557055e1586e9819a4c1ee657e0.jpg)
 
 轉速訊號線（綠）的部分，由於風扇內是一個開集極電路（OC），所以需要一個上拉電阻（Pull-up resistor）至 Vcc 才能夠讀取到波形，這邊可以參考 [Noctua PWM 規格白皮書(英文)](https://noctua.at/media/wysiwyg/Noctua_PWM_specifications_white_paper.pdf)（大部分的風扇轉速訊號應該都是這種設計，保險起見建議還是要查看廠商提供的資料）
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574608621/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_6F5175335AA4-1.jpg)
+![](https://static.driftking.tw/2024/06/066656e64d68f4acb22e1f2fa66af351.jpg)
 
 {% colorquote danger %}
 注意！樹莓派的 GPIO 為 3.3V，所以上拉電阻 Vcc **一定**要接到 **3.3V**，若接到 5V 會造成樹莓派電路損毀！
@@ -46,11 +46,11 @@ PWM 訊號線因為大部分的微控制器或單晶片的 GPIO 都有做好穩�
 
 順帶一提，由於風扇沒有附轉杜邦的線材，所以另外買了 Molex 2510 4PIN (2.54mm間距) 連接器，不過要另外將防呆卡槽消掉一部份，如果有現成的專用風扇線就不用（一般風扇為了相容 3P 連接器所以不會做滿）
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610745/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191123_141251.jpg)
+![](https://static.driftking.tw/2024/06/9e1647d3b09684716d8832be7dafbd8a.jpg)
 
 以下是接上 Pi 3 做硬體測試及軟體調教的照片：
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574610248/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_20191124_234259.jpg)
+![](https://static.driftking.tw/2024/06/903056491cbbf54b797870686592e6da.jpg)
 
 硬體安裝完成後，接著就用軟體來控制風扇吧！
 
@@ -136,7 +136,7 @@ python /home/pi/Scripts/fan_control.py &
 
 PWM 控制原理簡單來說就是：輸出方波，利用工作週期（Duty Cycle 又稱佔空比）來控制風扇的轉速，假設方波訊號處於高電位所佔一個週期的時間是 50% 代表讓風扇處於半速狀態，以此類推 75% 即是風扇 75% 速度，更詳細可以參考維基：[脈衝寬度調變](https://zh.wikipedia.org/zh-tw/%E8%84%88%E8%A1%9D%E5%AF%AC%E5%BA%A6%E8%AA%BF%E8%AE%8A)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574611525/blog/2019/11/Using%20Raspberry%20Pi%20to%20Control%20a%20PWM%20Fan%20and%20Monitor%20its%20Speed/IMG_AABD9EE6FAB5-1.jpg)
+![](https://static.driftking.tw/2024/06/d208ecf3813e89c7fb788689c7660b78.jpg)
 
 接著來分析程式的部分，這邊使用 Python 來做控制：
 

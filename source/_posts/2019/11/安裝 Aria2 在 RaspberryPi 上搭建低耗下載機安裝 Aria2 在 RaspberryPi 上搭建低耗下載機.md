@@ -162,7 +162,7 @@ Nov 15 16:01:37 pinas aria2c[1509]: 11/15 16:01:37 [NOTICE] IPv6 RPC: listening 
 
 在如下設定分頁內填入相關設定（ IP 或 hostname，預設 Port 為 `6800` ），看到 `Connected` 即可開始遠端操作下載等任務了！
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1573834062/blog/2019/11/%E5%AE%89%E8%A3%9D%20Aria2%20%E5%9C%A8%20RaspberryPi%20%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%8E%E8%80%97%E4%B8%8B%E8%BC%89%E6%A9%9F/Screen_Shot_2019-11-16_at_12.07.37_AM.png)
+![](https://static.driftking.tw/2024/06/c632f23e0f3162be245f09da848e301c.png)
 
 # 參考
 

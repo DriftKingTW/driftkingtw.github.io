@@ -10,7 +10,7 @@ abbrlink: 5ebcd6ef
 date: 2022-04-11 22:00:00
 ---
 
-![Master 3 拇指鍵切換裝置功能改裝](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg)
+![Master 3 拇指鍵切換裝置功能改裝](https://static.driftking.tw/2024/06/1828ecce19755ab748149de13efb701f.jpg)
 
 雖然很喜歡羅技 Master/Anywhere 系列的滑鼠，不過對於多裝置切換的功能上不太滿意，主要是因為鍵盤不是羅技的，所以 Logitech Flow 的軟體切換只能切滑鼠對我來說沒有什麼卯月(加上需要切換的裝置也不在同一個區網裡面)，這樣的情境下就必須得使用滑鼠底部的切換裝置按鈕，但每次要切換就得把滑鼠拿起來按實在太麻煩了...羅技也不開放把手勢按鍵改成切換裝置的功能，既然如此只好自己來手動擴充功能了 ᕕ( ᐛ )ᕗ
 
@@ -22,29 +22,29 @@ date: 2022-04-11 22:00:00
 
 1. 取下腳貼與螺絲(除了靠近 USB 口的為 T5 梅花外，其餘都是 #0 十字)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779555/blog/2022/04/IMG_3661.jpg)
+![](https://static.driftking.tw/2024/06/ca6a8a3d7fa369bf75e81668e2fd4e42.jpg)
 
 2. 拆開上蓋時，注意有排線連接部分
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3662.jpg)
+![](https://static.driftking.tw/2024/06/85e50855804b9d7c8680dc6cf7fb88f6.jpg)
 
 3. 接下來就是各種螺絲轉一轉，難度不高
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779555/blog/2022/04/IMG_3664.jpg)
+![](https://static.driftking.tw/2024/06/5ece5eeeb6f7f414e52a67072fb19c58.jpg)
 
 4. 既然拆開了就順便換個微動吧，想說換個凱華靜音微動比較不會吵到人，原本以為手感會很肉但意外的回饋感不錯 XD
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3670.jpg)
+![](https://static.driftking.tw/2024/06/ca58642bae71cfa1e9b22b4133bf1401.jpg)
 
 5. 再來把下方的切換裝置按鍵拉線到拇指鍵那邊即可(當然如果想用其他按鍵設定也是可以的)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3671.jpg)
+![](https://static.driftking.tw/2024/06/261f297bf0b9e776b9cb1c3b58a5f6e1.jpg)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg)
+![](https://static.driftking.tw/2024/06/1828ecce19755ab748149de13efb701f.jpg)
 
 6. Logitech Options 中把按鍵改為 `Do Nothing`
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649780087/blog/2022/04/Screen_Shot_2022-04-13_at_12.14.24_AM.jpg)
+![](https://static.driftking.tw/2024/06/2e044a4f5d7224d51d11db27fc6f67e0.jpg)
 
 完成後就可以不用拿起滑鼠直接切換囉，不過這邊還是提醒一下這個改裝使用上要注意的部分：
 

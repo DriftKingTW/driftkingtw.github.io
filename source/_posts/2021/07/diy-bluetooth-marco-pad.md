@@ -13,7 +13,7 @@ abbrlink: f7332e8c
 date: 2021-07-13 00:00:00
 ---
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4496.jpg)
+![](https://static.driftking.tw/2024/06/0dcf97a83b8d81b2f7b08218d87035c2.jpg)
 
 在這繪圖螢幕入門門檻越來越低及iPad逐漸成為專業繪圖板的時代，市面上也跟著出現不少主打創作者/遊戲用的單手鍵盤或是快捷操作裝置。但是等了好幾年了，還是找不到「適合」自己的鍵盤 🤨 那麼，與其繼續等下去不如自幹一個適合自己的單手鍵盤吧！
 
@@ -44,7 +44,7 @@ date: 2021-07-13 00:00:00
 
 雖然是單手鍵盤但它本質上就是鍵盤，所以設計方式跟一般鍵盤是一樣的！在做了一番功課之後，我找到了 [Keyboard Layout Editor](http://www.keyboard-layout-editor.com/) 這個工具，可以先在這網頁上畫出自己所需要的鍵盤 Layout 跟一些基本參數設定，這部分我認為操作已經相當直觀就不深入贅述佔版面了，需要的話可以參考我這次的 [設計圖](http://www.keyboard-layout-editor.com/#/gists/ae0e1241eea27b182c199b1275c0703b) 。
 
-![Layout Design](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626102954/blog/2021/07/Screen_Shot_2021-07-12_at_11.13.33_PM.png)
+![Layout Design](https://static.driftking.tw/2024/06/e480913b288651b51cf9b224b328aead.png)
 
 如果是鍵盤玩家應該看得出來我是從 ErgoDox 的設計下去做改變的，不過這邊有個小提醒記得要考慮好鍵帽的問題XD 否則到時候找適合的鍵帽會找的很辛苦 😅 (原本喜歡原廠或OEM高度的，後來發現只能挑DSA)
 
@@ -52,7 +52,7 @@ date: 2021-07-13 00:00:00
 
 完成好鍵位設計之後可以把得到的 JSON 資料導入到 [Plate & Case Builder](http://builder.swillkb.com/) 這個網站產生 CAD 檔案了，好像還有提供外殼與訂位板的訂購有需要的話可以參考看看，我這次是沒用到定位板，外殼打算用 3D 列印。
 
-![CAD File Generate from Builder](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626103663/blog/2021/07/Screen_Shot_2021-07-12_at_11.26.48_PM.png)
+![CAD File Generate from Builder](https://static.driftking.tw/2024/06/43b3229588fa0705743f20e7b4cde267.png)
 
 完成後就可以進到下個步驟，開始設計 PCB 了！
 
@@ -70,13 +70,13 @@ date: 2021-07-13 00:00:00
 
 以下是電路圖設計好的樣子，旋鈕我自己不急所以打算下一版再加(有的話)，另外有留個 0.96 吋 OLED 的位置跟走線可以擴充：
 
-![Sheet](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626104478/blog/2021/07/Screen_Shot_2021-07-12_at_11.40.42_PM.png)
+![Sheet](https://static.driftking.tw/2024/06/9b120593c3d6ef8104ce63aee600ac8b.png)
 
 GPIO 不足的部分使用陣列輕鬆解決，鍵盤陣列詳細的解說網路上資源蠻多了就不再贅述，大致上就是透過縱橫的開關去定位哪個按鍵是觸發的狀態。
 
 接著畫好後就是 PCB 走線了，第一次畫的不怎麼樣，獻醜了：
 
-![PCB](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626104789/blog/2021/07/Screen_Shot_2021-07-12_at_11.46.14_PM.png)
+![PCB](https://static.driftking.tw/2024/06/655f7a7ed33610c8f6b98bc07d39462c.png)
 
 各種元件的部分可以善用社群提供的資源直接使用，才不用自己還要找規格書刻尺寸喔～
 
@@ -84,7 +84,7 @@ GPIO 不足的部分使用陣列輕鬆解決，鍵盤陣列詳細的解說網路
 
 不過第一次印起來是真的挺新鮮的，廠商每個處理細節都會有記錄，可以上去看看板子是在鑽洞阿上 Silkscreen 上錫之類的流程一清二楚很有趣 🤯 速度跟價格也都蠻 OK ，不過我對黑色 PCB 情有獨鍾所以會比綠色板子多等一些時間就是（約五天），印了5張黑色、HASL(with lead) 表面處理、尺寸在 \\(150mm * 130mm\\) 左右的板子價格約 12 USD （不含運），給大家參考個。
 
-![PCB Progress](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626105738/blog/2021/07/Screen_Shot_2021-07-13_at_12.02.04_AM.png)
+![PCB Progress](https://static.driftking.tw/2024/06/ceebdc53dd3a30b8115444fa4c579f5c.png)
 
 # 鍵盤製作
 
@@ -103,25 +103,25 @@ GPIO 不足的部分使用陣列輕鬆解決，鍵盤陣列詳細的解說網路
 
 另外在等待的期間，可以開始來設計 3D 列印外殼的檔案了，因為算是測試版本所以沒有設計上蓋，大概長這個樣子：
 
-![Case Design](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626107046/blog/2021/07/Screen_Shot_2021-07-13_at_12.23.36_AM.png)
+![Case Design](https://static.driftking.tw/2024/06/ea378ef132efa3f8e17b09e8220a2bb1.png)
 
 btw 軟體是 Autodesk Fusion 360，個人使用是免費的。
 
 等了一週東西都來了，來看下PCB 完成的樣子：
 
-![PCB Front](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626106448/blog/2021/07/IMG_2147.jpg)
+![PCB Front](https://static.driftking.tw/2024/06/4edf0edcab0c82e7a2ca3fbd2477dac9.jpg)
 
-![PCB Back](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626106448/blog/2021/07/IMG_2146.jpg)
+![PCB Back](https://static.driftking.tw/2024/06/d82b3d9c81c7081a05d64f6ded474037.jpg)
 
 另外我原本以為是亮黑色，因為沒有消光的選項，結果居然是我最想要的消光黑太美了 🥺🥺🥺
 
 組裝的部分很簡單就插上去焊一焊衛星軸裝一裝就好，不過外殼設計部分有點失算 🥶，距離有點沒抓好所以後來得磨掉側邊一些才裝的進去，加上高度也有點問題後來乾脆加個螺帽墊高卡上去 🥲，下一次印的時候再改善吧，或許接著可以玩玩看 CNC 銑個鋁製的外殼。
 
-![Finish Keypad](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626107749/blog/2021/07/IMG_2148.jpg)
+![Finish Keypad](https://static.driftking.tw/2024/06/4e5a48d8eafddeaac6279fea52786c6c.jpg)
 
 搭配 iPad 使用的情境（iPad 的手托板可以參考 [如何讓 iPad 成為一個專業的畫板](https://blog.driftking.tw/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/)）：
 
-![Using with iPad](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1626107749/blog/2021/07/IMG_2151.jpg)
+![Using with iPad](https://static.driftking.tw/2024/06/9ddbd2559ff3a00138d80891d518fd4a.jpg)
 
 到這部分鍵盤基本功能都算完成了，可喜可賀！不過外殼設計失誤導致鍵盤高度變高，可能要用手托會比較舒服 😭
 
@@ -164,19 +164,19 @@ btw 軟體是 Autodesk Fusion 360，個人使用是免費的。
 
 搭配 Filco Macaron Wrist Rest
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4496.jpg)
+![](https://static.driftking.tw/2024/06/0dcf97a83b8d81b2f7b08218d87035c2.jpg)
 
 正面
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805524/blog/2021/07/IMG_4491.jpg)
+![](https://static.driftking.tw/2024/06/4ed2b08733e4dbfaa83c1420e46eac8d.jpg)
 
 背面（做了 Tape mod 的話好像反而不適合用透明的殼🤣 ）
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805527/blog/2021/07/IMG_4492.jpg)
+![](https://static.driftking.tw/2024/06/4aa36398568a1489f0eb87ce539085a2.jpg)
 
 使用情境大概長這樣，搭配之前做的 [iPad 畫板](https://blog.driftking.tw/2021/03/Make-an-iPad-Drawing-Board-That-Improve-Your%20Drawing-Experience/)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4495.jpg)
+![](https://static.driftking.tw/2024/06/a4458821a3087754f9dbffaa84aac802.jpg)
 
 第二版打算要重新設計電路了，看能不能塞個旋鈕跟整個位置再改良一下，不過按照我這拖延症不知道還要多久就是了 XD
 

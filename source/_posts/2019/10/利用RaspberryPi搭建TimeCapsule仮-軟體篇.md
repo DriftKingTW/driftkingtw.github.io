@@ -43,7 +43,7 @@ date: 2019-10-11 21:25:00
 
 ` lsblk `
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812124/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.41.53_AM.png)
+![](https://static.driftking.tw/2024/06/cee453c672efb3a7ae32ac4c0a9499ab.png)
 
 找到硬碟代號，例如這邊sda是我的外接硬碟，裡面有之前的分區。
 首先用 `fdisk` 重新分割這顆硬碟：
@@ -64,7 +64,7 @@ date: 2019-10-11 21:25:00
 
 ` lsblk `
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812186/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.42.56_AM.png)
+![](https://static.driftking.tw/2024/06/69921e1d7d0592f900d775159dd7cc67.png)
 
 圖中可以看到硬碟已經成功分割成希望的數量以及大小
 (注意：`fdisk` 僅支援分割2TB內的硬碟，若要分割更大的需要安裝 `gparted` 在桌面環境下操作)
@@ -105,7 +105,7 @@ date: 2019-10-11 21:25:00
 
 ` df -h `
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812250/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.44.00_AM.png)
+![](https://static.driftking.tw/2024/06/89426d276aed5efa297c5abbed09b9ef.png)
 
 可以看到 ` sda1 ` 已成功掛載到 ` /mnt/TimeCapsule ` 了
 
@@ -162,7 +162,7 @@ date: 2019-10-11 21:25:00
 
 接著打開 TimeMachine 設定，按選擇備份碟之後就能夠看到我們用 Raspberry Pi 的備份硬碟囉！選擇它之後輸入 Pi 的帳號密碼即可開始備份（第一次備份時間通常較長，如果開啟加密會更久），完成首次備份後接著以後就是差異備份，只要連上就會自動定期執行，在也不用怕麻煩或忘記備份了！
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1570812960/blog/2019/10/%E5%88%A9%E7%94%A8%20Raspberry%20Pi%20%E6%90%AD%E5%BB%BA%20TimeCapsule%EF%BC%88%E4%BB%AE%EF%BC%89-%20%E8%BB%9F%E9%AB%94%E7%AF%87/Screen_Shot_2019-10-12_at_12.55.43_AM.png)
+![](https://static.driftking.tw/2024/06/3aaa9a2faf31ce4b5ba37dee3527f66f.png)
 
 ## 進階設定
 

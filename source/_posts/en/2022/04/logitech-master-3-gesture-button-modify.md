@@ -10,7 +10,7 @@ abbrlink: b70bfad5
 date: 2022-04-11 22:00:00
 ---
 
-![Master 3 Gesture Button Modification](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg)
+![Master 3 Gesture Button Modification](https://static.driftking.tw/2024/06/1828ecce19755ab748149de13efb701f.jpg)
 
 Logitech's Master/Anywhere series has been my favorite mice for years. But recently I don't feel very comfortable when using my Master 3 with multiple devices, because the only button that switches device is located under the mouse. Since my 2 devices aren't in the same network so Logitech Flow won't work either.
 
@@ -24,29 +24,29 @@ The idea is actually quite simple. I can connect the device switch button to thu
 
 1. Remove mouse feet and screws (1 x T5 and 5 #0 Philips Screws)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779555/blog/2022/04/IMG_3661.jpg)
+![](https://static.driftking.tw/2024/06/ca6a8a3d7fa369bf75e81668e2fd4e42.jpg)
 
 2. Be careful with the ribbon when open the top case
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3662.jpg)
+![](https://static.driftking.tw/2024/06/85e50855804b9d7c8680dc6cf7fb88f6.jpg)
 
 3. Unscrew all components (battery, scrolling wheel)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779555/blog/2022/04/IMG_3664.jpg)
+![](https://static.driftking.tw/2024/06/5ece5eeeb6f7f414e52a67072fb19c58.jpg)
 
 4. (Optional) I also change the momentary switch by the way, Kailh silent mouse switches were used this time
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3670.jpg)
+![](https://static.driftking.tw/2024/06/ca58642bae71cfa1e9b22b4133bf1401.jpg)
 
 5. Wired up the switch device button with thumb gesture button
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3671.jpg)
+![](https://static.driftking.tw/2024/06/261f297bf0b9e776b9cb1c3b58a5f6e1.jpg)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg)
+![](https://static.driftking.tw/2024/06/1828ecce19755ab748149de13efb701f.jpg)
 
 6. Set gesture button to `Do Nothing` in Logitech Options
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/v1649780087/blog/2022/04/Screen_Shot_2022-04-13_at_12.14.24_AM.jpg)
+![](https://static.driftking.tw/2024/06/2e044a4f5d7224d51d11db27fc6f67e0.jpg)
 
 Finish! It's quite easy if you have experience with soldering. Now when I need to switch device I can just use the thumb gesture button instead of keep fliping the mouse :D
 

@@ -10,7 +10,7 @@ abbrlink: e9d3f177
 date: 2023-10-18 21:00:00
 ---
 
-![Pi Dash - Raspberry Pi Dashboard](https://res.cloudinary.com/driftkingtw/image/upload/v1697618842/blog/2023/10/Pi-Dash/IMG_7157.jpg)
+![Pi Dash - Raspberry Pi Dashboard](https://static.driftking.tw/2024/06/76e853e176c597b1e52eb6b67b06e654.jpg)
 
 那個被詬病已久，大家喜聞樂見被砍掉的 Touch Bar，偏偏是我最喜歡的功能之一！！ 😭😭😭（~~蘋果怎麼在這種地方聽到了使用者的回饋~~）
 既然官方不幹了，那就是時候來弄一個更強並更符合自己需要的替代品吧。
@@ -58,15 +58,15 @@ date: 2023-10-18 21:00:00
 
 首先我將樹莓派與螢幕組裝後，把軟體跟 API 服務等裝好確認動作沒問題後，便借廠商提供的螢幕 3D 檔案設計了一個 3D 列印的外殼：
 
-![Pi Dash 外殼設計 - 正面](https://res.cloudinary.com/driftkingtw/image/upload/v1697620158/blog/2023/10/Pi-Dash/Screenshot_2023-10-18_at_5.08.06_PM.png)
+![Pi Dash 外殼設計 - 正面](https://static.driftking.tw/2024/06/37248013638d658eed26f0d887acb0df.png)
 
-![Pi Dash 外殼設計 - 反面](https://res.cloudinary.com/driftkingtw/image/upload/v1697620157/blog/2023/10/Pi-Dash/Screenshot_2023-10-18_at_5.07.55_PM.png)
+![Pi Dash 外殼設計 - 反面](https://static.driftking.tw/2024/06/d92f0b378faecce793549ecce3f0e845.png)
 
 並且在側面做了一個帶燈電源的開關，這部份跟我之前的這篇文實作方式差不多：[替 Raspberry Pi 添加開關、外接電源燈、狀態燈](https://blog.driftking.tw/2019/11/%E6%9B%BFRaspberryPi%E6%B7%BB%E5%8A%A0%E9%96%8B%E9%97%9C_%E9%9B%BB%E6%BA%90%E7%87%88_%E7%A1%AC%E7%A2%9F%E7%87%88/)
 
 風扇部分則是整合了之前這篇文的電路及控制腳本：[利用 Raspberry Pi 控制 PWM 風扇及轉速偵測](https://blog.driftking.tw/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/)
 
-![Pi Dash 外殼設計 - 電源按鈕開孔](https://res.cloudinary.com/driftkingtw/image/upload/v1697620158/blog/2023/10/Pi-Dash/Screenshot_2023-10-18_at_5.08.47_PM.png)
+![Pi Dash 外殼設計 - 電源按鈕開孔](https://static.driftking.tw/2024/06/00216456f580a4531fa35c833f40e424.png)
 
 大家如果眼力好可能會發現這是 Rev 2，沒錯！廠商提供的模型尺寸有點不準，所以搞了兩次才成功 😭
 
@@ -74,23 +74,23 @@ date: 2023-10-18 21:00:00
 
 上方相機的部分則是去買了個筆電相機模組來製作，外殼透過雷射切割壓克力堆疊製作：
 
-![相機模組 + 壓克力外殼](https://res.cloudinary.com/driftkingtw/image/upload/v1697618675/blog/2023/10/Pi-Dash/IMG_6415.jpg)
+![相機模組 + 壓克力外殼](https://static.driftking.tw/2024/06/638bd9d4c3738705d42ac8fb594c5c85.jpg)
 
 並且相機透過這個支架固定在螢幕上方：
 
-![Pi Dash 相機支架](https://res.cloudinary.com/driftkingtw/image/upload/v1697618675/blog/2023/10/Pi-Dash/IMG_7044.jpg)
+![Pi Dash 相機支架](https://static.driftking.tw/2024/06/86425adcf849c8f7bc6f3af4b61cfece.jpg)
 
-![Pi Dash 相機支架(固定於外殼上)](https://res.cloudinary.com/driftkingtw/image/upload/v1697618675/blog/2023/10/Pi-Dash/IMG_7045.jpg)
+![Pi Dash 相機支架(固定於外殼上)](https://static.driftking.tw/2024/06/650cb9b478f6108cf56dda6bece865d1.jpg)
 
 ### 整體腳架
 
 本體完成後支架還需要做兩個讓螢幕能夠立起來的腳架，這邊透過 5mm 壓克力雷切完成並固定在轉接的 3D 列印件上：
 
-![Pi Dash 背面/壓克力腳架](https://res.cloudinary.com/driftkingtw/image/upload/v1697618677/blog/2023/10/Pi-Dash/IMG_7152.jpg)
+![Pi Dash 背面/壓克力腳架](https://static.driftking.tw/2024/06/27152d86638d34c940969ad7010836bf.jpg)
 
 最後整體的背面設計如下：
 
-![Pi Dash 背面設計](https://res.cloudinary.com/driftkingtw/image/upload/v1697621303/blog/2023/10/Pi-Dash/IMG_7158.jpg)
+![Pi Dash 背面設計](https://static.driftking.tw/2024/06/a370a6ba2c461507cfa1986f7eb87a59.jpg)
 
 因為是事後拍的照片，所以順序可能會有點亂還請見諒 XD
 
@@ -98,7 +98,7 @@ date: 2023-10-18 21:00:00
 
 後來有另外為這整個系統設計了一塊樹莓派擴充板，把開關/電源/風扇等電路整合在一起讓走線更為簡潔：
 
-![Pi Dash Fan Power HAT 設計](https://res.cloudinary.com/driftkingtw/image/upload/v1697621484/blog/2023/10/Pi-Dash/Screenshot_2023-10-18_at_5.31.00_PM.png)
+![Pi Dash Fan Power HAT 設計](https://static.driftking.tw/2024/06/e35aa8ac51270625ebd6b2b3073eddf5.png)
 
 這邊值得一提的是由於我要使用 SSD 作為開機碟，並且螢幕本身及 Apple Watch 充電器也都是由 Pi 的 USB 口取電，但 Pi 的 USB 口總電流有著總共 1.2A 的限制，這導致使用 Watch 充電器時會造成系統不穩重開機 🫠 還好經過計算後其實電供的 3A 是足夠應付滿載電流的，所以設計了一個直插 USB 供電口在風扇旁邊，直接由電供供應（透過軟排線連接的位置），並插到 Pi 本身的 USB 孔上提高供電能力解決了這個問題。
 
@@ -106,7 +106,7 @@ date: 2023-10-18 21:00:00
 
 帶燈開關的部分很單純，焊上線連接到擴充板上的對應接口就行：
 
-![帶燈電源開關/充電使用例](https://res.cloudinary.com/driftkingtw/image/upload/v1697618678/blog/2023/10/Pi-Dash/PowerAndCharger.jpg)
+![帶燈電源開關/充電使用例](https://static.driftking.tw/2024/06/ea10359bf9686ad5c66ebc3a52237009.jpg)
 
 Apple Watch 及支援 Magsafe 的 AirPods Pro 2 都可以透過這個充電器充電！
 
@@ -116,7 +116,7 @@ Apple Watch 及支援 Magsafe 的 AirPods Pro 2 都可以透過這個充電器�
 
 (Demo 圖片由於沒有連接 API 故資訊無法顯示，僅作參考)
 
-![Web UI](https://res.cloudinary.com/driftkingtw/image/upload/v1697635263/blog/2023/10/Pi-Dash/Screenshot_2023-10-18_at_9.19.37_PM.png)
+![Web UI](https://static.driftking.tw/2024/06/41ef6f7d74e4d80c892a7fcaae3899a1.png)
 
 簡單描述一下功能跟設計：
 首先開機後自動啟動 Chromium Kiosk 模式，UI 部分主要分成四個區塊：
@@ -142,11 +142,11 @@ Apple Watch 及支援 Magsafe 的 AirPods Pro 2 都可以透過這個充電器�
 
 最後，搭配 PC 時也透過 LibreHardwareMonitor 提供的 HTTP Server 做了一個可以顯示系統基本資訊/溫度的區塊可以自由切換：
 
-![PC Hardware Monitor](https://res.cloudinary.com/driftkingtw/image/upload/v1697635305/blog/2023/10/Pi-Dash/IMG_7160.jpg)
+![PC Hardware Monitor](https://static.driftking.tw/2024/06/8cf179c26c56c311d7bd6ffd1df0fcea.jpg)
 
 最後大功告成！（那個~~推特~~ X 的 API 改成要收錢了，就放著他壞掉懶得改了...）
 
-![Pi Dash - Raspberry Pi Dashboard](https://res.cloudinary.com/driftkingtw/image/upload/v1697618842/blog/2023/10/Pi-Dash/IMG_7157.jpg)
+![Pi Dash - Raspberry Pi Dashboard](https://static.driftking.tw/2024/06/76e853e176c597b1e52eb6b67b06e654.jpg)
 
 其他我可能等想到有什麼比較有趣值得記錄的再補充了XD 或是會有特別想要瞭解的部分也可以留言討論看看。
 

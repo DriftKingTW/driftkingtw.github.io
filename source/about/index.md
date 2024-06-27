@@ -5,7 +5,7 @@ comment: false
 share: false
 ---
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574780055/avator/Fur_chan_w_ipad.jpg)
+![](https://static.driftking.tw/2024/06/a23a61567438cfe36da1e7953aa80250.jpg)
 
 技術宅+畫圖仔，自認興趣還挺多，無聊的時候會畫畫圖、畫累了寫寫 code (主攻前端)、不想寫扣的時候就拿起工具當個小 Maker，或是裝起方向盤、帶上耳機，到 Nordschleife 晃幾圈。
 
@@ -25,5 +25,5 @@ share: false
 
 printf("%s", "Stay Curious, Stay Creative")
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574785576/avator/IMG_360DC6F78AE4-1_R.jpg)
+![](https://static.driftking.tw/2024/06/0ceaec69f0460dbe19de0161f0d252ba.jpg)
 

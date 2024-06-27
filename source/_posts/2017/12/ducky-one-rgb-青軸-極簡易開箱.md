@@ -19,21 +19,21 @@ keywords:
 
 外盒部分(抱歉只有手機能拍QQ
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275548/blog/2017/12/21/Ducky_ONE_RGB_青軸 極簡易開箱/25625427_1531429620246109_999404821_o-e1513794266990-1024x576.jpg)
+![](https://static.driftking.tw/2024/06/5638b4f1138666227ce265e0512f8e4e.jpg)
 
 包裝內容(好像少拍了說明書來者)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275568/blog/2017/12/21/Ducky_ONE_RGB_青軸 極簡易開箱/25592871_1531429586912779_498545307_o-1024x576.jpg)
+![](https://static.driftking.tw/2024/06/62980b09d4c8d784a4dd8049d61cd528.jpg)
 
 背面
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275583/blog/2017/12/21/Ducky_ONE_RGB_青軸 極簡易開箱/25593307_1531429600246111_152470458_o-1024x576.jpg)
+![](https://static.driftking.tw/2024/06/45fa19ca9a0973f6367c6a5a3d1b3f1f.jpg)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275599/blog/2017/12/21/Ducky_ONE_RGB_青軸 極簡易開箱/25593257_1531429590246112_969833931_o-1024x576.jpg)
+![](https://static.driftking.tw/2024/06/8a1c6f28219017538e3f85123e181e4b.jpg)
 
 Cherry RGB青軸本體
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275631/blog/2017/12/21/Ducky_ONE_RGB_青軸 極簡易開箱/25625544_1531277773594627_1375703772_o-1024x576.jpg)
+![](https://static.driftking.tw/2024/06/a82cd97c6af444afee433dbd58ad6486.jpg)
 
 對了 現在的ONE跟SHINE系列都改用PBT鍵帽了
 剛好我不喜歡太亮的, 然後PBT手感好又不容易打油, <del>太爽拉感謝Ducky努力的研發而且價格還不貴◝(　ﾟ∀ ﾟ )◟
@@ -41,7 +41,7 @@ Cherry RGB青軸本體
 
 接上電腦囉~(USB3.0)
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275648/blog/2017/12/21/Ducky_ONE_RGB_青軸 極簡易開箱/25590419_1531275730261498_525335343_o-1024x576.jpg)
+![](https://static.driftking.tw/2024/06/0ad65d502fae12f74058499d6aeb4de5.jpg)
 
 拍起來比實際亮不少....手機相機太廢QQ, 各位大概當個參考就好XD
 詳細可能要參考一下其他人拍的或找原廠照片.....
@@ -63,7 +63,7 @@ Cal按鍵呼叫計算機超方便R, 大愛這功能 &lt;3
 
 <del>好啦 順便附一下新鍵盤試打成績
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1518275663/blog/2017/12/21/Ducky_ONE_RGB_青軸 極簡易開箱/type.png)
+![](https://static.driftking.tw/2024/06/02177c51854bde3c9bd0fde636cb7b2e.png)
 
 應該還OK, 現在還有點不習慣青軸
 以後看能不能到130WPM(欸

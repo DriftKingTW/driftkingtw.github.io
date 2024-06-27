@@ -30,4 +30,4 @@ dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
 
 完成後執行 Ubuntu App, 即可開始使用
 
-![Ubuntu bash on Win10](https://res.cloudinary.com/driftkingtw/image/upload/v1520047838/blog/2018/03/03/Windows-10-安裝-Ubuntu-bash/ubuntu.png)
+![Ubuntu bash on Win10](https://static.driftking.tw/2024/06/8a182a54ab54093a91e866db54543ca4.png)

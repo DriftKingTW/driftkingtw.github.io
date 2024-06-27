@@ -5,7 +5,7 @@ share: false
 date: 2019-11-27 00:00:00
 ---
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574780055/avator/Fur_chan_w_ipad.jpg)
+![](https://static.driftking.tw/2024/06/a23a61567438cfe36da1e7953aa80250.jpg)
 
 Hi, DriftKingTW here. Welcome to my blog.
 
@@ -19,5 +19,5 @@ BTW if you love EDM, go and check my friend's music channel: [Silaver](https://w
 
 printf("%s", "Stay Curious, Stay Creative")
 
-![](https://res.cloudinary.com/driftkingtw/image/upload/f_auto/v1574785576/avator/IMG_360DC6F78AE4-1_R.jpg)
+![](https://static.driftking.tw/2024/06/0ceaec69f0460dbe19de0161f0d252ba.jpg)
 
