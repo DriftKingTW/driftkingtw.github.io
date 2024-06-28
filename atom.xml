@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2024-06-25T18:15:26.231Z</updated>
+  <updated>2024-06-28T20:39:10.108Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -20,12 +20,13 @@
     <title>透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份</title>
     <link href="https://blog.driftking.tw/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/"/>
     <id>https://blog.driftking.tw/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/</id>
-    <published>2024-06-25T14:00:00.000Z</published>
-    <updated>2024-06-25T18:15:26.231Z</updated>
+    <published>2024-06-28T14:00:00.000Z</published>
+    <updated>2024-06-28T20:39:10.108Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/eb14fa39c6673892c86898bd7cc6348c.webp&quot; alt=&quot;NAS Offsite Backup by Raspberry Pi and ZeroTier&quot;&gt;&lt;/p&gt;
+&lt;p&gt;這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD&lt;/p&gt;
 &lt;p&gt;前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 &lt;del&gt;真是振奮人心&lt;/del&gt; 😭&lt;/p&gt;
 &lt;p&gt;恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。&lt;/p&gt;
     
@@ -73,11 +74,11 @@
     <link href="https://blog.driftking.tw/2023/10/pi-dashboard/"/>
     <id>https://blog.driftking.tw/2023/10/pi-dashboard/</id>
     <published>2023-10-18T13:00:00.000Z</published>
-    <updated>2023-10-18T16:44:03.033Z</updated>
+    <updated>2024-06-27T17:25:43.566Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/v1697618842/blog/2023/10/Pi-Dash/IMG_7157.jpg&quot; alt=&quot;Pi Dash - Raspberry Pi Dashboard&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/76e853e176c597b1e52eb6b67b06e654.jpg&quot; alt=&quot;Pi Dash - Raspberry Pi Dashboard&quot;&gt;&lt;/p&gt;
 &lt;p&gt;那個被詬病已久，大家喜聞樂見被砍掉的 Touch Bar，偏偏是我最喜歡的功能之一！！ 😭😭😭（&lt;del&gt;蘋果怎麼在這種地方聽到了使用者的回饋&lt;/del&gt;）&lt;br&gt;既然官方不幹了，那就是時候來弄一個更強並更符合自己需要的替代品吧。&lt;/p&gt;
 &lt;p&gt;偷偷說一下，其實這個小專案已經完成並使用超過一年了，中間也陸續對軟硬體設計進行改良，至於為什麼現在才有這篇文就…不要問 🤣&lt;/p&gt;
     
@@ -111,11 +112,11 @@
     <link href="https://blog.driftking.tw/2022/04/logitech-master-3-gesture-button-modify/"/>
     <id>https://blog.driftking.tw/2022/04/logitech-master-3-gesture-button-modify/</id>
     <published>2022-04-11T14:00:00.000Z</published>
-    <updated>2022-04-12T17:40:45.520Z</updated>
+    <updated>2024-06-27T17:26:09.385Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg&quot; alt=&quot;Master 3 拇指鍵切換裝置功能改裝&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/1828ecce19755ab748149de13efb701f.jpg&quot; alt=&quot;Master 3 拇指鍵切換裝置功能改裝&quot;&gt;&lt;/p&gt;
 &lt;p&gt;雖然很喜歡羅技 Master/Anywhere 系列的滑鼠，不過對於多裝置切換的功能上不太滿意，主要是因為鍵盤不是羅技的，所以 Logitech Flow 的軟體切換只能切滑鼠對我來說沒有什麼卯月(加上需要切換的裝置也不在同一個區網裡面)，這樣的情境下就必須得使用滑鼠底部的切換裝置按鈕，但每次要切換就得把滑鼠拿起來按實在太麻煩了…羅技也不開放把手勢按鍵改成切換裝置的功能，既然如此只好自己來手動擴充功能了 ᕕ( ᐛ )ᕗ&lt;/p&gt;
     
     </summary>
@@ -130,11 +131,11 @@
     <link href="https://blog.driftking.tw/en/2022/04/logitech-master-3-gesture-button-modify/"/>
     <id>https://blog.driftking.tw/en/2022/04/logitech-master-3-gesture-button-modify/</id>
     <published>2022-04-11T14:00:00.000Z</published>
-    <updated>2022-04-12T16:25:29.738Z</updated>
+    <updated>2024-06-27T18:03:11.416Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/v1649779554/blog/2022/04/IMG_3672.jpg&quot; alt=&quot;Master 3 Gesture Button Modification&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/1828ecce19755ab748149de13efb701f.jpg&quot; alt=&quot;Master 3 Gesture Button Modification&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Logitech’s Master/Anywhere series has been my favorite mice for years. But recently I don’t feel very comfortable when using my Master 3 with multiple devices, because the only button that switches device is located under the mouse. Since my 2 devices aren’t in the same network so Logitech Flow won’t work either.&lt;/p&gt;
 &lt;p&gt;Not really sure why Logitech doesn’t allow user to configure gesture button to switch devices :( so I came up with an idea to solve it.&lt;/p&gt;
     
@@ -150,12 +151,12 @@
     <link href="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
     <id>https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
     <published>2022-02-07T11:00:00.000Z</published>
-    <updated>2022-02-09T01:06:33.129Z</updated>
+    <updated>2024-06-27T17:26:07.469Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/675f6086152e3d04ff0572c2d9968db7.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -173,13 +174,13 @@
     <link href="https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
     <id>https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
     <published>2022-02-07T11:00:00.000Z</published>
-    <updated>2022-02-08T03:31:15.193Z</updated>
+    <updated>2024-06-27T17:43:40.574Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use &lt;code&gt;DisplayCAL&lt;/code&gt; to recalibrate my external monitor, but the it didn’t recognize both of my external monitor.&lt;/p&gt;
 &lt;p&gt;Here’s the workaround for this issue:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/g_auto/v1644288292/blog/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/displaycal.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/675f6086152e3d04ff0572c2d9968db7.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -223,7 +224,7 @@
     <summary type="html">
     
       &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
-&lt;epacse hidden&gt;11&lt;/epacse&gt;
+&lt;epacse hidden&gt;305&lt;/epacse&gt;
 
 &lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
@@ -245,7 +246,7 @@
     <summary type="html">
     
       &lt;p&gt;利用 &lt;code&gt;v-layout&lt;/code&gt; 達成：&lt;/p&gt;
-&lt;epacse hidden&gt;14&lt;/epacse&gt;
+&lt;epacse hidden&gt;309&lt;/epacse&gt;
     
     </summary>
     
@@ -299,11 +300,11 @@
     <link href="https://blog.driftking.tw/2021/07/diy-bluetooth-marco-pad/"/>
     <id>https://blog.driftking.tw/2021/07/diy-bluetooth-marco-pad/</id>
     <published>2021-07-12T16:00:00.000Z</published>
-    <updated>2022-08-07T04:05:18.492Z</updated>
+    <updated>2024-06-27T17:28:50.468Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/driftkingtw/image/upload/q_auto:eco/v1659805523/blog/2021/07/IMG_4496.jpg&quot; alt&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/0dcf97a83b8d81b2f7b08218d87035c2.jpg&quot; alt&gt;&lt;/p&gt;
 &lt;p&gt;在這繪圖螢幕入門門檻越來越低及iPad逐漸成為專業繪圖板的時代，市面上也跟著出現不少主打創作者/遊戲用的單手鍵盤或是快捷操作裝置。但是等了好幾年了，還是找不到「適合」自己的鍵盤 🤨 那麼，與其繼續等下去不如自幹一個適合自己的單手鍵盤吧！&lt;/p&gt;
     
     </summary>
@@ -367,7 +368,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;10&lt;/epacse&gt;
+&lt;epacse hidden&gt;304&lt;/epacse&gt;
     
     </summary>
     
@@ -388,7 +389,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;142&lt;/epacse&gt;
+&lt;epacse hidden&gt;438&lt;/epacse&gt;
     
     </summary>
     
@@ -404,7 +405,7 @@
     <link href="https://blog.driftking.tw/2021/04/add-email-notification-to-valine/"/>
     <id>https://blog.driftking.tw/2021/04/add-email-notification-to-valine/</id>
     <published>2021-04-13T11:00:00.000Z</published>
-    <updated>2021-04-13T10:59:48.121Z</updated>
+    <updated>2024-06-27T17:28:46.838Z</updated>
     
     <summary type="html">
     
@@ -423,24 +424,25 @@
   </entry>
   
   <entry>
-    <title>add-email-notification-to-valine</title>
-    <link href="https://blog.driftking.tw/en/2021/04/add-email-notification-to-valine/"/>
-    <id>https://blog.driftking.tw/en/2021/04/add-email-notification-to-valine/</id>
-    <published>2021-04-13T11:00:00.000Z</published>
-    <updated>2021-04-13T11:04:41.661Z</updated>
+    <title>Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息</title>
+    <link href="https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/"/>
+    <id>https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/</id>
+    <published>2021-04-11T11:42:36.000Z</published>
+    <updated>2021-04-11T11:59:04.086Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Sorry, this post in currently in Chinese only :(&lt;/p&gt;
+      &lt;p&gt;Q: macOS 連接公用 WiFi 登入畫面一片空白並出現登入錯誤訊息？&lt;/p&gt;
+&lt;p&gt;A: 在 &lt;code&gt;~/Library/LaunchAgents&lt;/code&gt; 中新增一個檔案名為 &lt;code&gt;my.shim.catalina.captivenetworkassistant.plist&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
     
-      <category term="hexo" scheme="https://blog.driftking.tw/tags/hexo/"/>
+      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
     
-      <category term="valine" scheme="https://blog.driftking.tw/tags/valine/"/>
+      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
     
-      <category term="blog" scheme="https://blog.driftking.tw/tags/blog/"/>
+      <category term="WiFi" scheme="https://blog.driftking.tw/tags/WiFi/"/>
     
   </entry>
   

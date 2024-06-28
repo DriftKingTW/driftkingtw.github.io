@@ -28,6 +28,9 @@
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD 前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 真是振奮人心 😭 恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/eb14fa39c6673892c86898bd7cc6348c.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/aa8f0bbfc907c9c70f1b0d6fcd16a92b.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/203280990e36b9f56dd46a4e9ee82599.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/770c3672713fe28d71a2cb8532b5ae37.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/e2feb0b8c2cf25800a2073d35a6397b8.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/2c5a27e2b53664845db5b5d2f15efba2.webp">
@@ -47,11 +50,11 @@
 <meta property="og:image" content="https://static.driftking.tw/2024/06/24fc0d147890ac40098c9d8b8f5d0980.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/c38ea250465757d394697b9b5f8176aa.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/44ee9a5a49a213e38f75d4acd8dadb14.webp">
-<meta property="og:updated_time" content="2024-06-25T18:15:26.231Z">
+<meta property="og:updated_time" content="2024-06-28T20:39:10.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份">
 <meta name="twitter:description" content="這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD 前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 真是振奮人心 😭 恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。">
-<meta name="twitter:image" content="https://static.driftking.tw/2024/06/770c3672713fe28d71a2cb8532b5ae37.webp">
+<meta name="twitter:image" content="https://static.driftking.tw/2024/06/eb14fa39c6673892c86898bd7cc6348c.webp">
 
 
 
@@ -192,20 +195,21 @@
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2024-06-25T14:00:00.000Z" itemprop="datePublished">6月 25 2024</time>
+            <time datetime="2024-06-28T14:00:00.000Z" itemprop="datePublished">6月 28 2024</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            34 分鐘 讀完 (約 5191 字)
+            35 分鐘 讀完 (約 5281 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>這玩意看起來很適合做異地備份欸！ &lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD</p>
+        <p><img src="https://static.driftking.tw/2024/06/eb14fa39c6673892c86898bd7cc6348c.webp" alt="NAS Offsite Backup by Raspberry Pi and ZeroTier"></p>
+<p>這玩意看起來很適合做異地備份欸！ &lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD</p>
 <p>前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 <del>真是振奮人心</del> 😭</p>
 <p>恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。</p>
 <a id="more"></a>
@@ -243,6 +247,7 @@
 <li>一或兩條 HAT 支援的 M.2 NVMe SSD (注意必須要是 NVMe 協議才可以使用在 M.2 HAT 上)</li>
 <li>一台 NAS，備份資料的來源</li>
 </ol>
+<p><img src="https://static.driftking.tw/2024/06/aa8f0bbfc907c9c70f1b0d6fcd16a92b.webp" alt="Pi 5 + X1004 Dual M.2 HAT"></p>
 <p>NAS 部分我所使用的是 Synology DS220+，其他 NAS 當然也可以，不過這篇文會以我自己使用的環境為主。<br>外殼、散熱模組等非必要零件就不另外提到了，可以按照自己的需求喜好安裝 🙌</p>
 <h3 id="軟體"><a href="#軟體" class="headerlink" title="軟體"></a>軟體</h3><ol>
 <li>x86 DSM 7.2 (我自己 NAS 的環境)</li>
@@ -253,7 +258,8 @@
 </ol>
 <p>由於在 DSM 上跑 ZeroTier 會使用到 Docker，之前聽說 ARM 的 DSM 容易遇到架構支援問題，這邊可能需要注意一下！</p>
 <p>完成之後異地備份的服務會如下圖執行：</p>
-<!-- TODO: -->
+<p><img src="https://static.driftking.tw/2024/06/203280990e36b9f56dd46a4e9ee82599.webp" alt="DSM Offsite Backup Using ZeroTier"></p>
+<p>運作方式相當簡單，DSM 這邊安裝 HyperBackup 後會定期透過 ZeroTier 連到樹莓派做備份而已。</p>
 <p>在了解了基本服務架構之後，由於硬體安裝方式不難參照各家說明書即可，接下來為安裝軟體及設定的部分。</p>
 <h2 id="在-Pi-上安裝-rsync-伺服器"><a href="#在-Pi-上安裝-rsync-伺服器" class="headerlink" title="在 Pi 上安裝 rsync 伺服器"></a>在 Pi 上安裝 rsync 伺服器</h2><p>rsync 伺服器的作用簡單來說其實有點像 SMB，但是專門設計為備份用途，完成後會讓 NAS 透過 Hyper Backup 連入樹莓派的 rsync 進行自動備份。當然 rsync 可以安裝在任何 Linux 主機上，只是本文會以樹莓派的 Raspberry Pi OS 來做設定 ⚡️</p>
 <p>首先會需要讓樹莓派能夠執行 Raspberry Pi OS，系統可以安裝在 NVMe SSD、USB 硬碟或是 SD 卡上 (有做好系統備份的話應該還可以，但還是要準備有 SSD 或 HDD 來儲存備份資料用)，這部份因為不是本次設定重點，還請參考<a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">樹莓派 OS 官方說明</a></p>
