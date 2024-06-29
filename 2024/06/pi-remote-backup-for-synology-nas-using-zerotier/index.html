@@ -29,6 +29,7 @@
 <meta property="og:description" content="這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD 前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 真是振奮人心 😭 恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/eb14fa39c6673892c86898bd7cc6348c.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/06/60ae54646ee248804b5ce695ae188b3d.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/aa8f0bbfc907c9c70f1b0d6fcd16a92b.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/203280990e36b9f56dd46a4e9ee82599.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/770c3672713fe28d71a2cb8532b5ae37.webp">
@@ -50,7 +51,7 @@
 <meta property="og:image" content="https://static.driftking.tw/2024/06/24fc0d147890ac40098c9d8b8f5d0980.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/c38ea250465757d394697b9b5f8176aa.webp">
 <meta property="og:image" content="https://static.driftking.tw/2024/06/44ee9a5a49a213e38f75d4acd8dadb14.webp">
-<meta property="og:updated_time" content="2024-06-28T20:39:10.108Z">
+<meta property="og:updated_time" content="2024-06-29T12:39:40.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份">
 <meta name="twitter:description" content="這玩意看起來很適合做異地備份欸！ &amp;lt;- 這是我某天看到樹莓派 5 的 PCIe 轉雙 M.2 HAT 推出之後的反應 XD 前陣子 (其實也挺久了) 樹莓派推出了第五代，這次終於提供了 PCIe 接口 真是振奮人心 😭 恰巧前陣子亂逛時發現有幾家廠商推出了雙 M.2 版本的 HAT，這個組合讓我想到可以拿來做因為種種原因而沒搞定的異地備份。">
@@ -202,7 +203,7 @@
         <span class="column is-narrow">
             
             
-            35 分鐘 讀完 (約 5281 字)
+            35 分鐘 讀完 (約 5333 字)
         </span>
         
     </div>
@@ -224,6 +225,9 @@
 </ol>
 <p>這邊可以參考我之前用 Pi 4 製作的 <a href="https://blog.driftking.tw/2023/10/pi-dashboard/">Pi-Dash</a> 應該就會發現這代把一些我之前需要自幹的功能都已經內建或提供官方的整合方案了，不用自己弄一堆有的沒的還會減少原本就已經不多的 IO 🙏</p>
 <p>當然你可能會說能用另一台更正式的 NAS 作為異地備份是最好的選擇，確實 (？ 但我最重要且需要異地備份的量也不多(可能頂多 2T 短期內就算綽綽有餘)，加上上述幾項優點我認為這是目前最適合的選擇了！</p>
+<p>2024/6/29 補充功耗參考：</p>
+<p><img src="https://static.driftking.tw/2024/06/60ae54646ee248804b5ce695ae188b3d.webp" alt="Power Consumption"></p>
+<p>可以看到上方是待機狀態，功耗大約 3.5 ~ 3.8W。下方為備份時的功耗，約 4.5 ~ 5W。</p>
 <p>那麼如果你覺得這個方案不錯並有興趣，我也把軟硬體的一些設定寫成筆記分享給大家，歡迎繼續往下閱讀：</p>
 <h2 id="資料備份-3-2-1"><a href="#資料備份-3-2-1" class="headerlink" title="資料備份 3-2-1"></a>資料備份 3-2-1</h2><p>資料備份有個重要的 3-2-1 規則，相信應該不少人已經耳熟能詳，可以直接跳至 <a href="#硬體-amp-軟體需求">硬體 / 軟體需求</a>，如果沒聽過的話也沒關係這邊簡單介紹一下：</p>
 <p>3-2-1 代表</p>

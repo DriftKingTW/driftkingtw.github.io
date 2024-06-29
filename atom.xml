@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2024-06-28T20:39:10.108Z</updated>
+  <updated>2024-06-29T12:39:40.109Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.driftking.tw/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/"/>
     <id>https://blog.driftking.tw/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/</id>
     <published>2024-06-28T14:00:00.000Z</published>
-    <updated>2024-06-28T20:39:10.108Z</updated>
+    <updated>2024-06-29T12:39:40.109Z</updated>
     
     <summary type="html">
     
@@ -224,7 +224,7 @@
     <summary type="html">
     
       &lt;p&gt;使用 &lt;code&gt;PM2&lt;/code&gt; 管理 Node App 時如果有使用 &lt;code&gt;doenv&lt;/code&gt; 會讀取目前目錄的 &lt;code&gt;.env&lt;/code&gt; 檔案，例如在以下的資料結構下：&lt;/p&gt;
-&lt;epacse hidden&gt;305&lt;/epacse&gt;
+&lt;epacse hidden&gt;11&lt;/epacse&gt;
 
 &lt;p&gt;在 &lt;code&gt;myApp&lt;/code&gt; 同級目錄中執行 &lt;code&gt;pm2 start myApp/app.js&lt;/code&gt; 時會去讀取同層級的 &lt;code&gt;.env&lt;/code&gt; ，而不會讀取到 &lt;code&gt;myApp/.env&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此時除了可以進入 &lt;code&gt;myApp&lt;/code&gt; 後再執行 &lt;code&gt;pm2 start&lt;/code&gt; 外，也可以在 &lt;code&gt;app.js&lt;/code&gt; 中設定 &lt;code&gt;.env&lt;/code&gt; 路徑，如下：&lt;/p&gt;
@@ -246,7 +246,7 @@
     <summary type="html">
     
       &lt;p&gt;利用 &lt;code&gt;v-layout&lt;/code&gt; 達成：&lt;/p&gt;
-&lt;epacse hidden&gt;309&lt;/epacse&gt;
+&lt;epacse hidden&gt;14&lt;/epacse&gt;
     
     </summary>
     
@@ -368,7 +368,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;304&lt;/epacse&gt;
+&lt;epacse hidden&gt;10&lt;/epacse&gt;
     
     </summary>
     
@@ -389,7 +389,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;438&lt;/epacse&gt;
+&lt;epacse hidden&gt;143&lt;/epacse&gt;
     
     </summary>
     
