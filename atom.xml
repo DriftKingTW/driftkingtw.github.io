@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2024-06-29T12:39:40.109Z</updated>
+  <updated>2024-12-02T18:09:14.762Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>樹莓派 5 RTC 自動定時開機</title>
+    <link href="https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/"/>
+    <id>https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/</id>
+    <published>2024-12-01T14:00:00.000Z</published>
+    <updated>2024-12-02T18:09:14.762Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp&quot; alt=&quot;Raspberry Pi RTC Battery (https://www.raspberrypi.com/products/rtc-battery/)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在上一篇 &lt;a href=&quot;/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/&quot;&gt;透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份&lt;/a&gt; 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機&lt;del&gt;偷懶&lt;/del&gt;等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，&lt;del&gt;秉持著環保精神(電費)&lt;/del&gt;於是著手研究了本次的自動開關機的方案。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Raspberry Pi" scheme="https://blog.driftking.tw/tags/Raspberry-Pi/"/>
+    
+      <category term="NAS" scheme="https://blog.driftking.tw/tags/NAS/"/>
+    
+      <category term="Synology" scheme="https://blog.driftking.tw/tags/Synology/"/>
+    
+      <category term="DSM" scheme="https://blog.driftking.tw/tags/DSM/"/>
+    
+  </entry>
   
   <entry>
     <title>透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份</title>
@@ -48,7 +73,7 @@
     <link href="https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/"/>
     <id>https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/</id>
     <published>2024-06-24T13:00:00.000Z</published>
-    <updated>2024-06-24T15:25:27.393Z</updated>
+    <updated>2024-07-29T18:57:03.063Z</updated>
     
     <summary type="html">
     
@@ -161,9 +186,9 @@
     </summary>
     
     
-      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
-    
       <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
     
       <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
     
@@ -185,9 +210,9 @@
     </summary>
     
     
-      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
-    
       <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
     
       <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
     
@@ -368,7 +393,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;10&lt;/epacse&gt;
+&lt;epacse hidden&gt;9&lt;/epacse&gt;
     
     </summary>
     
@@ -389,7 +414,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;143&lt;/epacse&gt;
+&lt;epacse hidden&gt;92&lt;/epacse&gt;
     
     </summary>
     
@@ -420,29 +445,6 @@
       <category term="valine" scheme="https://blog.driftking.tw/tags/valine/"/>
     
       <category term="blog" scheme="https://blog.driftking.tw/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Quick Fix - macOS 連接公用 WiFi 出現登入錯誤訊息</title>
-    <link href="https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/"/>
-    <id>https://blog.driftking.tw/QuickFix/macos-wifi-captive-portal-broken/</id>
-    <published>2021-04-11T11:42:36.000Z</published>
-    <updated>2021-04-11T11:59:04.086Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Q: macOS 連接公用 WiFi 登入畫面一片空白並出現登入錯誤訊息？&lt;/p&gt;
-&lt;p&gt;A: 在 &lt;code&gt;~/Library/LaunchAgents&lt;/code&gt; 中新增一個檔案名為 &lt;code&gt;my.shim.catalina.captivenetworkassistant.plist&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Quick Fix" scheme="https://blog.driftking.tw/tags/Quick-Fix/"/>
-    
-      <category term="MacOS" scheme="https://blog.driftking.tw/tags/MacOS/"/>
-    
-      <category term="WiFi" scheme="https://blog.driftking.tw/tags/WiFi/"/>
     
   </entry>
   

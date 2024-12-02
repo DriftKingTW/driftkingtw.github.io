@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/</loc>
+    <lastmod>2024-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/</loc>
+    <lastmod>2024-07-29</lastmod>
+  </url>
+  <url>
     <loc>https://blog.driftking.tw/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/</loc>
     <lastmod>2024-06-29</lastmod>
   </url>
@@ -167,10 +175,6 @@
   <url>
     <loc>https://blog.driftking.tw/2023/10/pi-dashboard/</loc>
     <lastmod>2024-06-27</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.driftking.tw/2024/06/cloudflare-zero-trust-for-synology-nas/</loc>
-    <lastmod>2024-06-24</lastmod>
   </url>
   <url>
     <loc>https://blog.driftking.tw/2022/04/macos-productivity-tools-recommendation/</loc>

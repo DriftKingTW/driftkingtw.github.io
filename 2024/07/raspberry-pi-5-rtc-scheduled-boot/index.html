@@ -2,13 +2,13 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>標籤: vue - DriftKingTW&#39;s Blog</title>
+<title>樹莓派 5 RTC 自動定時開機 - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
-<link href="/en/tags/vue/index.html" rel="alternate" hreflang="en">
+<link href="/en/2024/07/raspberry-pi-5-rtc-scheduled-boot/" rel="alternate" hreflang="en">
     
 
 
@@ -16,21 +16,24 @@
 
 
 
-<meta name="keywords" content="網頁, 程式, 科技, 電腦, 賽車, 繪圖, DIY, Maker, Web, Sim racing, drawing">
+<meta name="keywords" content="NAS,Synology,DSM,Raspberry Pi,RTC">
 
 
 
-    <meta name="description" content="printf(&quot;%s&quot;, &quot;Stay Curious, Stay Creative&quot;);">
-<meta name="keywords" content="網頁, 程式, 科技, 電腦, 賽車, 繪圖, DIY, Maker, Web, Sim racing, drawing">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DriftKingTW&#39;s Blog">
-<meta property="og:url" content="https://blog.driftking.tw/tags/vue/index.html">
+    <meta name="description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
+<meta name="keywords" content="NAS,Synology,DSM,Raspberry Pi,RTC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="樹莓派 5 RTC 自動定時開機">
+<meta property="og:url" content="https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
-<meta property="og:description" content="printf(&quot;%s&quot;, &quot;Stay Curious, Stay Creative&quot;);">
+<meta property="og:description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp">
+<meta property="og:updated_time" content="2024-12-02T18:09:14.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DriftKingTW&#39;s Blog">
-<meta name="twitter:description" content="printf(&quot;%s&quot;, &quot;Stay Curious, Stay Creative&quot;);">
+<meta name="twitter:title" content="樹莓派 5 RTC 自動定時開機">
+<meta name="twitter:description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
+<meta name="twitter:image" content="https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp">
 
 
 
@@ -122,11 +125,11 @@
         <div class="dropdown-menu has-text-left" role="menu">
             <div class="dropdown-content">
             
-                <a href="/tags/vue/index.html" class="dropdown-item">
+                <a href="/2024/07/raspberry-pi-5-rtc-scheduled-boot/" class="dropdown-item">
                     繁體中文
                 </a>
             
-                <a href="/en/tags/vue/index.html" class="dropdown-item">
+                <a href="/en/2024/07/raspberry-pi-5-rtc-scheduled-boot/" class="dropdown-item">
                     English
                 </a>
             
@@ -161,160 +164,123 @@
         </div>
     </div>
 </nav>
-    <section class="section section-heading">
+    <section class="section">
     <div class="container">
-        <div class="content">
-            <h5>#vue</h5>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
+    <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/QuickFix/expressjs-parse-text-plain-request/" itemprop="url">Express.js 接收 Text/Plain 請求只解析出空物件問題</a>
+            樹莓派 5 RTC 自動定時開機
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2021-10-29T08:00:00.000Z" itemprop="datePublished">10月 29 2021</time>
+            <time datetime="2024-12-01T14:00:00.000Z" itemprop="datePublished">12月 1 2024</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            0 分鐘 讀完 (約 139 字)
+            6 分鐘 讀完 (約 1031 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>最近使用 Express 接收 <code>FilePond</code> 套件回傳的 <code>Content-Type: text/plain</code> 請求時，透過 <code>req.body</code> 取得資料時總是拿到空資料。</p>
-<p>解法是要另外使用 <code>express.text()</code> 來進行解析：</p>
-        <p class="article-more-link">
-            <a href="/QuickFix/expressjs-parse-text-plain-request/#more">閱讀更多</a>
-        </p>
+        <p><img src="https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp" alt="Raspberry Pi RTC Battery (https://www.raspberrypi.com/products/rtc-battery/)"></p>
+<p>在上一篇 <a href="/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/">透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份</a> 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機<del>偷懶</del>等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，<del>秉持著環保精神(電費)</del>於是著手研究了本次的自動開關機的方案。</p>
+<a id="more"></a>
+<p>這次 Pi 5 的更新加上了 RTC (Real Time Clock)，簡單來說 RTC 可以讓裝置在極低功耗的狀態下保持時間同步並可以拿來控制啟動高功耗的主要處理器 (在這個情況下只的就是讓 Pi 從 Halt 狀態下重新開機)。</p>
+<p>RTC 模組通常會接上一個備用電池，這樣就可以在完全無電源的情況也繼續讓 RTC 模組工作。本次我們便是要利用這個功能來實作自動開機 👌</p>
+<h2 id="測試-RTC-模組自動喚醒功能"><a href="#測試-RTC-模組自動喚醒功能" class="headerlink" title="測試 RTC 模組自動喚醒功能"></a>測試 RTC 模組自動喚醒功能</h2><p>首先我們要先修改樹莓派的 <code>eeprom</code> 讓機器在進入 halt 狀態下能進入超低功耗狀態，並讓 RTC 的 <code>wakealarm</code> 能夠喚醒樹莓派：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -E rpi-eeprom-config --edit</span><br></pre></td></tr></table></figure>
+
+<p>在文件底部新增這兩行設定，分別是啟動低功耗模式及關閉 GPIO 喚醒功能：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">POWER_OFF_ON_HALT=1</span><br><span class="line">WAKE_ON_GPIO=0</span><br></pre></td></tr></table></figure>
+
+<p>接著我們就可以透過設定 <code>wakealarm</code> 來測試是否可以成功定時自動換醒，指令中透過 <code>date</code> 的 <code>%s</code> 參數將設定的時間轉為秒數，並讓主機在過了設定的秒數後自動開機，所以這個範例中樹莓派應該會在 1 分鐘後重新開機：</p>
+<blockquote class="colorquote info"><p>透過 <code>date</code> 設定相當簡單易懂，相關使用可以參考 <a href="https://man7.org/linux/man-pages/man1/date.1.html" target="_blank" rel="noopener">man page</a></p>
+</blockquote>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">date -d "+1 minutes" +'%s' | sudo tee /sys/class/rtc/rtc0/wakealarm</span><br><span class="line">sudo halt</span><br></pre></td></tr></table></figure>
+
+<blockquote class="colorquote success"><p>RTC 模組雖然有提供電池接口，但在不拔電源的情況下不需要電池也能使用 RTC 功能的喔！</p>
+</blockquote>
+<h2 id="應用實例"><a href="#應用實例" class="headerlink" title="應用實例"></a>應用實例</h2><p>到這邊已經知道如何設定自動開機了，接著就是任務完成後要讓樹莓派自動關機。由於這部份每個人使用的情況可能也不盡相同，我這邊提供自己的 NAS 備份案例來說明：</p>
+<h3 id="開機邏輯"><a href="#開機邏輯" class="headerlink" title="開機邏輯"></a>開機邏輯</h3><p>首先假設我在 NAS 端的設定是每天凌晨兩點自動備份到樹莓派上，那麼這邊就需要讓樹莓派在每天四點前先自動開機等待備份請求，並偵測到備份完成後設定下一次開機時間並自動關機。</p>
+<p>此時我的 <code>wakealarm</code> 設定明天的凌晨 1:50 啟動，指令如下：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -d "+tomorrow 1:50" +'%s' &gt; /sys/class/rtc/rtc0/wakealarm</span><br></pre></td></tr></table></figure>
+
+<h3 id="關機邏輯"><a href="#關機邏輯" class="headerlink" title="關機邏輯"></a>關機邏輯</h3><p>由於需要偵測 NAS 那邊是否備份完成，在經過一番搜尋之後決定使用 <a href="https://github.com/N4S4" target="_blank" rel="noopener">N4S4</a> 提供的 <a href="https://github.com/N4S4/synology-api" target="_blank" rel="noopener">synology-api</a> 來實作備份進度的檢測。</p>
+<p>簡單來說我是透過 API 在每天設定的備份時間過 30 分鐘後，自動執行一個 Python Script 去發請求檢查 <code>HyperBackup</code> 的備份進度，如果完成就設定 <code>wakealarm</code> 並關機，如果還未完成就每 30 秒詢問進度直到備份完成。</p>
+<p>由於此腳本不是本篇重點就不細說，有興趣的朋友可以直接參考或使用我所寫的腳本：<a href="https://github.com/DriftKingTW/pi-backup-power-scheduler" target="_blank" rel="noopener">pi-backup-power-scheduler</a> 裡面有提供使用說明及設定方式ㄛ！</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.raspberrypi.com/products/rtc-battery/" target="_blank" rel="noopener">Buy a Raspberry Pi RTC Battery - Raspberry Pi</a></p>
+<p><a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#real-time-clock-rtc" target="_blank" rel="noopener">Raspberry Pi hardware - Raspberry Pi Documentation # Real Time Clock (RTC)</a></p>
+<p><a href="https://github.com/N4S4/synology-api" target="_blank" rel="noopener">synology-api</a></p>
+
     
     </div>
     
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Raspberry-Pi/">#Raspberry Pi</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/NAS/">#NAS</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Synology/">#Synology</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/DSM/">#DSM</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/">透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份</a>
+            
+        </span>
+    </div>
     
 </article>
 
 
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
 
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/QuickFix/vuetify-image-vertical-centering/" itemprop="url">Vuetify 圖片垂直置中</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2021-10-15T08:00:00.000Z" itemprop="datePublished">10月 15 2021</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            0 分鐘 讀完 (約 32 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>利用 <code>v-layout</code> 達成：</p>
-<epacse hidden>14</epacse>
-        <p class="article-more-link">
-            <a href="/QuickFix/vuetify-image-vertical-centering/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
+    <a href="https://www.buymeacoffee.com/driftkingtw" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
+</div>
 
 
 
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script sre="//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var valine = new Valine({
+        el: "#valine-thread",
+        appId: "mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI",
+        appKey: "zkROC4QzyTeu7fzjhTbxEY0k",
+        // notify: "true",
+        // verify: "true",
+        avatar: "mp",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: "zh-tw",
+        serverURLs: "https://mLsnpgAj.api.lncldglobal.com"
+    })
+</script>
 
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/QuickFix/vuejs-dotenv-file-configuration/" itemprop="url">Vue.js dotenv 環境變數使用及注意事項</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2021-08-18T08:00:00.000Z" itemprop="datePublished">8月 18 2021</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分鐘 讀完 (約 219 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>最近遇到了 API URL 分 Development 及 Production 不同設定的問題，想使用環境變數來解決，讓 URL 在不同的環境下自動使用對應的設定，嘗試後發現有些使用重點跟容易忽略的地方：</p>
-        <p class="article-more-link">
-            <a href="/QuickFix/vuejs-dotenv-file-configuration/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
+</div>
 
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/QuickFix/node-sass-error/" itemprop="url">Quick-Fix node-sass no such file or directory 錯誤</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2021-04-17T16:30:00.000Z" itemprop="datePublished">4月 18 2021</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            0 分鐘 讀完 (約 89 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>Q: 最近在利用 <code>Vue-Cli</code> 建立專案時遇到 <code>node-sass</code> 出現如下錯誤：</p>
-<epacse hidden>9</epacse>
-        <p class="article-more-link">
-            <a href="/QuickFix/node-sass-error/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-    
     </div>
 </section>
     <footer class="footer">
