@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2024-12-02T18:09:14.762Z</updated>
+  <updated>2024-12-02T18:12:36.216Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>樹莓派 5 RTC 自動定時開機</title>
+    <title>樹莓派 5 透過 RTC 自動定時開機</title>
     <link href="https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/"/>
     <id>https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/</id>
     <published>2024-12-01T14:00:00.000Z</published>
-    <updated>2024-12-02T18:09:14.762Z</updated>
+    <updated>2024-12-02T18:12:36.216Z</updated>
     
     <summary type="html">
     

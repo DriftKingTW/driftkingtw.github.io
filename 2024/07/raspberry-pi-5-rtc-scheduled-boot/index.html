@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>樹莓派 5 RTC 自動定時開機 - DriftKingTW&#39;s Blog</title>
+<title>樹莓派 5 透過 RTC 自動定時開機 - DriftKingTW&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -23,15 +23,15 @@
     <meta name="description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
 <meta name="keywords" content="NAS,Synology,DSM,Raspberry Pi,RTC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="樹莓派 5 RTC 自動定時開機">
+<meta property="og:title" content="樹莓派 5 透過 RTC 自動定時開機">
 <meta property="og:url" content="https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/index.html">
 <meta property="og:site_name" content="DriftKingTW&#39;s Blog">
 <meta property="og:description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp">
-<meta property="og:updated_time" content="2024-12-02T18:09:14.762Z">
+<meta property="og:updated_time" content="2024-12-02T18:12:36.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="樹莓派 5 RTC 自動定時開機">
+<meta name="twitter:title" content="樹莓派 5 透過 RTC 自動定時開機">
 <meta name="twitter:description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
 <meta name="twitter:image" content="https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp">
 
@@ -169,7 +169,7 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            樹莓派 5 RTC 自動定時開機
+            樹莓派 5 透過 RTC 自動定時開機
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
