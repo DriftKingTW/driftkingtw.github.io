@@ -33,7 +33,7 @@ date: 2024-06-24 21:00:00
 - 自己的 Domain Name
 - Cloudflare 帳號
 - 能夠刷的信用卡 (提供 Cloudflare 付費資訊用不會產生費用)
-- 將 DNS 託管在 Cloudflare 上 (用其他 DNS Provider 應該也可以只是要多做設定，因為我原本就是用他們家的服務)
+- 需要將 DNS 託管在 Cloudflare 上
 
 ## Zero Trust 團隊設定
 
@@ -159,9 +159,7 @@ https://packages.synocommunity.com/
 
 ## 設定 Cloudflare WARP 搭配 WARP Client 訪問內網 Non-HTTP 服務
 
-以上的設定能夠讓 HTTP 服務透過外網連入了，但由於 Tunnel 是透過 WebSocket 實現並不支援 Non-HTTP 的服務 (如 SMB 等)，
-同時官方的行動 App 會因為 Access 驗證被阻擋無法使用，所以如果需要連入其他協議的服務或訪問其他內網裝置的話，
-我們可以透過 WARP 這個服務建立一個 Private Network 解決。
+以上的設定能夠讓 HTTP 服務透過外網連入了，但由於 Tunnel 是透過 WebSocket 實現並不支援 Non-HTTP 的服務 (如 SMB 等)，同時官方的行動 App 會因為 Access 驗證被阻擋無法使用，所以如果需要連入其他協議的服務或訪問其他內網裝置的話，我們可以讓其他裝置透過 WARP 這個服務連入 Private Network 解決。
 
 ### 路由設定
 
