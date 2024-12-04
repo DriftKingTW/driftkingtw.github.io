@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/</loc>
+    <loc>https://blog.driftking.tw/2024/12/raspberry-pi-poe-module-w-pikvm/</loc>
+    
+    <lastmod>2024-12-04T14:48:09.971Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.driftking.tw/2024/12/raspberry-pi-5-rtc-scheduled-boot/</loc>
     
     <lastmod>2024-12-02T18:12:36.216Z</lastmod>
     

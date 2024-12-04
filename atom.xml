@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2024-12-02T18:12:36.216Z</updated>
+  <updated>2024-12-04T14:48:09.971Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -17,9 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>一定要用 PoE HAT 嗎？ 試試自己動手替樹莓派加上符合 IEEE802.3af 標準的 PoE 模組吧！</title>
+    <link href="https://blog.driftking.tw/2024/12/raspberry-pi-poe-module-w-pikvm/"/>
+    <id>https://blog.driftking.tw/2024/12/raspberry-pi-poe-module-w-pikvm/</id>
+    <published>2024-12-05T14:00:00.000Z</published>
+    <updated>2024-12-04T14:48:09.971Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/12/5e4a61857fc05da806e38f4d0d618399.webp&quot; alt=&quot;樹莓派 4B + SDAPO DP1435-5v&quot;&gt;&lt;/p&gt;
+&lt;p&gt;看到標題後，你的內心 OS 可能是「市面上這麼多 PoE HAT 即插即用，幹嘛這麼麻煩？」🥺&lt;/p&gt;
+&lt;p&gt;或是「PoE 是什麼鬼 😱？！」如果有以上疑問，請容我先簡單說明一下什麼是 PoE 以及這麼做的理由 ⬇️&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Raspberry Pi" scheme="https://blog.driftking.tw/tags/Raspberry-Pi/"/>
+    
+      <category term="PoE" scheme="https://blog.driftking.tw/tags/PoE/"/>
+    
+      <category term="PiKVM" scheme="https://blog.driftking.tw/tags/PiKVM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>樹莓派 5 透過 RTC 自動定時開機</title>
-    <link href="https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/"/>
-    <id>https://blog.driftking.tw/2024/07/raspberry-pi-5-rtc-scheduled-boot/</id>
+    <link href="https://blog.driftking.tw/2024/12/raspberry-pi-5-rtc-scheduled-boot/"/>
+    <id>https://blog.driftking.tw/2024/12/raspberry-pi-5-rtc-scheduled-boot/</id>
     <published>2024-12-01T14:00:00.000Z</published>
     <updated>2024-12-02T18:12:36.216Z</updated>
     
@@ -422,29 +446,6 @@
       <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
     
       <category term="node-sass" scheme="https://blog.driftking.tw/tags/node-sass/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用 Valine-Admin 與 Gmail 為 Valine 留言系統提供 Email 通知功能及留言管理</title>
-    <link href="https://blog.driftking.tw/2021/04/add-email-notification-to-valine/"/>
-    <id>https://blog.driftking.tw/2021/04/add-email-notification-to-valine/</id>
-    <published>2021-04-13T11:00:00.000Z</published>
-    <updated>2024-06-27T17:28:46.838Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本站使用的是 Valine 留言系統，但是之前忘了加上留言通知導致有些留言沒看到（非常抱歉😅，後來事物繁忙到現在才加上通知功能。&lt;/p&gt;
-&lt;p&gt;這次就來記錄如何使用 Valine-Admin 透過 Gamil 的 SMPT 服務免費加上 Email 通知功能以及留言管理後台吧！&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://blog.driftking.tw/tags/hexo/"/>
-    
-      <category term="valine" scheme="https://blog.driftking.tw/tags/valine/"/>
-    
-      <category term="blog" scheme="https://blog.driftking.tw/tags/blog/"/>
     
   </entry>
   
