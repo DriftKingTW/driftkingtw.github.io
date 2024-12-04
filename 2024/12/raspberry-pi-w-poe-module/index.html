@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>一定要用 PoE HAT 嗎？ 試試自己動手替樹莓派加上符合 IEEE802.3af 標準的 PoE 模組吧！ - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2024/12/raspberry-pi-w-poe-module/" rel="alternate" hreflang="en">
+    
+
+
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
+
+
+
+<meta name="keywords" content="Raspberry Pi,PoE,PiKVM">
+
+
+
+    <meta name="description" content="看到標題後，你的內心 OS 可能是「市面上這麼多 PoE HAT 即插即用，幹嘛這麼麻煩？」🥺 或是「PoE 是什麼鬼 😱？！」如果有以上疑問，請容我先簡單說明一下什麼是 PoE 以及這麼做的理由 ⬇️">
+<meta name="keywords" content="Raspberry Pi,PoE,PiKVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一定要用 PoE HAT 嗎？ 試試自己動手替樹莓派加上符合 IEEE802.3af 標準的 PoE 模組吧！">
+<meta property="og:url" content="https://blog.driftking.tw/2024/12/raspberry-pi-w-poe-module/index.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="看到標題後，你的內心 OS 可能是「市面上這麼多 PoE HAT 即插即用，幹嘛這麼麻煩？」🥺 或是「PoE 是什麼鬼 😱？！」如果有以上疑問，請容我先簡單說明一下什麼是 PoE 以及這麼做的理由 ⬇️">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/5e4a61857fc05da806e38f4d0d618399.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/f09d00bdd4dccfade17928b52f9e2ad5.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/c53dc0dbfb1cd1bbb14006ad33f104e8.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/c7e78b4837fa18f1257514c2922166ce.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/c5342a5b6d77116f45c1cfb0b44ed3a1.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/905973187d31ab8eea1d137a5aafcb8d.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/d761bc4b4c1d2524ec5fdf9336d13b47.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/f37ce79070c5b6e9641b99c79c0e452c.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/edbce6dea0e49fc5ebae23098c59f93d.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/5e4a61857fc05da806e38f4d0d618399.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/42eaffb8028989666f23ddae74cc03a5.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/3fb9cea35e458a15471e36e5024ac3ec.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/3e877143197f3ed51613ef46fa93a39c.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/5e40457fae652feb69dbd0fb258d7a36.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/bd9e3f942f2abce4a6aee5ecdd51f56c.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/7b7e29d649597e7a1526aca61b6f6878.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/b1ec015ffdf5a3c918eafcdb55f4d509.webp">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/3ab35f8ee43e28c7078fbc8e3d9be330.webp">
+<meta property="og:updated_time" content="2024-12-04T14:49:00.175Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一定要用 PoE HAT 嗎？ 試試自己動手替樹莓派加上符合 IEEE802.3af 標準的 PoE 模組吧！">
+<meta name="twitter:description" content="看到標題後，你的內心 OS 可能是「市面上這麼多 PoE HAT 即插即用，幹嘛這麼麻煩？」🥺 或是「PoE 是什麼鬼 😱？！」如果有以上疑問，請容我先簡單說明一下什麼是 PoE 以及這麼做的理由 ⬇️">
+<meta name="twitter:image" content="https://static.driftking.tw/2024/12/5e4a61857fc05da806e38f4d0d618399.webp">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">目錄</a>
+            
+            <a class="navbar-item " href="/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
+         <!-- margin-top: -0.2em; -->
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2024/12/raspberry-pi-w-poe-module/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2024/12/raspberry-pi-w-poe-module/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/driftkingtw">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            <a class="navbar-item" title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+               
+            
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
+            </a>
+        </div>
+    </div>
+</nav>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            一定要用 PoE HAT 嗎？ 試試自己動手替樹莓派加上符合 IEEE802.3af 標準的 PoE 模組吧！
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2024-12-04T15:00:00.000Z" itemprop="datePublished">12月 4 2024</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            12 分鐘 讀完 (約 1923 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><img src="https://static.driftking.tw/2024/12/5e4a61857fc05da806e38f4d0d618399.webp" alt="樹莓派 4B + SDAPO DP1435-5v"></p>
+<p>看到標題後，你的內心 OS 可能是「市面上這麼多 PoE HAT 即插即用，幹嘛這麼麻煩？」🥺</p>
+<p>或是「PoE 是什麼鬼 😱？！」如果有以上疑問，請容我先簡單說明一下什麼是 PoE 以及這麼做的理由 ⬇️</p>
+<a id="more"></a>
+<h2 id="什麼是-PoE？"><a href="#什麼是-PoE？" class="headerlink" title="什麼是 PoE？"></a>什麼是 PoE？</h2><p>Power over Ethernet (簡稱 PoE) 簡單來說就是我們可以透過網路線來提供連接的設備電力，這麼做最顯而易見的好處便是不需要替裝置另外接上電源，在同一條網路線上同時傳輸資料及供電，大幅增加佈線的方便程度。</p>
+<p><img src="https://static.driftking.tw/2024/12/f09d00bdd4dccfade17928b52f9e2ad5.webp" alt="僅透過一條網路線為樹莓派供電及連接網路"></p>
+<p>樹莓派在第三代的時候加入了四根所謂的 PoE 針腳 (PoE Pin Headers) 來支援這方面的應用，但因為從乙太網插座中引出腳位後沒有完整供電電路（猜測是變壓器等元件體積原因），所以還須搭配官方或是第三方廠商所推出的 PoE HAT（擴充板）才能使用這個功能 🛠️</p>
+<p><img src="https://static.driftking.tw/2024/12/c53dc0dbfb1cd1bbb14006ad33f104e8.webp" alt="樹莓派官方 PoE+ HAT"></p>
+<h2 id="為什麼不使用現成-PoE-HAT？"><a href="#為什麼不使用現成-PoE-HAT？" class="headerlink" title="為什麼不使用現成 PoE HAT？"></a>為什麼不使用現成 PoE HAT？</h2><p>瞭解什麼是 PoE 後回到第一個問題，既然這樣買個現成的 PoE HAT 使用就好，何必這麼麻煩？確實大多情況下，就算使用 HAT 也能繼續在上方進行擴充堆疊不同的 HAT 做使用。</p>
+<p>但如果我有外殼或尺寸的限制，這個方法其實挺不現實的，拿我這次的使用舉例：</p>
+<p><img src="https://static.driftking.tw/2024/12/c7e78b4837fa18f1257514c2922166ce.webp" alt="PiKVM"></p>
+<p>圖中這是我使用的 PiKVM 擴充套件以及裝上底殼的樣子（Geekworm KVM-A3 V1.6），使用了之後想加上 PoE 來減少電源走線，但可以很明顯看到，要另外加上任何一張 PoE HAT 都會影響整體的尺寸以及上蓋的安裝，雖然也是可以重新設計外殼，但我最大要求體積能夠盡可能的保持原本的小巧機身，<del>不然房間太小我都快沒地方可以移動了</del></p>
+<h2 id="解決方式-自己安裝-PoE-模組"><a href="#解決方式-自己安裝-PoE-模組" class="headerlink" title="解決方式 - 自己安裝 PoE 模組"></a>解決方式 - 自己安裝 PoE 模組</h2><p>為了解決這個問題，我東找西找發現市面上有單獨的 PoE 模組能夠購買，這樣只需要將樹莓派上的 PoE 針腳從模組輸入，就能得到穩定的 5V 輸出來供給樹莓派了，並且不會像一般 PoE HAT 會佔用到 GPIO 影響到原本 HAT 的使用，<del>可以說是非常完美</del></p>
+<p><img src="https://static.driftking.tw/2024/12/c5342a5b6d77116f45c1cfb0b44ed3a1.webp" alt="SDAPO DP1435-5v"></p>
+<p>模組的部分我選擇了 <a href="https://www.sdapo.net/product/product-2-259.html" target="_blank" rel="noopener">SDAPO DP1435-5v</a> 他符合 <code>IEEE802.3af</code> 協議，並且有隔離變壓，輸出能力為 5.15Vdc/2.4A (12.4W)，在提供整套系統足夠電流的前提下，體積也適合這次所剩不多的改裝的空間。</p>
+<h2 id="PoE-模組與樹莓派接線"><a href="#PoE-模組與樹莓派接線" class="headerlink" title="PoE 模組與樹莓派接線"></a>PoE 模組與樹莓派接線</h2><p>首先先來看看 PoE 模組提供的輸入輸出腳位，分別正負極 5V 輸出以及四個 PoE 輸入腳位：</p>
+<p><img src="https://static.driftking.tw/2024/12/905973187d31ab8eea1d137a5aafcb8d.webp" alt="SDAPO DP1435-5v Pinouts"></p>
+<p>接著是樹莓派的 PoE 腳位定義，這部分其實資源意外的有點少：</p>
+<p><img src="https://static.driftking.tw/2024/12/d761bc4b4c1d2524ec5fdf9336d13b47.webp" alt="Pi 4 PoE Reduced Schematic"></p>
+<p>對照 PoE 定義：</p>
+<p><img src="https://static.driftking.tw/2024/12/f37ce79070c5b6e9641b99c79c0e452c.webp" alt="PoE Pinouts"></p>
+<p><img src="https://static.driftking.tw/2024/12/edbce6dea0e49fc5ebae23098c59f93d.webp" alt="PoE Headers on Raspberry Pi 4"></p>
+<p>如上圖，與樹莓派官方提供的腳位定義來看應該同樣以 <code>J14</code> 印刷方向為準，而不是以 <code>PoE</code> 字樣的方向。（順帶一提，因為手邊剩下一張 Pi 4，PoE 沒有針腳是因為之前做其他專案所以把它拆了 🤣）</p>
+<p>有關樹莓派 PoE 的相關說明，十分推薦這篇文章：<a href="https://magicjackting.pixnet.net/blog/post/227003620" target="_blank" rel="noopener">關於 PoE 以及 Raspberry Pi 的 PoE</a></p>
+<p>我也是與文中一樣查到相同的錯誤腳位資訊被搞混了一陣子，非常感謝該文作者清晰的梳理 XD</p>
+<p>整理好定義和確認模組針腳資料後按照文章首圖接線即可，並且把 PoE 模組輸出接入 GPIO 的電源腳位：</p>
+<p><img src="https://static.driftking.tw/2024/12/5e4a61857fc05da806e38f4d0d618399.webp" alt="樹莓派 4B + SDAPO DP1435-5v"></p>
+<p>⚠️ <strong>通電前一定要再三檢查樹莓派電源腳位沒有接錯</strong> ⚠️ <del>請不要問我為什麼特別強調這點</del></p>
+<p>測試沒問題可以正常透過 PoE 交換器供電後，我另外有把 PoE 模組的針腳解焊可以進一步節省空間。</p>
+<h2 id="模組安裝方案"><a href="#模組安裝方案" class="headerlink" title="模組安裝方案"></a>模組安裝方案</h2><p>原本 PiKVM 套件的散熱方案是使用 30mm 風扇，但溫度其實都不高加上無法控速的小風扇太吵，趁這次順便改為被動散熱器。</p>
+<p>更換的被動散熱器上有預留 30mm 風扇的鎖孔，因為不需要風扇所以我就把它拿來做固定 PoE 模組用，然後用 3D 列印印了一個固定架：</p>
+<p><img src="https://static.driftking.tw/2024/12/42eaffb8028989666f23ddae74cc03a5.webp" alt></p>
+<p><img src="https://static.driftking.tw/2024/12/3fb9cea35e458a15471e36e5024ac3ec.webp" alt></p>
+<p><img src="https://static.driftking.tw/2024/12/3e877143197f3ed51613ef46fa93a39c.webp" alt></p>
+<p>可以看到圖中隔離變壓器的部分其實有點太高，但我把位置設計在 PiKVM 擴充板的風扇開孔中就沒問題了 🎉</p>
+<h2 id="引出-GPIO-電源腳位進行供電以及組裝"><a href="#引出-GPIO-電源腳位進行供電以及組裝" class="headerlink" title="引出 GPIO 電源腳位進行供電以及組裝"></a>引出 GPIO 電源腳位進行供電以及組裝</h2><p>由於安裝 PiKVM HAT 後會佔據樹莓派上所有的 GPIO，我們需要改從 HAT 上的延伸 GPIO 接電，但接上杜邦安端子的話會卡到上蓋導致外殼無法組裝 😱</p>
+<p>所以我這邊透過 2P 杜邦彎針把 5V 跟 GND 引出來從側邊接到 PoE 模組上，剛好在外殼旁邊的小空間足夠走線：</p>
+<p><img src="https://static.driftking.tw/2024/12/5e40457fae652feb69dbd0fb258d7a36.webp" alt="杜邦 90 度彎針"></p>
+<p><img src="https://static.driftking.tw/2024/12/bd9e3f942f2abce4a6aee5ecdd51f56c.webp" alt="接上 5V 輸出"></p>
+<p>可以看下外殼組裝後的樣子，空間可說是剛剛好：</p>
+<p><img src="https://static.driftking.tw/2024/12/7b7e29d649597e7a1526aca61b6f6878.webp" alt="上方視角"></p>
+<p><img src="https://static.driftking.tw/2024/12/b1ec015ffdf5a3c918eafcdb55f4d509.webp" alt="側面視角"></p>
+<p>組裝外殼再次測試，大功告成！</p>
+<p><img src="https://static.driftking.tw/2024/12/3ab35f8ee43e28c7078fbc8e3d9be330.webp" alt="由 PoE 供電的 PiKVM 改裝成功"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>後來比較忙最近才想到要把過程記錄下來，中間這段時間已經一段時間了使用上都相當穩定，雖然看似只省了一根電源線，但實際上還多省了一個插座 XD</p>
+<p>整體走線相對方便了不少個人覺得非常值得，未來有遇到這類問題的朋友也不妨來試試這個方案 👌</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.sdapo.net/product/product-2-259.html" target="_blank" rel="noopener">SDAPO DP1435-5v Support 10M/100M/1000M IEEE802.3af Standard PoE Module</a></p>
+<p><a href="https://www.lcsc.com/datasheet/lcsc_datasheet_2304031800_SDAPO-DP1435-5V_C5380097.pdf" target="_blank" rel="noopener">SDAPO DP1435-5v Datasheet</a></p>
+<p><a href="https://magicjackting.pixnet.net/blog/post/227003620" target="_blank" rel="noopener">關於 PoE 以及 Raspberry Pi 的 PoE</a></p>
+<p><a href="https://www.raspberrypi.com/products/poe-plus-hat/" target="_blank" rel="noopener">PoE+ HAT - Raspberry Pi</a></p>
+<p><a href="https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-reduced-schematics.pdf" target="_blank" rel="noopener">Raspberry Pi 4 Reduced Schematics</a></p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Raspberry-Pi/">#Raspberry Pi</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/PoE/">#PoE</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/PiKVM/">#PiKVM</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/12/raspberry-pi-5-rtc-scheduled-boot/">樹莓派 5 透過 RTC 自動定時開機</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
+
+    <a href="https://www.buymeacoffee.com/driftkingtw" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script sre="//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var valine = new Valine({
+        el: "#valine-thread",
+        appId: "mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI",
+        appKey: "zkROC4QzyTeu7fzjhTbxEY0k",
+        // notify: "true",
+        // verify: "true",
+        avatar: "mp",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: "zh-tw",
+        serverURLs: "https://mLsnpgAj.api.lncldglobal.com"
+    })
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/driftkingtw">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>

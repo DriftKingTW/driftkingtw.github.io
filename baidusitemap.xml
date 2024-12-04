@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.driftking.tw/2024/12/raspberry-pi-poe-module-w-pikvm/</loc>
+    <loc>https://blog.driftking.tw/2024/12/raspberry-pi-w-poe-module/</loc>
     <lastmod>2024-12-04</lastmod>
   </url>
   <url>
@@ -193,11 +193,11 @@
     <lastmod>2021-12-07</lastmod>
   </url>
   <url>
-    <loc>https://blog.driftking.tw/QuickFix/vuejs-dotenv-file-configuration/</loc>
+    <loc>https://blog.driftking.tw/QuickFix/vuetify-image-vertical-centering/</loc>
     <lastmod>2021-12-07</lastmod>
   </url>
   <url>
-    <loc>https://blog.driftking.tw/QuickFix/vuetify-image-vertical-centering/</loc>
+    <loc>https://blog.driftking.tw/QuickFix/vuejs-dotenv-file-configuration/</loc>
     <lastmod>2021-12-07</lastmod>
   </url>
   <url>
