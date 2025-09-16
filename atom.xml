@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.driftking.tw/"/>
-  <updated>2024-12-04T14:49:00.175Z</updated>
+  <updated>2025-09-16T15:46:24.258Z</updated>
   <id>https://blog.driftking.tw/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025 F1 鈴鹿日本站自由行觀賽遊記 &amp; 一般席攝影心得 Day-1 (FP1 &amp; FP2)</title>
+    <link href="https://blog.driftking.tw/2025/06/2025_f1_suzuka_gp_d1/"/>
+    <id>https://blog.driftking.tw/2025/06/2025_f1_suzuka_gp_d1/</id>
+    <published>2025-09-16T15:00:00.000Z</published>
+    <updated>2025-09-16T15:46:24.258Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2025/06/2b3a6e3e2804caa79228e4181d6e45ce.webp&quot; alt=&quot;RB21 drive by Yuki Tsunoda&quot;&gt;&lt;/p&gt;
+&lt;p&gt;今年（2025）終於到日本鈴鹿完成了到現場看 F1 的夢想了啊啊啊！雖然自小就一直很喜歡車車，但其實大約也是從 2016~17 年左右才開始看 F1 比賽，更小時候都只看 WEC 耐久系列（？），&lt;del&gt;以前不太喜歡開輪賽車 🤣 那時候覺得看起來只有車架很醜&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;回到正題，這篇主要是想記錄下這次 F1 日本站從購票、行前準備到實際參加三天賽程的一些心得跟細節，不過篇幅較長所以會分成三日的行程來撰寫！本篇，也就是第一篇會包含一些行前做的功課、交通相關的紀錄等所以內容會更長一點，如果只想看部分資訊可以參考連結：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#購票（2024十月左右）&quot;&gt;購票&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#行前準備&quot;&gt;行前準備 &amp;amp; 當地交通&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#出發&quot;&gt;台灣出發&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#Day-1&quot;&gt;Day-1 行程&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#Honda-RACING-Gallery&quot;&gt;Honda RACING Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#FP1&quot;&gt;FP1 (D 區)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#FP2&quot;&gt;FP2 (E 區)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#Day-1-攝影-&amp;amp;-座位總結&quot;&gt;Day-1 攝影 &amp;amp; 座位總結&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#回程&quot;&gt;回程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外因為在訂票後想說希望能趁這機會記錄下這些難得一見的畫面，在出發前幾個月還心一橫（？）不小心買了相機掉進攝影坑，所以文內當然也會提到一些在場內拿相機拍照的相關心得啦！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="F1" scheme="https://blog.driftking.tw/tags/F1/"/>
+    
+      <category term="鈴鹿" scheme="https://blog.driftking.tw/tags/%E9%88%B4%E9%B9%BF/"/>
+    
+      <category term="遊記" scheme="https://blog.driftking.tw/tags/%E9%81%8A%E8%A8%98/"/>
+    
+  </entry>
   
   <entry>
     <title>一定要用 PoE HAT 嗎？ 試試自己動手替樹莓派加上符合 IEEE802.3af 標準的 PoE 模組吧！</title>
@@ -196,15 +234,16 @@
   </entry>
   
   <entry>
-    <title>在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器</title>
-    <link href="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
-    <id>https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
+    <title>Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac</title>
+    <link href="https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
+    <id>https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
     <published>2022-02-07T11:00:00.000Z</published>
-    <updated>2024-06-27T17:26:07.469Z</updated>
+    <updated>2024-06-27T17:43:40.574Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
+      &lt;p&gt;I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use &lt;code&gt;DisplayCAL&lt;/code&gt; to recalibrate my external monitor, but the it didn’t recognize both of my external monitor.&lt;/p&gt;
+&lt;p&gt;Here’s the workaround for this issue:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/675f6086152e3d04ff0572c2d9968db7.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
     
     </summary>
@@ -219,16 +258,15 @@
   </entry>
   
   <entry>
-    <title>Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac</title>
-    <link href="https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
-    <id>https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
+    <title>在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器</title>
+    <link href="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal%208.48.59%E2%80%AFPM/"/>
+    <id>https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal 8.48.59 PM/</id>
     <published>2022-02-07T11:00:00.000Z</published>
-    <updated>2024-06-27T17:43:40.574Z</updated>
+    <updated>2024-06-27T17:26:07.469Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;I’ve got myself an Apple Silicon Mac last year, although it’s really amazing but still have some compatibility issues. When I want to use &lt;code&gt;DisplayCAL&lt;/code&gt; to recalibrate my external monitor, but the it didn’t recognize both of my external monitor.&lt;/p&gt;
-&lt;p&gt;Here’s the workaround for this issue:&lt;/p&gt;
+      &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/675f6086152e3d04ff0572c2d9968db7.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
     
     </summary>
@@ -418,27 +456,6 @@
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
 &lt;epacse hidden&gt;12&lt;/epacse&gt;
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://blog.driftking.tw/tags/vue/"/>
-    
-      <category term="node-sass" scheme="https://blog.driftking.tw/tags/node-sass/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Quick-Fix node-sass no such file or directory error</title>
-    <link href="https://blog.driftking.tw/en/QuickFix/node-sass-error/"/>
-    <id>https://blog.driftking.tw/en/QuickFix/node-sass-error/</id>
-    <published>2021-04-17T16:30:00.000Z</published>
-    <updated>2021-04-17T16:36:31.496Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Q: Recently I run into this error whe create a vue project via &lt;code&gt;Vue-Cli&lt;/code&gt; :&lt;/p&gt;
-&lt;epacse hidden&gt;147&lt;/epacse&gt;
     
     </summary>
     
