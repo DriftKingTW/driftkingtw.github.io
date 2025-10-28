@@ -220,6 +220,29 @@
   </entry>
   
   <entry>
+    <title>在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器</title>
+    <link href="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal%208.48.59%E2%80%AFPM/"/>
+    <id>https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal 8.48.59 PM/</id>
+    <published>2022-02-07T11:00:00.000Z</published>
+    <updated>2024-06-27T17:26:07.469Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/675f6086152e3d04ff0572c2d9968db7.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
+    
+      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
+    
+      <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Using DisplayCAL to Calibrate External Monitor on Apple Silicon Mac</title>
     <link href="https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/"/>
     <id>https://blog.driftking.tw/en/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal/</id>
@@ -235,32 +258,9 @@
     </summary>
     
     
-      <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
-    
       <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
     
-      <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在 Apple Silicon Mac 上使用 DisplayCAL 校正外接顯示器</title>
-    <link href="https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal%208.48.59%E2%80%AFPM/"/>
-    <id>https://blog.driftking.tw/2022/02/calibrate-external-monitor-on-apple-silicon-mac-by-displaycal 8.48.59 PM/</id>
-    <published>2022-02-07T11:00:00.000Z</published>
-    <updated>2024-06-27T17:26:07.469Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近又到了要重新幫螢幕校色的時候了，之前都是使用 DisplayCAL 這套軟體做色彩校正，但去年年底將電腦換成 Apple Silicon Mac 後，在軟體使用上遇到了無法偵測外接螢幕的問題，這邊分享一下解決方式：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://static.driftking.tw/2024/06/675f6086152e3d04ff0572c2d9968db7.png&quot; alt=&quot;DisplayCAL&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
       <category term="Apple Silicon" scheme="https://blog.driftking.tw/tags/Apple-Silicon/"/>
-    
-      <category term="macOS" scheme="https://blog.driftking.tw/tags/macOS/"/>
     
       <category term="DisplayCAL" scheme="https://blog.driftking.tw/tags/DisplayCAL/"/>
     
@@ -441,7 +441,7 @@
     <summary type="html">
     
       &lt;p&gt;Q: 最近在利用 &lt;code&gt;Vue-Cli&lt;/code&gt; 建立專案時遇到 &lt;code&gt;node-sass&lt;/code&gt; 出現如下錯誤：&lt;/p&gt;
-&lt;epacse hidden&gt;12&lt;/epacse&gt;
+&lt;epacse hidden&gt;13&lt;/epacse&gt;
     
     </summary>
     

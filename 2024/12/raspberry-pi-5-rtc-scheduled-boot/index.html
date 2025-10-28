@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>樹莓派 5 透過 RTC 自動定時開機 - DriftKingTW&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/2024/12/raspberry-pi-5-rtc-scheduled-boot/" rel="alternate" hreflang="en">
+    
+
+
+<meta name="description" content="printf(" %s", "stay curious, stay creative");">
+
+
+
+<meta name="keywords" content="NAS,Synology,DSM,Raspberry Pi,RTC">
+
+
+
+    <meta name="description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
+<meta name="keywords" content="NAS,Synology,DSM,Raspberry Pi,RTC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="樹莓派 5 透過 RTC 自動定時開機">
+<meta property="og:url" content="https://blog.driftking.tw/2024/12/raspberry-pi-5-rtc-scheduled-boot/index.html">
+<meta property="og:site_name" content="DriftKingTW&#39;s Blog">
+<meta property="og:description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp">
+<meta property="og:updated_time" content="2024-12-02T18:12:36.216Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="樹莓派 5 透過 RTC 自動定時開機">
+<meta name="twitter:description" content="在上一篇 透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機偷懶等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，秉持著環保精神(電費)於是著手研究了本次的自動開關機的方案。">
+<meta name="twitter:image" content="https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115026468-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115026468-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">目錄</a>
+            
+            <a class="navbar-item " href="/about">關於</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: 0em;">
+         <!-- margin-top: -0.2em; -->
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>繁體中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2024/12/raspberry-pi-5-rtc-scheduled-boot/" class="dropdown-item">
+                    繁體中文
+                </a>
+            
+                <a href="/en/2024/12/raspberry-pi-5-rtc-scheduled-boot/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/driftkingtw">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            <a class="navbar-item" title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+               
+            
+            <a class="navbar-item" title="pixiv" href="https://pixiv.me/driftkingtw" target="_blank">
+                <img src="https://res.cloudinary.com/driftkingtw/image/upload/c_scale,w_16/v1574782249/web-icon/logo_icon_r.png">
+            </a>
+        </div>
+    </div>
+</nav>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            樹莓派 5 透過 RTC 自動定時開機
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2024-12-01T14:00:00.000Z" itemprop="datePublished">12月 1 2024</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 1031 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><img src="https://static.driftking.tw/2024/12/1cd79caeda0d50c7ea9ad7cfcccd7dd9.webp" alt="Raspberry Pi RTC Battery (https://www.raspberrypi.com/products/rtc-battery/)"></p>
+<p>在上一篇 <a href="/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/">透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份</a> 設定完成後，立刻發現了個小問題：樹莓派會需要整天開機<del>偷懶</del>等待 NAS 的備份請求，但我一天只有跑一次備份然後一次備份時間也不多，這樣讓樹莓派整天開機無所事事實在有夠浪費電，<del>秉持著環保精神(電費)</del>於是著手研究了本次的自動開關機的方案。</p>
+<a id="more"></a>
+<p>這次 Pi 5 的更新加上了 RTC (Real Time Clock)，簡單來說 RTC 可以讓裝置在極低功耗的狀態下保持時間同步並可以拿來控制啟動高功耗的主要處理器 (在這個情況下只的就是讓 Pi 從 Halt 狀態下重新開機)。</p>
+<p>RTC 模組通常會接上一個備用電池，這樣就可以在完全無電源的情況也繼續讓 RTC 模組工作。本次我們便是要利用這個功能來實作自動開機 👌</p>
+<h2 id="測試-RTC-模組自動喚醒功能"><a href="#測試-RTC-模組自動喚醒功能" class="headerlink" title="測試 RTC 模組自動喚醒功能"></a>測試 RTC 模組自動喚醒功能</h2><p>首先我們要先修改樹莓派的 <code>eeprom</code> 讓機器在進入 halt 狀態下能進入超低功耗狀態，並讓 RTC 的 <code>wakealarm</code> 能夠喚醒樹莓派：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -E rpi-eeprom-config --edit</span><br></pre></td></tr></table></figure>
+
+<p>在文件底部新增這兩行設定，分別是啟動低功耗模式及關閉 GPIO 喚醒功能：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">POWER_OFF_ON_HALT=1</span><br><span class="line">WAKE_ON_GPIO=0</span><br></pre></td></tr></table></figure>
+
+<p>接著我們就可以透過設定 <code>wakealarm</code> 來測試是否可以成功定時自動換醒，指令中透過 <code>date</code> 的 <code>%s</code> 參數將設定的時間轉為秒數，並讓主機在過了設定的秒數後自動開機，所以這個範例中樹莓派應該會在 1 分鐘後重新開機：</p>
+<blockquote class="colorquote info"><p>透過 <code>date</code> 設定相當簡單易懂，相關使用可以參考 <a href="https://man7.org/linux/man-pages/man1/date.1.html" target="_blank" rel="noopener">man page</a></p>
+</blockquote>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">date -d "+1 minutes" +'%s' | sudo tee /sys/class/rtc/rtc0/wakealarm</span><br><span class="line">sudo halt</span><br></pre></td></tr></table></figure>
+
+<blockquote class="colorquote success"><p>RTC 模組雖然有提供電池接口，但在不拔電源的情況下不需要電池也能使用 RTC 功能的喔！</p>
+</blockquote>
+<h2 id="應用實例"><a href="#應用實例" class="headerlink" title="應用實例"></a>應用實例</h2><p>到這邊已經知道如何設定自動開機了，接著就是任務完成後要讓樹莓派自動關機。由於這部份每個人使用的情況可能也不盡相同，我這邊提供自己的 NAS 備份案例來說明：</p>
+<h3 id="開機邏輯"><a href="#開機邏輯" class="headerlink" title="開機邏輯"></a>開機邏輯</h3><p>首先假設我在 NAS 端的設定是每天凌晨兩點自動備份到樹莓派上，那麼這邊就需要讓樹莓派在每天四點前先自動開機等待備份請求，並偵測到備份完成後設定下一次開機時間並自動關機。</p>
+<p>此時我的 <code>wakealarm</code> 設定明天的凌晨 1:50 啟動，指令如下：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -d "+tomorrow 1:50" +'%s' &gt; /sys/class/rtc/rtc0/wakealarm</span><br></pre></td></tr></table></figure>
+
+<h3 id="關機邏輯"><a href="#關機邏輯" class="headerlink" title="關機邏輯"></a>關機邏輯</h3><p>由於需要偵測 NAS 那邊是否備份完成，在經過一番搜尋之後決定使用 <a href="https://github.com/N4S4" target="_blank" rel="noopener">N4S4</a> 提供的 <a href="https://github.com/N4S4/synology-api" target="_blank" rel="noopener">synology-api</a> 來實作備份進度的檢測。</p>
+<p>簡單來說我是透過 API 在每天設定的備份時間過 30 分鐘後，自動執行一個 Python Script 去發請求檢查 <code>HyperBackup</code> 的備份進度，如果完成就設定 <code>wakealarm</code> 並關機，如果還未完成就每 30 秒詢問進度直到備份完成。</p>
+<p>由於此腳本不是本篇重點就不細說，有興趣的朋友可以直接參考或使用我所寫的腳本：<a href="https://github.com/DriftKingTW/pi-backup-power-scheduler" target="_blank" rel="noopener">pi-backup-power-scheduler</a> 裡面有提供使用說明及設定方式ㄛ！</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.raspberrypi.com/products/rtc-battery/" target="_blank" rel="noopener">Buy a Raspberry Pi RTC Battery - Raspberry Pi</a></p>
+<p><a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#real-time-clock-rtc" target="_blank" rel="noopener">Raspberry Pi hardware - Raspberry Pi Documentation # Real Time Clock (RTC)</a></p>
+<p><a href="https://github.com/N4S4/synology-api" target="_blank" rel="noopener">synology-api</a></p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Raspberry-Pi/">#Raspberry Pi</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/NAS/">#NAS</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Synology/">#Synology</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/DSM/">#DSM</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2024/12/raspberry-pi-w-poe-module/">一定要用 PoE HAT 嗎？ 試試自己動手替樹莓派加上符合 IEEE802.3af 標準的 PoE 模組吧！</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/06/pi-remote-backup-for-synology-nas-using-zerotier/">透過樹莓派 5 及 ZeroTier 幫 NAS 做異地備份</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="addthis_inline_share_toolbox"></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dd69be949e18b82"></script>
+
+    <a href="https://www.buymeacoffee.com/driftkingtw" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    
+<div id="valine-thread"></div>
+<script sre="//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var valine = new Valine({
+        el: "#valine-thread",
+        appId: "mLsnpgAjHr6osBdnRVYoIQpC-MdYXbMMI",
+        appKey: "zkROC4QzyTeu7fzjhTbxEY0k",
+        // notify: "true",
+        // verify: "true",
+        avatar: "mp",
+        placeholder: "有什麼想說的嗎？留個言吧！(ﾉ&gt;ω&lt;)ﾉ",
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: "zh-tw",
+        serverURLs: "https://mLsnpgAj.api.lncldglobal.com"
+    })
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2025 DriftKingTW&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/driftkingtw">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
